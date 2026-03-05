@@ -26,7 +26,7 @@ export default function SetupPage() {
   const [mode, setMode] = useState<QuizMode>('random');
   const [year, setYear] = useState(2025);
   const [session, setSession] = useState(1);
-  const [count, setCount] = useState(25);
+  const [count, setCount] = useState(10);
   const [playerName, setPlayerName] = useState(() => localStorage.getItem('playerName') ?? '');
 
   const wrongCount = wrongNotes.length;
