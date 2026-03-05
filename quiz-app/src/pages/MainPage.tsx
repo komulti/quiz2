@@ -19,7 +19,7 @@ export default function MainPage() {
         <div className="w-full max-w-sm">
           <button
             onClick={() => navigate('/setup')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl transition-shadow active:scale-95 transition-transform"
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-3xl">
@@ -61,16 +61,16 @@ export default function MainPage() {
         <div className="flex justify-around">
           <button
             onClick={() => navigate('/leaderboard')}
-            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-colors"
+            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
           >
-            <span className="text-2xl">🏆</span>
+            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">🏆</span>
             <span className="text-xs">리더보드</span>
           </button>
           <button
             onClick={() => navigate('/wrong-notes')}
-            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-colors"
+            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
           >
-            <span className="text-2xl">📝</span>
+            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📝</span>
             <span className="text-xs">오답노트</span>
           </button>
         </div>
