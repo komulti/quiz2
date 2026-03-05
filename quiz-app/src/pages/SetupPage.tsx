@@ -6,7 +6,7 @@ import { useRecordStore } from '../store/recordStore';
 import type { Question, QuizMode, QuizSettings } from '../types';
 
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
-const COUNTS = [10, 25, 50, 100, 150, 200, 250, 300, 400];
+const COUNTS = [10, 25, 50, 100, 150, 200];
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useQuizStore } from '../store/quizStore';
 import { useRecordStore } from '../store/recordStore';
 import { useTimer, formatTime } from '../hooks/useTimer';
+import { playCorrect, playWrong } from '../hooks/useSound';
 import QuestionImage from '../components/QuestionImage';
 import ConfirmModal from '../components/ConfirmModal';
 
@@ -44,8 +45,10 @@ export default function QuizPage() {
     const id = setTimeout(() => setFeedbackAnim(null), 450);
 
     if (currentAnswer.isCorrect) {
+      playCorrect();
       removeWrongNote(currentAnswer.questionId);
     } else {
+      playWrong();
       addWrongNotes([{
         questionId: currentAnswer.questionId,
         selectedAnswer: currentAnswer.selected,

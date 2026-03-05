@@ -709,19 +709,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "뗀석기"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "명도전"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "고인돌"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "빗살무늬 토기"
       }
     ],
     "answer": 4,
@@ -2316,11 +2316,11 @@
       },
       {
         "number": 3,
-        "text": "노비안검법을 시행하였다. ④독서삼품과를 실시하였다."
+        "text": "노비안검법을 시행하였다."
       },
       {
         "number": 4,
-        "text": ""
+        "text": "독서삼품과를 실시하였다."
       }
     ],
     "answer": 3,
@@ -2784,7 +2784,7 @@
     "options": [
       {
         "number": 1,
-        "text": "5․10 총선거 실시"
+        "text": "5·10 총선거 실시"
       },
       {
         "number": 2,
@@ -2792,11 +2792,11 @@
       },
       {
         "number": 3,
-        "text": "7․4 남북 공동 성명 발표④최초의 남북 정상 회담 개최"
+        "text": "7·4 남북 공동 성명 발표"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "최초의 남북 정상 회담 개최"
       }
     ],
     "answer": 4,
@@ -3016,11 +3016,11 @@
       },
       {
         "number": 3,
-        "text": "독서삼품과④관수 관급제"
+        "text": "독서삼품과"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "관수 관급제"
       }
     ],
     "answer": 2,
@@ -3764,19 +3764,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "호우명 그릇"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "청자 상감 운학문 매병"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "명도전"
       },
       {
         "number": 4,
-        "text": "호우명 그릇 청자 상감 운학문 매병 명도전 빗살무늬 토기"
+        "text": "빗살무늬 토기"
       }
     ],
     "answer": 2,
@@ -4660,19 +4660,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "신민회"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "근우회"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "독립 협회"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "조선 형평사"
       }
     ],
     "answer": 3,
@@ -6732,19 +6732,19 @@
     "options": [
       {
         "number": 1,
-        "text": "별무반이 창설되었습니다. ②신분제가 폐지되었습니다."
+        "text": "별무반이 창설되었습니다."
       },
       {
         "number": 2,
-        "text": ""
+        "text": "신분제가 폐지되었습니다."
       },
       {
         "number": 3,
-        "text": "척화비가 건립되었습니다. ④세도 정치가 시작되었습니다."
+        "text": "척화비가 건립되었습니다."
       },
       {
         "number": 4,
-        "text": ""
+        "text": "세도 정치가 시작되었습니다."
       }
     ],
     "answer": 2,
@@ -7040,19 +7040,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "율령 반포"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "훈민정음 창제"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "사심관 제도 실시"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "전민변정도감 설치"
       }
     ],
     "answer": 1,
@@ -7740,19 +7740,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "신문왕"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "장수왕"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "근초고왕"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "광개토 대왕"
       }
     ],
     "answer": 1,
@@ -7796,19 +7796,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "장용영 설치"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "금관가야 정복"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "쌍성총관부 공격"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "치안 유지법 제정"
       }
     ],
     "answer": 3,
@@ -7964,19 +7964,19 @@
     "options": [
       {
         "number": 1,
-        "text": "장용영 설치 ㄱ, ㄴ"
+        "text": "ㄱ, ㄴ"
       },
       {
         "number": 2,
-        "text": "금관가야 정복 ㄱ, ㄹ"
+        "text": "ㄱ, ㄹ"
       },
       {
         "number": 3,
-        "text": "쌍성총관부 공격 ㄴ, ㄷ"
+        "text": "ㄴ, ㄷ"
       },
       {
         "number": 4,
-        "text": "치안 유지법 제정 ㄱ. 단발령 시행 ㄷ. 노비안검법 실시 ㄴ. 태양력 사용 ㄹ. 독서삼품과 실시 ㄷ, ㄹ"
+        "text": "ㄷ, ㄹ"
       }
     ],
     "answer": 1,
@@ -8496,19 +8496,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "국학 설치"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "사비 천도"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "우금치 전투"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "고구려 멸망"
       }
     ],
     "answer": 3,
@@ -9812,19 +9812,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "고인돌"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "칠지도"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "혼천의"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "팔만대장경"
       }
     ],
     "answer": 1,
@@ -9868,19 +9868,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "녹읍 폐지"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "별기군 창설"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "장용영 설치"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "『경국대전』완성"
       }
     ],
     "answer": 1,
@@ -10008,19 +10008,19 @@
     "options": [
       {
         "number": 1,
-        "text": "고인돌 ㄱ, ㄴ"
+        "text": "ㄱ, ㄴ"
       },
       {
         "number": 2,
-        "text": "칠지도 ㄱ, ㄷ"
+        "text": "ㄱ, ㄷ"
       },
       {
         "number": 3,
-        "text": "혼천의 ㄴ, ㄹ"
+        "text": "ㄴ, ㄹ"
       },
       {
         "number": 4,
-        "text": "팔만대장경 <보기> ㄱ. 척화비 건립 ㄷ. 회사령 폐지 ㄴ. 호포제 시행 ㄹ. 훈민정음 창제 ㄷ, ㄹ"
+        "text": "ㄷ, ㄹ"
       }
     ],
     "answer": 1,
@@ -10204,19 +10204,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "근우회"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "수신사"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "조선어 학회"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "신흥 무관 학교"
       }
     ],
     "answer": 3,
@@ -10512,19 +10512,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "상감 청자"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "호우명 그릇"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "빗살무늬 토기"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "불국사 3층 석탑"
       }
     ],
     "answer": 3,
@@ -10652,19 +10652,19 @@
     "options": [
       {
         "number": 1,
-        "text": ""
+        "text": "김구"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "원효"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "김옥균"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "전태일"
       }
     ],
     "answer": 2,
@@ -10688,11 +10688,11 @@
       },
       {
         "number": 3,
-        "text": "새마을 운동④김흠돌의 난"
+        "text": "새마을 운동"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "김흠돌의 난"
       }
     ],
     "answer": 1,
@@ -10820,19 +10820,19 @@
     "options": [
       {
         "number": 1,
-        "text": "영정법 김구"
+        "text": "영정법"
       },
       {
         "number": 2,
-        "text": "호포제 원효"
+        "text": "호포제"
       },
       {
         "number": 3,
-        "text": "회사령 김옥균"
+        "text": "회사령"
       },
       {
         "number": 4,
-        "text": "유신 헌법 전태일"
+        "text": "유신 헌법"
       }
     ],
     "answer": 3,
@@ -11072,19 +11072,19 @@
     "options": [
       {
         "number": 1,
-        "text": "신미양요  ②정묘호란  ③6․25 전쟁  ④봉오동 전투"
+        "text": "신미양요"
       },
       {
         "number": 2,
-        "text": ""
+        "text": "정묘호란"
       },
       {
         "number": 3,
-        "text": ""
+        "text": "6·25 전쟁"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "봉오동 전투"
       }
     ],
     "answer": 3,
@@ -11136,11 +11136,11 @@
       },
       {
         "number": 3,
-        "text": "제1차 미․소 공동 위원회④제2차 경제 개발 5개년 계획"
+        "text": "제1차 미·소 공동 위원회"
       },
       {
         "number": 4,
-        "text": ""
+        "text": "제2차 경제 개발 5개년 계획"
       }
     ],
     "answer": 4,
