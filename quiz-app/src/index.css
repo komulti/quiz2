@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background-color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── 문제 전환 슬라이드 ────────────────────────── */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+
+.slide-in  { animation: slideInRight 0.25s ease-out both; }
+.slide-out { animation: slideOutLeft  0.25s ease-out both; }
+
+/* ── 정답 바운스 ──────────────────────────────── */
+@keyframes bounce-once {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.06); }
+  60%  { transform: scale(0.97); }
+  80%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.animate-bounce-once { animation: bounce-once 0.4s ease-out both; }
+
+/* ── 오답 흔들림 ──────────────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+.animate-shake { animation: shake 0.4s ease-out both; }
+
+/* ── 점수 카운트업 fade-in ────────────────────── */
+@keyframes countup-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-countup { animation: countup-fade 0.5s ease-out both; }
+
+/* ── 원형 프로그레스 ──────────────────────────── */
+.circle-progress {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.circle-progress-track { fill: none; stroke: #e5e7eb; }
+.circle-progress-fill  {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+/* ── 이미지 모달 ──────────────────────────────── */
+.image-modal-bg {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

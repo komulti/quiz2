@@ -1,12 +1,20 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
-build/
-dist/
 wheels/
 *.egg-info
-
-# Virtual environments
 .venv/
+
+# Node
+node_modules/
+quiz-app/dist/
+
+# Build artifacts
+build/
+
+# IDE / OS
 .vscode/
+.DS_Store
+
+# Secrets
 .env
