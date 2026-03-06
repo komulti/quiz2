@@ -9,11 +9,11 @@ import LeaderboardPage from './pages/LeaderboardPage';
 import WrongNotePage from './pages/WrongNotePage';
 
 export default function App() {
-  const { loadQuestions, loaded, error } = useDataStore();
+  const { loadAll, loaded, error } = useDataStore();
 
   useEffect(() => {
-    loadQuestions();
-  }, [loadQuestions]);
+    loadAll();
+  }, [loadAll]);
 
   if (error) {
     return (

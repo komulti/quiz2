@@ -87,7 +87,7 @@ export default function QuestionImage({ src, alt }: Props) {
         >
           <div
             className="relative w-full h-full flex items-center justify-center overflow-auto"
-            onClick={(e) => e.stopPropagation()}
+            onClick={closeModal}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}

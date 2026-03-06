@@ -21,7 +21,8 @@ export default function ResultPage() {
   const navigate = useNavigate();
   const { questions, answers, startTime, mode, settings, startQuiz, resetQuiz } = useQuizStore();
   const { addLeaderboardEntry, addHistory } = useRecordStore();
-  const { questions: allQuestions } = useDataStore();
+  const { questions: questionsBySubject } = useDataStore();
+  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science];
 
   const [nickname, setNickname] = useState('');
   const [saved, setSaved] = useState(false);

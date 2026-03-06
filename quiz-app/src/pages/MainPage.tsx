@@ -16,9 +16,60 @@ export default function MainPage() {
         </div>
 
         {/* 카테고리 카드 */}
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm space-y-3">
           <button
-            onClick={() => navigate('/setup')}
+            onClick={() => navigate('/setup?subject=korean_language')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-3xl">
+                ✏️
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">1교시</p>
+                <h2 className="text-xl font-bold text-gray-800">국어</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/setup?subject=social_studies')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl">
+                🌍
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">4교시</p>
+                <h2 className="text-xl font-bold text-gray-800">사회</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/setup?subject=science')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-3xl">
+                🔬
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">5교시</p>
+                <h2 className="text-xl font-bold text-gray-800">과학</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/setup?subject=korean_history')}
             className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <div className="flex items-center gap-4">

@@ -6,13 +6,41 @@ import { useQuizStore } from '../store/quizStore';
 
 const CIRCLE = ['①', '②', '③', '④'];
 
+type TabSubject = 'all' | 'korean_history' | 'korean_language' | 'social_studies' | 'science';
+
+const TABS: { id: TabSubject; label: string; prefix: string | null }[] = [
+  { id: 'all',             label: '전체',  prefix: null },
+  { id: 'korean_language', label: '국어',  prefix: 'kl_' },
+  { id: 'social_studies',  label: '사회',  prefix: 'ss_' },
+  { id: 'science',         label: '과학',  prefix: 'sci_' },
+  { id: 'korean_history',  label: '한국사', prefix: 'kh_' },
+];
+
+function getSubjectLabel(questionId: string): { text: string; color: string } {
+  if (questionId.startsWith('kl_'))  return { text: '국어',  color: 'bg-green-100 text-green-700' };
+  if (questionId.startsWith('ss_'))  return { text: '사회',  color: 'bg-yellow-100 text-yellow-700' };
+  if (questionId.startsWith('sci_')) return { text: '과학',  color: 'bg-purple-100 text-purple-700' };
+  return { text: '한국사', color: 'bg-blue-100 text-blue-700' };
+}
+
+function matchesTab(questionId: string, tab: TabSubject): boolean {
+  if (tab === 'all') return true;
+  if (tab === 'korean_history') return !questionId.startsWith('kl_') && !questionId.startsWith('ss_') && !questionId.startsWith('sci_');
+  if (tab === 'korean_language') return questionId.startsWith('kl_');
+  if (tab === 'social_studies') return questionId.startsWith('ss_');
+  if (tab === 'science') return questionId.startsWith('sci_');
+  return true;
+}
+
 export default function WrongNotePage() {
   const navigate = useNavigate();
   const { wrongNotes, removeWrongNote, clearWrongNotes } = useRecordStore();
-  const { questions: allQuestions } = useDataStore();
+  const { questions: questionsBySubject } = useDataStore();
+  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science];
   const { startQuiz } = useQuizStore();
 
   const [openId, setOpenId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabSubject>('all');
 
   const wrongWithQuestion = wrongNotes
     .map((note) => ({
@@ -21,13 +49,19 @@ export default function WrongNotePage() {
     }))
     .filter((item) => item.question !== undefined);
 
+  const filtered = wrongWithQuestion.filter(({ note }) => matchesTab(note.questionId, activeTab));
+
   const handleStartWrong = () => {
-    const wrongIds = new Set(wrongNotes.map((n) => n.questionId));
-    const pool = allQuestions.filter((q) => wrongIds.has(q.id));
+    const pool = allQuestions.filter((q) =>
+      filtered.some(({ note }) => note.questionId === q.id)
+    );
     if (pool.length === 0) return;
     startQuiz(pool, 'wrong', { count: pool.length });
     navigate('/quiz');
   };
+
+  const tabCount = (tab: TabSubject) =>
+    wrongWithQuestion.filter(({ note }) => matchesTab(note.questionId, tab)).length;
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -48,19 +82,47 @@ export default function WrongNotePage() {
         )}
       </div>
 
-      {wrongNotes.length > 0 && (
+      {/* 과목 탭 */}
+      <div className="bg-white border-b border-gray-100 px-4">
+        <div className="flex gap-1">
+          {TABS.map((tab) => {
+            const count = tabCount(tab.id);
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => { setActiveTab(tab.id); setOpenId(null); }}
+                className={`flex items-center gap-1.5 px-3 py-3 text-sm font-medium border-b-2 transition-colors ${
+                  isActive
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab.label}
+                <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold ${
+                  isActive ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-500'
+                }`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {filtered.length > 0 && (
         <div className="px-4 pt-4">
           <button
             onClick={handleStartWrong}
             className="w-full bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 active:scale-95 transition-all"
           >
-            오답 {wrongNotes.length}개 풀기 →
+            오답 {filtered.length}개 풀기 →
           </button>
         </div>
       )}
 
       <div className="flex-1 overflow-y-auto px-4 py-4">
-        {wrongWithQuestion.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <p className="text-4xl mb-3">📝</p>
             <p>오답노트가 비어있습니다</p>
@@ -68,7 +130,7 @@ export default function WrongNotePage() {
           </div>
         ) : (
           <div className="space-y-2">
-            {wrongWithQuestion.map(({ note, question: q }) => {
+            {filtered.map(({ note, question: q }) => {
               if (!q) return null;
               const isOpen = openId === note.questionId;
               return (
@@ -78,7 +140,15 @@ export default function WrongNotePage() {
                       onClick={() => setOpenId(isOpen ? null : note.questionId)}
                       className="flex-1 text-left"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {(() => {
+                          const subj = getSubjectLabel(note.questionId);
+                          return (
+                            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${subj.color}`}>
+                              {subj.text}
+                            </span>
+                          );
+                        })()}
                         <p className="text-sm font-semibold text-gray-700">
                           {q.year}년 {q.session}회 {q.number}번
                         </p>

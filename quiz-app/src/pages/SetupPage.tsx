@@ -1,12 +1,19 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
 import { useRecordStore } from '../store/recordStore';
-import type { Question, QuizMode, QuizSettings } from '../types';
+import type { Question, QuizMode, QuizSettings, Subject } from '../types';
 
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 const COUNTS = [10, 25, 50];
+
+const SUBJECT_LABELS: Record<Subject, { name: string; icon: string }> = {
+  korean_history: { name: '한국사', icon: '📚' },
+  korean_language: { name: '국어', icon: '✏️' },
+  social_studies: { name: '사회', icon: '🌍' },
+  science: { name: '과학', icon: '🔬' },
+};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -19,7 +26,11 @@ function shuffle<T>(arr: T[]): T[] {
 
 export default function SetupPage() {
   const navigate = useNavigate();
-  const { questions: allQuestions } = useDataStore();
+  const [searchParams] = useSearchParams();
+  const subject = (searchParams.get('subject') as Subject | null) ?? 'korean_history';
+
+  const { questions: allQuestionsBySubject } = useDataStore();
+  const allQuestions = allQuestionsBySubject[subject] ?? [];
   const { startQuiz } = useQuizStore();
   const { wrongNotes } = useRecordStore();
 
@@ -29,7 +40,19 @@ export default function SetupPage() {
   const [count, setCount] = useState(10);
   const [playerName, setPlayerName] = useState(() => localStorage.getItem('playerName') ?? '');
 
-  const wrongCount = wrongNotes.length;
+  const SUBJECT_PREFIX: Record<Subject, string> = {
+    korean_history: 'kh_',
+    korean_language: 'kl_',
+    social_studies: 'ss_',
+    science: 'sci_',
+  };
+  const prefix = SUBJECT_PREFIX[subject];
+  const subjectWrongNotes = wrongNotes.filter((n) =>
+    subject === 'korean_history'
+      ? !n.questionId.startsWith('kl_') && !n.questionId.startsWith('ss_')
+      : n.questionId.startsWith(prefix)
+  );
+  const wrongCount = subjectWrongNotes.length;
 
   const getAvailableCounts = () => {
     if (mode === 'yearly') return [25];
@@ -43,7 +66,7 @@ export default function SetupPage() {
 
   const handleStart = () => {
     let pool: Question[] = [];
-    const settings: QuizSettings = { count: effectiveCount };
+    const settings: QuizSettings = { count: effectiveCount, subject };
 
     if (mode === 'random') {
       pool = shuffle(allQuestions).slice(0, effectiveCount);
@@ -54,7 +77,7 @@ export default function SetupPage() {
       settings.year = year;
       settings.session = session;
     } else if (mode === 'wrong') {
-      const wrongIds = new Set(wrongNotes.map((n) => n.questionId));
+      const wrongIds = new Set(subjectWrongNotes.map((n) => n.questionId));
       pool = shuffle(allQuestions.filter((q) => wrongIds.has(q.id))).slice(
         0,
         effectiveCount
@@ -71,6 +94,8 @@ export default function SetupPage() {
     navigate('/quiz');
   };
 
+  const subjectLabel = SUBJECT_LABELS[subject];
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* 헤더 */}
@@ -81,7 +106,8 @@ export default function SetupPage() {
         >
           ←
         </button>
-        <h1 className="text-lg font-bold text-gray-800">퀴즈 설정</h1>
+        <span className="text-lg">{subjectLabel.icon}</span>
+        <h1 className="text-lg font-bold text-gray-800">{subjectLabel.name} 퀴즈 설정</h1>
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">

@@ -10,6 +10,7 @@ export interface Question {
   number: number;
   text: string;
   image: string;
+  passageImage?: string;
   options: QuestionOption[];
   answer: number | number[];
   multipleAnswers: boolean;
@@ -24,11 +25,14 @@ export interface UserAnswer {
 
 export type QuizMode = 'random' | 'yearly' | 'wrong';
 
+export type Subject = 'korean_history' | 'korean_language' | 'social_studies' | 'science';
+
 export interface QuizSettings {
   year?: number;
   session?: number;
   count: number;
   playerName?: string;
+  subject?: Subject;
 }
 
 export interface LeaderboardEntry {
