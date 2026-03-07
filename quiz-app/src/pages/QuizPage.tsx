@@ -28,6 +28,7 @@ export default function QuizPage() {
   // 슬라이드 애니메이션 키
   const [slideKey, setSlideKey] = useState(0);
   const [feedbackAnim, setFeedbackAnim] = useState<'correct' | 'wrong' | null>(null);
+  const [showCorrect, setShowCorrect] = useState(false);
   const [showTaunt, setShowTaunt] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
 
@@ -48,6 +49,8 @@ export default function QuizPage() {
     if (currentAnswer.isCorrect) {
       playCorrect();
       removeWrongNote(currentAnswer.questionId);
+      setShowCorrect(true);
+      setTimeout(() => setShowCorrect(false), 1100);
     } else {
       playWrong();
       setShowTaunt(true);
@@ -266,6 +269,19 @@ export default function QuizPage() {
 
       {/* 숨겨진 피드백 용 dummy (eslint) */}
       <span className="sr-only">{feedbackAnim}</span>
+
+      {/* 정답 축하 오버레이 */}
+      {showCorrect && (
+        <div className="correct-overlay fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="flex flex-col items-center gap-2">
+            <span className="correct-char text-7xl">🎉</span>
+            <span className="correct-txt text-lg font-black text-yellow-300 tracking-widest"
+              style={{ textShadow: '0 0 12px #fde047' }}>
+              🎊 정 답 ! 🎊
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* 오답 약올리기 오버레이 */}
       {showTaunt && (

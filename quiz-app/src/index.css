@@ -83,6 +83,33 @@ body {
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* ── 정답 축하 애니메이션 ────────────────────── */
+@keyframes correct-char {
+  0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+  25%  { transform: scale(1.3) rotate(5deg);  opacity: 1; }
+  40%  { transform: scale(1)   rotate(-2deg); }
+  55%  { transform: scale(1.1) rotate(2deg);  }
+  70%  { transform: scale(1)   rotate(0deg);  }
+  85%  { opacity: 1; }
+  100% { transform: scale(0);                 opacity: 0; }
+}
+@keyframes correct-txt {
+  0%,20% { opacity: 0; transform: scale(0.5); }
+  40%    { opacity: 1; transform: scale(1.2); }
+  60%    { transform: scale(1); }
+  80%    { opacity: 1; }
+  100%   { opacity: 0; }
+}
+@keyframes correct-overlay {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.correct-overlay { animation: correct-overlay 1s ease-in-out forwards; }
+.correct-char    { animation: correct-char    1s ease-out    forwards; display: inline-block; }
+.correct-txt     { animation: correct-txt     1s ease-out    forwards; }
+
 /* ── 오답 약올리기 애니메이션 ─────────────────── */
 @keyframes taunt-char {
   0%   { transform: translateY(-60px); opacity: 0; }

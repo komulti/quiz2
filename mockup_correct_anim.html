@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정답 축하 애니메이션 예시</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f1a0f;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+  h1 { text-align: center; color: #fff; font-size: 20px; margin-bottom: 6px; }
+  .subtitle { text-align: center; color: #888; font-size: 13px; margin-bottom: 32px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1a2e1a;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #2d4a2d;
+  }
+  .card-title { color: #4ade80; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .card-desc  { color: #666; font-size: 11px; margin-bottom: 16px; }
+
+  .stage {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #0d1f0d;
+    margin-bottom: 12px;
+  }
+  .play-btn {
+    display: block; width: 100%; padding: 8px;
+    background: #16a34a; color: white; border: none;
+    border-radius: 10px; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .play-btn:hover { background: #15803d; }
+
+  /* ===== 1. 폭죽 터지기 ===== */
+  .confetti-wrap { position: absolute; inset: 0; pointer-events: none; }
+  .dot {
+    position: absolute; width: 8px; height: 8px; border-radius: 50%;
+    top: 50%; left: 50%; opacity: 0;
+  }
+  .char1-center { font-size: 52px; animation: none; display: inline-block; position: relative; z-index: 2; }
+  .char1-center.play { animation: pop-in 1s ease-out forwards; }
+  @keyframes pop-in {
+    0%   { transform: scale(0); opacity: 0; }
+    30%  { transform: scale(1.3); opacity: 1; }
+    50%  { transform: scale(0.95); }
+    70%  { transform: scale(1.08); }
+    85%  { opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+  .dot.play { animation: burst 1s ease-out forwards; }
+  @keyframes burst {
+    0%   { transform: translate(-50%,-50%) scale(0); opacity: 1; }
+    80%  { opacity: 0.6; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0.3); opacity: 0; }
+  }
+
+  /* ===== 2. 별 소나기 ===== */
+  .star { position: absolute; font-size: 20px; opacity: 0; animation: none; }
+  .star.play { animation: starfall 1s ease-in forwards; }
+  @keyframes starfall {
+    0%   { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(150px) rotate(360deg); opacity: 0; }
+  }
+  .char2 { font-size: 52px; display: inline-block; animation: none; }
+  .char2.play { animation: pop-in 1s ease-out forwards; }
+
+  /* ===== 3. 왕관 내려오기 ===== */
+  .crown { font-size: 42px; position: absolute; top: 0; animation: none; }
+  .crown.play { animation: crown-drop 1s cubic-bezier(.36,.07,.19,.97) forwards; }
+  @keyframes crown-drop {
+    0%   { top: -60px; opacity: 0; transform: rotate(-20deg); }
+    40%  { top: 10px; opacity: 1; transform: rotate(5deg); }
+    55%  { top: 5px; transform: rotate(-3deg); }
+    70%  { top: 8px; transform: rotate(2deg); }
+    85%  { opacity: 1; top: 6px; }
+    100% { top: -80px; opacity: 0; transform: rotate(10deg); }
+  }
+  .char3 { font-size: 52px; display: inline-block; animation: none; margin-top: 30px; }
+  .char3.play { animation: char3-in 1s ease-out forwards; }
+  @keyframes char3-in {
+    0%   { transform: scale(0); opacity: 0; }
+    30%  { transform: scale(1.2); opacity: 1; }
+    50%  { transform: scale(1); }
+    85%  { opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+
+  /* ===== 4. 점수 +1 팝업 ===== */
+  .score-pop {
+    font-size: 36px; font-weight: 900; color: #4ade80;
+    position: absolute; opacity: 0; animation: none;
+    text-shadow: 0 0 20px #4ade80;
+  }
+  .score-pop.play { animation: score-up 1s ease-out forwards; }
+  @keyframes score-up {
+    0%   { transform: translateY(0) scale(0.5); opacity: 0; }
+    25%  { transform: translateY(-20px) scale(1.3); opacity: 1; }
+    60%  { transform: translateY(-50px) scale(1); opacity: 1; }
+    100% { transform: translateY(-90px) scale(0.8); opacity: 0; }
+  }
+  .char4 { font-size: 52px; display: inline-block; animation: none; }
+  .char4.play { animation: pop-in 1s ease-out forwards; }
+
+  /* ===== 5. 파티 팡파레 ===== */
+  .char5-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .char5 { font-size: 52px; animation: none; display: inline-block; }
+  .char5-txt {
+    font-size: 15px; font-weight: 900; color: #fde047;
+    opacity: 0; animation: none;
+    text-shadow: 0 0 10px #fde047;
+  }
+  .char5.play { animation: bounce-party 1s ease-out forwards; }
+  .char5-txt.play { animation: txt-flash 1s ease-out forwards; }
+  @keyframes bounce-party {
+    0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+    25%  { transform: scale(1.3) rotate(5deg); opacity: 1; }
+    40%  { transform: scale(1) rotate(-2deg); }
+    55%  { transform: scale(1.1) rotate(2deg); }
+    70%  { transform: scale(1); }
+    85%  { opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+  @keyframes txt-flash {
+    0%,20%  { opacity: 0; transform: scale(0.5); }
+    40%     { opacity: 1; transform: scale(1.2); }
+    60%     { transform: scale(1); }
+    80%     { opacity: 1; }
+    100%    { opacity: 0; }
+  }
+
+  /* ===== 6. 빛 폭발 ===== */
+  .glow-ring {
+    position: absolute; width: 80px; height: 80px;
+    border-radius: 50%; border: 4px solid #4ade80;
+    opacity: 0; animation: none;
+  }
+  .glow-ring.play { animation: ring-expand 1s ease-out forwards; }
+  @keyframes ring-expand {
+    0%   { transform: scale(0); opacity: 0.9; }
+    70%  { transform: scale(3); opacity: 0; }
+    100% { transform: scale(3.5); opacity: 0; }
+  }
+  .glow-ring2 { animation-delay: 0.2s !important; border-color: #86efac; }
+  .char6 { font-size: 52px; display: inline-block; animation: none; position: relative; z-index: 2; filter: drop-shadow(0 0 0 #4ade80); }
+  .char6.play { animation: glow-char 1s ease-out forwards; }
+  @keyframes glow-char {
+    0%   { transform: scale(0); filter: drop-shadow(0 0 0px #4ade80); opacity: 0; }
+    30%  { transform: scale(1.3); filter: drop-shadow(0 0 20px #4ade80); opacity: 1; }
+    60%  { transform: scale(1); filter: drop-shadow(0 0 10px #4ade80); }
+    85%  { opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+
+  /* ===== 7. 하트 비 ===== */
+  .heart { position: absolute; font-size: 18px; opacity: 0; animation: none; top: -30px; }
+  .heart.play { animation: heart-rain 1s ease-in forwards; }
+  @keyframes heart-rain {
+    0%   { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+    100% { opacity: 0; transform: translateY(160px) rotate(calc(var(--r) + 180deg)); }
+  }
+  .char7 { font-size: 52px; display: inline-block; animation: none; }
+  .char7.play { animation: pop-in 1s ease-out forwards; }
+
+  /* ===== 8. 트로피 수여 ===== */
+  .char8-wrap { position: absolute; display: flex; flex-direction: column; align-items: center; }
+  .char8 { font-size: 60px; animation: none; display: inline-block; }
+  .char8-txt {
+    font-size: 13px; font-weight: 900; color: #fbbf24;
+    opacity: 0; animation: none; letter-spacing: 1px;
+    text-shadow: 0 0 8px #fbbf24;
+  }
+  .char8.play { animation: trophy-in 1s cubic-bezier(0.175,0.885,0.32,1.275) forwards; }
+  .char8-txt.play { animation: txt-flash 1s ease-out 0.2s forwards; }
+  @keyframes trophy-in {
+    0%   { transform: translateY(60px) scale(0); opacity: 0; }
+    40%  { transform: translateY(-10px) scale(1.2); opacity: 1; }
+    60%  { transform: translateY(5px) scale(0.95); }
+    75%  { transform: translateY(-3px) scale(1.05); }
+    85%  { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-60px) scale(0); opacity: 0; }
+  }
+
+  /* ===== 9. 손가락 하트 + 문구 ===== */
+  .char9-wrap { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .char9 { font-size: 56px; animation: none; display: inline-block; }
+  .char9-txt {
+    font-size: 14px; font-weight: 900; color: #f472b6;
+    opacity: 0; animation: none;
+    text-shadow: 0 0 10px #f472b6;
+  }
+  .char9.play { animation: heart-pop 1s ease-out forwards; }
+  .char9-txt.play { animation: txt-flash 1s ease-out 0.15s forwards; }
+  @keyframes heart-pop {
+    0%   { transform: scale(0) rotate(20deg); opacity: 0; }
+    30%  { transform: scale(1.4) rotate(-5deg); opacity: 1; }
+    50%  { transform: scale(1) rotate(0deg); }
+    65%  { transform: scale(1.1) rotate(3deg); }
+    80%  { transform: scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+
+  /* ===== 10. 도장 쾅! (정답 버전) ===== */
+  .char10-wrap { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .char10 { font-size: 58px; animation: none; display: inline-block; }
+  .stamp10 {
+    font-size: 19px; font-weight: 900; color: #4ade80;
+    border: 4px solid #4ade80; padding: 2px 14px; border-radius: 6px;
+    opacity: 0; transform: scale(3) rotate(-15deg); animation: none;
+    letter-spacing: 3px; text-shadow: 0 0 8px #4ade80;
+    box-shadow: 0 0 10px #4ade8044;
+  }
+  .char10.play { animation: char10-in 1s ease-out forwards; }
+  .stamp10.play { animation: stamp10-in 1s ease-in-out forwards; }
+  @keyframes char10-in {
+    0%   { transform: translateY(-60px); opacity: 0; }
+    25%  { transform: translateY(0); opacity: 1; }
+    80%  { opacity: 1; }
+    100% { transform: translateY(-40px); opacity: 0; }
+  }
+  @keyframes stamp10-in {
+    0%,20% { opacity: 0; transform: scale(3) rotate(-15deg); }
+    45%    { opacity: 1; transform: scale(1.1) rotate(-8deg); }
+    60%    { transform: scale(0.95) rotate(-8deg); }
+    80%    { opacity: 1; transform: scale(1) rotate(-8deg); }
+    100%   { opacity: 0; transform: scale(0.5) rotate(-8deg); }
+  }
+</style>
+</head>
+<body>
+
+<h1>정답 축하 애니메이션</h1>
+<p class="subtitle">마음에 드는 것을 골라주세요 (버튼을 눌러 미리보기)</p>
+
+<div class="grid">
+
+  <!-- 1. 폭죽 -->
+  <div class="card">
+    <div class="card-title">1. 폭죽 터지기</div>
+    <div class="card-desc">🎊 중앙에서 파티 파퍼가 터짐</div>
+    <div class="stage" id="s1">
+      <div class="confetti-wrap" id="dots1"></div>
+      <span class="char1-center" id="c1">🎊</span>
+    </div>
+    <button class="play-btn" onclick="playConfetti()">▶ 미리보기</button>
+  </div>
+
+  <!-- 2. 별 소나기 -->
+  <div class="card">
+    <div class="card-title">2. 별 소나기</div>
+    <div class="card-desc">⭐ 별들이 위에서 쏟아지며 캐릭터 등장</div>
+    <div class="stage" id="s2">
+      <span class="star" id="st1" style="left:15%;animation-delay:0s">⭐</span>
+      <span class="star" id="st2" style="left:35%;animation-delay:0.15s">✨</span>
+      <span class="star" id="st3" style="left:55%;animation-delay:0.05s">⭐</span>
+      <span class="star" id="st4" style="left:75%;animation-delay:0.2s">✨</span>
+      <span class="star" id="st5" style="left:50%;animation-delay:0.1s;font-size:14px">🌟</span>
+      <span class="char2" id="c2">😄</span>
+    </div>
+    <button class="play-btn" onclick="playStars()">▶ 미리보기</button>
+  </div>
+
+  <!-- 3. 왕관 내려오기 -->
+  <div class="card">
+    <div class="card-title">3. 왕관 수여</div>
+    <div class="card-desc">👑 위에서 왕관이 내려와 씌워짐</div>
+    <div class="stage" style="flex-direction:column;justify-content:flex-end;padding-bottom:16px">
+      <span class="crown" id="c3crown">👑</span>
+      <span class="char3" id="c3">😊</span>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c3crown','crown'],['c3','char3'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 4. 점수 팝업 -->
+  <div class="card">
+    <div class="card-title">4. +1 점수 팝업</div>
+    <div class="card-desc">+1 숫자가 위로 솟아오르며 사라짐</div>
+    <div class="stage">
+      <span class="char4" id="c4">😎</span>
+      <span class="score-pop" id="c4score">+1 ✓</span>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c4','char4'],['c4score','score-pop'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 5. 파티 팡파레 -->
+  <div class="card">
+    <div class="card-title">5. 파티 팡파레</div>
+    <div class="card-desc">🎉 "정답!" 문구와 함께 등장</div>
+    <div class="stage">
+      <div class="char5-wrap">
+        <span class="char5" id="c5">🎉</span>
+        <span class="char5-txt" id="c5t">🎊 정 답 ! 🎊</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c5','char5'],['c5t','char5-txt'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 6. 빛 폭발 -->
+  <div class="card">
+    <div class="card-title">6. 초록 빛 폭발</div>
+    <div class="card-desc">✅ 초록빛 링이 퍼지며 등장</div>
+    <div class="stage">
+      <div class="glow-ring" id="c6r1"></div>
+      <div class="glow-ring glow-ring2" id="c6r2"></div>
+      <span class="char6" id="c6">✅</span>
+    </div>
+    <button class="play-btn" onclick="playGlow()">▶ 미리보기</button>
+  </div>
+
+  <!-- 7. 하트 비 -->
+  <div class="card">
+    <div class="card-title">7. 하트 비</div>
+    <div class="card-desc">💖 하트가 쏟아지며 캐릭터 등장</div>
+    <div class="stage">
+      <span class="heart" id="h1" style="left:10%;--r:-20deg;animation-delay:0s">💛</span>
+      <span class="heart" id="h2" style="left:30%;--r:15deg;animation-delay:0.1s">💚</span>
+      <span class="heart" id="h3" style="left:55%;--r:-10deg;animation-delay:0.05s">💙</span>
+      <span class="heart" id="h4" style="left:75%;--r:25deg;animation-delay:0.15s">💜</span>
+      <span class="heart" id="h5" style="left:42%;--r:-5deg;animation-delay:0.08s;font-size:14px">🤍</span>
+      <span class="char7" id="c7">🥰</span>
+    </div>
+    <button class="play-btn" onclick="playHearts()">▶ 미리보기</button>
+  </div>
+
+  <!-- 8. 트로피 수여 -->
+  <div class="card">
+    <div class="card-title">8. 트로피 수여</div>
+    <div class="card-desc">🏆 아래서 트로피가 올라오며 찬사</div>
+    <div class="stage">
+      <div class="char8-wrap">
+        <span class="char8" id="c8">🏆</span>
+        <span class="char8-txt" id="c8t">천재 등장 ✨</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c8','char8'],['c8t','char8-txt'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 9. 손가락 하트 -->
+  <div class="card">
+    <div class="card-title">9. 손가락 하트 + 칭찬</div>
+    <div class="card-desc">🫰 귀엽게 손가락 하트 + 문구</div>
+    <div class="stage">
+      <div class="char9-wrap">
+        <span class="char9" id="c9">🫰</span>
+        <span class="char9-txt" id="c9t">역시 천재야~ 💗</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c9','char9'],['c9t','char9-txt'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 10. 도장 쾅 (정답) -->
+  <div class="card">
+    <div class="card-title">10. 정답 도장 쾅!</div>
+    <div class="card-desc">😤→😄 오답과 같은 방식, 초록 "정 답" 도장</div>
+    <div class="stage">
+      <div class="char10-wrap">
+        <span class="char10" id="c10">😄</span>
+        <span class="stamp10" id="c10s">정 답</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c10','char10'],['c10s','stamp10'])">▶ 미리보기</button>
+  </div>
+
+</div>
+
+<script>
+  function playMulti(...pairs) {
+    pairs.forEach(([id]) => {
+      const el = document.getElementById(id);
+      el.classList.remove('play');
+    });
+    void document.body.offsetWidth;
+    pairs.forEach(([id]) => {
+      document.getElementById(id).classList.add('play');
+    });
+  }
+
+  function playConfetti() {
+    const el = document.getElementById('c1');
+    el.classList.remove('play');
+    const wrap = document.getElementById('dots1');
+    wrap.innerHTML = '';
+    const colors = ['#4ade80','#fbbf24','#60a5fa','#f472b6','#a78bfa','#34d399'];
+    for (let i = 0; i < 10; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot';
+      const angle = (i / 10) * 360;
+      const dist = 55 + Math.random() * 25;
+      const tx = `${Math.cos(angle * Math.PI / 180) * dist - 4}px`;
+      const ty = `${Math.sin(angle * Math.PI / 180) * dist - 4}px`;
+      d.style.cssText = `background:${colors[i%colors.length]};--tx:${tx};--ty:${ty};animation-delay:${i*0.02}s`;
+      wrap.appendChild(d);
+      void d.offsetWidth;
+      d.classList.add('play');
+    }
+    void el.offsetWidth;
+    el.classList.add('play');
+  }
+
+  function playStars() {
+    ['st1','st2','st3','st4','st5','c2'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('play');
+    });
+    void document.body.offsetWidth;
+    ['st1','st2','st3','st4','st5','c2'].forEach(id => {
+      document.getElementById(id).classList.add('play');
+    });
+  }
+
+  function playGlow() {
+    ['c6r1','c6r2','c6'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('play');
+    });
+    void document.body.offsetWidth;
+    ['c6r1','c6r2','c6'].forEach(id => {
+      document.getElementById(id).classList.add('play');
+    });
+  }
+
+  function playHearts() {
+    ['h1','h2','h3','h4','h5','c7'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('play');
+    });
+    void document.body.offsetWidth;
+    ['h1','h2','h3','h4','h5','c7'].forEach(id => {
+      document.getElementById(id).classList.add('play');
+    });
+  }
+</script>
+</body>
+</html>
