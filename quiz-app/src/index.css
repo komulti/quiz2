@@ -82,3 +82,27 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+/* ── 오답 약올리기 애니메이션 ─────────────────── */
+@keyframes taunt-char {
+  0%   { transform: translateY(-60px); opacity: 0; }
+  25%  { transform: translateY(0);     opacity: 1; }
+  80%  { transform: translateY(0);     opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+@keyframes taunt-stamp {
+  0%, 20% { opacity: 0; transform: scale(3) rotate(-15deg); }
+  45%     { opacity: 1; transform: scale(1.1) rotate(-8deg); }
+  60%     { transform: scale(0.95) rotate(-8deg); }
+  80%     { opacity: 1; transform: scale(1) rotate(-8deg); }
+  100%    { opacity: 0; transform: scale(0.5) rotate(-8deg); }
+}
+@keyframes taunt-overlay {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.taunt-overlay { animation: taunt-overlay 1s ease-in-out forwards; }
+.taunt-char    { animation: taunt-char   1s ease-in-out forwards; display: inline-block; }
+.taunt-stamp   { animation: taunt-stamp  1s ease-in-out forwards; }

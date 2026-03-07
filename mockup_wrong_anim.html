@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오답 약올리기 애니메이션 예시</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1e1b2e;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+  h1 { text-align: center; color: #fff; font-size: 20px; margin-bottom: 6px; }
+  .subtitle { text-align: center; color: #888; font-size: 13px; margin-bottom: 32px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #2a2640;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #3d3860;
+  }
+  .card-title { color: #a78bfa; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .card-desc { color: #666; font-size: 11px; margin-bottom: 16px; }
+
+  /* 애니메이션 스테이지 */
+  .stage {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #1a1728;
+    margin-bottom: 12px;
+  }
+
+  /* 재생 버튼 */
+  .play-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .play-btn:hover { background: #6d28d9; }
+
+  /* ===== 1. 혀 내밀기 ===== */
+  .char1 {
+    font-size: 64px;
+    display: inline-block;
+    animation: none;
+  }
+  .char1.play {
+    animation: tongue 1s ease-in-out forwards;
+  }
+  @keyframes tongue {
+    0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+    20%  { transform: scale(1.3) rotate(10deg); opacity: 1; }
+    40%  { transform: scale(1) rotate(-5deg); }
+    60%  { transform: scale(1.1) rotate(5deg); }
+    80%  { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(0) rotate(20deg); opacity: 0; }
+  }
+
+  /* ===== 2. 웃으며 굴러다니기 ===== */
+  .char2 {
+    font-size: 54px;
+    display: inline-block;
+    animation: none;
+    position: absolute;
+  }
+  .char2.play {
+    animation: roll 1s ease-in-out forwards;
+  }
+  @keyframes roll {
+    0%   { left: -80px; transform: rotate(0deg); opacity: 0; }
+    15%  { opacity: 1; }
+    50%  { left: calc(50% - 27px); transform: rotate(360deg); }
+    85%  { opacity: 1; }
+    100% { left: calc(100% + 80px); transform: rotate(720deg); opacity: 0; }
+  }
+
+  /* ===== 3. 점프하며 손뼉 ===== */
+  .char3 {
+    font-size: 58px;
+    display: inline-block;
+    animation: none;
+  }
+  .char3.play {
+    animation: jump 1s ease-in-out forwards;
+  }
+  @keyframes jump {
+    0%   { transform: translateY(40px) scale(0.5); opacity: 0; }
+    20%  { transform: translateY(-20px) scale(1.2); opacity: 1; }
+    35%  { transform: translateY(0px) scale(1); }
+    50%  { transform: translateY(-30px) scale(1.1); }
+    65%  { transform: translateY(0px) scale(1); }
+    80%  { transform: translateY(-15px) scale(1.05); }
+    100% { transform: translateY(60px) scale(0.3); opacity: 0; }
+  }
+
+  /* ===== 4. 흔들흔들 + 텍스트 ===== */
+  .char4-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .char4 {
+    font-size: 52px;
+    display: inline-block;
+    animation: none;
+  }
+  .char4-text {
+    font-size: 16px;
+    font-weight: 900;
+    color: #f87171;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: none;
+  }
+  .char4.play { animation: wiggle 1s ease-in-out forwards; }
+  .char4-text.play { animation: poptext 1s ease-in-out forwards; }
+  @keyframes wiggle {
+    0%   { transform: scale(0); opacity: 0; }
+    15%  { transform: scale(1.2); opacity: 1; }
+    30%  { transform: rotate(-15deg) scale(1); }
+    45%  { transform: rotate(15deg) scale(1); }
+    60%  { transform: rotate(-10deg) scale(1); }
+    75%  { transform: rotate(10deg) scale(1); }
+    90%  { transform: rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+  @keyframes poptext {
+    0%   { opacity: 0; transform: scale(0.5) translateY(5px); }
+    30%  { opacity: 1; transform: scale(1.2) translateY(-2px); }
+    60%  { opacity: 1; transform: scale(1); }
+    85%  { opacity: 1; }
+    100% { opacity: 0; transform: scale(0.5) translateY(5px); }
+  }
+
+  /* ===== 5. 팝업 + 비웃음 ===== */
+  .char5-wrap {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .char5 {
+    font-size: 56px;
+    display: inline-block;
+    animation: none;
+  }
+  .bubble {
+    background: #fef08a;
+    color: #713f12;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 4px;
+    opacity: 0;
+    animation: none;
+    white-space: nowrap;
+  }
+  .bubble::before {
+    content: '▲';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fef08a;
+    font-size: 10px;
+  }
+  .bubble { position: relative; }
+  .char5.play { animation: popup 1s ease-out forwards; }
+  .bubble.play { animation: bubblein 1s ease-out forwards; }
+  @keyframes popup {
+    0%   { transform: scale(0) translateY(20px); opacity: 0; }
+    25%  { transform: scale(1.15) translateY(-5px); opacity: 1; }
+    40%  { transform: scale(1) translateY(0); }
+    85%  { transform: scale(1) translateY(0); opacity: 1; }
+    100% { transform: scale(0) translateY(-20px); opacity: 0; }
+  }
+  @keyframes bubblein {
+    0%   { opacity: 0; transform: scale(0.5); }
+    35%  { opacity: 1; transform: scale(1.1); }
+    50%  { transform: scale(1); }
+    85%  { opacity: 1; }
+    100% { opacity: 0; transform: scale(0.5); }
+  }
+
+  /* ===== 6. 화면을 가득 채우는 얼굴 ===== */
+  .char6 {
+    font-size: 48px;
+    display: inline-block;
+    animation: none;
+    filter: drop-shadow(0 0 0px #f87171);
+  }
+  .char6.play { animation: bigface 1s ease-in-out forwards; }
+  @keyframes bigface {
+    0%   { transform: scale(0); opacity: 0; filter: drop-shadow(0 0 0px #f87171); }
+    30%  { transform: scale(2.5); opacity: 1; filter: drop-shadow(0 0 16px #f87171); }
+    60%  { transform: scale(2.2); }
+    85%  { transform: scale(2.4); filter: drop-shadow(0 0 24px #f87171); }
+    100% { transform: scale(0); opacity: 0; }
+  }
+
+  /* ===== 7. 흘러내리는 눈물 (틀린 사람이 울어야지!) ===== */
+  .char7-wrap {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .char7 {
+    font-size: 54px;
+    display: inline-block;
+    animation: none;
+  }
+  .char7-txt {
+    font-size: 13px;
+    font-weight: 800;
+    color: #60a5fa;
+    opacity: 0;
+    animation: none;
+    text-align: center;
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+  .char7.play { animation: sway 1s ease-in-out forwards; }
+  .char7-txt.play { animation: txtin 1s ease-in-out forwards; }
+  @keyframes sway {
+    0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+    20%  { transform: scale(1.2) rotate(5deg); opacity: 1; }
+    40%  { transform: scale(1) rotate(-8deg); }
+    60%  { transform: scale(1) rotate(8deg); }
+    80%  { transform: scale(1) rotate(-3deg); opacity: 1; }
+    100% { transform: scale(0) rotate(30deg); opacity: 0; }
+  }
+  @keyframes txtin {
+    0%,20% { opacity: 0; }
+    40%    { opacity: 1; transform: translateY(0); }
+    80%    { opacity: 1; }
+    100%   { opacity: 0; transform: translateY(4px); }
+  }
+
+  /* ===== 8. 스핀 등장 ===== */
+  .char8 {
+    font-size: 58px;
+    display: inline-block;
+    animation: none;
+  }
+  .char8-sub {
+    position: absolute;
+    bottom: 8px;
+    font-size: 18px;
+    opacity: 0;
+    animation: none;
+    letter-spacing: 2px;
+  }
+  .char8.play { animation: spin-in 1s cubic-bezier(.36,.07,.19,.97) forwards; }
+  .char8-sub.play { animation: starstuff 1s ease forwards; }
+  @keyframes spin-in {
+    0%   { transform: rotate(-540deg) scale(0); opacity: 0; }
+    40%  { transform: rotate(20deg) scale(1.2); opacity: 1; }
+    60%  { transform: rotate(-10deg) scale(1); }
+    80%  { transform: rotate(5deg) scale(1.05); }
+    90%  { opacity: 1; }
+    100% { transform: rotate(0deg) scale(0); opacity: 0; }
+  }
+  @keyframes starstuff {
+    0%,30% { opacity: 0; }
+    50%    { opacity: 1; }
+    80%    { opacity: 1; }
+    100%   { opacity: 0; }
+  }
+
+  /* ===== 9. 화살표 가리키기 ===== */
+  .char9-wrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .char9 { font-size: 52px; animation: none; }
+  .char9-arrow {
+    font-size: 28px;
+    color: #f87171;
+    opacity: 0;
+    animation: none;
+  }
+  .char9-msg {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fca5a5;
+    opacity: 0;
+    animation: none;
+    line-height: 1.3;
+    text-align: left;
+  }
+  .char9.play { animation: bouncein 1s ease-in-out forwards; }
+  .char9-arrow.play { animation: arrowin 1s ease-in-out forwards; }
+  .char9-msg.play { animation: arrowin 1s ease-in-out forwards 0.1s; }
+  @keyframes bouncein {
+    0%   { transform: scale(0); opacity: 0; }
+    25%  { transform: scale(1.3); opacity: 1; }
+    40%  { transform: scale(0.9); }
+    55%  { transform: scale(1.1); }
+    70%  { transform: scale(1); }
+    85%  { opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+  @keyframes arrowin {
+    0%,15% { opacity: 0; transform: translateX(-10px); }
+    35%    { opacity: 1; transform: translateX(0); }
+    80%    { opacity: 1; }
+    100%   { opacity: 0; }
+  }
+
+  /* ===== 10. 도장 쾅! ===== */
+  .char10-wrap {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .char10 { font-size: 56px; animation: none; }
+  .stamp {
+    font-size: 20px;
+    font-weight: 900;
+    color: #f87171;
+    border: 3px solid #f87171;
+    padding: 2px 12px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: scale(3) rotate(-15deg);
+    animation: none;
+    margin-top: 2px;
+    letter-spacing: 2px;
+  }
+  .char10.play { animation: floatin 1s ease-in-out forwards; }
+  .stamp.play  { animation: stampin 1s ease-in-out forwards; }
+  @keyframes floatin {
+    0%   { transform: translateY(-30px); opacity: 0; }
+    25%  { transform: translateY(0); opacity: 1; }
+    80%  { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+  }
+  @keyframes stampin {
+    0%,20% { opacity: 0; transform: scale(3) rotate(-15deg); }
+    40%    { opacity: 1; transform: scale(1.1) rotate(-8deg); }
+    55%    { transform: scale(0.95) rotate(-8deg); }
+    80%    { opacity: 1; transform: scale(1) rotate(-8deg); }
+    100%   { opacity: 0; transform: scale(0.5) rotate(-8deg); }
+  }
+</style>
+</head>
+<body>
+
+<h1>오답 약올리기 애니메이션</h1>
+<p class="subtitle">마음에 드는 것을 골라주세요 (버튼을 눌러 미리보기)</p>
+
+<div class="grid">
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="card-title">1. 혀 내밀기</div>
+    <div class="card-desc">😛 등장해서 혀 내밀고 사라짐</div>
+    <div class="stage"><span class="char1" id="c1">😛</span></div>
+    <button class="play-btn" onclick="play('c1','char1')">▶ 미리보기</button>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="card-title">2. 굴러다니며 웃기</div>
+    <div class="card-desc">😂 화면을 가로질러 굴러 지나감</div>
+    <div class="stage"><span class="char2" id="c2">😂</span></div>
+    <button class="play-btn" onclick="play('c2','char2')">▶ 미리보기</button>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="card-title">3. 신나서 점프</div>
+    <div class="card-desc">🎉 펄쩍펄쩍 뛰며 기뻐함</div>
+    <div class="stage"><span class="char3" id="c3">🎉</span></div>
+    <button class="play-btn" onclick="play('c3','char3')">▶ 미리보기</button>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="card-title">4. 흔들흔들 + 문구</div>
+    <div class="card-desc">😈 몸을 흔들며 "틀렸지롱~!" 표시</div>
+    <div class="stage">
+      <div class="char4-wrap">
+        <span class="char4" id="c4">😈</span>
+        <span class="char4-text" id="c4t">틀렸지롱~! 😜</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c4','char4'],['c4t','char4-text'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="card-title">5. 팝업 + 말풍선</div>
+    <div class="card-desc">🤭 등장해서 말풍선으로 한마디</div>
+    <div class="stage">
+      <div class="char5-wrap">
+        <span class="char5" id="c5">🤭</span>
+        <div class="bubble" id="c5b">ㅋㅋㅋ 틀렸어요</div>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c5','char5'],['c5b','bubble'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <div class="card-title">6. 얼굴 클로즈업</div>
+    <div class="card-desc">😆 얼굴이 크게 확대되며 비웃음</div>
+    <div class="stage"><span class="char6" id="c6">😆</span></div>
+    <button class="play-btn" onclick="play('c6','char6')">▶ 미리보기</button>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <div class="card-title">7. 손가락질 + 문구</div>
+    <div class="card-desc">😅 "나 같았으면..." 하며 안타까워함</div>
+    <div class="stage">
+      <div class="char7-wrap">
+        <span class="char7" id="c7">😅</span>
+        <span class="char7-txt" id="c7t">나 같았으면<br>맞혔을텐데~</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c7','char7'],['c7t','char7-txt'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <div class="card-title">8. 스핀 등장 + 별</div>
+    <div class="card-desc">🤡 빙글빙글 돌며 등장, 별이 반짝</div>
+    <div class="stage">
+      <span class="char8" id="c8">🤡</span>
+      <span class="char8-sub" id="c8s">✨ ✨ ✨</span>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c8','char8'],['c8s','char8-sub'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <div class="card-title">9. 화살표로 가리키기</div>
+    <div class="card-desc">😏 옆에서 나타나 화살표로 지적</div>
+    <div class="stage">
+      <div class="char9-wrap">
+        <span class="char9" id="c9">😏</span>
+        <span class="char9-arrow" id="c9a">👉</span>
+        <span class="char9-msg" id="c9m">오답!<br>다시해봐</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c9','char9'],['c9a','char9-arrow'],['c9m','char9-msg'])">▶ 미리보기</button>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="card-title">10. 도장 쾅!</div>
+    <div class="card-desc">😤 위에서 내려와 "오답!" 도장 찍기</div>
+    <div class="stage">
+      <div class="char10-wrap">
+        <span class="char10" id="c10">😤</span>
+        <span class="stamp" id="c10s">오 답</span>
+      </div>
+    </div>
+    <button class="play-btn" onclick="playMulti(['c10','char10'],['c10s','stamp'])">▶ 미리보기</button>
+  </div>
+
+</div>
+
+<script>
+  function play(id, cls) {
+    const el = document.getElementById(id);
+    el.classList.remove('play');
+    void el.offsetWidth; // reflow
+    el.classList.add('play');
+  }
+
+  function playMulti(...pairs) {
+    pairs.forEach(([id, cls]) => {
+      const el = document.getElementById(id);
+      el.classList.remove('play');
+    });
+    void document.body.offsetWidth;
+    pairs.forEach(([id, cls]) => {
+      document.getElementById(id).classList.add('play');
+    });
+  }
+</script>
+</body>
+</html>

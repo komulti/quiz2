@@ -28,6 +28,7 @@ export default function QuizPage() {
   // 슬라이드 애니메이션 키
   const [slideKey, setSlideKey] = useState(0);
   const [feedbackAnim, setFeedbackAnim] = useState<'correct' | 'wrong' | null>(null);
+  const [showTaunt, setShowTaunt] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
 
   useEffect(() => {
@@ -49,6 +50,8 @@ export default function QuizPage() {
       removeWrongNote(currentAnswer.questionId);
     } else {
       playWrong();
+      setShowTaunt(true);
+      setTimeout(() => setShowTaunt(false), 1100);
       addWrongNotes([{
         questionId: currentAnswer.questionId,
         selectedAnswer: currentAnswer.selected,
@@ -263,6 +266,18 @@ export default function QuizPage() {
 
       {/* 숨겨진 피드백 용 dummy (eslint) */}
       <span className="sr-only">{feedbackAnim}</span>
+
+      {/* 오답 약올리기 오버레이 */}
+      {showTaunt && (
+        <div className="taunt-overlay fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="flex flex-col items-center gap-1">
+            <span className="taunt-char text-7xl">😤</span>
+            <span className="taunt-stamp text-xl font-black text-red-500 border-4 border-red-500 px-4 py-1 rounded-lg tracking-widest">
+              오 답
+            </span>
+          </div>
+        </div>
+      )}
 
       {showExitModal && (
         <ConfirmModal
