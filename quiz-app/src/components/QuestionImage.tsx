@@ -114,7 +114,7 @@ export default function QuestionImage({ src, alt }: Props) {
           >
             ×
           </button>
-          <p className="absolute bottom-4 text-white/60 text-xs select-none">
+          <p className="absolute top-4 text-white/80 text-sm font-medium select-none bg-black/30 px-4 py-1.5 rounded-full">
             더블탭 또는 핀치로 확대/축소
           </p>
         </div>
