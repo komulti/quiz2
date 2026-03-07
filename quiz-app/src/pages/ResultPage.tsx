@@ -24,7 +24,7 @@ export default function ResultPage() {
   const { questions: questionsBySubject } = useDataStore();
   const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science, ...questionsBySubject.ethics, ...questionsBySubject.english, ...questionsBySubject.math];
 
-  const [nickname, setNickname] = useState('');
+  const [nickname, setNickname] = useState(() => settings.playerName ?? localStorage.getItem('playerName') ?? '');
   const [saved, setSaved] = useState(false);
   const [openWrong, setOpenWrong] = useState<string | null>(null);
   const savedRef = useRef(false);
@@ -53,7 +53,24 @@ export default function ResultPage() {
       date: new Date().toISOString(),
     };
     addHistory(session);
-  }, [questions.length, navigate, addHistory, mode, correctCount, elapsed]);
+
+    // 이름이 있으면 자동 리더보드 등록
+    const name = settings.playerName?.trim();
+    if (name) {
+      const entry: LeaderboardEntry = {
+        id: Date.now().toString(),
+        nickname: name,
+        score: correctCount,
+        total: questions.length,
+        percent,
+        timeSeconds: elapsed,
+        mode,
+        date: new Date().toISOString(),
+      };
+      addLeaderboardEntry(entry);
+      setSaved(true);
+    }
+  }, [questions.length, navigate, addHistory, addLeaderboardEntry, mode, correctCount, elapsed, percent, settings.playerName]);
 
   if (questions.length === 0) return null;
 
@@ -121,7 +138,9 @@ export default function ResultPage() {
         <div className="bg-white rounded-2xl shadow-sm p-4">
           <h2 className="text-sm font-semibold text-gray-500 mb-3">🏆 리더보드 등록</h2>
           {saved ? (
-            <p className="text-center text-green-600 font-medium py-2">저장 완료! ✓</p>
+            <p className="text-center text-green-600 font-medium py-2">
+              <span className="font-bold">{nickname}</span> 으로 저장 완료! ✓
+            </p>
           ) : (
             <div className="flex gap-2">
               <input
