@@ -15,8 +15,8 @@ const TABS: { id: TabSubject; label: string; prefix: string | null }[] = [
   { id: 'english',         label: '영어',  prefix: 'en_' },
   { id: 'social_studies',  label: '사회',  prefix: 'ss_' },
   { id: 'science',         label: '과학',  prefix: 'sci_' },
-  { id: 'ethics',          label: '도덕',  prefix: 'eth_' },
   { id: 'korean_history',  label: '한국사', prefix: 'kh_' },
+  { id: 'ethics',          label: '도덕',  prefix: 'eth_' },
 ];
 
 function getSubjectLabel(questionId: string): { text: string; color: string } {
@@ -93,7 +93,7 @@ export default function WrongNotePage() {
 
       {/* 과목 탭 */}
       <div className="bg-white border-b border-gray-100 px-4">
-        <div className="flex gap-1">
+        <div className="flex gap-1 overflow-x-auto scrollbar-hide">
           {TABS.map((tab) => {
             const count = tabCount(tab.id);
             const isActive = activeTab === tab.id;
@@ -101,7 +101,7 @@ export default function WrongNotePage() {
               <button
                 key={tab.id}
                 onClick={() => { setActiveTab(tab.id); setOpenId(null); }}
-                className={`flex items-center gap-1.5 px-3 py-3 text-sm font-medium border-b-2 transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-3 text-sm font-medium border-b-2 transition-colors shrink-0 ${
                   isActive
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
