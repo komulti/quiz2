@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메인페이지 레이아웃 목업 — 안 D 변형</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f4f8; padding: 24px 16px; }
+  h1 { text-align: center; margin-bottom: 6px; font-size: 20px; color: #333; }
+  .subtitle { text-align: center; color: #888; font-size: 13px; margin-bottom: 32px; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 17px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; padding-left: 4px; }
+  .section-desc { font-size: 13px; color: #666; margin-bottom: 16px; padding-left: 4px; }
+
+  .phones { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .phone {
+    width: 320px; height: 620px; border-radius: 36px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    background: #1d4ed8; display: flex; flex-direction: column;
+  }
+  .phone-inner { width: 100%; height: 100%; overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; }
+  .phone-inner::-webkit-scrollbar { display: none; }
+
+  .app-header { padding: 36px 20px 16px; text-align: center; flex-shrink: 0; }
+  .app-header .tag { color: #93c5fd; font-size: 11px; letter-spacing: 2px; margin-bottom: 4px; }
+  .app-header h2 { color: white; font-size: 24px; font-weight: 800; margin-bottom: 2px; }
+  .app-header p { color: #93c5fd; font-size: 12px; }
+
+  .stats-bar { display: flex; gap: 8px; padding: 0 14px 12px; flex-shrink: 0; }
+  .stat-item { flex: 1; background: rgba(255,255,255,0.15); border-radius: 12px; padding: 8px; text-align: center; }
+  .stat-item .num { color: white; font-size: 17px; font-weight: 700; }
+  .stat-item .lbl { color: #93c5fd; font-size: 10px; margin-top: 1px; }
+
+  .app-bottom {
+    background: white; border-top: 1px solid #e5e7eb;
+    padding: 8px 0 4px; display: flex; justify-content: space-around;
+    flex-shrink: 0; margin-top: auto;
+  }
+  .app-bottom button {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    background: none; border: none; cursor: pointer; padding: 4px 12px;
+    color: #9ca3af; font-size: 10px;
+  }
+  .app-bottom button span { font-size: 18px; }
+
+  /* ── D-1: 2열 균등, 7번째 왼쪽 정렬 ── */
+  .d1 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 14px 12px;
+  }
+  .d1 .last-wrap {
+    padding: 0 14px 12px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .d1 .card {
+    background: white;
+    border-radius: 16px;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  }
+  .d1 .card.centered { width: calc(50% - 4px); }
+  .d1 .icon { width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .d1 .info .period { font-size: 9px; color: #9ca3af; }
+  .d1 .info .name { font-size: 14px; font-weight: 700; color: #1f2937; }
+  .d1 .info .count { font-size: 9px; color: #9ca3af; margin-top: 1px; }
+
+  /* ── D-2: 2열 + 배경 컬러 스트라이프 ── */
+  .d2 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 14px 12px;
+  }
+  .d2 .card {
+    border-radius: 16px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .d2 .icon { font-size: 26px; }
+  .d2 .period { font-size: 10px; opacity: 0.75; }
+  .d2 .name { font-size: 15px; font-weight: 800; }
+  .d2 .count { font-size: 10px; opacity: 0.65; }
+
+  /* ── D-3: 2열 + 좌측 컬러 바 ── */
+  .d3 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 14px 12px;
+  }
+  .d3 .card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  }
+  .d3 .bar { width: 5px; flex-shrink: 0; }
+  .d3 .body { padding: 11px 10px; display: flex; align-items: center; gap: 8px; flex: 1; }
+  .d3 .icon { font-size: 20px; flex-shrink: 0; }
+  .d3 .info .period { font-size: 9px; color: #9ca3af; }
+  .d3 .info .name { font-size: 14px; font-weight: 700; color: #1f2937; }
+  .d3 .info .count { font-size: 9px; color: #9ca3af; }
+</style>
+</head>
+<body>
+
+<h1>안 D 변형 — 3가지</h1>
+<p class="subtitle">과목 강조 없이 7개 균등 배치</p>
+
+<!-- D-1 -->
+<div class="section">
+  <div class="section-title">D-1 &nbsp;흰 카드 2열 + 마지막 왼쪽</div>
+  <div class="section-desc">깔끔한 흰 카드, 7번째 과목(도덕)은 왼쪽 정렬</div>
+  <div class="phones">
+    <div class="phone d1">
+      <div class="phone-inner">
+        <div class="app-header">
+          <div class="tag">고졸 검정고시</div>
+          <h2>퀴즈 챌린지</h2>
+          <p>기출문제로 합격을 준비하세요</p>
+        </div>
+        <div class="grid">
+          <div class="card"><div class="icon" style="background:#dcfce7">✏️</div><div class="info"><div class="period">1교시</div><div class="name">국어</div><div class="count">400문제</div></div></div>
+          <div class="card"><div class="icon" style="background:#ffedd5">📐</div><div class="info"><div class="period">2교시</div><div class="name">수학</div><div class="count">320문제</div></div></div>
+          <div class="card"><div class="icon" style="background:#e0f2fe">🔤</div><div class="info"><div class="period">3교시</div><div class="name">영어</div><div class="count">400문제</div></div></div>
+          <div class="card"><div class="icon" style="background:#fef9c3">🌍</div><div class="info"><div class="period">4교시</div><div class="name">사회</div><div class="count">400문제</div></div></div>
+          <div class="card"><div class="icon" style="background:#f3e8ff">🔬</div><div class="info"><div class="period">5교시</div><div class="name">과학</div><div class="count">400문제</div></div></div>
+          <div class="card"><div class="icon" style="background:#dbeafe">📚</div><div class="info"><div class="period">6교시</div><div class="name">한국사</div><div class="count">400문제</div></div></div>
+        </div>
+        <div class="last-wrap">
+          <div class="card centered"><div class="icon" style="background:#ffe4e6">🧭</div><div class="info"><div class="period">7교시</div><div class="name">도덕</div><div class="count">400문제</div></div></div>
+        </div>
+        <div class="stats-bar">
+          <div class="stat-item"><div class="num">12</div><div class="lbl">기록</div></div>
+          <div class="stat-item"><div class="num">8</div><div class="lbl">오답</div></div>
+          <div class="stat-item"><div class="num">92%</div><div class="lbl">최고점</div></div>
+        </div>
+        <div class="app-bottom">
+          <button><span>🏆</span>리더보드</button>
+          <button><span>📝</span>오답노트</button>
+          <button><span>📊</span>통계</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D-2 -->
+<div class="section">
+  <div class="section-title">D-2 &nbsp;과목 컬러 카드 2열 + 마지막 왼쪽</div>
+  <div class="section-desc">각 과목 고유색 배경 + 아이콘 중심 세로형 카드. 7번째는 왼쪽 정렬</div>
+  <div class="phones">
+    <div class="phone d2">
+      <div class="phone-inner">
+        <div class="app-header">
+          <div class="tag">고졸 검정고시</div>
+          <h2>퀴즈 챌린지</h2>
+          <p>기출문제로 합격을 준비하세요</p>
+        </div>
+        <div class="grid">
+          <div class="card" style="background:linear-gradient(145deg,#22c55e,#15803d);color:white"><div class="icon">✏️</div><div class="period">1교시</div><div class="name">국어</div><div class="count">400문제</div></div>
+          <div class="card" style="background:linear-gradient(145deg,#f97316,#c2410c);color:white"><div class="icon">📐</div><div class="period">2교시</div><div class="name">수학</div><div class="count">320문제</div></div>
+          <div class="card" style="background:linear-gradient(145deg,#38bdf8,#0369a1);color:white"><div class="icon">🔤</div><div class="period">3교시</div><div class="name">영어</div><div class="count">400문제</div></div>
+          <div class="card" style="background:linear-gradient(145deg,#eab308,#a16207);color:white"><div class="icon">🌍</div><div class="period">4교시</div><div class="name">사회</div><div class="count">400문제</div></div>
+          <div class="card" style="background:linear-gradient(145deg,#a855f7,#6d28d9);color:white"><div class="icon">🔬</div><div class="period">5교시</div><div class="name">과학</div><div class="count">400문제</div></div>
+          <div class="card" style="background:linear-gradient(145deg,#3b82f6,#1e40af);color:white"><div class="icon">📚</div><div class="period">6교시</div><div class="name">한국사</div><div class="count">400문제</div></div>
+          <!-- 7번째: 왼쪽 열에만 -->
+          <div class="card" style="background:linear-gradient(145deg,#f43f5e,#9f1239);color:white">
+            <div class="icon">🧭</div><div class="period">7교시</div><div class="name">도덕</div><div class="count">400문제</div>
+          </div>
+          <div></div>
+        </div>
+        <div class="stats-bar">
+          <div class="stat-item"><div class="num">12</div><div class="lbl">기록</div></div>
+          <div class="stat-item"><div class="num">8</div><div class="lbl">오답</div></div>
+          <div class="stat-item"><div class="num">92%</div><div class="lbl">최고점</div></div>
+        </div>
+        <div class="app-bottom">
+          <button><span>🏆</span>리더보드</button>
+          <button><span>📝</span>오답노트</button>
+          <button><span>📊</span>통계</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D-3 -->
+<div class="section">
+  <div class="section-title">D-3 &nbsp;좌측 컬러 바 + 2열 + 마지막 왼쪽</div>
+  <div class="section-desc">흰 카드에 왼쪽 컬러 바로 과목 구분. 7번째는 왼쪽 정렬</div>
+  <div class="phones">
+    <div class="phone d3">
+      <div class="phone-inner">
+        <div class="app-header">
+          <div class="tag">고졸 검정고시</div>
+          <h2>퀴즈 챌린지</h2>
+          <p>기출문제로 합격을 준비하세요</p>
+        </div>
+        <div class="grid">
+          <div class="card"><div class="bar" style="background:#22c55e"></div><div class="body"><div class="icon">✏️</div><div class="info"><div class="period">1교시</div><div class="name">국어</div><div class="count">400문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#f97316"></div><div class="body"><div class="icon">📐</div><div class="info"><div class="period">2교시</div><div class="name">수학</div><div class="count">320문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#38bdf8"></div><div class="body"><div class="icon">🔤</div><div class="info"><div class="period">3교시</div><div class="name">영어</div><div class="count">400문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#eab308"></div><div class="body"><div class="icon">🌍</div><div class="info"><div class="period">4교시</div><div class="name">사회</div><div class="count">400문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#a855f7"></div><div class="body"><div class="icon">🔬</div><div class="info"><div class="period">5교시</div><div class="name">과학</div><div class="count">400문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#3b82f6"></div><div class="body"><div class="icon">📚</div><div class="info"><div class="period">6교시</div><div class="name">한국사</div><div class="count">400문제</div></div></div></div>
+          <div class="card"><div class="bar" style="background:#f43f5e"></div><div class="body"><div class="icon">🧭</div><div class="info"><div class="period">7교시</div><div class="name">도덕</div><div class="count">400문제</div></div></div></div>
+          <div></div>
+        </div>
+        <div class="stats-bar">
+          <div class="stat-item"><div class="num">12</div><div class="lbl">기록</div></div>
+          <div class="stat-item"><div class="num">8</div><div class="lbl">오답</div></div>
+          <div class="stat-item"><div class="num">92%</div><div class="lbl">최고점</div></div>
+        </div>
+        <div class="app-bottom">
+          <button><span>🏆</span>리더보드</button>
+          <button><span>📝</span>오답노트</button>
+          <button><span>📊</span>통계</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

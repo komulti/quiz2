@@ -16,125 +16,31 @@ export default function MainPage() {
         </div>
 
         {/* 카테고리 카드 */}
-        <div className="w-full max-w-sm space-y-3">
-          <button
-            onClick={() => navigate('/setup?subject=korean_language')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-3xl">
-                ✏️
+        <div className="w-full max-w-sm grid grid-cols-2 gap-3">
+          {[
+            { subject: 'korean_language', period: '1교시', name: '국어',  icon: '✏️', color: 'bg-green-100',  count: '400문제' },
+            { subject: 'math',            period: '2교시', name: '수학',  icon: '📐', color: 'bg-orange-100', count: '320문제' },
+            { subject: 'english',         period: '3교시', name: '영어',  icon: '🔤', color: 'bg-sky-100',    count: '400문제' },
+            { subject: 'social_studies',  period: '4교시', name: '사회',  icon: '🌍', color: 'bg-yellow-100', count: '400문제' },
+            { subject: 'science',         period: '5교시', name: '과학',  icon: '🔬', color: 'bg-purple-100', count: '400문제' },
+            { subject: 'korean_history',  period: '6교시', name: '한국사', icon: '📚', color: 'bg-blue-100',   count: '400문제' },
+            { subject: 'ethics',          period: '7교시', name: '도덕',  icon: '🧭', color: 'bg-rose-100',   count: '400문제' },
+          ].map((item) => (
+            <button
+              key={item.subject}
+              onClick={() => navigate(`/setup?subject=${item.subject}`)}
+              className="bg-white rounded-2xl shadow-lg p-3 text-left hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3"
+            >
+              <div className={`w-11 h-11 shrink-0 ${item.color} rounded-xl flex items-center justify-center text-2xl`}>
+                {item.icon}
               </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">1교시</p>
-                <h2 className="text-xl font-bold text-gray-800">국어</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              <div className="min-w-0">
+                <p className="text-xs text-gray-400 font-medium leading-none mb-1">{item.period}</p>
+                <h2 className="text-sm font-bold text-gray-800 leading-tight">{item.name}</h2>
+                <p className="text-xs text-gray-400 mt-0.5">{item.count}</p>
               </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=math')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-3xl">
-                📐
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">2교시</p>
-                <h2 className="text-xl font-bold text-gray-800">수학</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 320문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=english')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center text-3xl">
-                🔤
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">3교시</p>
-                <h2 className="text-xl font-bold text-gray-800">영어</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=social_studies')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl">
-                🌍
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">4교시</p>
-                <h2 className="text-xl font-bold text-gray-800">사회</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=science')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-3xl">
-                🔬
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">5교시</p>
-                <h2 className="text-xl font-bold text-gray-800">과학</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=korean_history')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-3xl">
-                📚
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">6교시</p>
-                <h2 className="text-xl font-bold text-gray-800">한국사</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate('/setup?subject=ethics')}
-            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-rose-100 rounded-xl flex items-center justify-center text-3xl">
-                🧭
-              </div>
-              <div className="flex-1">
-                <p className="text-xs text-gray-400 font-medium mb-1">7교시</p>
-                <h2 className="text-xl font-bold text-gray-800">도덕</h2>
-                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
-              </div>
-              <span className="text-gray-300 text-2xl">›</span>
-            </div>
-          </button>
+            </button>
+          ))}
         </div>
 
         {/* 통계 */}
