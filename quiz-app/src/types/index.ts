@@ -25,7 +25,7 @@ export interface UserAnswer {
 
 export type QuizMode = 'random' | 'yearly' | 'wrong';
 
-export type Subject = 'korean_history' | 'korean_language' | 'social_studies' | 'science';
+export type Subject = 'korean_history' | 'korean_language' | 'social_studies' | 'science' | 'ethics' | 'english' | 'math';
 
 export interface QuizSettings {
   year?: number;

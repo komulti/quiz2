@@ -6,13 +6,16 @@ import { useQuizStore } from '../store/quizStore';
 
 const CIRCLE = ['①', '②', '③', '④'];
 
-type TabSubject = 'all' | 'korean_history' | 'korean_language' | 'social_studies' | 'science';
+type TabSubject = 'all' | 'korean_history' | 'korean_language' | 'social_studies' | 'science' | 'ethics' | 'english' | 'math';
 
 const TABS: { id: TabSubject; label: string; prefix: string | null }[] = [
   { id: 'all',             label: '전체',  prefix: null },
   { id: 'korean_language', label: '국어',  prefix: 'kl_' },
+  { id: 'math',            label: '수학',  prefix: 'math_' },
+  { id: 'english',         label: '영어',  prefix: 'en_' },
   { id: 'social_studies',  label: '사회',  prefix: 'ss_' },
   { id: 'science',         label: '과학',  prefix: 'sci_' },
+  { id: 'ethics',          label: '도덕',  prefix: 'eth_' },
   { id: 'korean_history',  label: '한국사', prefix: 'kh_' },
 ];
 
@@ -20,15 +23,21 @@ function getSubjectLabel(questionId: string): { text: string; color: string } {
   if (questionId.startsWith('kl_'))  return { text: '국어',  color: 'bg-green-100 text-green-700' };
   if (questionId.startsWith('ss_'))  return { text: '사회',  color: 'bg-yellow-100 text-yellow-700' };
   if (questionId.startsWith('sci_')) return { text: '과학',  color: 'bg-purple-100 text-purple-700' };
+  if (questionId.startsWith('eth_')) return { text: '도덕',  color: 'bg-rose-100 text-rose-700' };
+  if (questionId.startsWith('en_'))   return { text: '영어',  color: 'bg-sky-100 text-sky-700' };
+  if (questionId.startsWith('math_')) return { text: '수학',  color: 'bg-orange-100 text-orange-700' };
   return { text: '한국사', color: 'bg-blue-100 text-blue-700' };
 }
 
 function matchesTab(questionId: string, tab: TabSubject): boolean {
   if (tab === 'all') return true;
-  if (tab === 'korean_history') return !questionId.startsWith('kl_') && !questionId.startsWith('ss_') && !questionId.startsWith('sci_');
+  if (tab === 'korean_history') return !questionId.startsWith('kl_') && !questionId.startsWith('ss_') && !questionId.startsWith('sci_') && !questionId.startsWith('eth_') && !questionId.startsWith('en_') && !questionId.startsWith('math_');
   if (tab === 'korean_language') return questionId.startsWith('kl_');
   if (tab === 'social_studies') return questionId.startsWith('ss_');
   if (tab === 'science') return questionId.startsWith('sci_');
+  if (tab === 'ethics') return questionId.startsWith('eth_');
+  if (tab === 'english') return questionId.startsWith('en_');
+  if (tab === 'math') return questionId.startsWith('math_');
   return true;
 }
 
@@ -36,7 +45,7 @@ export default function WrongNotePage() {
   const navigate = useNavigate();
   const { wrongNotes, removeWrongNote, clearWrongNotes } = useRecordStore();
   const { questions: questionsBySubject } = useDataStore();
-  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science];
+  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science, ...questionsBySubject.ethics, ...questionsBySubject.english, ...questionsBySubject.math];
   const { startQuiz } = useQuizStore();
 
   const [openId, setOpenId] = useState<string | null>(null);
@@ -49,7 +58,7 @@ export default function WrongNotePage() {
     }))
     .filter((item) => item.question !== undefined);
 
-  const filtered = wrongWithQuestion.filter(({ note }) => matchesTab(note.questionId, activeTab));
+  const filtered = wrongWithQuestion.filter(({ note }) => matchesTab(note.questionId, activeTab)).reverse();
 
   const handleStartWrong = () => {
     const pool = allQuestions.filter((q) =>

@@ -7,6 +7,7 @@ import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import WrongNotePage from './pages/WrongNotePage';
+import StatsPage from './pages/StatsPage';
 
 export default function App() {
   const { loadAll, loaded, error } = useDataStore();
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/result" element={<ResultPage />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/wrong-notes" element={<WrongNotePage />} />
+          <Route path="/stats" element={<StatsPage />} />
         </Routes>
       </div>
     </HashRouter>

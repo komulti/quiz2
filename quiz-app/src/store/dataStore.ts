@@ -13,10 +13,13 @@ const DATA_FILES: Record<Subject, string> = {
   korean_language: 'data/questions/korean_language.json',
   social_studies: 'data/questions/social_studies.json',
   science: 'data/questions/science.json',
+  ethics: 'data/questions/ethics.json',
+  english: 'data/questions/english.json',
+  math: 'data/questions/math.json',
 };
 
 export const useDataStore = create<DataState>((set, get) => ({
-  questions: { korean_history: [], korean_language: [], social_studies: [], science: [] },
+  questions: { korean_history: [], korean_language: [], social_studies: [], science: [], ethics: [], english: [], math: [] },
   loaded: false,
   error: null,
 
@@ -24,7 +27,7 @@ export const useDataStore = create<DataState>((set, get) => ({
     if (get().loaded) return;
     try {
       const base = import.meta.env.BASE_URL;
-      const [kh, kl, ss, sci] = await Promise.all([
+      const [kh, kl, ss, sci, eth, en, math] = await Promise.all([
         fetch(`${base}${DATA_FILES.korean_history}`).then((r) => {
           if (!r.ok) throw new Error('한국사 데이터 로딩 실패');
           return r.json();
@@ -41,8 +44,20 @@ export const useDataStore = create<DataState>((set, get) => ({
           if (!r.ok) throw new Error('과학 데이터 로딩 실패');
           return r.json();
         }),
+        fetch(`${base}${DATA_FILES.ethics}`).then((r) => {
+          if (!r.ok) throw new Error('도덕 데이터 로딩 실패');
+          return r.json();
+        }),
+        fetch(`${base}${DATA_FILES.english}`).then((r) => {
+          if (!r.ok) throw new Error('영어 데이터 로딩 실패');
+          return r.json();
+        }),
+        fetch(`${base}${DATA_FILES.math}`).then((r) => {
+          if (!r.ok) throw new Error('수학 데이터 로딩 실패');
+          return r.json();
+        }),
       ]);
-      set({ questions: { korean_history: kh, korean_language: kl, social_studies: ss, science: sci }, loaded: true, error: null });
+      set({ questions: { korean_history: kh, korean_language: kl, social_studies: ss, science: sci, ethics: eth, english: en, math }, loaded: true, error: null });
     } catch (e) {
       set({ error: (e as Error).message, loaded: false });
     }

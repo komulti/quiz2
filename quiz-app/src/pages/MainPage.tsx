@@ -35,6 +35,40 @@ export default function MainPage() {
           </button>
 
           <button
+            onClick={() => navigate('/setup?subject=math')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-3xl">
+                📐
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">2교시</p>
+                <h2 className="text-xl font-bold text-gray-800">수학</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 320문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/setup?subject=english')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center text-3xl">
+                🔤
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">3교시</p>
+                <h2 className="text-xl font-bold text-gray-800">영어</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
+
+          <button
             onClick={() => navigate('/setup?subject=social_studies')}
             className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
@@ -84,6 +118,23 @@ export default function MainPage() {
               <span className="text-gray-300 text-2xl">›</span>
             </div>
           </button>
+
+          <button
+            onClick={() => navigate('/setup?subject=ethics')}
+            className="w-full bg-white rounded-2xl shadow-xl p-6 text-left hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-rose-100 rounded-xl flex items-center justify-center text-3xl">
+                🧭
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-400 font-medium mb-1">7교시</p>
+                <h2 className="text-xl font-bold text-gray-800">도덕</h2>
+                <p className="text-sm text-gray-500 mt-0.5">2018~2025 · 총 400문제</p>
+              </div>
+              <span className="text-gray-300 text-2xl">›</span>
+            </div>
+          </button>
         </div>
 
         {/* 통계 */}
@@ -123,6 +174,13 @@ export default function MainPage() {
           >
             <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📝</span>
             <span className="text-xs">오답노트</span>
+          </button>
+          <button
+            onClick={() => navigate('/stats')}
+            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
+          >
+            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📊</span>
+            <span className="text-xs">통계</span>
           </button>
         </div>
       </div>

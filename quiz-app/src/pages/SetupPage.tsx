@@ -13,6 +13,9 @@ const SUBJECT_LABELS: Record<Subject, { name: string; icon: string }> = {
   korean_language: { name: '국어', icon: '✏️' },
   social_studies: { name: '사회', icon: '🌍' },
   science: { name: '과학', icon: '🔬' },
+  ethics: { name: '도덕', icon: '🧭' },
+  english: { name: '영어', icon: '🔤' },
+  math: { name: '수학', icon: '📐' },
 };
 
 function shuffle<T>(arr: T[]): T[] {
@@ -45,17 +48,21 @@ export default function SetupPage() {
     korean_language: 'kl_',
     social_studies: 'ss_',
     science: 'sci_',
+    ethics: 'eth_',
+    english: 'en_',
+    math: 'math_',
   };
   const prefix = SUBJECT_PREFIX[subject];
   const subjectWrongNotes = wrongNotes.filter((n) =>
     subject === 'korean_history'
-      ? !n.questionId.startsWith('kl_') && !n.questionId.startsWith('ss_')
+      ? !n.questionId.startsWith('kl_') && !n.questionId.startsWith('ss_') && !n.questionId.startsWith('sci_') && !n.questionId.startsWith('eth_') && !n.questionId.startsWith('en_') && !n.questionId.startsWith('math_')
       : n.questionId.startsWith(prefix)
   );
   const wrongCount = subjectWrongNotes.length;
 
+  const yearlyCount = subject === 'math' ? 20 : 25;
   const getAvailableCounts = () => {
-    if (mode === 'yearly') return [25];
+    if (mode === 'yearly') return [yearlyCount];
     if (mode === 'wrong') return COUNTS.filter((c) => c <= wrongCount);
     return COUNTS;
   };

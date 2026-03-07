@@ -22,7 +22,7 @@ export default function ResultPage() {
   const { questions, answers, startTime, mode, settings, startQuiz, resetQuiz } = useQuizStore();
   const { addLeaderboardEntry, addHistory } = useRecordStore();
   const { questions: questionsBySubject } = useDataStore();
-  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science];
+  const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science, ...questionsBySubject.ethics, ...questionsBySubject.english, ...questionsBySubject.math];
 
   const [nickname, setNickname] = useState('');
   const [saved, setSaved] = useState(false);
