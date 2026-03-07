@@ -25,7 +25,7 @@ HEADER_Y = 60
 Q_X_MAX_LEFT = 70
 Q_X_MAX_RIGHT = 377
 
-GROUP_PATTERN = re.compile(r'\[(\d+)[~～](\d+)\]')
+GROUP_PATTERN = re.compile(r'\[(\d+)[~～∼](\d+)\]')
 
 
 def parse_exam_key(filename: str) -> str | None:

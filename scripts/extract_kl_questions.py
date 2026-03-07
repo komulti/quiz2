@@ -23,7 +23,7 @@ Q_X_MAX_RIGHT = 377     # 우열 문제 시작 x0 ≈ 374 (지문 내 항목은 
 
 CIRCLE_MAP = {"①": 1, "②": 2, "③": 3, "④": 4}
 CIRCLES = list(CIRCLE_MAP.keys())
-GROUP_PATTERN = re.compile(r'\[(\d+)[~～](\d+)\]')
+GROUP_PATTERN = re.compile(r'\[(\d+)[~～∼](\d+)\]')
 
 
 def parse_exam_key(filename: str) -> str | None:

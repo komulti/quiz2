@@ -6,7 +6,7 @@ import { useRecordStore } from '../store/recordStore';
 import type { Question, QuizMode, QuizSettings, Subject } from '../types';
 
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
-const COUNTS = [10, 25, 50];
+const BASE_COUNTS = [10, 25, 50, 100, 200];
 
 const SUBJECT_LABELS: Record<Subject, { name: string; icon: string }> = {
   korean_history: { name: '한국사', icon: '📚' },
@@ -60,11 +60,14 @@ export default function SetupPage() {
   );
   const wrongCount = subjectWrongNotes.length;
 
+  const maxCount = allQuestions.length;
+  const ALL_COUNTS = [...BASE_COUNTS, maxCount < 400 ? maxCount : 400];
+
   const yearlyCount = subject === 'math' ? 20 : 25;
   const getAvailableCounts = () => {
     if (mode === 'yearly') return [yearlyCount];
-    if (mode === 'wrong') return COUNTS.filter((c) => c <= wrongCount);
-    return COUNTS;
+    if (mode === 'wrong') return ALL_COUNTS.filter((c) => c <= wrongCount);
+    return ALL_COUNTS.filter((c) => c <= maxCount);
   };
 
   const availableCounts = getAvailableCounts();
@@ -226,7 +229,7 @@ export default function SetupPage() {
               문제 수
             </h2>
             <div className="grid grid-cols-3 gap-2">
-              {COUNTS.map((c) => {
+              {ALL_COUNTS.map((c) => {
                 const disabled = !availableCounts.includes(c);
                 return (
                   <button
