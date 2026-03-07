@@ -6,6 +6,7 @@ import unicodedata
 from pathlib import Path
 
 import fitz
+from PIL import Image
 
 BASE_DIR = Path(__file__).parent.parent
 PDF_DIR = BASE_DIR / "data/pdfs/korean_language"
@@ -111,6 +112,17 @@ def crop_and_save(page, col: str, y_start: float, y_end: float, out_path: Path):
     pix.save(str(out_path))
 
 
+def stitch_vertical(path_top: Path, path_bottom: Path, out_path: Path):
+    """두 이미지를 세로로 이어붙여 저장"""
+    img_top = Image.open(path_top)
+    img_bottom = Image.open(path_bottom)
+    w = max(img_top.width, img_bottom.width)
+    combined = Image.new("RGB", (w, img_top.height + img_bottom.height), "white")
+    combined.paste(img_top, (0, 0))
+    combined.paste(img_bottom, (0, img_top.height))
+    combined.save(str(out_path))
+
+
 def process_pdf(pdf_path: Path, exam_key: str) -> tuple[int, int]:
     doc = fitz.open(str(pdf_path))
     q_pos = find_question_positions(doc)
@@ -132,15 +144,31 @@ def process_pdf(pdf_path: Path, exam_key: str) -> tuple[int, int]:
 
         # 지문 끝 = 같은 열·페이지에서 첫 번째 그룹 문제의 y
         passage_end_y = get_col_max_y(page, col)
+        other_col_start_q = None  # 그룹 문제가 반대 컬럼에 있는 경우
         for q in range(start_q, end_q + 1):
             if q in q_pos:
                 pi, pc, py = q_pos[q]
                 if pi == page_idx and pc == col:
                     passage_end_y = min(passage_end_y, py - 2)
                     break
+                elif pi == page_idx and pc != col and other_col_start_q is None:
+                    # 문제가 반대 컬럼에 있음 → 지문이 컬럼을 넘어감
+                    other_col_start_q = (pc, py)
 
         out_path = IMAGE_DIR / f"{exam_key}_pass_{start_q}_{end_q}.png"
-        crop_and_save(page, col, header_y, passage_end_y, out_path)
+
+        if other_col_start_q is not None:
+            # 컬럼을 넘어가는 지문: 왼쪽 컬럼 하단 + 오른쪽 컬럼 상단을 합침
+            other_col, other_py = other_col_start_q
+            tmp_a = IMAGE_DIR / f"_tmp_a_{start_q}.png"
+            tmp_b = IMAGE_DIR / f"_tmp_b_{start_q}.png"
+            crop_and_save(page, col, header_y, passage_end_y, tmp_a)
+            crop_and_save(page, other_col, HEADER_Y, other_py - 2, tmp_b)
+            stitch_vertical(tmp_a, tmp_b, out_path)
+            tmp_a.unlink()
+            tmp_b.unlink()
+        else:
+            crop_and_save(page, col, header_y, passage_end_y, out_path)
         passage_saved += 1
 
     # (page_idx, col) → 해당 열에 있는 그룹 헤더 y0 목록
