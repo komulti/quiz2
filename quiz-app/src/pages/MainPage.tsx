@@ -137,7 +137,7 @@ export default function MainPage() {
             className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
           >
             <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📊</span>
-            <span className="text-xs">통계</span>
+            <span className="text-xs">학습통계</span>
           </button>
         </div>
       </div>

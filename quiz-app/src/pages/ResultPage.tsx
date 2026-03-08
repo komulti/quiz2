@@ -51,6 +51,7 @@ export default function ResultPage() {
       total: questions.length,
       timeSeconds: elapsed,
       date: new Date().toISOString(),
+      subject: settings.subject,
     };
     addHistory(session);
 

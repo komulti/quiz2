@@ -61,4 +61,5 @@ export interface SessionHistory {
   total: number;
   timeSeconds: number;
   date: string;
+  subject?: Subject;
 }

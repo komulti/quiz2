@@ -9,6 +9,7 @@ import ResultPage from './pages/ResultPage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import WrongNotePage from './pages/WrongNotePage';
 import StatsPage from './pages/StatsPage';
+import LogoPreviewPage from './pages/LogoPreviewPage';
 
 function SyncBanner() {
   const syncStatus = useRecordStore((s) => s.syncStatus);
@@ -80,6 +81,7 @@ export default function App() {
           <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/wrong-notes" element={<WrongNotePage />} />
           <Route path="/stats" element={<StatsPage />} />
+          <Route path="/logo-preview" element={<LogoPreviewPage />} />
         </Routes>
       </div>
     </HashRouter>

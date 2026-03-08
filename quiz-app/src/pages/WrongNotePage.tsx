@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import { useDataStore } from '../store/dataStore';
@@ -52,6 +52,8 @@ export default function WrongNotePage() {
   const [openId, setOpenId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabSubject>('all');
   const [showClearConfirm, setShowClearConfirm] = useState(false);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const wrongWithQuestion = wrongNotes
     .map((note) => ({
