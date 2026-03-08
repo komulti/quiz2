@@ -8,28 +8,31 @@ export interface UserRecord {
   history:     SessionHistory[];
 }
 
+const TIMEOUT_MS = 8000;
+
+function withTimeout<T>(promise: Promise<T>): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error('Firestore timeout')), TIMEOUT_MS)
+    ),
+  ]);
+}
+
 export async function loadUserRecord(nickname: string): Promise<UserRecord | null> {
-  try {
-    const snap = await getDoc(doc(db, 'users', nickname));
-    if (!snap.exists()) return null;
-    const data = snap.data();
-    return {
-      leaderboard: data.leaderboard ?? [],
-      wrongNotes:  data.wrongNotes  ?? [],
-      history:     data.history     ?? [],
-    };
-  } catch {
-    return null;
-  }
+  const snap = await withTimeout(getDoc(doc(db, 'users', nickname)));
+  if (!snap.exists()) return null;
+  const data = snap.data();
+  return {
+    leaderboard: data.leaderboard ?? [],
+    wrongNotes:  data.wrongNotes  ?? [],
+    history:     data.history     ?? [],
+  };
 }
 
 export async function saveUserRecord(nickname: string, record: UserRecord): Promise<void> {
-  try {
-    await setDoc(doc(db, 'users', nickname), {
-      ...record,
-      updatedAt: serverTimestamp(),
-    });
-  } catch (e) {
-    console.error('Firestore 저장 오류:', e);
-  }
+  await withTimeout(setDoc(doc(db, 'users', nickname), {
+    ...record,
+    updatedAt: serverTimestamp(),
+  }));
 }

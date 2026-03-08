@@ -36,9 +36,14 @@ function scheduleSave(
     const nickname = localStorage.getItem('playerName')?.trim();
     if (!nickname) return;
     setSyncStatus('syncing');
-    const { leaderboard, wrongNotes, history } = get();
-    await saveUserRecord(nickname, { leaderboard, wrongNotes, history });
-    setSyncStatus('synced');
+    try {
+      const { leaderboard, wrongNotes, history } = get();
+      await saveUserRecord(nickname, { leaderboard, wrongNotes, history });
+      setSyncStatus('synced');
+    } catch (e) {
+      console.error('자동 저장 실패:', e);
+      setSyncStatus('error');
+    }
   }, 1500);
 }
 
@@ -105,14 +110,19 @@ export const useRecordStore = create<RecordState>()(
 
         loadFromCloud: async (nickname) => {
           set({ syncStatus: 'syncing' });
-          const record = await loadUserRecord(nickname);
-          if (record) {
-            set({ ...record, syncStatus: 'synced' });
-          } else {
-            // 클라우드에 데이터 없음 → 현재 로컬 데이터를 클라우드에 업로드
-            const { leaderboard, wrongNotes, history } = get();
-            await saveUserRecord(nickname, { leaderboard, wrongNotes, history });
-            set({ syncStatus: 'synced' });
+          try {
+            const record = await loadUserRecord(nickname);
+            if (record) {
+              set({ ...record, syncStatus: 'synced' });
+            } else {
+              // 클라우드에 데이터 없음 → 현재 로컬 데이터를 클라우드에 업로드
+              const { leaderboard, wrongNotes, history } = get();
+              await saveUserRecord(nickname, { leaderboard, wrongNotes, history });
+              set({ syncStatus: 'synced' });
+            }
+          } catch (e) {
+            console.error('동기화 실패:', e);
+            set({ syncStatus: 'error' });
           }
         },
 
