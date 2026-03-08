@@ -19,6 +19,11 @@ export default function LeaderboardPage() {
         <h1 className="text-lg font-bold text-gray-800">🏆 리더보드</h1>
       </div>
 
+      <div className="mx-4 mt-4 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3 flex items-center gap-3">
+        <span className="text-xl">☁️</span>
+        <p className="text-sm text-blue-500 leading-snug">닉네임별로 저장되는 <span className="font-bold">나만의 기록</span>입니다. 다른 기기에서도 같은 닉네임으로 동기화하면 불러올 수 있어요.</p>
+      </div>
+
       <div className="flex-1 overflow-y-auto px-4 py-4">
         {leaderboard.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
