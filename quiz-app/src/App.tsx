@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useDataStore } from './store/dataStore';
+import { useRecordStore } from './store/recordStore';
 import MainPage from './pages/MainPage';
 import SetupPage from './pages/SetupPage';
 import QuizPage from './pages/QuizPage';
@@ -11,10 +12,14 @@ import StatsPage from './pages/StatsPage';
 
 export default function App() {
   const { loadAll, loaded, error } = useDataStore();
+  const { loadFromCloud } = useRecordStore();
 
   useEffect(() => {
     loadAll();
-  }, [loadAll]);
+    // 저장된 닉네임이 있으면 클라우드에서 자동 로드
+    const nickname = localStorage.getItem('playerName')?.trim();
+    if (nickname) loadFromCloud(nickname);
+  }, [loadAll, loadFromCloud]);
 
   if (error) {
     return (

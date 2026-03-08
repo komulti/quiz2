@@ -1,9 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
+import type { SyncStatus } from '../store/recordStore';
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const { leaderboard, wrongNotes } = useRecordStore();
+  const { leaderboard, wrongNotes, syncStatus } = useRecordStore();
+  const nickname = localStorage.getItem('playerName')?.trim();
+
+  const syncLabel: Record<SyncStatus, string> = {
+    idle:    '',
+    syncing: '☁️ 동기화 중...',
+    synced:  '☁️ 동기화됨',
+    error:   '⚠️ 동기화 실패',
+  };
+  const syncColor: Record<SyncStatus, string> = {
+    idle:    '',
+    syncing: 'text-blue-300',
+    synced:  'text-green-300',
+    error:   'text-red-300',
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-600 to-blue-800">
@@ -13,6 +28,12 @@ export default function MainPage() {
           <p className="text-blue-200 text-sm font-medium tracking-widest mb-2">고졸 검정고시</p>
           <h1 className="text-4xl font-bold text-white mb-2">퀴즈 챌린지</h1>
           <p className="text-blue-200 text-sm">기출문제로 합격을 준비하세요</p>
+          {nickname && syncStatus !== 'idle' && (
+            <p className={`text-xs mt-2 ${syncColor[syncStatus]}`}>
+              {syncLabel[syncStatus]}
+              {syncStatus === 'synced' && <span className="ml-1 opacity-70">({nickname})</span>}
+            </p>
+          )}
         </div>
 
         {/* 카테고리 카드 */}

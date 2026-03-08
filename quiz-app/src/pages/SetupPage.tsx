@@ -35,7 +35,7 @@ export default function SetupPage() {
   const { questions: allQuestionsBySubject } = useDataStore();
   const allQuestions = allQuestionsBySubject[subject] ?? [];
   const { startQuiz } = useQuizStore();
-  const { wrongNotes } = useRecordStore();
+  const { wrongNotes, loadFromCloud } = useRecordStore();
 
   const [mode, setMode] = useState<QuizMode>('random');
   const [year, setYear] = useState(2025);
@@ -74,7 +74,7 @@ export default function SetupPage() {
   const effectiveCount =
     availableCounts.includes(count) ? count : availableCounts[availableCounts.length - 1] ?? 0;
 
-  const handleStart = () => {
+  const handleStart = async () => {
     let pool: Question[] = [];
     const settings: QuizSettings = { count: effectiveCount, subject };
 
@@ -98,7 +98,10 @@ export default function SetupPage() {
     const trimmed = playerName.trim();
     if (trimmed) {
       settings.playerName = trimmed;
+      const prev = localStorage.getItem('playerName')?.trim();
       localStorage.setItem('playerName', trimmed);
+      // 닉네임이 바뀌었으면 해당 닉네임의 클라우드 데이터 로드
+      if (prev !== trimmed) await loadFromCloud(trimmed);
     }
     startQuiz(pool, mode, settings);
     navigate('/quiz');
