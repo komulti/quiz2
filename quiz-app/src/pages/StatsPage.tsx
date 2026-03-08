@@ -47,7 +47,7 @@ const MODE_LABEL: Record<string, string> = {
 
 export default function StatsPage() {
   const navigate = useNavigate();
-  const { history, wrongNotes } = useRecordStore();
+  const { history, wrongNotes, clearHistory } = useRecordStore();
 
   const totalSessions = history.length;
   const totalQuestions = history.reduce((s, h) => s + h.total, 0);
@@ -70,9 +70,19 @@ export default function StatsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* 헤더 */}
-      <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center gap-3">
-        <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
-        <h1 className="text-lg font-bold text-gray-800">📊 학습 통계</h1>
+      <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
+          <h1 className="text-lg font-bold text-gray-800">📊 학습 통계</h1>
+        </div>
+        {history.length > 0 && (
+          <button
+            onClick={() => { if (confirm('학습 기록을 전부 삭제할까요?')) clearHistory(); }}
+            className="text-sm text-red-400 hover:text-red-600"
+          >
+            전체 삭제
+          </button>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">

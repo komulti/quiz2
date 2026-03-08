@@ -19,6 +19,7 @@ interface RecordState {
   addWrongNotes:       (notes: WrongNote[]) => void;
   removeWrongNote:     (questionId: string) => void;
   clearWrongNotes:     () => void;
+  clearHistory:        () => void;
   addHistory:          (session: SessionHistory) => void;
   loadFromCloud:       (nickname: string) => Promise<void>;
   disconnectCloud:     () => void;
@@ -98,6 +99,11 @@ export const useRecordStore = create<RecordState>()(
 
         clearWrongNotes: () => {
           set({ wrongNotes: [] });
+          sync();
+        },
+
+        clearHistory: () => {
+          set({ history: [] });
           sync();
         },
 
