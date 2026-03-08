@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
+import ConfirmModal from '../components/ConfirmModal';
 
 const CIRCLE = ['①', '②', '③', '④'];
 
@@ -50,6 +51,7 @@ export default function WrongNotePage() {
 
   const [openId, setOpenId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabSubject>('all');
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   const wrongWithQuestion = wrongNotes
     .map((note) => ({
@@ -74,6 +76,14 @@ export default function WrongNotePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      {showClearConfirm && (
+        <ConfirmModal
+          message="오답노트를 전부 삭제할까요?"
+          subMessage="삭제된 기록은 복구할 수 없습니다"
+          onConfirm={() => { clearWrongNotes(); setShowClearConfirm(false); }}
+          onCancel={() => setShowClearConfirm(false)}
+        />
+      )}
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
@@ -81,9 +91,7 @@ export default function WrongNotePage() {
         </div>
         {wrongNotes.length > 0 && (
           <button
-            onClick={() => {
-              if (confirm('오답노트를 전부 삭제할까요?')) clearWrongNotes();
-            }}
+            onClick={() => setShowClearConfirm(true)}
             className="text-sm text-red-400 hover:text-red-600"
           >
             전체 삭제

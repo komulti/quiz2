@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import { formatTime } from '../hooks/useTimer';
+import ConfirmModal from '../components/ConfirmModal';
 
 const SUBJECT_INFO: { label: string; prefix: string; color: string }[] = [
   { label: '국어',  prefix: 'kl_',    color: 'bg-green-500' },
@@ -48,6 +50,7 @@ const MODE_LABEL: Record<string, string> = {
 export default function StatsPage() {
   const navigate = useNavigate();
   const { history, wrongNotes, clearHistory } = useRecordStore();
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   const totalSessions = history.length;
   const totalQuestions = history.reduce((s, h) => s + h.total, 0);
@@ -69,6 +72,15 @@ export default function StatsPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      {showClearConfirm && (
+        <ConfirmModal
+          icon="📊"
+          message="학습 기록을 전부 삭제할까요?"
+          subMessage="삭제된 기록은 복구할 수 없습니다"
+          onConfirm={() => { clearHistory(); setShowClearConfirm(false); }}
+          onCancel={() => setShowClearConfirm(false)}
+        />
+      )}
       {/* 헤더 */}
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -77,7 +89,7 @@ export default function StatsPage() {
         </div>
         {history.length > 0 && (
           <button
-            onClick={() => { if (confirm('학습 기록을 전부 삭제할까요?')) clearHistory(); }}
+            onClick={() => setShowClearConfirm(true)}
             className="text-sm text-red-400 hover:text-red-600"
           >
             전체 삭제
