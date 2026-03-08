@@ -147,7 +147,7 @@ export default function SetupPage() {
               <div className="flex gap-2">
                 <input
                   type="text"
-                  placeholder="이름을 입력하면 오답노트에 표시됩니다"
+                  placeholder="이름을 입력하면 모든 기록이 저장됩니다"
                   value={playerName}
                   onChange={(e) => setPlayerName(e.target.value)}
                   onKeyDown={async (e) => {
