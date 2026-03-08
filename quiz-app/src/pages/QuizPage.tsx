@@ -298,7 +298,6 @@ export default function QuizPage() {
       {showExitModal && (
         <ConfirmModal
           message="퀴즈를 그만할까요?"
-          subMessage="지금까지의 기록은 저장되지 않습니다"
           confirmLabel="그만하기"
           cancelLabel="계속 풀기"
           onConfirm={() => { resetQuiz(); navigate('/'); }}
