@@ -54,7 +54,7 @@ export default function MainPage() {
             <span className={`w-2 h-2 rounded-full flex-shrink-0 ${cfg.dot} ${syncStatus === 'syncing' ? 'animate-pulse' : ''}`} />
             <span>{cfg.icon}</span>
             <span>{cfg.label}</span>
-            {syncStatus === 'synced' && (
+            {(syncStatus === 'synced' || syncStatus === 'syncing') && (
               <button
                 onClick={(e) => { e.stopPropagation(); disconnectCloud(); }}
                 className="ml-1 w-4 h-4 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-white font-bold leading-none transition-colors"
