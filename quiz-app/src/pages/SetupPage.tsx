@@ -35,7 +35,7 @@ export default function SetupPage() {
   const { questions: allQuestionsBySubject } = useDataStore();
   const allQuestions = allQuestionsBySubject[subject] ?? [];
   const { startQuiz } = useQuizStore();
-  const { wrongNotes, loadFromCloud } = useRecordStore();
+  const { wrongNotes, loadFromCloud, syncStatus, disconnectCloud } = useRecordStore();
 
   const [mode, setMode] = useState<QuizMode>('random');
   const [year, setYear] = useState(2025);
@@ -126,17 +126,58 @@ export default function SetupPage() {
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {/* 이름 입력 */}
         <div className="bg-white rounded-2xl shadow-sm p-5">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-            이름 (선택)
-          </h2>
-          <input
-            type="text"
-            placeholder="이름을 입력하면 오답노트에 표시됩니다"
-            value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
-            maxLength={12}
-            className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-blue-500"
-          />
+          {syncStatus === 'synced' ? (
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">이름</h2>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{playerName || '—'}</span>
+                <button
+                  onClick={() => { disconnectCloud(); setPlayerName(''); }}
+                  className="text-xs text-white bg-red-400 hover:bg-red-500 px-2.5 py-1 rounded-lg transition-colors"
+                >
+                  동기화 중지
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                이름 (선택)
+              </h2>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="이름을 입력하면 오답노트에 표시됩니다"
+                  value={playerName}
+                  onChange={(e) => setPlayerName(e.target.value)}
+                  onKeyDown={async (e) => {
+                    if (e.key !== 'Enter') return;
+                    const trimmed = playerName.trim();
+                    if (!trimmed || syncStatus === 'syncing') return;
+                    localStorage.setItem('playerName', trimmed);
+                    await loadFromCloud(trimmed);
+                  }}
+                  maxLength={12}
+                  className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-blue-500"
+                />
+                <button
+                  onClick={async () => {
+                    const trimmed = playerName.trim();
+                    if (!trimmed) return;
+                    localStorage.setItem('playerName', trimmed);
+                    await loadFromCloud(trimmed);
+                  }}
+                  disabled={!playerName.trim() || syncStatus === 'syncing'}
+                  className="shrink-0 px-4 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5"
+                >
+                  {syncStatus === 'syncing' ? (
+                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  ) : '☁️'}
+                  동기화
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* 모드 선택 */}

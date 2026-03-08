@@ -21,6 +21,7 @@ interface RecordState {
   clearWrongNotes:     () => void;
   addHistory:          (session: SessionHistory) => void;
   loadFromCloud:       (nickname: string) => Promise<void>;
+  disconnectCloud:     () => void;
 }
 
 // 디바운스 타이머 (연속 변경을 묶어서 1번만 저장)
@@ -113,6 +114,13 @@ export const useRecordStore = create<RecordState>()(
             await saveUserRecord(nickname, { leaderboard, wrongNotes, history });
             set({ syncStatus: 'synced' });
           }
+        },
+
+        disconnectCloud: () => {
+          localStorage.removeItem('playerName');
+          if (syncTimer) clearTimeout(syncTimer);
+          syncTimer = null;
+          set({ syncStatus: 'idle' });
         },
       };
     },

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useDataStore } from './store/dataStore';
 import { useRecordStore } from './store/recordStore';
@@ -9,6 +9,31 @@ import ResultPage from './pages/ResultPage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import WrongNotePage from './pages/WrongNotePage';
 import StatsPage from './pages/StatsPage';
+
+function SyncBanner() {
+  const syncStatus = useRecordStore((s) => s.syncStatus);
+  const [show, setShow] = useState(false);
+  const prevRef = useRef(syncStatus);
+
+  useEffect(() => {
+    if (prevRef.current !== 'synced' && syncStatus === 'synced') {
+      setShow(true);
+      const t = setTimeout(() => setShow(false), 1400);
+      return () => clearTimeout(t);
+    }
+    prevRef.current = syncStatus;
+  }, [syncStatus]);
+
+  if (!show) return null;
+  return (
+    <div className="fixed inset-x-0 top-0 z-50 pointer-events-none">
+      <div className="sync3-banner bg-green-500 text-white py-4 px-6 flex items-center justify-center gap-3 shadow-lg">
+        <span className="text-2xl">☁️</span>
+        <span className="text-lg font-black tracking-wide">동기화됨</span>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const { loadAll, loaded, error } = useDataStore();
@@ -45,6 +70,7 @@ export default function App() {
 
   return (
     <HashRouter>
+      <SyncBanner />
       <div className="app-container">
         <Routes>
           <Route path="/" element={<MainPage />} />

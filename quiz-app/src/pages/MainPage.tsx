@@ -1,24 +1,46 @@
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
-import type { SyncStatus } from '../store/recordStore';
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const { leaderboard, wrongNotes, syncStatus } = useRecordStore();
+  const { leaderboard, wrongNotes, syncStatus, disconnectCloud } = useRecordStore();
   const nickname = localStorage.getItem('playerName')?.trim();
 
-  const syncLabel: Record<SyncStatus, string> = {
-    idle:    '',
-    syncing: '☁️ 동기화 중...',
-    synced:  '☁️ 동기화됨',
-    error:   '⚠️ 동기화 실패',
+  type SyncConfig = { icon: string; label: string; pill: string; dot: string };
+  const syncConfig: Record<string, SyncConfig> = {
+    no_nickname: {
+      icon:  '⚠️',
+      label: '닉네임 없음 — 기록이 저장되지 않아요',
+      pill:  'bg-yellow-400/20 border border-yellow-400/50',
+      dot:   'bg-yellow-400',
+    },
+    idle: {
+      icon:  '☁️',
+      label: '동기화 대기 중',
+      pill:  'bg-white/10 border border-white/20',
+      dot:   'bg-gray-400',
+    },
+    syncing: {
+      icon:  '🔄',
+      label: '동기화 중...',
+      pill:  'bg-blue-400/20 border border-blue-400/50',
+      dot:   'bg-blue-400',
+    },
+    synced: {
+      icon:  '✅',
+      label: `${nickname} — 동기화됨`,
+      pill:  'bg-green-400/20 border border-green-400/50',
+      dot:   'bg-green-400',
+    },
+    error: {
+      icon:  '❌',
+      label: '동기화 실패 — 인터넷 확인',
+      pill:  'bg-red-400/20 border border-red-400/50',
+      dot:   'bg-red-400',
+    },
   };
-  const syncColor: Record<SyncStatus, string> = {
-    idle:    '',
-    syncing: 'text-blue-300',
-    synced:  'text-green-300',
-    error:   'text-red-300',
-  };
+  const configKey = !nickname ? 'no_nickname' : syncStatus;
+  const cfg = syncConfig[configKey];
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-600 to-blue-800">
@@ -28,12 +50,20 @@ export default function MainPage() {
           <p className="text-blue-200 text-sm font-medium tracking-widest mb-2">고졸 검정고시</p>
           <h1 className="text-4xl font-bold text-white mb-2">퀴즈 챌린지</h1>
           <p className="text-blue-200 text-sm">기출문제로 합격을 준비하세요</p>
-          {nickname && syncStatus !== 'idle' && (
-            <p className={`text-xs mt-2 ${syncColor[syncStatus]}`}>
-              {syncLabel[syncStatus]}
-              {syncStatus === 'synced' && <span className="ml-1 opacity-70">({nickname})</span>}
-            </p>
-          )}
+          <div className={`inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full text-white text-xs font-semibold ${cfg.pill}`}>
+            <span className={`w-2 h-2 rounded-full flex-shrink-0 ${cfg.dot} ${syncStatus === 'syncing' ? 'animate-pulse' : ''}`} />
+            <span>{cfg.icon}</span>
+            <span>{cfg.label}</span>
+            {syncStatus === 'synced' && (
+              <button
+                onClick={(e) => { e.stopPropagation(); disconnectCloud(); }}
+                className="ml-1 w-4 h-4 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-white font-bold leading-none transition-colors"
+                title="동기화 중지"
+              >
+                ×
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 카테고리 카드 */}
