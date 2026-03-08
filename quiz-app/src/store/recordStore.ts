@@ -136,7 +136,7 @@ export const useRecordStore = create<RecordState>()(
           localStorage.removeItem('playerName');
           if (syncTimer) clearTimeout(syncTimer);
           syncTimer = null;
-          set({ syncStatus: 'idle' });
+          set({ syncStatus: 'idle', leaderboard: [], wrongNotes: [], history: [] });
         },
       };
     },
