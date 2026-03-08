@@ -374,21 +374,29 @@ export default function StatsPage() {
           {totalSessions === 0 ? (
             <p className="text-center text-gray-400 text-sm py-4">기록이 없습니다</p>
           ) : (
-            <div className="flex items-end justify-around gap-2 h-28">
+            <div className="flex justify-around gap-2">
               {timeSlots.map((slot) => {
                 const heightPct = (slot.count / maxSlot) * 100;
                 const isBest = slot.count === maxSlot && slot.count > 0;
                 return (
-                  <div key={slot.label} className="flex flex-col items-center gap-1.5 flex-1">
-                    <span className="text-xs font-bold text-gray-600">{slot.count > 0 ? `${slot.count}회` : ''}</span>
-                    <div className="w-full bg-gray-100 rounded-xl overflow-hidden flex flex-col justify-end" style={{ height: '80px' }}>
+                  <div key={slot.label} className="flex flex-col items-center gap-2 flex-1">
+                    {/* 바 영역 — 고정 높이, 내부에서 높이 비율로 성장 */}
+                    <div className="w-full bg-gray-100 rounded-xl overflow-hidden flex flex-col justify-end relative" style={{ height: 96 }}>
                       <div
                         className={`w-full rounded-xl transition-all ${isBest ? slot.color : 'bg-gray-300'}`}
                         style={{ height: `${Math.max(heightPct, slot.count > 0 ? 8 : 0)}%` }}
                       />
+                      {slot.count > 0 && (
+                        <span className="absolute top-2 left-0 right-0 text-center text-xs font-bold text-gray-600">
+                          {slot.count}회
+                        </span>
+                      )}
                     </div>
-                    <span className="text-xs text-gray-400 text-center whitespace-pre-line leading-tight">{slot.label}</span>
-                    {isBest && <span className="text-xs font-bold text-yellow-500">⭐ 최다</span>}
+                    {/* 라벨 — 고정 영역 */}
+                    <div className="text-center">
+                      <span className="text-xs text-gray-400 whitespace-pre-line leading-tight">{slot.label}</span>
+                      {isBest && <p className="text-xs font-bold text-yellow-500 mt-0.5">⭐ 최다</p>}
+                    </div>
                   </div>
                 );
               })}
