@@ -13,7 +13,7 @@ export default defineConfig({
         name: '고졸 검정고시 한국사 퀴즈',
         short_name: '한국사 퀴즈',
         description: '고졸 검정고시 한국사 기출문제 퀴즈',
-        theme_color: '#2563eb',
+        theme_color: '#be185d',
         background_color: '#f9fafb',
         display: 'standalone',
         orientation: 'portrait',
