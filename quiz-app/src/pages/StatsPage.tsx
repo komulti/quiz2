@@ -156,7 +156,7 @@ function RadarChart({ values }: { values: number[] }) {
       {/* 중심 % 표시 */}
       <text x={CX} y={CY} textAnchor="middle" dominantBaseline="middle"
         fontSize="16" fill="#111827" fontWeight="700">
-        {Math.round(values.reduce((a, b) => a + b, 0) / N * 100)}%
+        {(() => { const active = values.filter((v) => v > 0); return active.length === 0 ? 0 : Math.round(active.reduce((a, b) => a + b, 0) / active.length * 100); })()}%
       </text>
     </svg>
   );
