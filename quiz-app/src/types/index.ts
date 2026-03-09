@@ -14,6 +14,7 @@ export interface Question {
   options: QuestionOption[];
   answer: number | number[];
   multipleAnswers: boolean;
+  explanation?: string;
 }
 
 export interface UserAnswer {

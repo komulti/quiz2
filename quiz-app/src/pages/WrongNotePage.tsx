@@ -204,7 +204,7 @@ export default function WrongNotePage() {
                     </button>
                   </div>
                   {isOpen && (
-                    <div className="px-3 pb-3">
+                    <div className="px-3 pb-3 space-y-3">
                       <img
                         src={`${import.meta.env.BASE_URL}data/${q.image}`}
                         alt={`${q.id} 문제`}
@@ -213,6 +213,12 @@ export default function WrongNotePage() {
                           (e.target as HTMLImageElement).style.display = 'none';
                         }}
                       />
+                      {q.explanation && (
+                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
+                          <p className="text-xs font-bold text-blue-600 mb-1.5">📖 해설</p>
+                          <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{q.explanation}</p>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
