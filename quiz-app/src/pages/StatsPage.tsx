@@ -154,6 +154,7 @@ function RadarChart({ values }: { values: number[] }) {
         );
       })}
       {/* 중심 % 표시 */}
+      <circle cx={CX} cy={CY} r="22" fill="#eff6ff" />
       <text x={CX} y={CY} textAnchor="middle" dominantBaseline="middle"
         fontSize="16" fill="#111827" fontWeight="700">
         {(() => { const active = values.filter((v) => v > 0); return active.length === 0 ? 0 : Math.round(active.reduce((a, b) => a + b, 0) / active.length * 100); })()}%
