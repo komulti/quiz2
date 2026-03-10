@@ -96,7 +96,7 @@ const BADGES: BadgeDef[] = [
 const PROF_LEVELS = ['입문', '기초', '중급', '고급', '달인'];
 const PROF_COLORS = ['bg-gray-300', 'bg-green-400', 'bg-blue-400', 'bg-purple-500', 'bg-yellow-500'];
 function getProficiency(sessions: { score: number; total: number }[]) {
-  if (sessions.length === 0) return { xp: 0, profLv: 0, label: '입문', color: PROF_COLORS[0], pct: 0 };
+  if (sessions.length === 0) return { xp: 0, profLv: 0, profLabel: '입문', color: PROF_COLORS[0], pct: 0 };
   const xp = sessions.reduce((acc, h) => acc + h.total + Math.round((h.score / h.total) * h.total), 0);
   const thresholds = [0, 30, 100, 250, 500];
   let profLv = thresholds.filter((t) => xp >= t).length - 1;
@@ -104,7 +104,7 @@ function getProficiency(sessions: { score: number; total: number }[]) {
   const nextThreshold = thresholds[profLv + 1] ?? thresholds[4];
   const prevThreshold = thresholds[profLv];
   const pct = profLv === 4 ? 100 : Math.min(((xp - prevThreshold) / (nextThreshold - prevThreshold)) * 100, 100);
-  return { xp, profLv, label: PROF_LEVELS[profLv], color: PROF_COLORS[profLv], pct };
+  return { xp, profLv, profLabel: PROF_LEVELS[profLv], color: PROF_COLORS[profLv], pct };
 }
 
 /* ── 레이더 차트 (SVG) ────────────────────────── */
@@ -318,7 +318,7 @@ export default function StatsPage() {
           <h2 className="text-sm font-semibold text-gray-500 mb-4">📈 과목별 숙련도</h2>
           <div className="space-y-3">
             {proficiency.map((s) => (
-              <div key={s.label} className="flex items-center gap-3">
+              <div key={s.subject} className="flex items-center gap-3">
                 <span className="text-sm text-gray-600 w-10 shrink-0">{s.label}</span>
                 <div className="flex-1">
                   <div className="bg-gray-100 rounded-full h-3 overflow-hidden">
@@ -326,7 +326,7 @@ export default function StatsPage() {
                   </div>
                 </div>
                 <span className={`text-xs font-bold w-8 text-right ${s.profLv >= 3 ? 'text-purple-500' : s.profLv >= 2 ? 'text-blue-500' : s.profLv >= 1 ? 'text-green-500' : 'text-gray-400'}`}>
-                  {s.label}
+                  {s.profLabel}
                 </span>
               </div>
             ))}
@@ -365,6 +365,39 @@ export default function StatsPage() {
                 ))}
               </div>
             </>
+          )}
+        </div>
+
+        {/* 과목별 오답 현황 */}
+        <div className="bg-white rounded-2xl shadow-sm p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-gray-500">📌 과목별 오답 현황</h2>
+            {wrongNotes.length > 0 && (
+              <button
+                onClick={() => navigate('/wrong-notes')}
+                className="text-xs text-blue-500 font-semibold bg-blue-50 px-3 py-1.5 rounded-xl hover:bg-blue-100 active:scale-95 transition-all"
+              >
+                오답노트 →
+              </button>
+            )}
+          </div>
+          {wrongNotes.length === 0 ? (
+            <p className="text-center text-gray-400 text-sm py-4">오답 기록이 없습니다</p>
+          ) : (
+            <div className="space-y-3">
+              {wrongBySubject
+                .filter((s) => s.count > 0)
+                .sort((a, b) => b.count - a.count)
+                .map((s) => (
+                  <div key={s.label} className="flex items-center gap-3">
+                    <span className="text-sm text-gray-600 w-10 shrink-0">{s.label}</span>
+                    <div className="flex-1 bg-gray-100 rounded-full h-4 overflow-hidden">
+                      <div className={`h-full rounded-full transition-all ${s.color}`} style={{ width: `${(s.count / maxWrong) * 100}%` }} />
+                    </div>
+                    <span className="text-sm font-semibold text-gray-700 w-8 text-right">{s.count}</span>
+                  </div>
+                ))}
+            </div>
           )}
         </div>
 
@@ -436,39 +469,6 @@ export default function StatsPage() {
             </div>
           </div>
         )}
-
-        {/* 과목별 오답 현황 */}
-        <div className="bg-white rounded-2xl shadow-sm p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-semibold text-gray-500">📌 과목별 오답 현황</h2>
-            {wrongNotes.length > 0 && (
-              <button
-                onClick={() => navigate('/wrong-notes')}
-                className="text-xs text-blue-500 font-semibold bg-blue-50 px-3 py-1.5 rounded-xl hover:bg-blue-100 active:scale-95 transition-all"
-              >
-                오답노트 →
-              </button>
-            )}
-          </div>
-          {wrongNotes.length === 0 ? (
-            <p className="text-center text-gray-400 text-sm py-4">오답 기록이 없습니다</p>
-          ) : (
-            <div className="space-y-3">
-              {wrongBySubject
-                .filter((s) => s.count > 0)
-                .sort((a, b) => b.count - a.count)
-                .map((s) => (
-                  <div key={s.label} className="flex items-center gap-3">
-                    <span className="text-sm text-gray-600 w-10 shrink-0">{s.label}</span>
-                    <div className="flex-1 bg-gray-100 rounded-full h-4 overflow-hidden">
-                      <div className={`h-full rounded-full transition-all ${s.color}`} style={{ width: `${(s.count / maxWrong) * 100}%` }} />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-700 w-8 text-right">{s.count}</span>
-                  </div>
-                ))}
-            </div>
-          )}
-        </div>
 
         {/* 최근 퀴즈 기록 */}
         <div className="bg-white rounded-2xl shadow-sm p-5">
