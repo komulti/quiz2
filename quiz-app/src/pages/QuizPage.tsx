@@ -17,6 +17,7 @@ export default function QuizPage() {
     isFinished,
     currentAnswer,
     settings,
+    mode,
     submitAnswer,
     nextQuestion,
     resetQuiz,
@@ -221,23 +222,31 @@ export default function QuizPage() {
         {/* 피드백 배너 */}
         {currentAnswer && (
           <div
-            className={`rounded-xl p-3 text-center font-semibold animate-countup ${
+            className={`rounded-xl p-3 font-semibold animate-countup ${
               currentAnswer.isCorrect
                 ? 'bg-green-50 text-green-700 border border-green-200'
                 : 'bg-red-50 text-red-700 border border-red-200'
             }`}
           >
-            <span className="text-xl mr-1">
-              {currentAnswer.isCorrect ? '✅' : '❌'}
-            </span>
-            {currentAnswer.isCorrect ? '정답!' : '오답!'}
-            {!currentAnswer.isCorrect && (
-              <p className="text-sm font-normal mt-0.5 text-gray-600">
-                정답:{' '}
-                {Array.isArray(currentAnswer.correctAnswer)
-                  ? currentAnswer.correctAnswer.map((n) => CIRCLE[n - 1]).join(', ')
-                  : CIRCLE[currentAnswer.correctAnswer - 1]}
-              </p>
+            <div className="text-center">
+              <span className="text-xl mr-1">
+                {currentAnswer.isCorrect ? '✅' : '❌'}
+              </span>
+              {currentAnswer.isCorrect ? '정답!' : '오답!'}
+              {!currentAnswer.isCorrect && (
+                <p className="text-sm font-normal mt-0.5 text-gray-600">
+                  정답:{' '}
+                  {Array.isArray(currentAnswer.correctAnswer)
+                    ? currentAnswer.correctAnswer.map((n) => CIRCLE[n - 1]).join(', ')
+                    : CIRCLE[currentAnswer.correctAnswer - 1]}
+                </p>
+              )}
+            </div>
+            {mode === 'wrong' && question.explanation && (
+              <div className="mt-2 pt-2 border-t border-current border-opacity-20 text-sm font-normal text-gray-700 leading-relaxed">
+                <span className="font-semibold text-gray-500">💡 해설</span>
+                <p className="mt-0.5">{question.explanation}</p>
+              </div>
             )}
           </div>
         )}
