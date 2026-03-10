@@ -186,8 +186,8 @@ body {
 /* #3 배너 드롭 */
 @keyframes sync3-banner {
   0%   { transform: translateY(-100%); opacity: 0; }
-  20%  { transform: translateY(0);     opacity: 1; }
-  75%  { transform: translateY(0);     opacity: 1; }
+  20%  { transform: translateY(0);     opacity: 0.8; }
+  75%  { transform: translateY(0);     opacity: 0.8; }
   100% { transform: translateY(-100%); opacity: 0; }
 }
 .sync3-banner { animation: sync3-banner 1.2s cubic-bezier(.23,1,.32,1) forwards; }
