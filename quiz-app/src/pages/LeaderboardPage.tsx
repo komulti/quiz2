@@ -41,7 +41,7 @@ export default function LeaderboardPage() {
                 }`}
               >
                 <span
-                  className={`text-xl font-bold w-8 text-center ${
+                  className={`text-3xl font-bold w-10 text-center ${
                     idx === 0
                       ? 'text-yellow-500'
                       : idx === 1
