@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 import type { LeaderboardEntry, WrongNote, SessionHistory } from '../types';
 import { loadUserRecord, saveUserRecord } from '../lib/syncService';
 
-const MAX_LEADERBOARD = 100;
+const MAX_LEADERBOARD = 3;
 const MAX_WRONG_NOTES = 400;
 const MAX_HISTORY = 50;
 
