@@ -9,6 +9,16 @@ import type { LeaderboardEntry, SessionHistory } from '../types';
 
 const CIRCLE = ['①', '②', '③', '④'];
 
+const SUBJECT_LABEL: Record<string, string> = {
+  korean_history: '한국사',
+  korean_language: '국어',
+  math: '수학',
+  english: '영어',
+  social_studies: '사회',
+  science: '과학',
+  ethics: '도덕',
+};
+
 function getGrade(percent: number) {
   if (percent >= 90) return { label: 'A+', emoji: '🏆', color: 'text-yellow-500', bg: 'bg-yellow-50 border-yellow-200' };
   if (percent >= 80) return { label: 'A',  emoji: '🥇', color: 'text-blue-600',   bg: 'bg-blue-50 border-blue-200' };
@@ -109,6 +119,9 @@ export default function ResultPage() {
       {/* 점수 카드 */}
       <div className="bg-gradient-to-b from-blue-600 to-blue-700 px-6 pt-10 pb-8">
         <div className="text-center">
+          {settings.subject && (
+            <p className="text-white text-2xl font-black mb-1 tracking-wide">{SUBJECT_LABEL[settings.subject]}</p>
+          )}
           <p className="text-blue-200 text-sm mb-4">퀴즈 완료!</p>
           <div className="flex items-center justify-center gap-6">
             <CircleProgress
@@ -200,7 +213,7 @@ export default function ResultPage() {
                       <span className="text-gray-400">{isOpen ? '▲' : '▼'}</span>
                     </button>
                     {isOpen && (
-                      <div className="px-3 pb-3">
+                      <div className="px-3 pb-3 space-y-2">
                         <img
                           src={`${import.meta.env.BASE_URL}data/${q.image}`}
                           alt={`${q.id} 문제`}
@@ -209,6 +222,12 @@ export default function ResultPage() {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
                         />
+                        {q.explanation && (
+                          <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 text-xs text-gray-700 leading-relaxed whitespace-pre-line">
+                            <span className="font-semibold text-blue-600">💡 해설</span>
+                            <p className="mt-1">{q.explanation}</p>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
