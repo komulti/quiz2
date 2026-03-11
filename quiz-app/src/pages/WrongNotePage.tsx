@@ -177,7 +177,7 @@ export default function WrongNotePage() {
                           </span>
                         )}
                       </div>
-                      <div className="flex gap-3 mt-0.5 text-xs">
+                      <div className="flex items-center gap-3 mt-0.5 text-xs pl-1">
                         <span className="text-red-500">
                           내 답: {CIRCLE[note.selectedAnswer - 1]}
                         </span>
@@ -189,6 +189,11 @@ export default function WrongNotePage() {
                         </span>
                       </div>
                     </button>
+                    {note.date && (
+                      <span className="text-xs text-gray-400 shrink-0">
+                        {new Date(note.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' }).replace(/(\d+년 \d+월 \d+일) (.+)/, '$1($2)')}
+                      </span>
+                    )}
                     <button
                       onClick={() => removeWrongNote(note.questionId)}
                       className="text-gray-300 hover:text-red-400 px-2 py-1 text-lg"
