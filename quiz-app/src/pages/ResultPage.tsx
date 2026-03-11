@@ -110,7 +110,7 @@ export default function ResultPage() {
     const wrongIds = new Set(wrongAnswers.map((a) => a.questionId));
     const wrongQs = allQuestions.filter((q) => wrongIds.has(q.id));
     if (wrongQs.length === 0) return;
-    startQuiz(wrongQs, 'wrong', { count: wrongQs.length });
+    startQuiz(wrongQs, 'wrong', { count: wrongQs.length, subject: settings.subject });
     navigate('/quiz');
   };
 
