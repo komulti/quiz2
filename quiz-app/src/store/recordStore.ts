@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { LeaderboardEntry, WrongNote, SessionHistory } from '../types';
-import { loadUserRecord, saveUserRecord } from '../lib/syncService';
+import { loadUserRecord, saveUserRecord, saveGlobalLeaderboardEntry } from '../lib/syncService';
 
 const MAX_LEADERBOARD = 3;
 const MAX_WRONG_NOTES = 400;
@@ -67,6 +67,9 @@ export const useRecordStore = create<RecordState>()(
               .slice(0, MAX_LEADERBOARD),
           }));
           sync();
+          saveGlobalLeaderboardEntry(entry).catch((e) =>
+            console.error('전체 리더보드 저장 실패:', e)
+          );
         },
 
         addWrongNotes: (notes) => {

@@ -45,6 +45,7 @@ export interface LeaderboardEntry {
   timeSeconds: number;
   mode: QuizMode;
   date: string;
+  subject?: Subject;
 }
 
 export interface WrongNote {

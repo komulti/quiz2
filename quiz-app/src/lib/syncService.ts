@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 import type { LeaderboardEntry, WrongNote, SessionHistory } from '../types';
 
@@ -35,4 +35,22 @@ export async function saveUserRecord(nickname: string, record: UserRecord): Prom
     ...record,
     updatedAt: serverTimestamp(),
   }));
+}
+
+export async function saveGlobalLeaderboardEntry(entry: LeaderboardEntry): Promise<void> {
+  await withTimeout(setDoc(doc(db, 'globalLeaderboard', entry.id), {
+    ...entry,
+    createdAt: serverTimestamp(),
+  }));
+}
+
+export async function loadGlobalLeaderboard(): Promise<LeaderboardEntry[]> {
+  const q = query(
+    collection(db, 'globalLeaderboard'),
+    orderBy('percent', 'desc'),
+    orderBy('timeSeconds', 'asc'),
+    limit(10)
+  );
+  const snap = await withTimeout(getDocs(q));
+  return snap.docs.map((d) => d.data() as LeaderboardEntry);
 }

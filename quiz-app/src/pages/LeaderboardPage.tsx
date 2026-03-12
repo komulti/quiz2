@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecordStore } from '../store/recordStore';
 import { formatTime } from '../hooks/useTimer';
+import { loadGlobalLeaderboard } from '../lib/syncService';
+import type { LeaderboardEntry } from '../types';
 
 const MODE_LABEL: Record<string, string> = {
   random: '랜덤',
@@ -8,24 +10,50 @@ const MODE_LABEL: Record<string, string> = {
   wrong: '오답',
 };
 
+const SUBJECT_LABEL: Record<string, string> = {
+  korean_history: '한국사',
+  korean_language: '국어',
+  math: '수학',
+  english: '영어',
+  social_studies: '사회',
+  science: '과학',
+  ethics: '도덕',
+};
+
+const RANK_EMOJI = ['🥇', '🥈', '🥉'];
+
 export default function LeaderboardPage() {
   const navigate = useNavigate();
-  const { leaderboard } = useRecordStore();
+  const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    loadGlobalLeaderboard()
+      .then((data) => { setEntries(data); setLoading(false); })
+      .catch(() => { setError(true); setLoading(false); });
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
-        <h1 className="text-lg font-bold text-gray-800">🏆 리더보드</h1>
-      </div>
-
-      <div className="mx-4 mt-4 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3 flex items-center gap-3">
-        <span className="text-xl">☁️</span>
-        <p className="text-sm text-blue-500 leading-snug">닉네임별로 저장되는 <span className="font-bold">나만의 기록</span>입니다. 다른 기기에서도 같은 닉네임으로 동기화하면 불러올 수 있어요.</p>
+        <h1 className="text-lg font-bold text-gray-800">🏆 리더보드 TOP 10</h1>
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-4">
-        {leaderboard.length === 0 ? (
+        {loading ? (
+          <div className="text-center py-16 text-gray-400">
+            <p className="text-3xl mb-3 animate-pulse">⏳</p>
+            <p>불러오는 중...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-16 text-gray-400">
+            <p className="text-3xl mb-3">❌</p>
+            <p>불러오기 실패</p>
+            <p className="text-sm mt-1">인터넷 연결을 확인해주세요</p>
+          </div>
+        ) : entries.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <p className="text-4xl mb-3">🏆</p>
             <p>아직 기록이 없습니다</p>
@@ -33,7 +61,7 @@ export default function LeaderboardPage() {
           </div>
         ) : (
           <div className="space-y-2">
-            {leaderboard.map((entry, idx) => (
+            {entries.map((entry, idx) => (
               <div
                 key={entry.id}
                 className={`bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 ${
@@ -51,12 +79,13 @@ export default function LeaderboardPage() {
                       : 'text-gray-300'
                   }`}
                 >
-                  {idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx + 1}
+                  {idx < 3 ? RANK_EMOJI[idx] : idx + 1}
                 </span>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-800 truncate">{entry.nickname}</p>
                   <p className="text-xs text-gray-400">
-                    {MODE_LABEL[entry.mode]} · {entry.score}/{entry.total} · {formatTime(entry.timeSeconds)}
+                    {entry.subject ? `${SUBJECT_LABEL[entry.subject]} · ` : ''}
+                    {MODE_LABEL[entry.mode] ?? entry.mode} · {entry.score}/{entry.total} · {formatTime(entry.timeSeconds)}
                   </p>
                 </div>
                 <div className="text-right">

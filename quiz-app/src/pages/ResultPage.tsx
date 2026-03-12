@@ -78,6 +78,7 @@ export default function ResultPage() {
         timeSeconds: elapsed,
         mode,
         date: new Date().toISOString(),
+        subject: settings.subject,
       };
       addLeaderboardEntry(entry);
       setSaved(true);
@@ -97,6 +98,7 @@ export default function ResultPage() {
       timeSeconds: elapsed,
       mode,
       date: new Date().toISOString(),
+      subject: settings.subject,
     };
     addLeaderboardEntry(entry);
     setSaved(true);
