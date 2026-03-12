@@ -4,6 +4,7 @@ import { useRecordStore } from '../store/recordStore';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
 import ConfirmModal from '../components/ConfirmModal';
+import QuestionImage from '../components/QuestionImage';
 
 const CIRCLE = ['①', '②', '③', '④'];
 
@@ -210,14 +211,7 @@ export default function WrongNotePage() {
                   </div>
                   {isOpen && (
                     <div className="px-3 pb-3 space-y-3">
-                      <img
-                        src={`${import.meta.env.BASE_URL}data/${q.image}`}
-                        alt={`${q.id} 문제`}
-                        className="w-full rounded-lg object-contain bg-gray-50 border border-gray-100"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
+                      <QuestionImage src={q.image} alt={`${q.id} 문제`} />
                       {q.explanation && (
                         <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
                           <p className="text-xs font-bold text-blue-600 mb-1.5">📖 해설</p>

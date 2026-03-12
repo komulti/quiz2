@@ -5,6 +5,7 @@ import { useRecordStore } from '../store/recordStore';
 import { useDataStore } from '../store/dataStore';
 import { formatTime } from '../hooks/useTimer';
 import CircleProgress from '../components/CircleProgress';
+import QuestionImage from '../components/QuestionImage';
 import type { LeaderboardEntry, SessionHistory } from '../types';
 
 const CIRCLE = ['①', '②', '③', '④'];
@@ -214,14 +215,7 @@ export default function ResultPage() {
                     </button>
                     {isOpen && (
                       <div className="px-3 pb-3 space-y-2">
-                        <img
-                          src={`${import.meta.env.BASE_URL}data/${q.image}`}
-                          alt={`${q.id} 문제`}
-                          className="w-full rounded-lg object-contain bg-gray-50 border border-gray-100"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = 'none';
-                          }}
-                        />
+                        <QuestionImage src={q.image} alt={`${q.id} 문제`} />
                         {q.explanation && (
                           <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 text-xs text-gray-700 leading-relaxed whitespace-pre-line">
                             <span className="font-semibold text-blue-600">💡 해설</span>

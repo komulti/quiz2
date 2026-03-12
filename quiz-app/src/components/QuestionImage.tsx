@@ -92,20 +92,25 @@ export default function QuestionImage({ src, alt }: Props) {
             onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}
           >
-            <picture>
-              <source srcSet={webpSrc} type="image/webp" />
-              <img
-                src={pngSrc}
-                alt={alt}
-                className="max-w-full object-contain rounded-xl transition-transform duration-100 select-none"
-                style={{
-                  transform: `scale(${scale})`,
-                  maxHeight: '90dvh',
-                  touchAction: 'none',
-                }}
-                draggable={false}
-              />
-            </picture>
+            <div className="flex flex-col items-center gap-4" onClick={closeModal}>
+              <p className="text-white/80 text-lg font-medium select-none bg-black/30 px-4 py-1.5 rounded-full">
+                더블탭 또는 핀치로 확대/축소
+              </p>
+              <picture>
+                <source srcSet={webpSrc} type="image/webp" />
+                <img
+                  src={pngSrc}
+                  alt={alt}
+                  className="max-w-full object-contain rounded-xl transition-transform duration-100 select-none"
+                  style={{
+                    transform: `scale(${scale})`,
+                    maxHeight: '85dvh',
+                    touchAction: 'none',
+                  }}
+                  draggable={false}
+                />
+              </picture>
+            </div>
           </div>
           <button
             className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
@@ -114,9 +119,6 @@ export default function QuestionImage({ src, alt }: Props) {
           >
             ×
           </button>
-          <p className="absolute top-4 text-white/80 text-sm font-medium select-none bg-black/30 px-4 py-1.5 rounded-full">
-            더블탭 또는 핀치로 확대/축소
-          </p>
         </div>
       )}
     </>
