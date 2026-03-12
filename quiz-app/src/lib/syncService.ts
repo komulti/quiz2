@@ -48,9 +48,11 @@ export async function loadGlobalLeaderboard(): Promise<LeaderboardEntry[]> {
   const q = query(
     collection(db, 'globalLeaderboard'),
     orderBy('percent', 'desc'),
-    orderBy('timeSeconds', 'asc'),
-    limit(10)
+    limit(50)
   );
   const snap = await withTimeout(getDocs(q));
-  return snap.docs.map((d) => d.data() as LeaderboardEntry);
+  return snap.docs
+    .map((d) => d.data() as LeaderboardEntry)
+    .sort((a, b) => b.percent - a.percent || a.timeSeconds - b.timeSeconds)
+    .slice(0, 10);
 }
