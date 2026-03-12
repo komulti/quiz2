@@ -167,6 +167,7 @@ export default function StatsPage() {
   const navigate = useNavigate();
   const { history, wrongNotes, clearHistory } = useRecordStore();
   const [showClearConfirm, setShowClearConfirm] = useState(false);
+  const nickname = localStorage.getItem('playerName')?.trim();
 
   const totalSessions = history.length;
   const totalQuestions = history.reduce((s, h) => s + h.total, 0);
@@ -242,6 +243,11 @@ export default function StatsPage() {
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
           <h1 className="text-lg font-bold text-gray-800">📊 학습 통계</h1>
+          {nickname && (
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-600">
+              {nickname}
+            </span>
+          )}
         </div>
         {history.length > 0 && (
           <button onClick={() => setShowClearConfirm(true)} className="text-sm text-red-400 hover:text-red-600">
