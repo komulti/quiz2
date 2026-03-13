@@ -6026,7 +6026,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 덧셈입니다. 동류항끼리 묶어 계산합니다.\n\n[풀이]\nA+B = (x²+2x)+(2x²-x)\n동류항끼리 묶어 계산하면\n(1+2)x²+(2-1)x = 3x²+x가 됩니다.\n\n[정답]\n④ 3x²+x"
   },
   {
     "id": "math_2023_1_02",
@@ -6055,7 +6056,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n항등식의 성질입니다. 양변의 동류항의 계수가 서로 같아야 합니다.\n\n[풀이]\nx의 계수를 비교하면 a=5, 상수항을 비교하면 b=3입니다.\n따라서 a-b=5-3=2입니다.\n\n[정답]\n① 2"
   },
   {
     "id": "math_2023_1_03",
@@ -6084,7 +6086,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n나머지정리입니다. 다항식 P(x)를 x-1로 나눈 나머지는 P(1)의 값과 같습니다.\n\n[풀이]\n식에 x=1을 대입합니다.\n2(1)³+3(1)²-1 = 2+3-1 = 4\n\n[정답]\n③ 4"
   },
   {
     "id": "math_2023_1_04",
@@ -6113,7 +6116,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 공식 (x-a)³=x³-3ax²+3a²x-a³을 이용합니다.\n\n[풀이]\n양변의 상수항만 비교하면 -8=-a³이므로 a³=8입니다.\n따라서 실수 a=2입니다.\n\n[정답]\n② 2"
   },
   {
     "id": "math_2023_1_05",
@@ -6142,7 +6146,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n켤레복소수는 허수 부분의 부호만 바꾼 복소수입니다.\n\n[풀이]\n5+4i의 켤레복소수는 허수 부분의 부호만 바꾼 5-4i입니다.\na+bi=5-4i에서 a=5, b=-4가 되며,\na+b=5+(-4)=1입니다.\n\n[정답]\n① 1"
   },
   {
     "id": "math_2023_1_06",
@@ -6171,7 +6176,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n두 근이 주어진 이차방정식 작성입니다. 근과 계수의 관계를 이용합니다.\n\n[풀이]\n두 근이 3, 4이고 x²의 계수가 1인 이차방정식은\n(x-3)(x-4)=0입니다.\n이를 전개하면 x²-7x+12=0이 되므로,\n주어진 식과 비교하면 a=12입니다.\n\n[정답]\n④ 12"
   },
   {
     "id": "math_2023_1_07",
@@ -6200,7 +6206,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서의 이차함수의 최솟값을 구하는 문제입니다.\n\n[풀이]\n주어진 식을 완전제곱식으로 변형하면 y=(x+1)²-2입니다.\n아래로 볼록한 그래프이며, 꼭짓점의 x좌표인 -1이\n주어진 범위(-3≤x≤0)에 포함되므로,\nx=-1일 때 최솟값 -2를 갖습니다.\n\n[정답]\n① -2"
   },
   {
     "id": "math_2023_1_08",
@@ -6229,7 +6236,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n방정식의 근의 뜻입니다. 근을 대입하면 등식이 성립해야 합니다.\n\n[풀이]\nx=1을 식에 대입합니다.\n1⁴+2(1)²+a=0\n1+2+a=0\na=-3\n\n[정답]\n① -3"
   },
   {
     "id": "math_2023_1_09",
@@ -6258,7 +6266,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n연립방정식의 풀이입니다. 주어진 해를 각 식에 대입합니다.\n\n[풀이]\nx=4, y=b를 첫 번째 식 x+y=6에 대입하면\n4+b=6 → b=2\n두 번째 식 xy=a에 대입하면\n4×2=a → a=8\n따라서 a+b=8+2=10\n\n[정답]\n② 10"
   },
   {
     "id": "math_2023_1_10",
@@ -6287,7 +6296,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차부등식의 해를 구하는 문제입니다.\n\n[풀이]\n부등식 (x+3)(x-2)≥0이 0이 되는 경계값은 x=-3, 2입니다.\n이차식이 0보다 크거나 같으므로 해는 두 근의 바깥 범위입니다.\n따라서 x≤-3 또는 x≥2입니다.\n\n[정답]\n④ x≤-3 또는 x≥2"
   },
   {
     "id": "math_2023_1_11",
@@ -6316,7 +6326,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n선분의 내분점 공식입니다. 두 점 A(x₁), B(x₂)를 m:n으로 내분하는 점은 (mx₂+nx₁)/(m+n)입니다.\n\n[풀이]\n수직선 위 두 점 A(1), B(5)를 3:1로 내분하는 점:\n(3×5+1×1)/(3+1) = (15+1)/4 = 16/4 = 4\n\n[정답]\n③ 4"
   },
   {
     "id": "math_2023_1_12",
@@ -6345,7 +6356,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n기울기와 한 점이 주어진 직선의 방정식입니다. y-y₁=m(x-x₁)을 이용합니다.\n\n[풀이]\n기울기 3, 점 (-2,1)을 대입합니다.\ny-1=3(x-(-2))\ny=3(x+2)+1\ny=3x+7\n\n[정답]\n④ y=3x+7"
   },
   {
     "id": "math_2023_1_13",
@@ -6374,7 +6386,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\ny축에 접하는 원의 방정식입니다. y축에 접하는 원의 반지름은 중심의 x좌표의 절댓값입니다.\n\n[풀이]\n중심이 (2,1)이므로 기본 식은 (x-2)²+(y-1)²=r² 형태입니다.\ny축에 접하는 원은 반지름=|중심의 x좌표|이므로 r=2입니다.\n따라서 방정식은 (x-2)²+(y-1)²=4입니다.\n\n[정답]\n② (x-2)²+(y-1)²=4"
   },
   {
     "id": "math_2023_1_14",
@@ -6403,7 +6416,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\ny축에 대한 대칭이동입니다. y축에 대해 대칭이동하면 x좌표의 부호만 반대로 바뀝니다.\n\n[풀이]\n점 (2,4)의 x좌표 부호를 바꾸면 (-2,4)가 됩니다.\n\n[정답]\n② (-2, 4)"
   },
   {
     "id": "math_2023_1_15",
@@ -6432,7 +6446,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n서로 같은 집합입니다. A=B이려면 두 집합의 원소가 모두 동일해야 합니다.\n\n[풀이]\n집합 A에 원소 5가 있으므로 집합 B의 a+1이 반드시 5가 되어야 합니다.\na+1=5 → a=4\n\n[정답]\n② 4"
   },
   {
     "id": "math_2023_1_16",
@@ -6461,7 +6476,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n명제의 대우입니다. 'p이면 q이다'의 대우는 '~q이면 ~p이다'입니다.\n\n[풀이]\n'평행사변형이면 사다리꼴이다'의 대우는\n'사다리꼴이 아니면 평행사변형이 아니다'입니다.\n\n[정답]\n③ 사다리꼴이 아니면 평행사변형이 아니다."
   },
   {
     "id": "math_2023_1_17",
@@ -6490,7 +6506,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n합성함수 (g∘f)(3)=g(f(3))을 구하는 문제입니다.\n\n[풀이]\n그림에서 f(3)=a이고, g(a)=5이므로\n(g∘f)(3)=g(f(3))=g(a)=5\n\n[정답]\n① 5"
   },
   {
     "id": "math_2023_1_18",
@@ -6519,7 +6536,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n유리함수의 평행이동입니다. y=1/(x-a)+b는 y=1/x를 x축으로 a, y축으로 b만큼 이동한 것입니다.\n\n[풀이]\ny=1/(x-2)-1은 기본형 y=1/x에서\nx 대신 x-2, y 대신 y-(-1)이 대입된 형태입니다.\n즉 x축으로 2만큼(a=2), y축으로 -1만큼(b=-1) 이동한 것이므로\na+b=2+(-1)=1입니다.\n\n[정답]\n② 1"
   },
   {
     "id": "math_2023_1_19",
@@ -6548,7 +6566,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n순열(Permutation)입니다. 순서가 있는 배치의 경우의 수를 구합니다.\n\n[풀이]\n서로 다른 3명 중 2명을 뽑아 1면, 2면이라는 구분된 자리에 배치하므로\n순서가 있는 순열입니다.\n₃P₂ = 3×2 = 6가지\n\n[정답]\n③ 6"
   },
   {
     "id": "math_2023_1_20",
@@ -6577,7 +6596,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합(Combination)입니다. 순서를 따지지 않고 선택만 하는 경우의 수를 구합니다.\n\n[풀이]\n4개의 과목 중 순서를 따지지 않고 2개를 선택하는 조합입니다.\n₄C₂ = (4×3)/(2×1) = 6가지\n\n[정답]\n④ 6"
   },
   {
     "id": "math_2023_2_01",
@@ -6606,7 +6626,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 덧셈과 뺄셈입니다. 괄호를 풀고 동류항끼리 계산합니다.\n\n[풀이]\nA+2B = (2x²+x)+2(x²-1)\n괄호를 풀고 전개하면 2x²+x+2x²-2가 됩니다.\n동류항끼리 계산하면 4x²+x-2입니다.\n\n[정답]\n③ 4x²+x-2"
   },
   {
     "id": "math_2023_2_02",
@@ -6635,7 +6656,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n항등식의 성질입니다. 양변의 같은 차수 항의 계수가 서로 같아야 합니다.\n\n[풀이]\n좌변의 완전제곱식을 전개하면 (x-2)²=x²-4x+4입니다.\n이 식이 우변의 x²-4x+a와 완전히 같아야 하므로\n상수항을 비교하면 a=4입니다.\n\n[정답]\n② 4"
   },
   {
     "id": "math_2023_2_03",
@@ -6664,7 +6686,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n나머지정리입니다. 다항식 P(x)를 x-1로 나눈 나머지는 P(1)의 값과 같습니다.\n\n[풀이]\n식에 x=1을 대입합니다.\n1³-3(1)+7 = 1-3+7 = 5\n\n[정답]\n① 5"
   },
   {
     "id": "math_2023_2_04",
@@ -6693,7 +6716,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 공식 (x+a)³=x³+3ax²+3a²x+a³을 이용합니다.\n\n[풀이]\n양변의 상수항을 비교하면 27=a³이 됩니다.\n세 번 곱해서 27이 되는 실수 a는 3입니다.\n\n[정답]\n③ 3"
   },
   {
     "id": "math_2023_2_05",
@@ -6722,7 +6746,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n복소수의 연산과 상등입니다. i²=-1임을 이용합니다.\n\n[풀이]\n좌변을 전개하면 i(2+i)=2i+i²입니다.\ni²=-1이므로 좌변은 -1+2i가 됩니다.\n이것이 a+2i와 같아야 하므로 실수 부분인 a=-1입니다.\n\n[정답]\n② -1"
   },
   {
     "id": "math_2023_2_06",
@@ -6751,7 +6776,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n두 근이 주어진 이차방정식 작성입니다. 근과 계수의 관계를 이용합니다.\n\n[풀이]\n두 근이 2, 4이고 x²의 계수가 1인 이차방정식은\n(x-2)(x-4)=0입니다.\n이를 전개하면 x²-6x+8=0이 되므로,\n주어진 식과 비교하면 a=8입니다.\n(또는 두 근의 곱=a이므로 2×4=8로 쉽게 구할 수 있습니다.)\n\n[정답]\n④ 8"
   },
   {
     "id": "math_2023_2_07",
@@ -6780,7 +6806,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서 위로 볼록한 이차함수의 최댓값을 구하는 문제입니다.\n\n[풀이]\n이차함수 식을 완전제곱식으로 변형하면\ny=-(x²-4x)+1=-(x-2)²+5입니다.\n위로 볼록한 그래프이며 꼭짓점의 x좌표인 2가\n주어진 범위(0≤x≤3)에 포함되므로,\nx=2일 때 최댓값 5를 갖습니다.\n\n[정답]\n④ 5"
   },
   {
     "id": "math_2023_2_08",
@@ -6809,7 +6836,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n방정식의 근의 뜻입니다. 근을 대입하면 등식이 성립해야 합니다.\n\n[풀이]\nx=2가 방정식의 한 근이므로 식에 대입합니다.\n2⁴-3(2)²+a=0\n16-12+a=0\n4+a=0 → a=-4\n\n[정답]\n① -4"
   },
   {
     "id": "math_2023_2_09",
@@ -6838,7 +6866,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n연립방정식의 풀이입니다. 주어진 해를 각 식에 대입합니다.\n\n[풀이]\nx=2, y=b를 첫 번째 식 x+2y=10에 대입합니다.\n2+2b=10 → 2b=8 → b=4\nx=2, y=4를 두 번째 식 x²+y²=a에 대입합니다.\n2²+4²=4+16=a → a=20\n따라서 a+b=20+4=24\n\n[정답]\n④ 24"
   },
   {
     "id": "math_2023_2_10",
@@ -6867,7 +6896,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차부등식의 해를 구하는 문제입니다.\n\n[풀이]\n부등식 (x+1)(x-4)≤0이 0이 되는 경계값은 x=-1, 4입니다.\n이차식이 0보다 작거나 같으므로 해는 두 경계값 사이의 범위입니다.\n따라서 -1≤x≤4입니다.\n\n[정답]\n③ -1≤x≤4"
   },
   {
     "id": "math_2023_2_11",
@@ -6896,7 +6926,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n좌표평면 위 선분의 내분점 공식입니다. 두 점 A(x₁,y₁), B(x₂,y₂)를 m:n으로 내분하는 점은 ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n))입니다.\n\n[풀이]\n점 A(-1,1), B(2,4)를 1:2로 내분하는 점:\nx좌표: (1×2+2×(-1))/(1+2) = (2-2)/3 = 0\ny좌표: (1×4+2×1)/(1+2) = (4+2)/3 = 2\n따라서 내분점의 좌표는 (0,2)입니다.\n\n[정답]\n③ (0, 2)"
   },
   {
     "id": "math_2023_2_12",
@@ -6925,7 +6956,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n두 직선의 수직 조건과 직선의 방정식입니다.\n\n[풀이]\n직선 y=x+2의 기울기는 1입니다.\n수직인 직선의 기울기는 두 기울기의 곱이 -1이어야 하므로 -1이 됩니다.\n기울기가 -1이고 점 (4,0)을 지나는 직선의 방정식:\ny-0=-1(x-4)\ny=-x+4\n\n[정답]\n② y=-x+4"
   },
   {
     "id": "math_2023_2_13",
@@ -6954,7 +6986,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\nx축에 접하는 원의 방정식입니다. x축에 접하는 원의 반지름은 중심의 y좌표의 절댓값입니다.\n\n[풀이]\n중심이 (3,1)이므로 기본 식은 (x-3)²+(y-1)²=r² 형태입니다.\nx축에 접하는 원의 반지름 r은 |중심의 y좌표|와 같으므로 r=|1|=1입니다.\n따라서 원의 방정식은 (x-3)²+(y-1)²=1입니다.\n\n[정답]\n① (x-3)²+(y-1)²=1"
   },
   {
     "id": "math_2023_2_14",
@@ -6983,7 +7016,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n직선 y=x에 대한 대칭이동입니다. y=x에 대해 대칭이동하면 x좌표와 y좌표가 서로 바뀝니다.\n\n[풀이]\n점 (2,3)의 x, y를 맞바꾸면 (3,2)가 됩니다.\n\n[정답]\n④ (3, 2)"
   },
   {
     "id": "math_2023_2_15",
@@ -7012,7 +7046,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n집합의 교집합 연산입니다. A∩B는 두 집합에 공통으로 속하는 원소들의 집합입니다.\n\n[풀이]\nA={1,3,6}와 B={3,5,6}에서\n공통된 숫자는 3과 6이므로 A∩B={3,6}입니다.\n\n[정답]\n③ {3, 6}"
   },
   {
     "id": "math_2023_2_16",
@@ -7041,7 +7076,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조건의 진리집합입니다. 주어진 조건을 참이 되게 하는 원소를 전체집합에서 찾습니다.\n\n[풀이]\n전체집합 U={1,2,3,4,5,6} 안에서\n조건 'x는 짝수이다'를 참이 되게 하는 원소만 고릅니다.\n짝수는 2, 4, 6이므로 진리집합은 {2,4,6}입니다.\n\n[정답]\n② {2, 4, 6}"
   },
   {
     "id": "math_2023_2_17",
@@ -7070,7 +7106,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n역함수의 함숫값입니다. f⁻¹(c)는 f(x)=c가 되는 x값입니다.\n\n[풀이]\n함수 f의 그림에서 c로 화살표를 보낸 x값은 3이므로\nf⁻¹(c)=3입니다.\n\n[정답]\n① 3"
   },
   {
     "id": "math_2023_2_18",
@@ -7099,7 +7136,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n무리함수의 평행이동입니다. y=√x를 x축으로 a, y축으로 b만큼 이동하면 y=√(x-a)+b입니다.\n\n[풀이]\ny=√x의 그래프를 x축으로 1만큼, y축으로 4만큼 평행이동하면\nx 대신 x-1을 대입하고 뒤에 +4를 붙입니다.\n이동한 식은 y=√(x-1)+4가 되며,\ny=√(x-a)+b와 비교하면 a=1, b=4입니다.\n따라서 a+b=1+4=5\n\n[정답]\n② 5"
   },
   {
     "id": "math_2023_2_19",
@@ -7128,7 +7166,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n경우의 수의 곱의 법칙입니다. 연이어 일어나는 두 사건의 경우의 수는 각각을 곱합니다.\n\n[풀이]\n입구에서 쉼터까지 가는 길이 4가지이고,\n그 각각의 길에 대하여 쉼터에서 전망대까지 가는 길이 2가지씩 있습니다.\n두 사건이 연이어 일어나므로 경우의 수는 4×2=8가지입니다.\n\n[정답]\n④ 8"
   },
   {
     "id": "math_2023_2_20",
@@ -7157,7 +7196,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합(Combination)입니다. 순서를 따지지 않고 선택만 하는 경우의 수를 구합니다.\n\n[풀이]\n6종류의 과일 중 순서를 따지지 않고 2종류를 선택하는 조합입니다.\n₆C₂ = (6×5)/(2×1) = 15가지\n\n[정답]\n① 15"
   },
   {
     "id": "math_2024_1_01",
@@ -7186,7 +7226,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 덧셈\n\n[풀이]\nA+B=(3x²+x)+(x²+3x)\n동류항끼리 묶어서 계산하면 (3+1)x²+(1+3)x=4x²+4x가 됩니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_1_02",
@@ -7215,7 +7256,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n항등식의 성질\n\n[풀이]\n양변의 동류항 계수가 같아야 하므로 x의 계수인 a=1, 상수항인 b=3이 됩니다.\n따라서 a+b=1+3=4입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_1_03",
@@ -7244,7 +7286,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n나머지 정리\n\n[풀이]\n다항식 P(x)를 x-1로 나눈 나머지는 x=1을 대입한 P(1)의 값과 같습니다.\nx=1을 대입하면 1³+2(1)²+2=1+2+2=5입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_1_04",
@@ -7273,7 +7316,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 (곱셈공식)\n\n[풀이]\n곱셈공식 (x+a)³=x³+3ax²+3a²x+a³에서\n양변의 상수항을 비교하면 1=a³이 되므로 실수 a=1입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_1_05",
@@ -7302,7 +7346,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n켤레복소수\n\n[풀이]\n4+3i의 켤레복소수는 허수 부분의 부호만 바꾼 4-3i입니다.\n따라서 a=4, b=-3이 되며, a+b=4+(-3)=1입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_06",
@@ -7331,7 +7376,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식 작성 (근과 계수의 관계)\n\n[풀이]\n두 근이 1, 3이고 x²의 계수가 1인 이차방정식은 (x-1)(x-3)=0입니다.\n이를 전개하면 x²-4x+3=0이 되므로 a=4입니다.\n(또는 두 근의 합=a=1+3=4로 바로 구할 수 있습니다.)\n\n[정답]\n④"
   },
   {
     "id": "math_2024_1_07",
@@ -7360,7 +7406,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서의 이차함수의 최대·최소\n\n[풀이]\n주어진 식을 완전제곱식으로 변형하면 y=(x²+4x+4)-3=(x+2)²-3입니다.\n꼭짓점의 x좌표가 -2이고 아래로 볼록한 그래프이므로, 범위 -1≤x≤1에서 꼭짓점에 가장 가까운 x=-1일 때 최솟값을 가집니다.\nx=-1 대입: y=(-1)²+4(-1)+1=1-4+1=-2.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_08",
@@ -7389,7 +7436,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n고차방정식의 근의 뜻\n\n[풀이]\nx=1이 방정식의 근이므로 식에 대입하면 등식이 성립해야 합니다.\n1⁴+2(1)-a=0 → 1+2-a=0 → 3-a=0이 되므로 a=3입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_1_09",
@@ -7418,7 +7466,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n연립방정식의 풀이\n\n[풀이]\n해 x=3, y=b를 첫 번째 식 2x+y=8에 대입하면 2(3)+b=8 → b=2가 됩니다.\n해 x=3, y=2를 두 번째 식 x²-y²=a에 대입하면 9-4=a → a=5가 됩니다.\n따라서 a+b=5+2=7입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_1_10",
@@ -7447,7 +7496,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차부등식의 해\n\n[풀이]\n부등식 (x-2)(x-4)≤0이 0이 되는 경계값은 x=2, 4입니다.\n이차식이 0보다 작거나 같으므로 해는 두 경계값 사이의 범위가 됩니다.\n따라서 2≤x≤4입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_1_11",
@@ -7476,7 +7526,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n선분의 내분점\n\n[풀이]\n수직선 위의 점 A(1), B(6)을 2:3으로 내분하는 점의 좌표 공식은 (mx₂+nx₁)/(m+n)입니다.\n(2×6)+(3×1))/(2+3)=(12+3)/5=15/5=3입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_12",
@@ -7505,7 +7556,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n평행한 두 직선과 직선의 방정식\n\n[풀이]\n직선 y=x-3에 평행하므로 기울기가 같습니다. 따라서 기울기는 1입니다.\n점 (0,4)는 y절편을 의미하므로 방정식은 바로 y=x+4가 됩니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_1_13",
@@ -7534,7 +7586,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\nx축과 y축에 동시에 접하는 원의 방정식\n\n[풀이]\n중심이 (-2,2)이므로 기본 식은 (x+2)²+(y-2)²=r² 형태가 됩니다.\n축에 동시에 접하므로 r=|x좌표|=|y좌표|가 성립하며, r=2입니다.\n따라서 방정식은 (x+2)²+(y-2)²=4입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_1_14",
@@ -7563,7 +7616,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n원점 대칭이동\n\n[풀이]\n점을 원점에 대하여 대칭이동하면 x좌표와 y좌표의 부호가 모두 반대로 바뀝니다.\n따라서 (3,-2)의 부호를 모두 바꾼 (-3,2)가 됩니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_15",
@@ -7592,7 +7646,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n집합의 연산 (차집합)\n\n[풀이]\n차집합 A-B는 집합 A의 원소 중 집합 B에도 속해 있는 원소를 뺀 나머지 원소들의 집합입니다.\n{1,2,3,4}에서 {3,4}를 빼고 남은 {1,2}입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_1_16",
@@ -7621,7 +7676,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조건과 진리집합\n\n[풀이]\n전체집합 U={1,2,3,4,5,6,7,8,9} 중 조건 'x는 3의 배수이다'를 참이 되게 하는 원소만 고릅니다.\n해당하는 수는 3,6,9이므로 진리집합은 {3,6,9}입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_1_17",
@@ -7650,7 +7706,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n합성함수\n\n[풀이]\n그림의 화살표를 따라가면 f(2)의 값을 먼저 구하고, 그 결과를 g에 대입합니다.\n(g∘f)(2)=g(f(2))의 값을 화살표 대응으로 확인합니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_18",
@@ -7679,7 +7736,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n유리함수의 평행이동\n\n[풀이]\n기본형 y=1/x의 그래프를 x축으로 a만큼, y축으로 b만큼 이동하면 y=1/(x-a)+b가 됩니다.\n주어진 y=1/(x-2)+3과 비교하면 a=2, b=3이므로 a+b=2+3=5입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_1_19",
@@ -7708,7 +7766,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n순열 (경우의 수)\n\n[풀이]\n서로 다른 4개의 포스터 중 2개를 뽑아 순서 있게 배치하므로 순열(Permutation)입니다.\n₄P₂=4×3=12가지입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_1_20",
@@ -7737,7 +7796,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합 (경우의 수)\n\n[풀이]\n4종류의 과제 중 순서를 고려하지 않고 3종류를 선택하는 조합(Combination) 문제입니다.\n₄C₃=₄C₁=4가지입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_01",
@@ -7766,7 +7826,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 뺄셈\n\n[풀이]\nA-B=(2x³+3x)-(3x+2)\n괄호를 풀고 동류항끼리 계산하면 2x³+3x-3x-2=2x³-2가 됩니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_2_02",
@@ -7795,7 +7856,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n인수정리 (나머지 정리)\n\n[풀이]\n다항식 P(x)=x³-3x²+a가 x-2로 나누어떨어지려면 P(2)=0이어야 합니다.\nP(2)=2³-3(2)²+a=8-12+a=0이므로 a=4입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_03",
@@ -7824,7 +7886,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 (곱셈공식)\n\n[풀이]\n세제곱의 차 공식 x³-y³=(x-y)(x²+xy+y²)를 이용합니다.\nx³-3³=(x-3)(x²+3x+9)가 되므로 계수를 비교하면 a=3입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_2_04",
@@ -7853,7 +7916,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n켤레복소수\n\n[풀이]\n5-3i의 켤레복소수는 허수 부분의 부호를 바꾼 5+3i입니다.\n5+ai=5+3i이므로 a=3입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_2_05",
@@ -7882,7 +7946,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식의 중근과 판별식\n\n[풀이]\n이차방정식이 중근을 가지려면 판별식 D=0이어야 합니다.\nx²-2x+a=0에서 x의 계수 -2의 절반의 제곱이 상수항 a와 같아야 하므로 a=(-1)²=1입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_2_06",
@@ -7911,7 +7976,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식의 근과 계수의 관계\n\n[풀이]\n이차방정식 x²-x-6=0에서 두 근의 합은 -(-1)/1=1입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_2_07",
@@ -7940,7 +8006,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서의 이차함수의 최대·최소\n\n[풀이]\ny=-(x-2)²+3은 꼭짓점이 (2,3)이고 위로 볼록한 그래프입니다.\n0≤x≤3 범위 안에 꼭짓점의 x좌표 2가 포함되므로 x=2일 때 최댓값 3을 갖습니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_08",
@@ -7969,7 +8036,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n절댓값을 포함한 일차부등식\n\n[풀이]\n|x+1|≥5를 풀면 x+1≤-5 또는 x+1≥5가 됩니다.\n정리하면 x≤-6 또는 x≥4입니다.\n수직선에서 해가 x≤a와 x≥4이므로 a=-6입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_2_09",
@@ -7998,7 +8066,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n선분의 내분점\n\n[풀이]\n두 점 A(-2,-1), B(2,3)을 3:1로 내분하는 점의 좌표를 구합니다.\nx좌표: (3×2+1×(-2))/(3+1)=(6-2)/4=1\ny좌표: (3×3+1×(-1))/(3+1)=(9-1)/4=2\n따라서 내분점의 좌표는 (1,2)입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_2_10",
@@ -8027,7 +8096,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n점과 직선 사이의 거리\n\n[풀이]\n원점 (0,0)과 직선 x+y-2=0 사이의 거리 공식을 적용합니다.\nd=|0+0-2|/√(1²+1²)=2/√2=√2입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_2_11",
@@ -8056,7 +8126,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n원과 직선의 위치 관계\n\n[풀이]\n중심 (0,0), 반지름 2인 원입니다.\n직선 y=a가 원과 서로 다른 두 점에서 만나려면 원의 중심에서 직선까지의 거리가 반지름보다 작아야 합니다.\n|a|<2이므로 -2<a<2이며, 이 범위의 자연수는 1뿐입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_2_12",
@@ -8085,7 +8156,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n직선 y=x에 대한 대칭이동\n\n[풀이]\n점을 직선 y=x에 대하여 대칭이동하면 x좌표와 y좌표가 서로 바뀝니다.\n따라서 (1,3)은 (3,1)이 됩니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_13",
@@ -8114,7 +8186,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n집합의 뜻\n\n[풀이]\n집합은 그 대상을 분명하게 정할 수 있는 것들의 모임이어야 합니다.\n'작은', '유명한', '키가 큰' 등은 기준이 주관적이라 집합이 될 수 없습니다.\n반면 '7 이하의 자연수'는 {1,2,3,4,5,6,7}로 명확히 정할 수 있으므로 집합입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_14",
@@ -8143,7 +8216,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n집합의 연산 (차집합)\n\n[풀이]\n차집합 A-B는 A의 원소 중 B에도 속한 원소를 제외한 집합입니다.\nA={2,4,6,8}에서 B={6,7,8}과 공통된 6,8을 제외하면 {2,4}입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_2_15",
@@ -8172,7 +8246,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n명제의 충분조건\n\n[풀이]\np가 q이기 위한 충분조건이려면 명제 'p이면 q이다'가 참이어야 합니다.\np: x=2이므로 조건 q의 식에 x=2를 대입합니다.\n2²-a=0 → 4-a=0 → a=4입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_16",
@@ -8201,7 +8276,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n합성함수\n\n[풀이]\n그림의 화살표를 따라 f(1)의 값을 먼저 구하고, 그 결과를 g에 대입합니다.\n(g∘f)(1)=g(f(1))의 값을 화살표 대응으로 확인합니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2024_2_17",
@@ -8230,7 +8306,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n역함수의 함숫값\n\n[풀이]\nf⁻¹(5)=k라 하면 역함수의 성질에 의해 f(k)=5가 성립합니다.\nf(k)=2k+1=5이므로 2k=4에서 k=2입니다.\n따라서 f⁻¹(5)=2입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2024_2_18",
@@ -8259,7 +8336,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n무리함수의 평행이동\n\n[풀이]\n기본형 y=√x의 그래프를 x축으로 a만큼, y축으로 b만큼 이동하면 y=√(x-a)+b가 됩니다.\ny=√(x-2)+4와 비교하면 a=2, b=4이므로 a+b=6입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2024_2_19",
@@ -8288,7 +8366,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n순열 (경우의 수)\n\n[풀이]\n서로 다른 4장의 카드 중 3장을 일렬로 나열하는 순열(Permutation)입니다.\n₄P₃=4×3×2=24가지입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2024_2_20",
@@ -8317,7 +8396,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합 (경우의 수)\n\n[풀이]\n5개 중 순서를 고려하지 않고 2개를 선택하는 조합(Combination) 문제입니다.\n₅C₂=(5×4)/(2×1)=10가지입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_1_01",
@@ -8346,7 +8426,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 덧셈과 항등식\n\n[풀이]\nA+B=(2x²+3x)+(ax²+x)=(a+2)x²+4x입니다.\n이 식이 bx와 같아야 하므로 x²의 계수는 0, x의 계수는 b가 되어야 합니다.\na+2=0 → a=-2이고, b=4입니다.\na+b=-2+4=2입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_1_02",
@@ -8375,7 +8456,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n인수정리\n\n[풀이]\n다항식 P(x)가 x-1로 나누어떨어지려면 P(1)=0이어야 합니다.\n1³+a(1)²-4=0 → 1+a-4=0이므로 a=3입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_03",
@@ -8404,7 +8486,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 (곱셈공식)\n\n[풀이]\n세제곱의 합 공식 x³+y³=(x+y)(x²-xy+y²)를 이용합니다.\nx³+8=x³+2³=(x+2)(x²-2x+4)이므로 계수를 비교하면 a=-2입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_04",
@@ -8433,7 +8516,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n켤레복소수의 성질\n\n[풀이]\nz=a+2i의 켤레복소수는 z̄=a-2i입니다.\nz+z̄=(a+2i)+(a-2i)=2a가 됩니다.\n2a=6이므로 a=3입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_1_05",
@@ -8462,7 +8546,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식의 판별식\n\n[풀이]\n이차방정식이 서로 다른 두 실근을 가지려면 판별식 D>0이어야 합니다.\nD=a²-4×1×4=a²-16>0이므로 a²>16입니다.\n이를 만족하는 자연수 a 중 최솟값은 5입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_1_06",
@@ -8491,7 +8576,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식의 근과 계수의 관계\n\n[풀이]\n이차방정식에서 두 근의 곱은 상수항 a와 같습니다.\n두 근이 2+√2, 2-√2이므로 곱하면 (2+√2)(2-√2)=4-2=2입니다.\n따라서 a=2입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_07",
@@ -8520,7 +8606,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서의 이차함수의 최대·최소\n\n[풀이]\ny=(x-1)²+2는 꼭짓점이 (1,2)이고 아래로 볼록한 그래프입니다.\n-1≤x≤2 범위 안에 꼭짓점의 x좌표 1이 포함되므로 x=1일 때 최솟값 2를 갖습니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_1_08",
@@ -8549,7 +8636,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n연립이차방정식의 풀이\n\n[풀이]\n첫 번째 식 x-2y=0에서 x=2y입니다.\n해 x=-2, y=-1을 두 번째 식에 대입: (-2)²+2(-1)²=4+2=6이므로 a=6입니다.\n해 x=2, y=b를 x=2y에 대입: 2=2b → b=1입니다.\na+b=6+1=7입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_1_09",
@@ -8578,7 +8666,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차부등식의 해\n\n[풀이]\n(x-1)(x-3)>0이 0이 되는 경계값은 x=1, 3입니다.\n이차식이 0보다 크므로 해는 경계값 바깥쪽 범위입니다.\n따라서 x<1 또는 x>3입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_1_10",
@@ -8607,7 +8696,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n선분의 내분점\n\n[풀이]\n두 점 A(-3,5), B(6,-1)을 1:2로 내분하는 점의 좌표를 구합니다.\nx좌표: (1×6+2×(-3))/(1+2)=(6-6)/3=0\ny좌표: (1×(-1)+2×5)/(1+2)=(-1+10)/3=9/3=3\n내분점의 좌표는 (0,3)입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_11",
@@ -8636,7 +8726,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n점과 직선 사이의 거리\n\n[풀이]\n원점 (0,0)과 직선 3x+4y-12=0 사이의 거리 공식을 적용합니다.\nd=|3(0)+4(0)-12|/√(3²+4²)=|-12|/√25=12/5입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_1_12",
@@ -8665,7 +8756,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n원과 직선의 위치 관계\n\n[풀이]\n원 x²+y²=9은 중심 원점, 반지름 3입니다.\n직선 x=a가 원과 만나지 않으려면 |a|>3이어야 합니다.\na<5인 자연수 중 3보다 큰 값은 4뿐입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_1_13",
@@ -8694,7 +8786,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\nx축에 대한 대칭이동\n\n[풀이]\nx축에 대하여 대칭이동하면 y 대신 -y를 대입합니다.\n(x-2)²+(-y-1)²=1 → (x-2)²+(y+1)²=1입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_1_14",
@@ -8723,7 +8816,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n합집합과 교집합의 원소의 개수\n\n[풀이]\nA∪B={1,3,4,5,6,7,9}이므로 n(A∪B)=7입니다.\nA∩B={3,5}이므로 n(A∩B)=2입니다.\n따라서 7+2=9입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_1_15",
@@ -8752,7 +8846,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n명제의 필요조건\n\n[풀이]\nq가 p이기 위한 필요조건이려면 'p→q'가 참이어야 합니다.\np: x-3=0 → x=3을 q의 식에 대입합니다.\n3²-a(3)-3=0 → 9-3a-3=0 → 6=3a이므로 a=2입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_1_16",
@@ -8781,7 +8876,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n합성함수\n\n[풀이]\n(g∘f)(1)=g(f(1))을 구합니다.\n먼저 f(1)=3(1)-1=2입니다.\n그다음 g(2)=-2(2)+5=-4+5=1입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_1_17",
@@ -8810,7 +8906,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n역함수의 함숫값\n\n[풀이]\nf⁻¹(4)의 값은 f(x)=4가 되게 하는 x를 찾는 것입니다.\n그림의 화살표를 거꾸로 따라가면 4에 해당하는 출발점을 확인합니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_18",
@@ -8839,7 +8936,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n유리함수의 평행이동\n\n[풀이]\n기본형 y=1/x를 x축으로 1만큼, y축으로 b만큼 이동하면 y=1/(x-1)+b가 됩니다.\n이 식이 y=1/(x+a)+2와 같아야 하므로 a=-1, b=2입니다.\na-b=-1-2=-3입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_1_19",
@@ -8868,7 +8966,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n경우의 수 (합의 법칙)\n\n[풀이]\n1부터 5까지의 숫자 중 2개를 더해 3의 배수(3,6,9)가 되는 경우를 찾습니다.\n합이 3: (1,2) - 1가지\n합이 6: (1,5),(2,4) - 2가지\n합이 9: (4,5) - 1가지\n총 1+2+1=4가지입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_1_20",
@@ -8897,7 +8996,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합 (경우의 수)\n\n[풀이]\n5종류의 토핑 중 순서에 상관없이 4개를 선택하는 조합입니다.\n₅C₄=₅C₁=5가지입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_01",
@@ -8926,7 +9026,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 덧셈\n\n[풀이]\nA+B=(2x²+5)+(x²-4x)\n동류항끼리 정리하면 3x²-4x+5가 됩니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_2_02",
@@ -8955,7 +9056,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n항등식의 성질\n\n[풀이]\n양변의 동류항 계수가 서로 같아야 합니다.\nx²의 계수를 비교하면 a=4, x의 계수를 비교하면 b=1입니다.\na-b=4-1=3입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_2_03",
@@ -8984,7 +9086,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n나머지 정리\n\n[풀이]\n다항식 P(x)를 x-1로 나눈 나머지는 P(1)의 값과 같습니다.\nx=1을 대입하면 1³-2(1)²+5=1-2+5=4입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_04",
@@ -9013,7 +9116,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n다항식의 인수분해 (곱셈공식)\n\n[풀이]\n세제곱 공식 (x-a)³=x³-3ax²+3a²x-a³입니다.\n상수항을 비교하면 -1=-a³이 되므로 a³=1, a=1입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_2_05",
@@ -9042,7 +9146,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n켤레복소수\n\n[풀이]\n3-4i의 켤레복소수는 허수 부분의 부호만 바꾼 3+4i입니다.\na=3, b=4이므로 a+b=3+4=7입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_2_06",
@@ -9071,7 +9176,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n이차방정식의 근과 계수의 관계\n\n[풀이]\n이차방정식 x²+2x+3=0에서 두 근의 곱은 상수항/x²의 계수=3/1=3입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_2_07",
@@ -9100,7 +9206,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n제한된 범위에서의 이차함수의 최대·최소\n\n[풀이]\ny=-(x²-6x)-3=-(x-3)²+6으로 변형합니다.\n위로 볼록, 꼭짓점 x=3이고 1≤x≤3 범위에서 꼭짓점에서 가장 먼 x=1일 때 최솟값을 갖습니다.\nx=1 대입: y=-(1)²+6(1)-3=2입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_08",
@@ -9129,7 +9236,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n연립방정식의 풀이\n\n[풀이]\nx=3, y=b를 x+y=5에 대입: 3+b=5 → b=2입니다.\nx=3, y=2를 xy=a에 대입: a=3×2=6입니다.\na+b=6+2=8입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_2_09",
@@ -9158,7 +9266,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n절댓값을 포함한 일차부등식\n\n[풀이]\n|x-1|≤4를 풀면 -4≤x-1≤4입니다.\n양변에 1을 더하면 -3≤x≤5입니다.\na=-3입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_10",
@@ -9187,7 +9296,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n선분의 내분점\n\n[풀이]\n두 점 A(1), B(8)을 4:3으로 내분하는 점의 좌표 공식을 적용합니다.\n(4×8+3×1)/(4+3)=(32+3)/7=35/7=5입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_2_11",
@@ -9216,7 +9326,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n두 직선의 수직 조건과 직선의 방정식\n\n[풀이]\ny=-x+2의 기울기는 -1입니다.\n수직인 직선의 기울기는 곱이 -1이 되어야 하므로 1입니다.\n기울기 1, y절편 5인 직선의 방정식은 y=x+5입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_2_12",
@@ -9245,7 +9356,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\nx축과 y축에 동시에 접하는 원의 방정식\n\n[풀이]\n중심이 (3,3)이므로 (x-3)²+(y-3)²=r² 형태입니다.\n제1사분면에서 양 축에 동시에 접하므로 r=3입니다.\n원의 방정식은 (x-3)²+(y-3)²=9입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_2_13",
@@ -9274,7 +9386,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\ny축에 대한 대칭이동\n\n[풀이]\ny축에 대하여 대칭이동하면 x좌표의 부호만 반대로 바뀝니다.\n(-1,-4)의 x좌표 부호를 바꾼 (1,-4)가 됩니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_14",
@@ -9303,7 +9416,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n집합의 뜻\n\n[풀이]\n집합은 기준이 객관적이고 대상을 분명하게 정할 수 있어야 합니다.\n'큰', '작은' 등 주관적 기준은 집합이 될 수 없습니다.\n'자연수의 모임', '10 이상 20 이하인 홀수의 모임'만 집합입니다.\n\n[정답]\n④"
   },
   {
     "id": "math_2025_2_15",
@@ -9332,7 +9446,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n서로 같은 집합\n\n[풀이]\nA=B이려면 두 집합의 원소가 모두 동일해야 합니다.\nB에 원소 6이 있으므로 A의 a+1=6이어야 합니다.\na+1=6 → a=5입니다. (A={2,4,6}=B 확인)\n\n[정답]\n③"
   },
   {
     "id": "math_2025_2_16",
@@ -9361,7 +9476,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n명제의 역\n\n[풀이]\n명제 'p이면 q이다'의 역은 'q이면 p이다'입니다.\n'x=1이면 x⁴=1이다'의 역은 'x⁴=1이면 x=1이다'입니다.\n\n[정답]\n①"
   },
   {
     "id": "math_2025_2_17",
@@ -9390,7 +9506,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n역함수의 함숫값\n\n[풀이]\nf⁻¹(a)의 값은 f(x)=a가 되게 하는 x를 찾는 것입니다.\n그림에서 화살표를 거꾸로 따라가면 a에 해당하는 출발점을 확인합니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_18",
@@ -9419,7 +9536,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n무리함수의 평행이동\n\n[풀이]\n기본형 y=√x를 x축으로 a만큼, y축으로 5만큼 이동하면 y=√(x-a)+5가 됩니다.\ny=√(x-3)+b와 같아야 하므로 a=3, b=5입니다.\na+b=3+5=8입니다.\n\n[정답]\n②"
   },
   {
     "id": "math_2025_2_19",
@@ -9448,7 +9566,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n순열 (경우의 수)\n\n[풀이]\n서로 다른 5개의 프로그램 중 2개를 순서대로 체험하는 순열(Permutation)입니다.\n₅P₂=5×4=20가지입니다.\n\n[정답]\n③"
   },
   {
     "id": "math_2025_2_20",
@@ -9477,6 +9596,7 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[개념]\n조합 (경우의 수)\n\n[풀이]\n4종류의 잡곡 중 순서를 고려하지 않고 2종류를 선택하는 조합(Combination) 문제입니다.\n₄C₂=(4×3)/(2×1)=6가지입니다.\n\n[정답]\n①"
   }
 ]
