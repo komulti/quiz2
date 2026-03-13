@@ -211,6 +211,15 @@ export default function WrongNotePage() {
                   </div>
                   {isOpen && (
                     <div className="px-3 pb-3 space-y-3">
+                      {q.passageImage && (
+                        <div className="bg-blue-50 rounded-2xl shadow-sm p-3 border border-blue-100">
+                          <p className="text-xs text-blue-500 font-semibold mb-2 select-none">📄 지문</p>
+                          <QuestionImage
+                            src={q.passageImage}
+                            alt={`${q.year}년 ${q.session}회 지문`}
+                          />
+                        </div>
+                      )}
                       <QuestionImage src={q.image} alt={`${q.id} 문제`} />
                       {q.explanation && (
                         <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
