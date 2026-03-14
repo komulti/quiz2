@@ -170,16 +170,26 @@ export default function QuizPage() {
 
       {/* 문제 영역 (슬라이드 in) */}
       <div key={slideKey} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 slide-in">
-        {/* 지문 카드 (공유 지문이 있는 경우) */}
-        {question.passageImage && (
-          <div className="bg-blue-50 rounded-2xl shadow-sm p-3 border border-blue-100">
-            <p className="text-xs text-blue-500 font-semibold mb-2 select-none">📄 지문</p>
-            <QuestionImage
-              src={question.passageImage}
-              alt={`${question.year}년 ${question.session}회 지문`}
-            />
-          </div>
-        )}
+        {/* 지문/지시문 카드 */}
+        {question.passageImage && (() => {
+          const isPassage = /pass_(22_23|24_25)\./.test(question.passageImage!);
+          return isPassage ? (
+            <div className="bg-blue-50 rounded-2xl shadow-sm p-3 border border-blue-100">
+              <p className="text-xs text-blue-500 font-semibold mb-2 select-none">📄 지문</p>
+              <QuestionImage
+                src={question.passageImage!}
+                alt={`${question.year}년 ${question.session}회 지문`}
+              />
+            </div>
+          ) : (
+            <div className="bg-gray-50 rounded-2xl shadow-sm p-3 border border-gray-100">
+              <QuestionImage
+                src={question.passageImage!}
+                alt={`${question.year}년 ${question.session}회 지시문`}
+              />
+            </div>
+          );
+        })()}
         {/* 문제 이미지 카드 */}
         <div className="bg-white rounded-2xl shadow-sm p-3">
           <QuestionImage
