@@ -9,22 +9,26 @@ export default function QuestionImage({ src, alt }: Props) {
   const [error, setError] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [scale, setScale] = useState(1);
+  const [translate, setTranslate] = useState({ x: 0, y: 0 });
 
-  // pinch-zoom state
+  // refs for non-passive handlers
   const lastDist = useRef<number | null>(null);
   const lastScale = useRef(1);
+  const lastTouch = useRef<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scaleRef = useRef(1);
+  const translateRef = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
 
   const imgBase = src.replace(/\.png$/, '');
   const base = import.meta.env.BASE_URL;
   const webpSrc = `${base}data/${imgBase}.webp`;
   const pngSrc  = `${base}data/${src}`;
 
-  // scale state와 ref 동기화 (non-passive 핸들러에서 최신값 참조)
   useEffect(() => { scaleRef.current = scale; }, [scale]);
+  useEffect(() => { translateRef.current = translate; }, [translate]);
 
-  // non-passive touch 리스너 (모바일 핀치 줌)
+  // non-passive touch 리스너 (핀치 줌 + 드래그 pan)
   useEffect(() => {
     if (!modalOpen) return;
     const el = containerRef.current;
@@ -33,10 +37,14 @@ export default function QuestionImage({ src, alt }: Props) {
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 2) {
         e.preventDefault();
+        lastTouch.current = null;
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         lastDist.current = Math.hypot(dx, dy);
         lastScale.current = scaleRef.current;
+      } else if (e.touches.length === 1) {
+        lastTouch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        isDragging.current = false;
       }
     };
 
@@ -48,25 +56,44 @@ export default function QuestionImage({ src, alt }: Props) {
         const dist = Math.hypot(dx, dy);
         const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
         setScale(newScale);
+      } else if (e.touches.length === 1 && lastTouch.current && scaleRef.current > 1) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - lastTouch.current.x;
+        const dy = e.touches[0].clientY - lastTouch.current.y;
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragging.current = true;
+        lastTouch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy }));
       }
+    };
+
+    const handleTouchEnd = () => {
+      lastDist.current = null;
+      lastTouch.current = null;
     };
 
     el.addEventListener('touchstart', handleTouchStart, { passive: false });
     el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    el.addEventListener('touchend', handleTouchEnd);
     return () => {
       el.removeEventListener('touchstart', handleTouchStart);
       el.removeEventListener('touchmove', handleTouchMove);
+      el.removeEventListener('touchend', handleTouchEnd);
     };
   }, [modalOpen]);
 
   const onDoubleClick = useCallback(() => {
-    setScale((s) => (s > 1 ? 1 : 2));
+    setScale((s) => {
+      if (s > 1) { setTranslate({ x: 0, y: 0 }); return 1; }
+      return 2;
+    });
   }, []);
 
-  const closeModal = () => {
+  const handleModalClick = useCallback(() => {
+    if (isDragging.current) { isDragging.current = false; return; }
     setModalOpen(false);
     setScale(1);
-  };
+    setTranslate({ x: 0, y: 0 });
+  }, []);
 
   if (error) {
     return (
@@ -106,23 +133,23 @@ export default function QuestionImage({ src, alt }: Props) {
           {/* 이미지 영역 */}
           <div
             ref={containerRef}
-            className="fixed top-0 inset-x-0 z-50 bg-black/90"
-            onClick={closeModal}
+            className="fixed top-0 inset-x-0 z-50 bg-black/90 overflow-hidden"
+            onClick={handleModalClick}
             onDoubleClick={onDoubleClick}
           >
             <div className="flex flex-col items-center gap-3 px-3 pt-14 pb-4 w-full">
               <p className="text-white/80 text-sm font-medium select-none bg-black/30 px-3 py-1 rounded-full">
-                더블탭 또는 핀치로 확대/축소
+                핀치로 확대/축소 · 드래그로 이동
               </p>
               <picture>
                 <source srcSet={webpSrc} type="image/webp" />
                 <img
                   src={pngSrc}
                   alt={alt}
-                  onClick={closeModal}
+                  onClick={handleModalClick}
                   className="w-full rounded-xl transition-transform duration-100 select-none"
                   style={{
-                    transform: `scale(${scale})`,
+                    transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
                     transformOrigin: 'top center',
                     touchAction: 'none',
                   }}
@@ -132,11 +159,11 @@ export default function QuestionImage({ src, alt }: Props) {
             </div>
           </div>
           {/* 이미지 아래 투명 오버레이 (탭하면 닫힘) */}
-          <div className="fixed inset-0 z-40" onClick={closeModal} />
+          <div className="fixed inset-0 z-40" onClick={handleModalClick} />
           {/* X 버튼 */}
           <button
             className="fixed top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
-            onClick={closeModal}
+            onClick={handleModalClick}
             aria-label="이미지 닫기"
           >
             ×
