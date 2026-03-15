@@ -8,16 +8,19 @@ interface Props {
 export default function QuestionImage({ src, alt }: Props) {
   const [error, setError] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [scale, setScale] = useState(1);
-  const [translate, setTranslate] = useState({ x: 0, y: 0 });
 
-  // refs for non-passive handlers
-  const lastDist = useRef<number | null>(null);
-  const lastScale = useRef(1);
-  const lastTouch = useRef<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  // transform 값을 ref로만 관리 (리렌더링 없이 DOM 직접 업데이트)
   const scaleRef = useRef(1);
   const translateRef = useRef({ x: 0, y: 0 });
+
+  // pinch-zoom refs
+  const lastDist = useRef<number | null>(null);
+  const lastScale = useRef(1);
+  // pan refs
+  const lastTouch = useRef<{ x: number; y: number } | null>(null);
   const isDragging = useRef(false);
 
   const imgBase = src.replace(/\.png$/, '');
@@ -25,8 +28,18 @@ export default function QuestionImage({ src, alt }: Props) {
   const webpSrc = `${base}data/${imgBase}.webp`;
   const pngSrc  = `${base}data/${src}`;
 
-  useEffect(() => { scaleRef.current = scale; }, [scale]);
-  useEffect(() => { translateRef.current = translate; }, [translate]);
+  const applyTransform = (animated = false) => {
+    const img = imgRef.current;
+    if (!img) return;
+    img.style.transition = animated ? 'transform 0.15s ease' : 'none';
+    img.style.transform = `translate(${translateRef.current.x}px, ${translateRef.current.y}px) scale(${scaleRef.current})`;
+  };
+
+  const resetTransform = () => {
+    scaleRef.current = 1;
+    translateRef.current = { x: 0, y: 0 };
+    applyTransform(false);
+  };
 
   // non-passive touch 리스너 (핀치 줌 + 드래그 pan)
   useEffect(() => {
@@ -54,15 +67,16 @@ export default function QuestionImage({ src, alt }: Props) {
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         const dist = Math.hypot(dx, dy);
-        const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
-        setScale(newScale);
+        scaleRef.current = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
+        applyTransform(false);
       } else if (e.touches.length === 1 && lastTouch.current && scaleRef.current > 1) {
         e.preventDefault();
         const dx = e.touches[0].clientX - lastTouch.current.x;
         const dy = e.touches[0].clientY - lastTouch.current.y;
         if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragging.current = true;
         lastTouch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy }));
+        translateRef.current = { x: translateRef.current.x + dx, y: translateRef.current.y + dy };
+        applyTransform(false);
       }
     };
 
@@ -82,17 +96,18 @@ export default function QuestionImage({ src, alt }: Props) {
   }, [modalOpen]);
 
   const onDoubleClick = useCallback(() => {
-    setScale((s) => {
-      if (s > 1) { setTranslate({ x: 0, y: 0 }); return 1; }
-      return 2;
-    });
+    if (scaleRef.current > 1) {
+      resetTransform();
+    } else {
+      scaleRef.current = 2;
+      applyTransform(true);
+    }
   }, []);
 
   const handleModalClick = useCallback(() => {
     if (isDragging.current) { isDragging.current = false; return; }
     setModalOpen(false);
-    setScale(1);
-    setTranslate({ x: 0, y: 0 });
+    resetTransform();
   }, []);
 
   if (error) {
@@ -144,15 +159,12 @@ export default function QuestionImage({ src, alt }: Props) {
               <picture>
                 <source srcSet={webpSrc} type="image/webp" />
                 <img
+                  ref={imgRef}
                   src={pngSrc}
                   alt={alt}
                   onClick={handleModalClick}
-                  className="w-full rounded-xl transition-transform duration-100 select-none"
-                  style={{
-                    transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
-                    transformOrigin: 'top center',
-                    touchAction: 'none',
-                  }}
+                  className="w-full rounded-xl select-none"
+                  style={{ touchAction: 'none', transformOrigin: 'top center' }}
                   draggable={false}
                 />
               </picture>
