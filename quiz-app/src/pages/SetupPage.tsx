@@ -144,10 +144,10 @@ export default function SetupPage() {
               <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
                 이름 (선택)
               </h2>
-              <div className="flex gap-2">
+              <div className="flex gap-2 min-w-0">
                 <input
                   type="text"
-                  placeholder="이름을 입력하면 모든 기록이 저장됩니다"
+                  placeholder="이름을 입력하면 기록이 저장됩니다"
                   value={playerName}
                   onChange={(e) => setPlayerName(e.target.value)}
                   onKeyDown={async (e) => {
