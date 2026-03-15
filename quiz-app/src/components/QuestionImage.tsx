@@ -11,6 +11,7 @@ export default function QuestionImage({ src, alt }: Props) {
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   // transform 값을 ref로만 관리 (리렌더링 없이 DOM 직접 업데이트)
   const scaleRef = useRef(1);
@@ -29,16 +30,21 @@ export default function QuestionImage({ src, alt }: Props) {
   const pngSrc  = `${base}data/${src}`;
 
   const applyTransform = (animated = false) => {
-    const img = imgRef.current;
-    if (!img) return;
-    img.style.transition = animated ? 'transform 0.15s ease' : 'none';
-    img.style.transform = `translate(${translateRef.current.x}px, ${translateRef.current.y}px) scale(${scaleRef.current})`;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const img = imgRef.current;
+      if (!img) return;
+      img.style.transition = animated ? 'transform 0.15s ease' : 'none';
+      img.style.transform = `translate(${translateRef.current.x}px, ${translateRef.current.y}px) scale(${scaleRef.current})`;
+    });
   };
 
   const resetTransform = () => {
     scaleRef.current = 1;
     translateRef.current = { x: 0, y: 0 };
-    applyTransform(false);
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    const img = imgRef.current;
+    if (img) { img.style.transition = 'none'; img.style.transform = ''; }
   };
 
   // non-passive touch 리스너 (핀치 줌 + 드래그 pan)
@@ -148,7 +154,7 @@ export default function QuestionImage({ src, alt }: Props) {
           {/* 이미지 영역 */}
           <div
             ref={containerRef}
-            className="fixed top-0 inset-x-0 z-50 bg-black/90 overflow-hidden"
+            className="fixed top-0 inset-x-0 z-50 bg-black/90"
             onClick={handleModalClick}
             onDoubleClick={onDoubleClick}
           >
@@ -164,7 +170,7 @@ export default function QuestionImage({ src, alt }: Props) {
                   alt={alt}
                   onClick={handleModalClick}
                   className="w-full rounded-xl select-none"
-                  style={{ touchAction: 'none', transformOrigin: 'top center' }}
+                  style={{ touchAction: 'none', transformOrigin: 'top center', willChange: 'transform' }}
                   draggable={false}
                 />
               </picture>
