@@ -137,10 +137,20 @@ export default function QuizPage() {
       {/* 상단 바 */}
       <div className="bg-white border-b border-gray-100 px-4 py-3">
         <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-bold text-gray-700">
+            {currentIndex + 1}
+            <span className="text-gray-400"> / {total}</span>
+          </span>
+          <span className="text-xs text-gray-400">
+            {question.year}년 {question.session}회 {question.number}번
+          </span>
           <div className="flex items-center gap-2">
+            <span className="text-sm font-mono font-semibold text-gray-600">
+              {formatTime(elapsed)}
+            </span>
             <button
               onClick={handleExit}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-red-50 hover:text-red-500 text-gray-500 text-xs font-semibold transition-colors active:scale-95"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-500 text-xs font-semibold border border-red-200 transition-colors active:scale-95"
               aria-label="퀴즈 종료"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
@@ -148,17 +158,7 @@ export default function QuizPage() {
               </svg>
               그만하기
             </button>
-            <span className="text-sm font-bold text-gray-700">
-              {currentIndex + 1}
-              <span className="text-gray-400"> / {total}</span>
-            </span>
           </div>
-          <span className="text-xs text-gray-400">
-            {question.year}년 {question.session}회 {question.number}번
-          </span>
-          <span className="text-sm font-mono font-semibold text-gray-600">
-            {formatTime(elapsed)}
-          </span>
         </div>
         <div className="w-full bg-gray-100 rounded-full h-2" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
           <div

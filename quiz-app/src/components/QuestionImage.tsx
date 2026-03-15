@@ -73,7 +73,7 @@ export default function QuestionImage({ src, alt }: Props) {
             alt={alt}
             loading="lazy"
             onError={() => setError(true)}
-            className="w-full rounded-xl object-contain max-h-72 bg-white border border-gray-100"
+            className="w-full rounded-xl object-contain bg-white border border-gray-100"
           />
         </picture>
         <p className="text-xs text-gray-400 text-center mt-1 select-none">탭하여 확대 🔍</p>
@@ -86,13 +86,13 @@ export default function QuestionImage({ src, alt }: Props) {
           onClick={closeModal}
         >
           <div
-            className="relative w-full h-full flex items-center justify-center overflow-auto"
+            className="relative w-full h-full overflow-y-auto overflow-x-hidden"
             onClick={closeModal}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}
           >
-            <div className="flex flex-col items-center gap-4" onClick={closeModal}>
+            <div className="flex flex-col items-center gap-4 px-3 py-8 min-h-full justify-center" onClick={closeModal}>
               <p className="text-white/80 text-lg font-medium select-none bg-black/30 px-4 py-1.5 rounded-full">
                 더블탭 또는 핀치로 확대/축소
               </p>
@@ -101,10 +101,10 @@ export default function QuestionImage({ src, alt }: Props) {
                 <img
                   src={pngSrc}
                   alt={alt}
-                  className="max-w-full object-contain rounded-xl transition-transform duration-100 select-none"
+                  className="w-full rounded-xl transition-transform duration-100 select-none"
                   style={{
                     transform: `scale(${scale})`,
-                    maxHeight: '85dvh',
+                    transformOrigin: 'top center',
                     touchAction: 'none',
                   }}
                   draggable={false}
