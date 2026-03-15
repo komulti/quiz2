@@ -73,7 +73,9 @@ export default function QuestionImage({ src, alt }: Props) {
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         const dist = Math.hypot(dx, dy);
-        scaleRef.current = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
+        const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
+        scaleRef.current = newScale;
+        if (newScale <= 1) translateRef.current = { x: 0, y: 0 };
         applyTransform(false);
       } else if (e.touches.length === 1 && lastTouch.current && scaleRef.current > 1) {
         e.preventDefault();
