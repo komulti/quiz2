@@ -85,6 +85,7 @@ export default function QuestionImage({ src, alt }: Props) {
           {/* 이미지 영역 */}
           <div
             className="fixed top-0 inset-x-0 z-50 bg-black/90"
+            onClick={closeModal}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}
@@ -98,6 +99,7 @@ export default function QuestionImage({ src, alt }: Props) {
                 <img
                   src={pngSrc}
                   alt={alt}
+                  onClick={closeModal}
                   className="w-full rounded-xl transition-transform duration-100 select-none"
                   style={{
                     transform: `scale(${scale})`,
