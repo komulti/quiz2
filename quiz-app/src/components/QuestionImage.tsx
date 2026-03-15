@@ -147,7 +147,7 @@ export default function QuestionImage({ src, alt }: Props) {
             className="w-full rounded-xl object-contain bg-white border border-gray-100"
           />
         </picture>
-        <p className="text-xs text-gray-400 text-center mt-1 select-none">탭하여 확대 🔍</p>
+        <p className="text-xs font-semibold text-blue-400 text-center mt-1.5 select-none tracking-wide">🔍 탭하여 확대</p>
       </button>
 
       {/* 전체화면 이미지 모달 */}
