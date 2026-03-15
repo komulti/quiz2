@@ -81,19 +81,16 @@ export default function QuestionImage({ src, alt }: Props) {
 
       {/* 전체화면 이미지 모달 */}
       {modalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center image-modal-bg bg-black/75"
-          onClick={closeModal}
-        >
+        <>
+          {/* 이미지 영역 */}
           <div
-            className="relative w-full h-full overflow-y-auto overflow-x-hidden"
-            onClick={closeModal}
+            className="fixed top-0 inset-x-0 z-50 bg-black/90"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}
           >
-            <div className="flex flex-col items-center gap-4 px-3 py-8 min-h-full justify-center" onClick={closeModal}>
-              <p className="text-white/80 text-lg font-medium select-none bg-black/30 px-4 py-1.5 rounded-full">
+            <div className="flex flex-col items-center gap-3 px-3 pt-14 pb-4 w-full">
+              <p className="text-white/80 text-sm font-medium select-none bg-black/30 px-3 py-1 rounded-full">
                 더블탭 또는 핀치로 확대/축소
               </p>
               <picture>
@@ -112,14 +109,17 @@ export default function QuestionImage({ src, alt }: Props) {
               </picture>
             </div>
           </div>
+          {/* 이미지 아래 투명 오버레이 (탭하면 닫힘) */}
+          <div className="fixed inset-0 z-40" onClick={closeModal} />
+          {/* X 버튼 */}
           <button
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
+            className="fixed top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
             onClick={closeModal}
             aria-label="이미지 닫기"
           >
             ×
           </button>
-        </div>
+        </>
       )}
     </>
   );
