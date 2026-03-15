@@ -74,8 +74,19 @@ export default function QuestionImage({ src, alt }: Props) {
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         const dist = Math.hypot(dx, dy);
         const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
+        const scaleDelta = newScale / scaleRef.current;
+        // 핀치 중점 기준으로 translate 조정
+        if (newScale <= 1) {
+          translateRef.current = { x: 0, y: 0 };
+        } else {
+          const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+          const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+          translateRef.current = {
+            x: cx - (cx - translateRef.current.x) * scaleDelta,
+            y: cy - (cy - translateRef.current.y) * scaleDelta,
+          };
+        }
         scaleRef.current = newScale;
-        if (newScale <= 1) translateRef.current = { x: 0, y: 0 };
         applyTransform(false);
       } else if (e.touches.length === 1 && lastTouch.current && scaleRef.current > 1) {
         e.preventDefault();
@@ -172,7 +183,7 @@ export default function QuestionImage({ src, alt }: Props) {
                   alt={alt}
                   onClick={handleModalClick}
                   className="w-full rounded-xl select-none"
-                  style={{ touchAction: 'none', transformOrigin: 'top center', willChange: 'transform' }}
+                  style={{ touchAction: 'none', transformOrigin: '0 0', willChange: 'transform' }}
                   draggable={false}
                 />
               </picture>
