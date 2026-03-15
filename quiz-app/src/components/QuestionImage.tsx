@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 interface Props {
   src: string;
@@ -13,30 +13,51 @@ export default function QuestionImage({ src, alt }: Props) {
   // pinch-zoom state
   const lastDist = useRef<number | null>(null);
   const lastScale = useRef(1);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const scaleRef = useRef(1);
 
   const imgBase = src.replace(/\.png$/, '');
   const base = import.meta.env.BASE_URL;
   const webpSrc = `${base}data/${imgBase}.webp`;
   const pngSrc  = `${base}data/${src}`;
 
-  const onTouchStart = useCallback((e: React.TouchEvent) => {
-    if (e.touches.length === 2) {
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      lastDist.current = Math.hypot(dx, dy);
-      lastScale.current = scale;
-    }
-  }, [scale]);
+  // scale state와 ref 동기화 (non-passive 핸들러에서 최신값 참조)
+  useEffect(() => { scaleRef.current = scale; }, [scale]);
 
-  const onTouchMove = useCallback((e: React.TouchEvent) => {
-    if (e.touches.length === 2 && lastDist.current !== null) {
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      const dist = Math.hypot(dx, dy);
-      const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
-      setScale(newScale);
-    }
-  }, []);
+  // non-passive touch 리스너 (모바일 핀치 줌)
+  useEffect(() => {
+    if (!modalOpen) return;
+    const el = containerRef.current;
+    if (!el) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        lastDist.current = Math.hypot(dx, dy);
+        lastScale.current = scaleRef.current;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 2 && lastDist.current !== null) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.hypot(dx, dy);
+        const newScale = Math.max(1, Math.min(4, lastScale.current * (dist / lastDist.current)));
+        setScale(newScale);
+      }
+    };
+
+    el.addEventListener('touchstart', handleTouchStart, { passive: false });
+    el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => {
+      el.removeEventListener('touchstart', handleTouchStart);
+      el.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [modalOpen]);
 
   const onDoubleClick = useCallback(() => {
     setScale((s) => (s > 1 ? 1 : 2));
@@ -84,10 +105,9 @@ export default function QuestionImage({ src, alt }: Props) {
         <>
           {/* 이미지 영역 */}
           <div
+            ref={containerRef}
             className="fixed top-0 inset-x-0 z-50 bg-black/90"
             onClick={closeModal}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
             onDoubleClick={onDoubleClick}
           >
             <div className="flex flex-col items-center gap-3 px-3 pt-14 pb-4 w-full">
