@@ -1,9 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import { formatTime } from '../hooks/useTimer';
 import ConfirmModal from '../components/ConfirmModal';
 import type { Subject } from '../types/index';
+
+function useCountUp(target: number, duration = 900) {
+  const [value, setValue] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  useEffect(() => {
+    const start = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setValue(Math.round(eased * target));
+      if (t < 1) rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [target, duration]);
+  return value;
+}
 
 /* ── 과목 메타 ─────────────────────────────────── */
 const SUBJECT_INFO: { label: string; prefix: string; color: string; subject: Subject }[] = [
@@ -174,10 +191,15 @@ export default function StatsPage() {
   const avgPercent = totalSessions > 0
     ? Math.round(history.reduce((s, h) => s + (h.score / h.total) * 100, 0) / totalSessions)
     : 0;
+
+  const animTotalSessions = useCountUp(totalSessions);
+  const animAvgPercent = useCountUp(avgPercent);
+  const animTotalQuestions = useCountUp(totalQuestions);
   const streak = calcStreak(history.map((h) => h.date));
 
   /* ── 레벨 ── */
   const { level, lv, next, progress } = getLevel(totalQuestions);
+  const animProgress = useCountUp(progress);
 
   /* ── 뱃지 ── */
   const badgeCtx: BadgeCtx = { history, wrongNotes, streak, totalQ: totalQuestions, avgPct: avgPercent };
@@ -189,6 +211,15 @@ export default function StatsPage() {
     ...s,
     ...getProficiency(history.filter((h) => h.subject === s.subject)),
   }));
+  const animPct = [
+    useCountUp(proficiency[0]?.pct ?? 0),
+    useCountUp(proficiency[1]?.pct ?? 0),
+    useCountUp(proficiency[2]?.pct ?? 0),
+    useCountUp(proficiency[3]?.pct ?? 0),
+    useCountUp(proficiency[4]?.pct ?? 0),
+    useCountUp(proficiency[5]?.pct ?? 0),
+    useCountUp(proficiency[6]?.pct ?? 0),
+  ];
 
   /* 과목별 오답 집계 */
   const wrongBySubject = SUBJECT_INFO.map((s) => ({
@@ -261,9 +292,9 @@ export default function StatsPage() {
         {/* 핵심 지표 */}
         <div className="grid grid-cols-3 gap-2">
           {[
-            { label: '총 퀴즈', value: totalSessions, unit: '회' },
-            { label: '평균 정답률', value: avgPercent, unit: '%' },
-            { label: '풀이 문항', value: totalQuestions, unit: '문제' },
+            { label: '총 퀴즈', value: animTotalSessions, unit: '회' },
+            { label: '평균 정답률', value: animAvgPercent, unit: '%' },
+            { label: '풀이 문항', value: animTotalQuestions, unit: '문제' },
           ].map((item) => (
             <div key={item.label} className="bg-white rounded-2xl shadow-sm p-4 text-center">
               <p className="text-2xl font-bold text-blue-600">{item.value}<span className="text-sm font-normal text-gray-400">{item.unit}</span></p>
@@ -285,7 +316,7 @@ export default function StatsPage() {
                 <span className="text-xs text-gray-400">Lv.{lv}</span>
               </div>
               <div className="bg-gray-100 rounded-full h-3 overflow-hidden">
-                <div className={`h-full rounded-full transition-all ${level.bar}`} style={{ width: `${progress}%` }} />
+                <div className={`h-full rounded-full ${level.bar}`} style={{ width: `${animProgress}%` }} />
               </div>
               <p className="text-xs text-gray-400 mt-1">
                 {next ? `${totalQuestions}문제 / 다음 레벨까지 ${next.min - totalQuestions}문제` : `${totalQuestions}문제 — 최고 레벨 달성! 👑`}
@@ -323,12 +354,12 @@ export default function StatsPage() {
         <div className="bg-white rounded-2xl shadow-sm p-5">
           <h2 className="text-sm font-semibold text-gray-500 mb-4">📈 과목별 숙련도</h2>
           <div className="space-y-3">
-            {proficiency.map((s) => (
+            {proficiency.map((s, i) => (
               <div key={s.subject} className="flex items-center gap-3">
                 <span className="text-sm text-gray-600 w-10 shrink-0">{s.label}</span>
                 <div className="flex-1">
                   <div className="bg-gray-100 rounded-full h-3 overflow-hidden">
-                    <div className={`h-full rounded-full transition-all ${s.color}`} style={{ width: `${s.pct}%` }} />
+                    <div className={`h-full rounded-full ${s.color}`} style={{ width: `${animPct[i]}%` }} />
                   </div>
                 </div>
                 <span className={`text-xs font-bold w-8 text-right ${s.profLv >= 3 ? 'text-purple-500' : s.profLv >= 2 ? 'text-blue-500' : s.profLv >= 1 ? 'text-green-500' : 'text-gray-400'}`}>
