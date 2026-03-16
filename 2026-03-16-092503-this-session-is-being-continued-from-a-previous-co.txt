@@ -1,0 +1,1472 @@
+▗ ▗   ▖ ▖  Claude Code v2.1.76
+           Sonnet 4.6 · Claude Pro
+  ▘▘ ▝▝    ~/Desktop/GitHup/quiz2
+
+✻ Conversation compacted (ctrl+o for history)
+
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  2018_1_pass_1_3.png
+     2018_1_pass_20_21.png
+     2018_1_pass_24_25.png
+     … +37 lines (ctrl+o to expand)
+
+⏺ Read 4 files (ctrl+o to expand)
+
+⏺ 확인 완료:
+  - pass_22_23: 실제 독해 지문 포함 → 유지
+  - pass_12_13: 지시문만 → 제거
+  - pass_19_20: 지시문만 → 제거
+  - pass_2_3: 지시문만 → 제거
+
+  지시문만 포함된 passageImage 패턴: pass_1_3, pass_2_3, pass_6_8, pass_12_13,
+  pass_13_14, pass_19_20, pass_20_21
+
+  이 패턴들을 JSON에서 제거하겠습니다.
+
+⏺ Bash(python3 -c "
+      import json, shutil…)
+  ⎿  제거된 passageImage 수: 152
+     동기화 완료
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  2018_1_pass_24_25.png
+     2018_2_pass_22_23.png
+     2018_2_pass_24_25.png
+     … +14 lines (ctrl+o to expand)
+
+⏺ 완료했습니다. 실제 독해 지문이 있는 pass_22_23(2018년 2회)과 pass_24_25(16개
+  회차)만 남기고, 지시문만 포함하던 152개의 passageImage 항목을 제거했습니다.
+
+  수정 결과:
+  - 제거된 패턴: pass_1_3, pass_2_3, pass_6_8, pass_12_13, pass_13_14,
+  pass_19_20, pass_20_21 → 총 152개
+  - 유지된 패턴: pass_22_23 (2018년 2회), pass_24_25 (16개 회차) → 실제 독해
+  지문 포함
+
+  이제 오답노트에서 영어 과목 문제를 볼 때 지시문("[1~3] 밑줄 친 부분의
+  뜻으로..." 등)이 "📄 지문" 섹션에 잘못 표시되는 문제가 해결됩니다. 실제 독해
+  지문이 있는 24~25번 묶음 문제들만 "📄 지문" 섹션이 표시됩니다.
+
+✻ Cooked for 17m 30s
+
+❯ 영어 오답노트 2020년 2회 13번은 문제의 질문이 보이지 않아                     
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  {
+       "id": "en_2020_2_13",
+       "year": 2020,
+     … +30 lines (ctrl+o to expand)
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ passageImage를 제거해서 지시문이 사라졌습니다. git에서 원래 값을 복구해야
+  합니다.
+
+⏺ Bash(git log --oneline -5)
+  ⎿  56acab7 영어해설완료
+     dabae78 국어 오답노트 지문 보이게
+     b23ff8c 수학 나머지 + 국어해설 완료
+     … +2 lines (ctrl+o to expand)
+
+⏺ Bash(git show 56acab7:data/questions/english.json > /tmp/english_original.json
+       && python3 -c "
+      import json…)
+  ⎿  원본 passageImage 있는 문제 수: 184
+     샘플 - 2020년 2회 13번:
+     images/english/2020_2_pass_13_14.png
+
+⏺ 원본을 복구하되, UI 표시 방식도 함께 수정하겠습니다. 실제 지문(pass_22_23,
+  pass_24_25)은 "📄 지문" 박스로, 나머지 지시문 이미지는 레이블 없이 표시하도록
+  변경합니다.
+
+⏺ Bash(python3 -c "
+      import json, shutil…)
+  ⎿  복구된 passageImage 수: 184
+     동기화 완료
+
+⏺ 이제 QuizPage와 WrongNotePage에서 실제 지문(pass_22_23, pass_24_25)과 지시문을
+   구분해서 표시하도록 수정합니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/pages/QuizPage.tsx)
+  ⎿  Added 20 lines, removed 10 lines
+      170  
+      171        {/* 문제 영역 (슬라이드 in) */}
+      172        <div key={slideKey} className="flex-1 overflow-y-auto px
+           -4 py-4 space-y-3 slide-in">
+      173 -        {/* 지문 카드 (공유 지문이 있는 경우) */}             
+      174 -        {question.passageImage && (                           
+      175 -          <div className="bg-blue-50 rounded-2xl shadow-sm p-3
+          - border border-blue-100">                                     
+      176 -            <p className="text-xs text-blue-500 font-semibold 
+          -mb-2 select-none">📄 지문</p>                                 
+      177 -            <QuestionImage                                    
+      178 -              src={question.passageImage}                     
+      179 -              alt={`${question.year}년 ${question.session}회  
+          -지문`}                                                        
+      180 -            />                                                
+      181 -          </div>                                              
+      182 -        )}                                                    
+      173 +        {/* 지문/지시문 카드 */}                              
+      174 +        {question.passageImage && (() => {                    
+      175 +          const isPassage = /pass_(22_23|24_25)\./.test(questi
+          +on.passageImage!);                                            
+      176 +          return isPassage ? (                                
+      177 +            <div className="bg-blue-50 rounded-2xl shadow-sm p
+          +-3 border border-blue-100">                                   
+      178 +              <p className="text-xs text-blue-500 font-semibol
+          +d mb-2 select-none">📄 지문</p>                               
+      179 +              <QuestionImage                                  
+      180 +                src={question.passageImage!}                  
+      181 +                alt={`${question.year}년 ${question.session}회
+          + 지문`}                                                       
+      182 +              />                                              
+      183 +            </div>                                            
+      184 +          ) : (                                               
+      185 +            <div className="bg-gray-50 rounded-2xl shadow-sm p
+          +-3 border border-gray-100">                                   
+      186 +              <QuestionImage                                  
+      187 +                src={question.passageImage!}                  
+      188 +                alt={`${question.year}년 ${question.session}회
+          + 지시문`}                                                     
+      189 +              />                                              
+      190 +            </div>                                            
+      191 +          );                                                  
+      192 +        })()}                                                 
+      193          {/* 문제 이미지 카드 */}
+      194          <div className="bg-white rounded-2xl shadow-sm p-3">
+      195            <QuestionImage
+
+⏺ Update(quiz-app/src/pages/WrongNotePage.tsx)
+  ⎿  Added 19 lines, removed 9 lines
+      211                    </div>
+      212                    {isOpen && (
+      213                      <div className="px-3 pb-3 space-y-3">
+      214 -                      {q.passageImage && (                    
+      215 -                        <div className="bg-blue-50 rounded-2xl
+          - shadow-sm p-3 border border-blue-100">                       
+      216 -                          <p className="text-xs text-blue-500 
+          -font-semibold mb-2 select-none">📄 지문</p>                   
+      217 -                          <QuestionImage                      
+      218 -                            src={q.passageImage}              
+      219 -                            alt={`${q.year}년 ${q.session}회  
+          -지문`}                                                        
+      220 -                          />                                  
+      221 -                        </div>                                
+      222 -                      )}                                      
+      214 +                      {q.passageImage && (() => {             
+      215 +                        const isPassage = /pass_(22_23|24_25)\
+          +./.test(q.passageImage!);                                     
+      216 +                        return isPassage ? (                  
+      217 +                          <div className="bg-blue-50 rounded-2
+          +xl shadow-sm p-3 border border-blue-100">                     
+      218 +                            <p className="text-xs text-blue-50
+          +0 font-semibold mb-2 select-none">📄 지문</p>                 
+      219 +                            <QuestionImage                    
+      220 +                              src={q.passageImage!}           
+      221 +                              alt={`${q.year}년 ${q.session}회
+          + 지문`}                                                       
+      222 +                            />                                
+      223 +                          </div>                              
+      224 +                        ) : (                                 
+      225 +                          <div className="bg-gray-50 rounded-2
+          +xl shadow-sm p-3 border border-gray-100">                     
+      226 +                            <QuestionImage                    
+      227 +                              src={q.passageImage!}           
+      228 +                              alt={`${q.year}년 ${q.session}회
+          + 지시문`}                                                     
+      229 +                            />                                
+      230 +                          </div>                              
+      231 +                        );                                    
+      232 +                      })()}                                   
+      233                        <QuestionImage src={q.image} alt={`${q.i
+           d} 문제`} />
+      234                        {q.explanation && (
+      235                          <div className="bg-blue-50 border bord
+           er-blue-100 rounded-xl p-3">
+
+⏺ 수정 완료했습니다.
+
+  변경 내용:
+  - passageImage를 원래대로 복구 (184개) → 지시문이 다시 표시됨
+  - pass_22_23, pass_24_25 타입: 기존처럼 파란 "📄 지문" 박스로 표시
+  - 나머지 지시문 타입 (pass_1_3, pass_6_8, pass_13_14 등): 레이블 없이 연한
+  회색 박스로 표시
+
+  QuizPage와 WrongNotePage 양쪽 모두 동일하게 적용했습니다. 이제 2020년 2회 13번
+   오답노트에서 "[13~14] 다음 대화의 빈칸에 들어갈 말로 가장 적절한 것을
+  고르시오." 지시문이 정상적으로 보입니다.
+
+✻ Brewed for 2m 30s
+
+❯ 오답노트 영어에서 2018년도 1회 6번의 경우 여전히 문제가 다 보이지 않는 묹제가 
+ 있어.                                                                          
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  {
+       "id": "en_2018_1_06",
+       "year": 2018,
+     … +32 lines (ctrl+o to expand)
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ 이미지 상단에 텍스트가 잘려있네요. 2018_1_pass_6_8.png 파일이 있는지
+  확인해보겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ 2018년 1회에는 pass_6_8.png가 없습니다. 같은 6~8번 그룹의 다른 연도 이미지와
+  비교해보겠습니다.
+
+⏺ Read 2 files (ctrl+o to expand)
+
+⏺ 2018년 1회에는 pass_6_8.png 파일 자체가 없습니다. 2018년 1회에서
+  passageImage가 빠진 그룹이 어디인지 확인해보겠습니다.
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  1번: passageImage=images/english/2018_1_pass_1_3.png
+     2번: passageImage=images/english/2018_1_pass_1_3.png
+     3번: passageImage=images/english/2018_1_pass_1_3.png
+     … +22 lines (ctrl+o to expand)
+
+⏺ 7번, 8번 이미지도 같은 문제인지 확인하겠습니다.
+
+⏺ Read 2 files (ctrl+o to expand)
+
+⏺ 6번만 상단이 잘려있고 7번, 8번은 정상입니다. 6번 이미지 상단의 잘린 지시문
+  부분을 Pillow로 잘라내겠습니다.
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  크기: (1355, 365)
+     모드: RGB
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  Error: Exit code 1
+     Traceback (most recent call last):
+       File "<string>", line 3, in <module>
+         import numpy as np
+     ModuleNotFoundError: No module named 'numpy'
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  줄별 어두운 픽셀 비율 (상단 80줄):
+     y=0: dark_pixels=77
+     y=1: dark_pixels=51
+     … +40 lines (ctrl+o to expand)
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  y=3, x=1330: rgb=(0,0,0)
+     y=4, x=1330: rgb=(0,0,0)
+     y=5, x=1330: rgb=(0,0,0)
+     … +29 lines (ctrl+o to expand)
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  y=0: 어두운 픽셀=386/1355
+     y=1: 어두운 픽셀=257/1355
+     y=2: 어두운 픽셀=45/1355
+     … +3 lines (ctrl+o to expand)
+
+⏺ 상단 3픽셀에 잘린 텍스트가 있습니다. 이 픽셀을 제거하고, pass_6_8.png도
+  추가하겠습니다.
+
+⏺ Bash(python3 -c "
+      import shutil…)
+  ⎿  2018_1_06.png: 1355x365 → 1355x362
+     2018_1_pass_6_8.png 생성 완료
+
+⏺ Bash(python3 -c "
+      import json, shutil…)
+  ⎿  6번 passageImage 추가
+     7번 passageImage 추가
+     8번 passageImage 추가
+     동기화 완료
+
+⏺ 확인해보겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ 이미지 상단이 깨끗하게 수정됐습니다. 이제 오답노트에서 6번 문제를 열면:
+
+  1. 회색 박스에 "[6~8] 빈칸에 공통으로 들어갈 말로 가장 적절한 것을 고르시오."
+  지시문이 표시됩니다
+  2. 아래 문제 이미지는 상단 잘림 없이 깔끔하게 표시됩니다
+
+  이 외에도 2018년 1회에 비슷한 문제가 있는 그룹이 더 있을 수 있습니다. 다른
+  회차 영어 문제들도 확인이 필요하면 말씀해 주세요.
+
+✻ Worked for 4m 16s
+
+❯ 2018년 1회 6번의 지시문을 여전히 볼 수 없어.'이미지를 불러올 수 없습니다'라는 
+ 메세지가 보여                                                                  
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  passageImage: images/english/2018_1_pass_6_8.png
+
+⏺ 다른 passageImage의 경로 형식을 확인해보겠습니다.
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  en_2018_1_01 -> images/english/2018_1_pass_1_3.png
+     en_2018_1_02 -> images/english/2018_1_pass_1_3.png
+     en_2018_1_03 -> images/english/2018_1_pass_1_3.png
+     … +2 lines (ctrl+o to expand)
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ 파일은 정상인데 QuestionImage 컴포넌트가 어떻게 경로를 처리하는지
+  확인해보겠습니다.
+
+⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ webp 파일이 없어서 에러가 날 수 있습니다. 다른 pass 파일들의 webp 현황을
+  확인해보겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ webp 파일이 없습니다. 2018_1_pass_6_8.webp를 생성하겠습니다.
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  webp 생성 완료
+     -rw-r--r--  1 hyunggon  staff  9924  3 14 12:46 quiz-app/public/data/i
+     mages/english/2018_1_pass_6_8.webp
+
+⏺ 2018_1_06.png를 수정했으니 webp도 업데이트해야 합니다.
+
+⏺ Bash(python3 -c "
+      from PIL import Image…)
+  ⎿  2018_1_06.webp 업데이트 완료
+
+⏺ 이제 확인해보겠습니다. 혹시 로컬 개발 서버에서 보고 계신가요, 아니면 GitHub 
+  Pages 배포 사이트에서 보고 계신가요?
+
+  - 로컬(npm run dev)이라면 지금 바로 확인 가능합니다
+  - GitHub Pages라면 아직 push하지 않아서 반영이 안 된 상태입니다
+
+✻ Brewed for 6m 28s
+
+❯ /skills                                                                       
+  ⎿  Skills dialog dismissed
+
+❯ /exit                                                                         
+  ⎿  Goodbye!
+
+❯ /skills                                                                       
+  ⎿  Skills dialog dismissed
+
+❯ /exit                                                                         
+  ⎿  See ya!
+
+❯ /skills                                                                       
+  ⎿  Skills dialog dismissed
+
+❯ 현재 가상환경 실행중이야?                                                     
+
+⏺ Bash(echo "VIRTUAL_ENV: $VIRTUAL_ENV" && echo "CONDA_ENV: $CONDA_DEFAULT_ENV"
+      && which python3 && python3 --version)
+  ⎿  VIRTUAL_ENV: /Users/hyunggon/Desktop/GitHup/quiz2/.venv
+     CONDA_ENV:
+     /Users/hyunggon/Desktop/GitHup/quiz2/.venv/bin/python3
+     Python 3.14.2
+
+⏺ 네, 현재 가상환경이 실행 중입니다.
+
+  - 경로: /Users/hyunggon/Desktop/GitHup/quiz2/.venv
+  - Python 버전: 3.14.2
+
+❯ /context                                                                      
+  ⎿  Context Usage
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛀ ⛁   claude-sonnet-4-6 · 69k/200k tokens (35%)
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ 
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   Estimated usage by category
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛶ ⛶ ⛶ ⛶   ⛁ System prompt: 5.7k tokens (2.8%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System tools: 8.1k tokens (4.0%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 1.3k tokens (0.6%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Skills: 1k tokens (0.5%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 53.1k tokens (26.6%)
+     ⛶ ⛶ ⛶ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝   ⛶ Free space: 98k (48.9%)
+     ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝   ⛝ Autocompact buffer: 33k tokens (16.5%)
+
+     Memory files · /memory
+     └ CLAUDE.md: 404 tokens
+     └ ~/.claude/projects/-Users-hyunggon-Desktop-GitHup-quiz2/memory/MEMOR862 
+     tokens
+     .md:
+
+     Skills · /skills
+
+     User
+     └ xlsx: 237 tokens
+     └ docx: 198 tokens
+     └ pptx: 173 tokens
+     └ pdf: 110 tokens
+     └ skill-creator: 84 tokens
+
+      Suggestions
+      ℹ Read results using 154.8k tokens (77%) → save ~46.5k
+        Use offset and limit parameters to read only the sections you need. 
+     Avoid 
+        re-reading entire files when you only need a few lines.
+
+❯ 퀴즈 설정에서 이름을 입력하는 입력란의 가로 크기가 너무 커서 내 핸드폰에서    
+보면 옆의 동기화버튼이 섹션 밖으로 삐져나가 있어.                               
+  ⎿  Interrupted · What should Claude do instead?
+
+❯ 퀴즈 설정에서 이름을 입력하는 입력란의 가로 크기가 너무 커서 내 핸드폰에서    
+보면 옆의 동기화버튼이 섹션 밖으로 삐져나가 있어.                               
+1. 입력란의 글이 '이름을 입력하면 모든 기록이 저장됩니다'를 '이름을 입력하면    
+기록이 저장됩니다'로 바꿔주고 구조적으로 동기화 버튼이 섹션 밖으로 나가지 않게  
+만들어줘                                                                        
+
+⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/pages/SetupPage.tsx)
+  ⎿  Added 2 lines, removed 2 lines
+      144                <h2 className="text-sm font-semibold text-gray-5
+           00 uppercase tracking-wide mb-3">
+      145                  이름 (선택)
+      146                </h2>
+      147 -              <div className="flex gap-2">                    
+      147 +              <div className="flex gap-2 min-w-0">            
+      148                  <input
+      149                    type="text"
+      150 -                  placeholder="이름을 입력하면 모든 기록이 저 
+          -장됩니다"                                                     
+      150 +                  placeholder="이름을 입력하면 기록이 저장됩니
+          +다"                                                           
+      151                    value={playerName}
+      152                    onChange={(e) => setPlayerName(e.target.valu
+           e)}
+      153                    onKeyDown={async (e) => {
+
+⏺ 두 가지 수정했습니다.
+
+  1. placeholder 텍스트: "이름을 입력하면 모든 기록이 저장됩니다" → "이름을 
+  입력하면 기록이 저장됩니다"
+  2. flex 컨테이너에 min-w-0 추가 → flex-1인 input이 컨테이너 폭을 넘어서 버튼을
+   밀어내는 것을 방지
+
+  min-w-0은 flex 자식 요소의 기본 min-width: auto 동작을 재정의해서 input이 부모
+   섹션 안에 맞게 수축되도록 합니다.
+
+❯ 2018년 2회 12번 문제같이 지문이 세로로 긴 경우엔 지문의 세로길이에 맞춰서     
+먼저 보여지기에 확대를 해도 크기가 작아. 이 문제를 해결해줘                     
+
+⏺ Bash(python3 -c "
+      import json…)
+  ⎿  {
+       "id": "en_2018_2_12",
+       "year": 2018,
+     … +30 lines (ctrl+o to expand)
+
+⏺ Read 2 files (ctrl+o to expand)
+
+⏺ 문제를 파악했습니다. QuestionImage의 미리보기에 max-h-72 제한이 있고,
+  모달에서도 maxHeight: 85dvh로 제한되어 세로 긴 이미지는 가로 너비를 다 못 쓰고
+   작게 표시됩니다.
+
+  모달에서 이미지를 가로 폭 기준으로 표시하고 세로는 스크롤되도록
+  수정하겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      73              alt={alt}
+      74              loading="lazy"
+      75              onError={() => setError(true)}
+      76 -            className="w-full rounded-xl object-contain max-h-7
+         -2 bg-white border border-gray-100"                             
+      76 +            className="w-full rounded-xl object-contain bg-whit
+         +e border border-gray-100"                                      
+      77            />
+      78          </picture>
+      79          <p className="text-xs text-gray-400 text-center mt-1 se
+          lect-none">탭하여 확대 🔍</p>
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 4 lines, removed 4 lines
+      86            onClick={closeModal}
+      87          >
+      88            <div
+      89 -            className="relative w-full h-full flex items-center
+         - justify-center overflow-auto"                                 
+      89 +            className="relative w-full h-full overflow-y-auto o
+         +verflow-x-hidden"                                              
+      90              onClick={closeModal}
+      91              onTouchStart={onTouchStart}
+      92              onTouchMove={onTouchMove}
+      93              onDoubleClick={onDoubleClick}
+      94            >
+      95 -            <div className="flex flex-col items-center gap-4" o
+         -nClick={closeModal}>                                           
+      95 +            <div className="flex flex-col items-center gap-4 px
+         +-3 py-8 min-h-full justify-center" onClick={closeModal}>       
+      96                <p className="text-white/80 text-lg font-medium s
+          elect-none bg-black/30 px-4 py-1.5 rounded-full">
+      97                  더블탭 또는 핀치로 확대/축소
+      98                </p>
+     ...
+      101                  <img
+      102                    src={pngSrc}
+      103                    alt={alt}
+      104 -                  className="max-w-full object-contain rounded
+          --xl transition-transform duration-100 select-none"            
+      104 +                  className="w-full rounded-xl transition-tran
+          +sform duration-100 select-none"                               
+      105                    style={{
+      106                      transform: `scale(${scale})`,
+      107 -                    maxHeight: '85dvh',                       
+      107 +                    transformOrigin: 'top center',            
+      108                      touchAction: 'none',
+      109                    }}
+      110                    draggable={false}
+
+⏺ 두 가지 수정했습니다.
+
+  미리보기 카드:
+  - max-h-72 제거 → 이미지가 세로로 길어도 잘리지 않고 원본 비율로 표시
+
+  모달:
+  - maxHeight: 85dvh 제거 → 세로 긴 이미지도 화면 가로 폭 전체를 사용
+  - overflow-y-auto 추가 → 이미지가 화면보다 길면 스크롤 가능
+  - transformOrigin: 'top center' → 핀치/더블탭 확대 시 위에서부터 확대되어 내용
+   확인 용이
+  - w-full 기준으로 이미지 표시 → 가로 폭을 최대한 활용
+
+✻ Worked for 1m 10s
+
+❯ 문제를 풀때 '그만하기'버튼의 위치가 맘에 들지 않아. 그리고 색깔도 눈에 띄지   
+않아서 처음 차용하는 사람은 잘 모를수도있어. 수정해줘                           
+
+⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ 현재 구조를 파악했습니다. 그만하기 버튼을 오른쪽 타이머 옆으로 이동하고,
+  처음부터 빨간색으로 눈에 띄게 변경하겠습니다.
+
+⏺ Update(quiz-app/src/pages/QuizPage.tsx)
+  ⎿  Added 11 lines, removed 11 lines
+      137        {/* 상단 바 */}
+      138        <div className="bg-white border-b border-gray-100 px-4 p
+           y-3">
+      139          <div className="flex items-center justify-between mb-2
+           ">
+      140 +          <span className="text-sm font-bold text-gray-700">  
+      141 +            {currentIndex + 1}                                
+      142 +            <span className="text-gray-400"> / {total}</span> 
+      143 +          </span>                                             
+      144 +          <span className="text-xs text-gray-400">            
+      145 +            {question.year}년 {question.session}회 {question.n
+          +umber}번                                                      
+      146 +          </span>                                             
+      147            <div className="flex items-center gap-2">
+      148 +            <span className="text-sm font-mono font-semibold t
+          +ext-gray-600">                                                
+      149 +              {formatTime(elapsed)}                           
+      150 +            </span>                                           
+      151              <button
+      152                onClick={handleExit}
+      143 -              className="flex items-center gap-1.5 px-3 py-1.5
+          - rounded-xl bg-gray-100 hover:bg-red-50 hover:text-red-500 tex
+          -t-gray-500 text-xs font-semibold transition-colors active:scal
+          -e-95"                                                         
+      153 +              className="flex items-center gap-1 px-3 py-1.5 r
+          +ounded-xl bg-red-50 hover:bg-red-100 text-red-500 text-xs font
+          +-semibold border border-red-200 transition-colors active:scale
+          +-95"                                                          
+      154                aria-label="퀴즈 종료"
+      155              >
+      156                <svg xmlns="http://www.w3.org/2000/svg" classNam
+           e="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+     ...
+      158                </svg>
+      159                그만하기
+      160              </button>
+      151 -            <span className="text-sm font-bold text-gray-700">
+      152 -              {currentIndex + 1}                              
+      153 -              <span className="text-gray-400"> / {total}</span
+          ->                                                             
+      154 -            </span>                                           
+      161            </div>
+      156 -          <span className="text-xs text-gray-400">            
+      157 -            {question.year}년 {question.session}회 {question.n
+          -umber}번                                                      
+      158 -          </span>                                             
+      159 -          <span className="text-sm font-mono font-semibold tex
+          -t-gray-600">                                                  
+      160 -            {formatTime(elapsed)}                             
+      161 -          </span>                                             
+      162          </div>
+      163          <div className="w-full bg-gray-100 rounded-full h-2" r
+           ole="progressbar" aria-valuenow={progress} aria-valuemin={0} a
+           ria-valuemax={100}>
+      164            <div
+
+⏺ 변경 내용:
+
+  위치: 왼쪽(진행 번호 옆) → 오른쪽(타이머 옆)으로 이동
+  - 상단 바 레이아웃: [x/n] | [연도/회/번호] | [타이머] [그만하기]
+
+  색깔: 회색(bg-gray-100, text-gray-500) → 빨간색 계열(bg-red-50, text-red-500,
+  border-red-200)로 변경
+  - hover 시에만 빨간색이 되던 것에서 → 처음부터 빨간색으로 눈에 띄게 표시
+
+✻ Crunched for 48s
+
+❯ 문제를 풀 때 '탭하여 확대'버튼을 클릭하며 문제를 확대하면 '더블탭 또는 핀치로 
+ 확대/축소'버튼과 확대된 문제'의 위치가 검은색 백그라운드의 상단에 위치하면     
+좋겠어. 지문이 긴 문제의 경우는 상단의 여백이 너무 커                           
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      92              onTouchMove={onTouchMove}
+      93              onDoubleClick={onDoubleClick}
+      94            >
+      95 -            <div className="flex flex-col items-center gap-4 px
+         --3 py-8 min-h-full justify-center" onClick={closeModal}>       
+      95 +            <div className="flex flex-col items-center gap-3 px
+         +-3 pt-4 pb-8 w-full" onClick={closeModal}>                     
+      96                <p className="text-white/80 text-lg font-medium s
+          elect-none bg-black/30 px-4 py-1.5 rounded-full">
+      97                  더블탭 또는 핀치로 확대/축소
+      98                </p>
+
+⏺ 변경 내용:
+
+  - justify-center 제거 → 상단부터 정렬
+  - py-8 → pt-4 pb-8 → 상단 여백을 32px에서 16px으로 축소
+  - min-h-full 제거 → 불필요한 높이 강제 제거
+  - w-full 추가 → 이미지가 가로 폭을 온전히 사용
+
+  이제 모달을 열면 안내 텍스트와 이미지가 상단에 붙어서 표시되고, 지문이 긴
+  문제도 불필요한 여백 없이 바로 내용이 보입니다.
+
+❯ 너무 상단에 붙었어 X버튼 밑으로 위치하게해줘                                  
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      92              onTouchMove={onTouchMove}
+      93              onDoubleClick={onDoubleClick}
+      94            >
+      95 -            <div className="flex flex-col items-center gap-3 px
+         --3 pt-4 pb-8 w-full" onClick={closeModal}>                     
+      95 +            <div className="flex flex-col items-center gap-3 px
+         +-3 pt-14 pb-8 w-full" onClick={closeModal}>                    
+      96                <p className="text-white/80 text-lg font-medium s
+          elect-none bg-black/30 px-4 py-1.5 rounded-full">
+      97                  더블탭 또는 핀치로 확대/축소
+      98                </p>
+
+⏺ pt-4(16px) → pt-14(56px)으로 변경했습니다. X 버튼이 top-4(16px) + 버튼
+  높이(40px) = 약 56px이므로 버튼 바로 아래에서 시작합니다.
+
+❯ 검은색 백그라운드의 세로길이는 왜 그렇게 길지? 꼭 길어야 하나?                
+
+⏺ 전체 화면을 덮는 검은 배경(inset-0) 대신, 이미지가 있는 영역만 어두운 배경으로
+   표시하고 나머지는 투명하게 변경하겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 10 lines, removed 10 lines
+      81  
+      82        {/* 전체화면 이미지 모달 */}
+      83        {modalOpen && (
+      84 -        <div                                                   
+      85 -          className="fixed inset-0 z-50 flex items-center justi
+         -fy-center image-modal-bg bg-black/75"                          
+      86 -          onClick={closeModal}                                 
+      87 -        >                                                      
+      84 +        <>                                                     
+      85 +          {/* 이미지 영역 */}                                  
+      86            <div
+      89 -            className="relative w-full h-full overflow-y-auto o
+         -verflow-x-hidden"                                              
+      90 -            onClick={closeModal}                               
+      87 +            className="fixed top-0 inset-x-0 z-50 bg-black/90" 
+      88              onTouchStart={onTouchStart}
+      89              onTouchMove={onTouchMove}
+      90              onDoubleClick={onDoubleClick}
+      91            >
+      95 -            <div className="flex flex-col items-center gap-3 px
+         --3 pt-14 pb-8 w-full" onClick={closeModal}>                    
+      96 -              <p className="text-white/80 text-lg font-medium s
+         -elect-none bg-black/30 px-4 py-1.5 rounded-full">              
+      92 +            <div className="flex flex-col items-center gap-3 px
+         +-3 pt-14 pb-4 w-full">                                         
+      93 +              <p className="text-white/80 text-sm font-medium s
+         +elect-none bg-black/30 px-3 py-1 rounded-full">                
+      94                  더블탭 또는 핀치로 확대/축소
+      95                </p>
+      96                <picture>
+     ...
+      109                </picture>
+      110              </div>
+      111            </div>
+      112 +          {/* 이미지 아래 투명 오버레이 (탭하면 닫힘) */}     
+      113 +          <div className="fixed inset-0 z-40" onClick={closeMo
+          +dal} />                                                       
+      114 +          {/* X 버튼 */}                                      
+      115            <button
+      116 -            className="absolute top-4 right-4 w-10 h-10 rounde
+          -d-full bg-white/20 text-white text-2xl flex items-center justi
+          -fy-center hover:bg-white/30 transition-colors"                
+      116 +            className="fixed top-4 right-4 z-50 w-10 h-10 roun
+          +ded-full bg-white/20 text-white text-2xl flex items-center jus
+          +tify-center hover:bg-white/30 transition-colors"              
+      117              onClick={closeModal}
+      118              aria-label="이미지 닫기"
+      119            >
+      120              ×
+      121            </button>
+      122 -        </div>                                                
+      122 +        </>                                                   
+      123        )}
+      124      </>
+      125    );
+
+⏺ 변경 내용:
+
+  - 검은 배경: 전체 화면(inset-0) → 이미지가 있는 영역만(top-0 inset-x-0) 적용
+  - 이미지 아래쪽은 투명하게 표시되어 원래 화면이 보이며, 탭하면 닫힘
+  - X 버튼은 fixed로 항상 우측 상단에 고정
+
+✻ Churned for 55s
+
+❯ 확대된 문제를 다시 클릭하면 확대창이 꺼졌던 기능이 망가졌어                   
+
+⏺ 이미지 영역 div에 onClick={closeModal}이 빠졌습니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line
+      85            {/* 이미지 영역 */}
+      86            <div
+      87              className="fixed top-0 inset-x-0 z-50 bg-black/90"
+      88 +            onClick={closeModal}                               
+      89              onTouchStart={onTouchStart}
+      90              onTouchMove={onTouchMove}
+      91              onDoubleClick={onDoubleClick}
+
+⏺ onClick={closeModal} 추가했습니다. 이제 이미지 영역 클릭 시 다시 닫힙니다.
+
+❯ 이미지 영역 클릭 시 다시 닫히지 않는 문제를 전 과목 체크해줘                  
+
+⏺ Searched for 1 pattern (ctrl+o to expand)
+
+⏺ QuestionImage는 공통 컴포넌트라 한 곳만 수정하면 되는데, 현재 코드에서 왜
+  여전히 안 닫히는지 확인해보겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ touchAction: 'none'이 설정된 img 자체까지 onClick이 전달이 안 되는 것이
+  원인입니다. img에 직접 onClick을 추가하겠습니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line
+       99                  <img
+      100                    src={pngSrc}
+      101                    alt={alt}
+      102 +                  onClick={closeModal}                        
+      103                    className="w-full rounded-xl transition-tran
+           sform duration-100 select-none"
+      104                    style={{
+      105                      transform: `scale(${scale})`,
+
+⏺ QuestionImage는 공통 컴포넌트라 이 수정 하나로 QuizPage, WrongNotePage,
+  ResultPage 전 과목에 동일하게 적용됩니다.
+
+✻ Crunched for 1m 11s
+
+❯ '귀즈설정'에서 이름 입력란이 가로로 너무 커서 내 핸드폰에선 '동기화'버튼이    
+밀려나서 않보여. 입련란의 가로 크길를 조절해줘                                  
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/pages/SetupPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      158                      await loadFromCloud(trimmed);
+      159                    }}
+      160                    maxLength={12}
+      161 -                  className="flex-1 border border-gray-200 rou
+          -nded-xl px-4 py-2.5 text-gray-800 text-sm focus:outline-none f
+          -ocus:border-blue-500"                                         
+      161 +                  className="min-w-0 w-0 flex-1 border border-
+          +gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:ou
+          +tline-none focus:border-blue-500"                             
+      162                  />
+      163                  <button
+      164                    onClick={async () => {
+
+⏺ min-w-0 w-0 flex-1으로 변경했습니다. flex-1만 있으면 input의 기본 최소
+  너비(min-content)가 강제로 늘어나는데, min-w-0 w-0을 추가하면 가용 공간을
+  균등하게 나눠 동기화 버튼이 밀려나지 않습니다.
+
+❯ 이름입력란의 글을 '이름을 입력하면 기록이 저장됨'으로 수정해줘                
+
+⏺ Update(quiz-app/src/pages/SetupPage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      147                <div className="flex gap-2 min-w-0">
+      148                  <input
+      149                    type="text"
+      150 -                  placeholder="이름을 입력하면 기록이 저장됩니
+          -다"                                                           
+      150 +                  placeholder="이름을 입력하면 기록이 저장됨" 
+      151                    value={playerName}
+      152                    onChange={(e) => setPlayerName(e.target.valu
+           e)}
+      153                    onKeyDown={async (e) => {
+
+⏺ 수정했습니다.
+
+❯ 내 핸드폰에선 문제를 클릭해서 확대된 창이 뜨면 그 후에 핀치로 확대/축소       
+기능이 되질 않는데 수정 가능해? 일반 컴퓨터 브라우저에선 무제가 없어            
+
+⏺ 모바일에서 핀치 줌이 안 되는 이유는 React의 onTouchStart/onTouchMove가 passive
+   listener로 등록되어 e.preventDefault()를 호출하지 못하기 때문입니다.
+  useEffect로 직접 non-passive 리스너를 붙여야 합니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 39 lines, removed 18 lines
+      1 -import { useState, useRef, useCallback } from 'react';          
+      1 +import { useState, useRef, useCallback, useEffect } from 'react'
+        +;                                                               
+      2  
+      3  interface Props {
+      4    src: string;
+     ...
+      13    // pinch-zoom state
+      14    const lastDist = useRef<number | null>(null);
+      15    const lastScale = useRef(1);
+      16 +  const containerRef = useRef<HTMLDivElement | null>(null);    
+      17 +  const scaleRef = useRef(1);                                  
+      18  
+      19    const imgBase = src.replace(/\.png$/, '');
+      20    const base = import.meta.env.BASE_URL;
+      21    const webpSrc = `${base}data/${imgBase}.webp`;
+      22    const pngSrc  = `${base}data/${src}`;
+      23  
+      22 -  const onTouchStart = useCallback((e: React.TouchEvent) => {  
+      23 -    if (e.touches.length === 2) {                              
+      24 -      const dx = e.touches[0].clientX - e.touches[1].clientX;  
+      25 -      const dy = e.touches[0].clientY - e.touches[1].clientY;  
+      26 -      lastDist.current = Math.hypot(dx, dy);                   
+      27 -      lastScale.current = scale;                               
+      28 -    }                                                          
+      29 -  }, [scale]);                                                 
+      24 +  // scale state와 ref 동기화 (non-passive 핸들러에서 최신값 참
+         +조)                                                            
+      25 +  useEffect(() => { scaleRef.current = scale; }, [scale]);     
+      26  
+      31 -  const onTouchMove = useCallback((e: React.TouchEvent) => {   
+      32 -    if (e.touches.length === 2 && lastDist.current !== null) { 
+      33 -      const dx = e.touches[0].clientX - e.touches[1].clientX;  
+      34 -      const dy = e.touches[0].clientY - e.touches[1].clientY;  
+      35 -      const dist = Math.hypot(dx, dy);                         
+      36 -      const newScale = Math.max(1, Math.min(4, lastScale.curren
+         -t * (dist / lastDist.current)));                               
+      37 -      setScale(newScale);                                      
+      38 -    }                                                          
+      39 -  }, []);                                                      
+      27 +  // non-passive touch 리스너 (모바일 핀치 줌)                 
+      28 +  useEffect(() => {                                            
+      29 +    if (!modalOpen) return;                                    
+      30 +    const el = containerRef.current;                           
+      31 +    if (!el) return;                                           
+      32  
+      33 +    const handleTouchStart = (e: TouchEvent) => {              
+      34 +      if (e.touches.length === 2) {                            
+      35 +        e.preventDefault();                                    
+      36 +        const dx = e.touches[0].clientX - e.touches[1].clientX;
+      37 +        const dy = e.touches[0].clientY - e.touches[1].clientY;
+      38 +        lastDist.current = Math.hypot(dx, dy);                 
+      39 +        lastScale.current = scaleRef.current;                  
+      40 +      }                                                        
+      41 +    };                                                         
+      42 +                                                               
+      43 +    const handleTouchMove = (e: TouchEvent) => {               
+      44 +      if (e.touches.length === 2 && lastDist.current !== null) 
+         +{                                                              
+      45 +        e.preventDefault();                                    
+      46 +        const dx = e.touches[0].clientX - e.touches[1].clientX;
+      47 +        const dy = e.touches[0].clientY - e.touches[1].clientY;
+      48 +        const dist = Math.hypot(dx, dy);                       
+      49 +        const newScale = Math.max(1, Math.min(4, lastScale.curr
+         +ent * (dist / lastDist.current)));                             
+      50 +        setScale(newScale);                                    
+      51 +      }                                                        
+      52 +    };                                                         
+      53 +                                                               
+      54 +    el.addEventListener('touchstart', handleTouchStart, { passi
+         +ve: false });                                                  
+      55 +    el.addEventListener('touchmove', handleTouchMove, { passive
+         +: false });                                                    
+      56 +    return () => {                                             
+      57 +      el.removeEventListener('touchstart', handleTouchStart);  
+      58 +      el.removeEventListener('touchmove', handleTouchMove);    
+      59 +    };                                                         
+      60 +  }, [modalOpen]);                                             
+      61 +                                                               
+      62    const onDoubleClick = useCallback(() => {
+      63      setScale((s) => (s > 1 ? 1 : 2));
+      64    }, []);
+
+⏺ 이제 이미지 영역 div에 ref를 붙이고, React의 onTouchStart/onTouchMove prop은
+  제거합니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 2 lines
+      105          <>
+      106            {/* 이미지 영역 */}
+      107            <div
+      108 +            ref={containerRef}                                
+      109              className="fixed top-0 inset-x-0 z-50 bg-black/90"
+      110              onClick={closeModal}
+      110 -            onTouchStart={onTouchStart}                       
+      111 -            onTouchMove={onTouchMove}                         
+      111              onDoubleClick={onDoubleClick}
+      112            >
+      113              <div className="flex flex-col items-center gap-3 p
+           x-3 pt-14 pb-4 w-full">
+
+⏺ 변경 내용:
+
+  - React의 onTouchStart/onTouchMove prop 제거 → 이것들은 브라우저에 passive로
+  등록되어 e.preventDefault()가 무시됨
+  - useEffect로 직접 { passive: false } 옵션과 함께 등록 → 핀치 중 브라우저 기본
+   스크롤/줌 동작이 차단되어 핀치 줌이 정상 작동
+  - scaleRef로 non-passive 핸들러 내에서 최신 scale 값 참조
+
+✻ Baked for 45s
+
+❯ 핸드폰에서 확대/축소는 해결되었는데 확대된후 왼쪽이나 오른쪽을 보려면         
+확대화면이 움직이질 않는데 해결 가능해?                                         
+
+⏺ 확대 후 드래그(pan) 기능이 없는 것이 문제입니다. 단일 손가락으로 이동하는
+  기능을 추가하겠습니다.
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Write(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 40 lines, removed 13 lines
+       9    const [error, setError] = useState(false);
+      10    const [modalOpen, setModalOpen] = useState(false);
+      11    const [scale, setScale] = useState(1);
+      12 +  const [translate, setTranslate] = useState({ x: 0, y: 0 });  
+      13  
+      13 -  // pinch-zoom state                                          
+      14 +  // refs for non-passive handlers                             
+      15    const lastDist = useRef<number | null>(null);
+      16    const lastScale = useRef(1);
+      17 +  const lastTouch = useRef<{ x: number; y: number } | null>(nul
+         +l);                                                            
+      18    const containerRef = useRef<HTMLDivElement | null>(null);
+      19    const scaleRef = useRef(1);
+      20 +  const translateRef = useRef({ x: 0, y: 0 });                 
+      21 +  const isDragging = useRef(false);                            
+      22  
+      23    const imgBase = src.replace(/\.png$/, '');
+      24    const base = import.meta.env.BASE_URL;
+      25    const webpSrc = `${base}data/${imgBase}.webp`;
+      26    const pngSrc  = `${base}data/${src}`;
+      27  
+      24 -  // scale state와 ref 동기화 (non-passive 핸들러에서 최신값 참
+         -조)                                                            
+      28    useEffect(() => { scaleRef.current = scale; }, [scale]);
+      29 +  useEffect(() => { translateRef.current = translate; }, [trans
+         +late]);                                                        
+      30  
+      27 -  // non-passive touch 리스너 (모바일 핀치 줌)                 
+      31 +  // non-passive touch 리스너 (핀치 줌 + 드래그 pan)           
+      32    useEffect(() => {
+      33      if (!modalOpen) return;
+      34      const el = containerRef.current;
+     ...
+      37      const handleTouchStart = (e: TouchEvent) => {
+      38        if (e.touches.length === 2) {
+      39          e.preventDefault();
+      40 +        lastTouch.current = null;                              
+      41          const dx = e.touches[0].clientX - e.touches[1].clientX;
+      42          const dy = e.touches[0].clientY - e.touches[1].clientY;
+      43          lastDist.current = Math.hypot(dx, dy);
+      44          lastScale.current = scaleRef.current;
+      45 +      } else if (e.touches.length === 1) {                     
+      46 +        lastTouch.current = { x: e.touches[0].clientX, y: e.tou
+         +ches[0].clientY };                                             
+      47 +        isDragging.current = false;                            
+      48        }
+      49      };
+      50  
+     ...
+      56          const dist = Math.hypot(dx, dy);
+      57          const newScale = Math.max(1, Math.min(4, lastScale.curr
+          ent * (dist / lastDist.current)));
+      58          setScale(newScale);
+      59 +      } else if (e.touches.length === 1 && lastTouch.current &&
+         + scaleRef.current > 1) {                                       
+      60 +        e.preventDefault();                                    
+      61 +        const dx = e.touches[0].clientX - lastTouch.current.x; 
+      62 +        const dy = e.touches[0].clientY - lastTouch.current.y; 
+      63 +        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragging.cu
+         +rrent = true;                                                  
+      64 +        lastTouch.current = { x: e.touches[0].clientX, y: e.tou
+         +ches[0].clientY };                                             
+      65 +        setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy 
+         +}));                                                           
+      66        }
+      67      };
+      68  
+      69 +    const handleTouchEnd = () => {                             
+      70 +      lastDist.current = null;                                 
+      71 +      lastTouch.current = null;                                
+      72 +    };                                                         
+      73 +                                                               
+      74      el.addEventListener('touchstart', handleTouchStart, { passi
+          ve: false });
+      75      el.addEventListener('touchmove', handleTouchMove, { passive
+          : false });
+      76 +    el.addEventListener('touchend', handleTouchEnd);           
+      77      return () => {
+      78        el.removeEventListener('touchstart', handleTouchStart);
+      79        el.removeEventListener('touchmove', handleTouchMove);
+      80 +      el.removeEventListener('touchend', handleTouchEnd);      
+      81      };
+      82    }, [modalOpen]);
+      83  
+      84    const onDoubleClick = useCallback(() => {
+      63 -    setScale((s) => (s > 1 ? 1 : 2));                          
+      85 +    setScale((s) => {                                          
+      86 +      if (s > 1) { setTranslate({ x: 0, y: 0 }); return 1; }   
+      87 +      return 2;                                                
+      88 +    });                                                        
+      89    }, []);
+      90  
+      66 -  const closeModal = () => {                                   
+      91 +  const handleModalClick = useCallback(() => {                 
+      92 +    if (isDragging.current) { isDragging.current = false; retur
+         +n; }                                                           
+      93      setModalOpen(false);
+      94      setScale(1);
+      69 -  };                                                           
+      95 +    setTranslate({ x: 0, y: 0 });                              
+      96 +  }, []);                                                      
+      97  
+      98    if (error) {
+      99      return (
+     ...
+      133            {/* 이미지 영역 */}
+      134            <div
+      135              ref={containerRef}
+      109 -            className="fixed top-0 inset-x-0 z-50 bg-black/90"
+      110 -            onClick={closeModal}                              
+      136 +            className="fixed top-0 inset-x-0 z-50 bg-black/90 
+          +overflow-hidden"                                              
+      137 +            onClick={handleModalClick}                        
+      138              onDoubleClick={onDoubleClick}
+      139            >
+      140              <div className="flex flex-col items-center gap-3 p
+           x-3 pt-14 pb-4 w-full">
+      141                <p className="text-white/80 text-sm font-medium 
+           select-none bg-black/30 px-3 py-1 rounded-full">
+      115 -                더블탭 또는 핀치로 확대/축소                  
+      142 +                핀치로 확대/축소 · 드래그로 이동              
+      143                </p>
+      144                <picture>
+      145                  <source srcSet={webpSrc} type="image/webp" />
+      146                  <img
+      147                    src={pngSrc}
+      148                    alt={alt}
+      122 -                  onClick={closeModal}                        
+      149 +                  onClick={handleModalClick}                  
+      150                    className="w-full rounded-xl transition-tran
+           sform duration-100 select-none"
+      151                    style={{
+      125 -                    transform: `scale(${scale})`,             
+      152 +                    transform: `translate(${translate.x}px, ${
+          +translate.y}px) scale(${scale})`,                             
+      153                      transformOrigin: 'top center',
+      154                      touchAction: 'none',
+      155                    }}
+     ...
+      159              </div>
+      160            </div>
+      161            {/* 이미지 아래 투명 오버레이 (탭하면 닫힘) */}
+      135 -          <div className="fixed inset-0 z-40" onClick={closeMo
+          -dal} />                                                       
+      162 +          <div className="fixed inset-0 z-40" onClick={handleM
+          +odalClick} />                                                 
+      163            {/* X 버튼 */}
+      164            <button
+      165              className="fixed top-4 right-4 z-50 w-10 h-10 roun
+           ded-full bg-white/20 text-white text-2xl flex items-center jus
+           tify-center hover:bg-white/30 transition-colors"
+      139 -            onClick={closeModal}                              
+      166 +            onClick={handleModalClick}                        
+      167              aria-label="이미지 닫기"
+      168            >
+      169              ×
+
+⏺ 추가된 기능:
+
+  - 드래그 pan: scale > 1일 때 손가락 하나로 이미지를 상하좌우 이동
+  - 드래그 감지: 3px 이상 움직이면 드래그로 판단 → 손가락 뗄 때 모달이 닫히지
+  않음
+  - 더블탭 초기화: 더블탭으로 축소 시 translate도 (0, 0)으로 리셋
+  - 안내 문구 변경: "핀치로 확대/축소 · 드래그로 이동"으로 업데이트
+
+✻ Sautéed for 1m 7s
+
+❯ 화면을 드래그 할 때 부드럽게 드래그 되지 않거나 심하게 깜빡이는 증상 고쳐줘   
+
+⏺ setTranslate가 호출될 때마다 React 리렌더링이 발생해서 깜빡이는 것입니다.
+  scale/translate를 ref로만 관리하고 img DOM을 직접 업데이트하면 해결됩니다.
+
+⏺ Write(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 35 lines, removed 23 lines
+       8  export default function QuestionImage({ src, alt }: Props) {
+       9    const [error, setError] = useState(false);
+      10    const [modalOpen, setModalOpen] = useState(false);
+      11 -  const [scale, setScale] = useState(1);                       
+      12 -  const [translate, setTranslate] = useState({ x: 0, y: 0 });  
+      11  
+      14 -  // refs for non-passive handlers                             
+      15 -  const lastDist = useRef<number | null>(null);                
+      16 -  const lastScale = useRef(1);                                 
+      17 -  const lastTouch = useRef<{ x: number; y: number } | null>(nul
+         -l);                                                            
+      12    const containerRef = useRef<HTMLDivElement | null>(null);
+      13 +  const imgRef = useRef<HTMLImageElement | null>(null);        
+      14 +                                                               
+      15 +  // transform 값을 ref로만 관리 (리렌더링 없이 DOM 직접 업데이
+         +트)                                                            
+      16    const scaleRef = useRef(1);
+      17    const translateRef = useRef({ x: 0, y: 0 });
+      18 +                                                               
+      19 +  // pinch-zoom refs                                           
+      20 +  const lastDist = useRef<number | null>(null);                
+      21 +  const lastScale = useRef(1);                                 
+      22 +  // pan refs                                                  
+      23 +  const lastTouch = useRef<{ x: number; y: number } | null>(nul
+         +l);                                                            
+      24    const isDragging = useRef(false);
+      25  
+      26    const imgBase = src.replace(/\.png$/, '');
+     ...
+      28    const webpSrc = `${base}data/${imgBase}.webp`;
+      29    const pngSrc  = `${base}data/${src}`;
+      30  
+      28 -  useEffect(() => { scaleRef.current = scale; }, [scale]);     
+      29 -  useEffect(() => { translateRef.current = translate; }, [trans
+         -late]);                                                        
+      31 +  const applyTransform = (animated = false) => {               
+      32 +    const img = imgRef.current;                                
+      33 +    if (!img) return;                                          
+      34 +    img.style.transition = animated ? 'transform 0.15s ease' : 
+         +'none';                                                        
+      35 +    img.style.transform = `translate(${translateRef.current.x}p
+         +x, ${translateRef.current.y}px) scale(${scaleRef.current})`;   
+      36 +  };                                                           
+      37  
+      38 +  const resetTransform = () => {                               
+      39 +    scaleRef.current = 1;                                      
+      40 +    translateRef.current = { x: 0, y: 0 };                     
+      41 +    applyTransform(false);                                     
+      42 +  };                                                           
+      43 +                                                               
+      44    // non-passive touch 리스너 (핀치 줌 + 드래그 pan)
+      45    useEffect(() => {
+      46      if (!modalOpen) return;
+     ...
+      67          const dx = e.touches[0].clientX - e.touches[1].clientX;
+      68          const dy = e.touches[0].clientY - e.touches[1].clientY;
+      69          const dist = Math.hypot(dx, dy);
+      57 -        const newScale = Math.max(1, Math.min(4, lastScale.curr
+         -ent * (dist / lastDist.current)));                             
+      58 -        setScale(newScale);                                    
+      70 +        scaleRef.current = Math.max(1, Math.min(4, lastScale.cu
+         +rrent * (dist / lastDist.current)));                           
+      71 +        applyTransform(false);                                 
+      72        } else if (e.touches.length === 1 && lastTouch.current &&
+           scaleRef.current > 1) {
+      73          e.preventDefault();
+      74          const dx = e.touches[0].clientX - lastTouch.current.x;
+      75          const dy = e.touches[0].clientY - lastTouch.current.y;
+      76          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) isDragging.cu
+          rrent = true;
+      77          lastTouch.current = { x: e.touches[0].clientX, y: e.tou
+          ches[0].clientY };
+      65 -        setTranslate(prev => ({ x: prev.x + dx, y: prev.y + dy 
+         -}));                                                           
+      78 +        translateRef.current = { x: translateRef.current.x + dx
+         +, y: translateRef.current.y + dy };                            
+      79 +        applyTransform(false);                                 
+      80        }
+      81      };
+      82  
+     ...
+       96    }, [modalOpen]);
+       97  
+       98    const onDoubleClick = useCallback(() => {
+       85 -    setScale((s) => {                                         
+       86 -      if (s > 1) { setTranslate({ x: 0, y: 0 }); return 1; }  
+       87 -      return 2;                                               
+       88 -    });                                                       
+       99 +    if (scaleRef.current > 1) {                               
+      100 +      resetTransform();                                       
+      101 +    } else {                                                  
+      102 +      scaleRef.current = 2;                                   
+      103 +      applyTransform(true);                                   
+      104 +    }                                                         
+      105    }, []);
+      106  
+      107    const handleModalClick = useCallback(() => {
+      108      if (isDragging.current) { isDragging.current = false; retu
+           rn; }
+      109      setModalOpen(false);
+       94 -    setScale(1);                                              
+       95 -    setTranslate({ x: 0, y: 0 });                             
+      110 +    resetTransform();                                         
+      111    }, []);
+      112  
+      113    if (error) {
+     ...
+      159                <picture>
+      160                  <source srcSet={webpSrc} type="image/webp" />
+      161                  <img
+      162 +                  ref={imgRef}                                
+      163                    src={pngSrc}
+      164                    alt={alt}
+      165                    onClick={handleModalClick}
+      150 -                  className="w-full rounded-xl transition-tran
+          -sform duration-100 select-none"                               
+      151 -                  style={{                                    
+      152 -                    transform: `translate(${translate.x}px, ${
+          -translate.y}px) scale(${scale})`,                             
+      153 -                    transformOrigin: 'top center',            
+      154 -                    touchAction: 'none',                      
+      155 -                  }}                                          
+      166 +                  className="w-full rounded-xl select-none"   
+      167 +                  style={{ touchAction: 'none', transformOrigi
+          +n: 'top center' }}                                            
+      168                    draggable={false}
+      169                  />
+      170                </picture>
+
+⏺ 핵심 변경점:
+
+  - scale, translate state 제거 → ref + 직접 DOM 업데이트
+  (img.style.transform)로 변경
+  - 드래그/핀치 중 React 리렌더링이 전혀 발생하지 않아 깜빡임 해소
+  - transition: none (드래그 중) / transition: 0.15s ease (더블탭 시) 동적
+  전환으로 부드러운 애니메이션 유지
+
+✻ Cooked for 47s
+
+❯ 증상이 완화되었지만 문제는 여전함.                                            
+
+⏺ will-change: transform으로 GPU 레이어를 미리 생성하고, overflow: 
+  hidden(리페인트 원인)을 제거하며, requestAnimationFrame으로 프레임마다 한 번만
+   DOM을 업데이트하겠습니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line
+      11  
+      12    const containerRef = useRef<HTMLDivElement | null>(null);
+      13    const imgRef = useRef<HTMLImageElement | null>(null);
+      14 +  const rafRef = useRef<number | null>(null);                  
+      15  
+      16    // transform 값을 ref로만 관리 (리렌더링 없이 DOM 직접 업데이
+          트)
+      17    const scaleRef = useRef(1);
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 10 lines, removed 5 lines
+      30    const pngSrc  = `${base}data/${src}`;
+      31  
+      32    const applyTransform = (animated = false) => {
+      33 -    const img = imgRef.current;                                
+      34 -    if (!img) return;                                          
+      35 -    img.style.transition = animated ? 'transform 0.15s ease' : 
+         -'none';                                                        
+      36 -    img.style.transform = `translate(${translateRef.current.x}p
+         -x, ${translateRef.current.y}px) scale(${scaleRef.current})`;   
+      33 +    if (rafRef.current) cancelAnimationFrame(rafRef.current);  
+      34 +    rafRef.current = requestAnimationFrame(() => {             
+      35 +      const img = imgRef.current;                              
+      36 +      if (!img) return;                                        
+      37 +      img.style.transition = animated ? 'transform 0.15s ease' 
+         +: 'none';                                                      
+      38 +      img.style.transform = `translate(${translateRef.current.x
+         +}px, ${translateRef.current.y}px) scale(${scaleRef.current})`; 
+      39 +    });                                                        
+      40    };
+      41  
+      42    const resetTransform = () => {
+      43      scaleRef.current = 1;
+      44      translateRef.current = { x: 0, y: 0 };
+      42 -    applyTransform(false);                                     
+      45 +    if (rafRef.current) cancelAnimationFrame(rafRef.current);  
+      46 +    const img = imgRef.current;                                
+      47 +    if (img) { img.style.transition = 'none'; img.style.transfo
+         +rm = ''; }                                                     
+      48    };
+      49  
+      50    // non-passive touch 리스너 (핀치 줌 + 드래그 pan)
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      154            {/* 이미지 영역 */}
+      155            <div
+      156              ref={containerRef}
+      157 -            className="fixed top-0 inset-x-0 z-50 bg-black/90 
+          -overflow-hidden"                                              
+      157 +            className="fixed top-0 inset-x-0 z-50 bg-black/90"
+      158              onClick={handleModalClick}
+      159              onDoubleClick={onDoubleClick}
+      160            >
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      170                    alt={alt}
+      171                    onClick={handleModalClick}
+      172                    className="w-full rounded-xl select-none"
+      173 -                  style={{ touchAction: 'none', transformOrigi
+          -n: 'top center' }}                                            
+      173 +                  style={{ touchAction: 'none', transformOrigi
+          +n: 'top center', willChange: 'transform' }}                   
+      174                    draggable={false}
+      175                  />
+      176                </picture>
+
+⏺ 세 가지를 적용했습니다.
+
+  1. requestAnimationFrame — 같은 프레임 내 중복 DOM 업데이트를 방지, 60fps에
+  맞춰 정확히 한 번만 실행
+  2. will-change: transform — 브라우저가 img를 미리 별도 GPU 레이어로 올려놓아
+  transform 변경 시 리페인트 없이 compositing만 발생
+  3. overflow: hidden 제거 — 부모에 클리핑이 있으면 transform 변경마다 클리핑
+  영역 재계산으로 리페인트가 유발됨
+
+✻ Crunched for 1m 0s
+
+❯ 핀치로 확대했다가 축소할때 문제의 이미지가 위로 올라가며 사라지는 버그 있음   
+
+⏺ 핀치로 축소 시 scale이 1이 되어도 translate 값이 남아있어서 이미지가 그
+  방향으로 이동하는 것이 원인입니다. scale이 1로 클램핑될 때 translate를 함께
+  리셋하면 됩니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 3 lines, removed 1 line
+      73          const dx = e.touches[0].clientX - e.touches[1].clientX;
+      74          const dy = e.touches[0].clientY - e.touches[1].clientY;
+      75          const dist = Math.hypot(dx, dy);
+      76 -        scaleRef.current = Math.max(1, Math.min(4, lastScale.cu
+         -rrent * (dist / lastDist.current)));                           
+      76 +        const newScale = Math.max(1, Math.min(4, lastScale.curr
+         +ent * (dist / lastDist.current)));                             
+      77 +        scaleRef.current = newScale;                           
+      78 +        if (newScale <= 1) translateRef.current = { x: 0, y: 0 
+         +};                                                             
+      79          applyTransform(false);
+      80        } else if (e.touches.length === 1 && lastTouch.current &&
+           scaleRef.current > 1) {
+      81          e.preventDefault();
+
+⏺ scale이 1로 줄어드는 순간 translate도 (0, 0)으로 리셋되어 이미지가 원래 위치로
+   돌아옵니다.
+
+✻ Churned for 38s
+
+❯ 각 문제나 지문 밑에 '탭하여 확대' 글자가 눈에 잘 띄지 않아.                   
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      147              className="w-full rounded-xl object-contain bg-whi
+           te border border-gray-100"
+      148            />
+      149          </picture>
+      150 -        <p className="text-xs text-gray-400 text-center mt-1 s
+          -elect-none">탭하여 확대 🔍</p>                                
+      150 +        <p className="text-xs font-semibold text-blue-400 text
+          +-center mt-1.5 select-none tracking-wide">🔍 탭하여 확대</p>  
+      151        </button>
+      152  
+      153        {/* 전체화면 이미지 모달 */}
+
+⏺ text-gray-400 → text-blue-400, font-semibold, tracking-wide 추가해서 파란색
+  굵은 글씨로 변경했습니다.
+
+❯ 지문을 확대한 후 지문의 하단 부분에서 핀치로 축소하면 마치 지문이 위로        
+사라지는 느낌이 들게 축소되면서 위로 사라짐                                     
+
+⏺ transformOrigin: 'top center'가 고정되어 있어서 하단에서 핀치 축소 시 이미지가
+   상단으로 당겨지는 것이 원인입니다. 핀치 중점 기준으로 확대/축소하도록
+  수정합니다.
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 12 lines, removed 1 line
+      74          const dy = e.touches[0].clientY - e.touches[1].clientY;
+      75          const dist = Math.hypot(dx, dy);
+      76          const newScale = Math.max(1, Math.min(4, lastScale.curr
+          ent * (dist / lastDist.current)));
+      77 +        const scaleDelta = newScale / scaleRef.current;        
+      78 +        // 핀치 중점 기준으로 translate 조정                   
+      79 +        if (newScale <= 1) {                                   
+      80 +          translateRef.current = { x: 0, y: 0 };               
+      81 +        } else {                                               
+      82 +          const cx = (e.touches[0].clientX + e.touches[1].clien
+         +tX) / 2;                                                       
+      83 +          const cy = (e.touches[0].clientY + e.touches[1].clien
+         +tY) / 2;                                                       
+      84 +          translateRef.current = {                             
+      85 +            x: cx - (cx - translateRef.current.x) * scaleDelta,
+      86 +            y: cy - (cy - translateRef.current.y) * scaleDelta,
+      87 +          };                                                   
+      88 +        }                                                      
+      89          scaleRef.current = newScale;
+      78 -        if (newScale <= 1) translateRef.current = { x: 0, y: 0 
+         -};                                                             
+      90          applyTransform(false);
+      91        } else if (e.touches.length === 1 && lastTouch.current &&
+           scaleRef.current > 1) {
+      92          e.preventDefault();
+
+⏺ Update(quiz-app/src/components/QuestionImage.tsx)
+  ⎿  Added 1 line, removed 1 line
+      183                    alt={alt}
+      184                    onClick={handleModalClick}
+      185                    className="w-full rounded-xl select-none"
+      186 -                  style={{ touchAction: 'none', transformOrigi
+          -n: 'top center', willChange: 'transform' }}                   
+      186 +                  style={{ touchAction: 'none', transformOrigi
+          +n: '0 0', willChange: 'transform' }}                          
+      187                    draggable={false}
+      188                  />
+      189                </picture>
+
+⏺ 변경 내용:
+
+  - transformOrigin: 'top center' → '0 0' : 이미지 좌상단 기준으로 변환
+  - 핀치 이벤트마다 두 손가락 중점(cx, cy) 을 계산해서, 그 위치가 화면에 고정된
+  채 확대/축소되도록 translate를 함께 보정
+  - 수식: tx_new = cx - (cx - tx) × (newScale / prevScale)
+
+  이제 화면 어느 위치에서 핀치해도 그 위치를 중심으로 자연스럽게
+  확대/축소됩니다.
+
+✻ Brewed for 1m 12s
