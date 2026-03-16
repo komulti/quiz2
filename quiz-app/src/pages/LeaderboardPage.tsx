@@ -1,8 +1,56 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { formatTime } from '../hooks/useTimer';
 import { loadGlobalLeaderboard } from '../lib/syncService';
 import type { LeaderboardEntry } from '../types';
+
+function useCountUp(target: number, duration = 900) {
+  const [value, setValue] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  useEffect(() => {
+    const start = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      setValue(Math.round((1 - Math.pow(1 - t, 3)) * target));
+      if (t < 1) rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [target, duration]);
+  return value;
+}
+
+function EntryRow({ entry, idx }: { entry: LeaderboardEntry; idx: number }) {
+  const animPercent = useCountUp(entry.percent);
+  return (
+    <div
+      className={`bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 ${
+        idx === 0 ? 'border-2 border-yellow-400' : ''
+      }`}
+    >
+      <span
+        className={`text-3xl font-bold w-10 text-center ${
+          idx === 0 ? 'text-yellow-500' : idx === 1 ? 'text-gray-400' : idx === 2 ? 'text-orange-400' : 'text-gray-300'
+        }`}
+      >
+        {idx < 3 ? RANK_EMOJI[idx] : idx + 1}
+      </span>
+      <div className="flex-1 min-w-0">
+        <p className="font-semibold text-gray-800 truncate">{entry.nickname}</p>
+        <p className="text-xs text-gray-400">
+          {entry.subject ? `${SUBJECT_LABEL[entry.subject]} · ` : ''}
+          {MODE_LABEL[entry.mode] ?? entry.mode} · {entry.score}/{entry.total} · {formatTime(entry.timeSeconds)}
+        </p>
+      </div>
+      <div className="text-right">
+        <p className="text-xl font-bold text-blue-600">{animPercent}%</p>
+        <p className="text-xs text-gray-400">
+          {new Date(entry.date).toLocaleDateString('ko-KR')}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const MODE_LABEL: Record<string, string> = {
   random: '랜덤',
@@ -62,39 +110,7 @@ export default function LeaderboardPage() {
         ) : (
           <div className="space-y-2">
             {entries.map((entry, idx) => (
-              <div
-                key={entry.id}
-                className={`bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 ${
-                  idx === 0 ? 'border-2 border-yellow-400' : ''
-                }`}
-              >
-                <span
-                  className={`text-3xl font-bold w-10 text-center ${
-                    idx === 0
-                      ? 'text-yellow-500'
-                      : idx === 1
-                      ? 'text-gray-400'
-                      : idx === 2
-                      ? 'text-orange-400'
-                      : 'text-gray-300'
-                  }`}
-                >
-                  {idx < 3 ? RANK_EMOJI[idx] : idx + 1}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-gray-800 truncate">{entry.nickname}</p>
-                  <p className="text-xs text-gray-400">
-                    {entry.subject ? `${SUBJECT_LABEL[entry.subject]} · ` : ''}
-                    {MODE_LABEL[entry.mode] ?? entry.mode} · {entry.score}/{entry.total} · {formatTime(entry.timeSeconds)}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xl font-bold text-blue-600">{entry.percent}%</p>
-                  <p className="text-xs text-gray-400">
-                    {new Date(entry.date).toLocaleDateString('ko-KR')}
-                  </p>
-                </div>
-              </div>
+              <EntryRow key={entry.id} entry={entry} idx={idx} />
             ))}
           </div>
         )}
