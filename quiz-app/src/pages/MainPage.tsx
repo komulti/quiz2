@@ -1,10 +1,32 @@
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
+
+function useCountUp(target: number, duration = 900) {
+  const [value, setValue] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  useEffect(() => {
+    const start = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      setValue(Math.round((1 - Math.pow(1 - t, 3)) * target));
+      if (t < 1) rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [target, duration]);
+  return value;
+}
 
 export default function MainPage() {
   const navigate = useNavigate();
   const { leaderboard, wrongNotes, syncStatus, disconnectCloud } = useRecordStore();
   const nickname = localStorage.getItem('playerName')?.trim();
+
+  const bestPercent = leaderboard.length > 0 ? Math.max(...leaderboard.map((e) => e.percent)) : 0;
+  const animRecords = useCountUp(leaderboard.length);
+  const animWrong = useCountUp(wrongNotes.length);
+  const animBest = useCountUp(bestPercent);
 
   type SyncConfig = { icon: string; label: string; pill: string; dot: string };
   const syncConfig: Record<string, SyncConfig> = {
@@ -97,17 +119,17 @@ export default function MainPage() {
         {/* 통계 */}
         <div className="mt-6 flex gap-4 w-full max-w-sm">
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{leaderboard.length}</p>
+            <p className="text-2xl font-bold text-white">{animRecords}</p>
             <p className="text-blue-200 text-xs mt-1">기록</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{wrongNotes.length}</p>
+            <p className="text-2xl font-bold text-white">{animWrong}</p>
             <p className="text-blue-200 text-xs mt-1">오답</p>
           </div>
           {leaderboard.length > 0 && (
             <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
               <p className="text-2xl font-bold text-white">
-                {Math.max(...leaderboard.map((e) => e.percent))}%
+                {animBest}%
               </p>
               <p className="text-blue-200 text-xs mt-1">최고점</p>
             </div>
