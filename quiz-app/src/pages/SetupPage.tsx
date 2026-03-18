@@ -191,7 +191,7 @@ export default function SetupPage() {
                 onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}
                 className="shrink-0 px-3 py-2 rounded-xl bg-red-500 text-white text-xs font-bold hover:bg-red-600 active:scale-95 transition-all flex items-center gap-1.5"
               >
-                🔌 동기화 중지
+                × 동기화 중지
               </button>
             </div>
           ) : (
