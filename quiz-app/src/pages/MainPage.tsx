@@ -3,6 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import BottomNav from '../components/BottomNav';
 
+function calcStreak(dates: string[]): number {
+  if (dates.length === 0) return 0;
+  const unique = [...new Set(dates.map((d) => d.slice(0, 10)))].sort().reverse();
+  let streak = 1;
+  for (let i = 1; i < unique.length; i++) {
+    const prev = new Date(unique[i - 1]);
+    const curr = new Date(unique[i]);
+    if (Math.round((prev.getTime() - curr.getTime()) / 86400000) === 1) streak++;
+    else break;
+  }
+  return streak;
+}
+
 function useCountUp(target: number, duration = 900) {
   const [value, setValue] = useState(0);
   const rafRef = useRef<number | null>(null);
@@ -21,11 +34,12 @@ function useCountUp(target: number, duration = 900) {
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const { leaderboard, wrongNotes, syncStatus, disconnectCloud } = useRecordStore();
+  const { leaderboard, wrongNotes, history, syncStatus, disconnectCloud } = useRecordStore();
   const nickname = localStorage.getItem('playerName')?.trim();
 
   const bestPercent = leaderboard.length > 0 ? Math.max(...leaderboard.map((e) => e.percent)) : 0;
-  const animRecords = useCountUp(leaderboard.length);
+  const streak = calcStreak(history.map((h) => h.date));
+  const animStreak = useCountUp(streak);
   const animWrong = useCountUp(wrongNotes.length);
   const animBest = useCountUp(bestPercent);
 
@@ -120,21 +134,17 @@ export default function MainPage() {
         {/* 통계 */}
         <div className="mt-6 flex gap-4 w-full max-w-sm">
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{animRecords}</p>
-            <p className="text-blue-200 text-xs mt-1">기록</p>
+            <p className="text-2xl font-bold text-white">{animStreak}<span className="text-sm font-normal text-blue-200"> days</span></p>
+            <p className="text-blue-200 text-xs mt-1">연속학습</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
             <p className="text-2xl font-bold text-white">{animWrong}</p>
             <p className="text-blue-200 text-xs mt-1">오답</p>
           </div>
-          {leaderboard.length > 0 && (
-            <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-              <p className="text-2xl font-bold text-white">
-                {animBest}%
-              </p>
-              <p className="text-blue-200 text-xs mt-1">최고점</p>
-            </div>
-          )}
+          <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
+            <p className="text-2xl font-bold text-white">{animBest}%</p>
+            <p className="text-blue-200 text-xs mt-1">최고점</p>
+          </div>
         </div>
       </div>
 

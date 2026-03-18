@@ -4,6 +4,7 @@ import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
 import { useRecordStore } from '../store/recordStore';
 import type { Question, QuizMode, QuizSettings, Subject } from '../types';
+import BottomNav from '../components/BottomNav';
 
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 const BASE_COUNTS = [10, 25, 50, 100, 200];
@@ -361,6 +362,7 @@ export default function SetupPage() {
           퀴즈 시작 →
         </button>
       </div>
+      {!showNameModal && <BottomNav />}
     </div>
   );
 }
