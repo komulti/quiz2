@@ -185,7 +185,7 @@ export default function SetupPage() {
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-baseline gap-4 min-w-0">
                 <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide shrink-0">이름</span>
-                <span className="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-1 rounded-full tracking-widest truncate">{playerName || '—'}</span>
+                <span className="text-xl font-bold text-blue-600 tracking-widest truncate">{playerName || '—'}</span>
               </div>
               <button
                 onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}
