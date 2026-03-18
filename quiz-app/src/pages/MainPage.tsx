@@ -89,7 +89,7 @@ export default function MainPage() {
       <div className="flex-1 flex flex-col items-center justify-center px-6 pt-16 pb-8">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <div className="w-[22px] h-[22px] shrink-0">
+            <div style={{ width: 22, height: 22, flexShrink: 0 }}>
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <rect width="100" height="100" rx="22" fill="#be185d"/>
                 <polygon points="50,25 80,40 50,55 20,40" fill="white"/>
