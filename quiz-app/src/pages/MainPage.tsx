@@ -117,7 +117,7 @@ export default function MainPage() {
             <button
               key={item.subject}
               onClick={() => navigate(`/setup?subject=${item.subject}`)}
-              className="bg-white rounded-2xl shadow-lg p-3 text-left hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3"
+              className="bg-white rounded-lg shadow-lg p-3 text-left hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3"
             >
               <div className={`w-11 h-11 shrink-0 ${item.color} rounded-xl flex items-center justify-center text-2xl`}>
                 {item.icon}
