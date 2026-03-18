@@ -88,7 +88,19 @@ export default function MainPage() {
       {/* 헤더 */}
       <div className="flex-1 flex flex-col items-center justify-center px-6 pt-16 pb-8">
         <div className="text-center mb-10">
-          <p className="text-blue-200 text-sm font-medium tracking-widest mb-2">고졸 검정고시</p>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="w-[22px] h-[22px] shrink-0">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <rect width="100" height="100" rx="22" fill="#be185d"/>
+                <polygon points="50,25 80,40 50,55 20,40" fill="white"/>
+                <path d="M65 47 L65 65 Q65 72 50 76 Q35 72 35 65 L35 47" fill="white" opacity="0.85"/>
+                <line x1="80" y1="40" x2="80" y2="58" stroke="white" strokeWidth="3" strokeLinecap="round"/>
+                <circle cx="80" cy="61" r="4" fill="#fbbf24"/>
+                <polygon points="50,36 51.5,41 56.5,41 52.5,44 54,49 50,46 46,49 47.5,44 43.5,41 48.5,41" fill="#be185d" opacity="0.5"/>
+              </svg>
+            </div>
+            <p className="text-blue-200 text-sm font-medium tracking-widest">고졸 검정고시</p>
+          </div>
           <h1 className="text-4xl font-bold text-white mb-2">퀴즈 챌린지</h1>
           <p className="text-blue-200 text-sm">기출문제로 합격을 준비하세요</p>
           <div className={`inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full text-white text-xs font-semibold ${cfg.pill}`}>
