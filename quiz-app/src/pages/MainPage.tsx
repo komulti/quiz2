@@ -37,13 +37,14 @@ function useCountUp(target: number, duration = 900) {
 
 export default function MainPage() {
   const navigate = useNavigate();
-  const { leaderboard, wrongNotes, history, syncStatus, disconnectCloud } = useRecordStore();
+  const { leaderboard, history, syncStatus, disconnectCloud } = useRecordStore();
   const nickname = localStorage.getItem('playerName')?.trim();
 
   const bestPercent = leaderboard.length > 0 ? Math.max(...leaderboard.map((e) => e.percent)) : 0;
   const streak = calcStreak(history.map((h) => h.date));
+  const totalCorrect = history.reduce((s, h) => s + h.score, 0);
   const animStreak = useCountUp(streak);
-  const animWrong = useCountUp(wrongNotes.length);
+  const animCorrect = useCountUp(totalCorrect);
   const animBest = useCountUp(bestPercent);
 
   type SyncConfig = { icon: string; label: string; pill: string; dot: string };
@@ -141,8 +142,8 @@ export default function MainPage() {
             <p className="text-blue-200 text-xs mt-1">연속학습</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{animWrong}</p>
-            <p className="text-blue-200 text-xs mt-1">오답</p>
+            <p className="text-2xl font-bold text-white">{animCorrect}</p>
+            <p className="text-blue-200 text-xs mt-1">정답수</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
             <p className="text-2xl font-bold text-white">{animBest}%</p>
