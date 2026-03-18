@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
+import BottomNav from '../components/BottomNav';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
 import ConfirmModal from '../components/ConfirmModal';
@@ -45,7 +46,7 @@ function matchesTab(questionId: string, tab: TabSubject): boolean {
 
 export default function WrongNotePage() {
   const navigate = useNavigate();
-  const { wrongNotes, removeWrongNote, clearWrongNotes } = useRecordStore();
+  const { wrongNotes, removeWrongNote, clearWrongNotes, loadFromCloud, syncStatus } = useRecordStore();
   const { questions: questionsBySubject } = useDataStore();
   const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science, ...questionsBySubject.ethics, ...questionsBySubject.english, ...questionsBySubject.math];
   const { startQuiz } = useQuizStore();
@@ -55,6 +56,12 @@ export default function WrongNotePage() {
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {
+    const nickname = localStorage.getItem('playerName')?.trim();
+    if (nickname && syncStatus !== 'syncing') {
+      loadFromCloud(nickname);
+    }
+  }, []);
 
   const wrongWithQuestion = wrongNotes
     .map((note) => ({
@@ -245,6 +252,7 @@ export default function WrongNotePage() {
           </div>
         )}
       </div>
+      <BottomNav />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
+import BottomNav from '../components/BottomNav';
 
 function useCountUp(target: number, duration = 900) {
   const [value, setValue] = useState(0);
@@ -137,32 +138,7 @@ export default function MainPage() {
         </div>
       </div>
 
-      {/* 하단 네비게이션 */}
-      <div className="bg-white border-t border-gray-100 px-6 py-3 safe-bottom">
-        <div className="flex justify-around">
-          <button
-            onClick={() => navigate('/leaderboard')}
-            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
-          >
-            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">🏆</span>
-            <span className="text-xs">리더보드</span>
-          </button>
-          <button
-            onClick={() => navigate('/wrong-notes')}
-            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
-          >
-            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📝</span>
-            <span className="text-xs">오답노트</span>
-          </button>
-          <button
-            onClick={() => navigate('/stats')}
-            className="flex flex-col items-center gap-1 p-2 text-gray-500 hover:text-blue-600 transition-all group"
-          >
-            <span className="text-2xl transition-transform duration-200 group-hover:scale-125 group-active:scale-95">📊</span>
-            <span className="text-xs">학습통계</span>
-          </button>
-        </div>
-      </div>
+      <BottomNav />
     </div>
   );
 }

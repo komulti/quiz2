@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecordStore } from '../store/recordStore';
 import { formatTime } from '../hooks/useTimer';
 import ConfirmModal from '../components/ConfirmModal';
+import BottomNav from '../components/BottomNav';
 import type { Subject } from '../types/index';
 
 function useCountUp(target: number, duration = 900) {
@@ -182,9 +183,15 @@ function RadarChart({ values }: { values: number[] }) {
 
 export default function StatsPage() {
   const navigate = useNavigate();
-  const { history, wrongNotes, clearHistory } = useRecordStore();
+  const { history, wrongNotes, clearHistory, loadFromCloud, syncStatus } = useRecordStore();
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const nickname = localStorage.getItem('playerName')?.trim();
+
+  useEffect(() => {
+    if (nickname && syncStatus !== 'syncing') {
+      loadFromCloud(nickname);
+    }
+  }, []);
 
   const totalSessions = history.length;
   const totalQuestions = history.reduce((s, h) => s + h.total, 0);
@@ -543,6 +550,7 @@ export default function StatsPage() {
         </div>
 
       </div>
+      <BottomNav />
     </div>
   );
 }

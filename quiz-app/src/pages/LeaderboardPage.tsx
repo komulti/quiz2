@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { formatTime } from '../hooks/useTimer';
 import { loadGlobalLeaderboard } from '../lib/syncService';
 import type { LeaderboardEntry } from '../types';
+import BottomNav from '../components/BottomNav';
 
 function useCountUp(target: number, duration = 900) {
   const [value, setValue] = useState(0);
@@ -115,6 +116,7 @@ export default function LeaderboardPage() {
           </div>
         )}
       </div>
+      <BottomNav />
     </div>
   );
 }
