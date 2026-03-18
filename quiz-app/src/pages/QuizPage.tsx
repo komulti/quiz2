@@ -255,7 +255,7 @@ export default function QuizPage() {
             {mode === 'wrong' && question.explanation && (
               <div className="mt-2 pt-2 border-t border-current border-opacity-20 text-sm font-normal text-gray-700 leading-relaxed">
                 <span className="font-semibold text-gray-500">💡 해설</span>
-                <p className="mt-0.5">{question.explanation}</p>
+                <p className="mt-0.5 whitespace-pre-line">{question.explanation}</p>
               </div>
             )}
           </div>
