@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
@@ -42,6 +42,11 @@ export default function SetupPage() {
   const [session, setSession] = useState(1);
   const [count, setCount] = useState(10);
   const [playerName, setPlayerName] = useState(() => localStorage.getItem('playerName') ?? '');
+  const [showNameModal, setShowNameModal] = useState(false);
+
+  useEffect(() => {
+    if (syncStatus !== 'synced') setShowNameModal(true);
+  }, []);
 
   const SUBJECT_PREFIX: Record<Subject, string> = {
     korean_history: 'kh_',
@@ -74,7 +79,19 @@ export default function SetupPage() {
   const effectiveCount =
     availableCounts.includes(count) ? count : availableCounts[availableCounts.length - 1] ?? 0;
 
+  const handleNameModalSubmit = async () => {
+    const trimmed = playerName.trim();
+    if (!trimmed || syncStatus === 'syncing') return;
+    localStorage.setItem('playerName', trimmed);
+    await loadFromCloud(trimmed);
+    setShowNameModal(false);
+  };
+
   const handleStart = async () => {
+    if (syncStatus !== 'synced') {
+      setShowNameModal(true);
+      return;
+    }
     let pool: Question[] = [];
     const settings: QuizSettings = { count: effectiveCount, subject };
 
@@ -111,6 +128,43 @@ export default function SetupPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* 이름 입력 팝업 */}
+      {showNameModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6">
+          <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm">
+            <p className="text-2xl text-center mb-1">👋</p>
+            <h2 className="text-lg font-bold text-gray-800 text-center mb-1">시작 전 이름을 입력해주세요</h2>
+            <p className="text-sm text-gray-500 text-center mb-5">이름을 등록하면 기록이 저장됩니다</p>
+            <input
+              type="text"
+              placeholder="이름 입력 (최대 12자)"
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleNameModalSubmit(); }}
+              maxLength={12}
+              autoFocus
+              className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-blue-500 mb-3"
+            />
+            <button
+              onClick={handleNameModalSubmit}
+              disabled={!playerName.trim() || syncStatus === 'syncing'}
+              className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {syncStatus === 'syncing' ? (
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : '☁️'}
+              동기화하고 시작하기
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              className="w-full py-2.5 rounded-xl text-gray-400 text-sm hover:text-gray-600 transition-colors mt-1"
+            >
+              ← 메인으로 돌아가기
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* 헤더 */}
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center gap-3">
         <button
@@ -125,19 +179,19 @@ export default function SetupPage() {
 
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {/* 이름 입력 */}
-        <div className="bg-white rounded-2xl shadow-sm p-5">
+        {!showNameModal && <div className="bg-white rounded-2xl shadow-sm p-5">
           {syncStatus === 'synced' ? (
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">이름</h2>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{playerName || '—'}</span>
-                <button
-                  onClick={() => { disconnectCloud(); setPlayerName(''); }}
-                  className="text-xs text-white bg-red-400 hover:bg-red-500 px-2.5 py-1 rounded-lg transition-colors"
-                >
-                  동기화 중지
-                </button>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-baseline gap-4 min-w-0">
+                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide shrink-0">이름</span>
+                <span className="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-1 rounded-full tracking-widest truncate">{playerName || '—'}</span>
               </div>
+              <button
+                onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}
+                className="shrink-0 px-3 py-2 rounded-xl bg-red-500 text-white text-xs font-bold hover:bg-red-600 active:scale-95 transition-all flex items-center gap-1.5"
+              >
+                🔌 동기화 중지
+              </button>
             </div>
           ) : (
             <>
@@ -178,7 +232,7 @@ export default function SetupPage() {
               </div>
             </>
           )}
-        </div>
+        </div>}
 
         {/* 모드 선택 */}
         <div className="bg-white rounded-2xl shadow-sm p-5">
