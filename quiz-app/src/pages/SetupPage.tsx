@@ -86,6 +86,7 @@ export default function SetupPage() {
     localStorage.setItem('playerName', trimmed);
     await loadFromCloud(trimmed);
     setShowNameModal(false);
+    window.scrollTo(0, 0);
   };
 
   const handleStart = async () => {
