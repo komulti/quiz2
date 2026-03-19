@@ -56,12 +56,21 @@ export default function SetupPage() {
   const [year, setYear] = useState(2025);
   const [session, setSession] = useState(1);
   const [count, setCount] = useState(10);
-  const [playerName, setPlayerName] = useState(() => localStorage.getItem('playerName') ?? '');
+  const [playerName, setPlayerName] = useState(() =>
+    localStorage.getItem('playerName') ?? localStorage.getItem('lastPlayerName') ?? ''
+  );
   const [showNameModal, setShowNameModal] = useState(false);
 
   useEffect(() => {
     if (syncStatus !== 'synced') setShowNameModal(true);
   }, []);
+
+  useEffect(() => {
+    if (showNameModal) {
+      const saved = localStorage.getItem('playerName') ?? localStorage.getItem('lastPlayerName') ?? '';
+      if (saved) setPlayerName(saved);
+    }
+  }, [showNameModal]);
 
   const SUBJECT_PREFIX: Record<Subject, string> = {
     korean_history: 'kh_',
@@ -217,8 +226,8 @@ export default function SetupPage() {
                 </span>
               </div>
               <button
-                onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}
-                className="shrink-0 px-3 py-2 rounded-xl border-2 border-red-500 bg-white text-red-500 text-xs font-bold hover:bg-red-50 active:scale-95 transition-all flex items-center gap-1.5"
+                onClick={() => { disconnectCloud(); setShowNameModal(true); }}
+                className="shrink-0 px-3 py-2 rounded-xl border-2 border-red-500 bg-white text-red-500 text-xs font-bold hover:bg-red-500 hover:text-white active:scale-95 transition-all flex items-center gap-1.5"
               >
                 <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>

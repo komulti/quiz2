@@ -136,6 +136,8 @@ export const useRecordStore = create<RecordState>()(
         },
 
         disconnectCloud: () => {
+          const name = localStorage.getItem('playerName');
+          if (name) localStorage.setItem('lastPlayerName', name);
           localStorage.removeItem('playerName');
           if (syncTimer) clearTimeout(syncTimer);
           syncTimer = null;
