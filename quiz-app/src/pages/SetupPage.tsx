@@ -242,13 +242,35 @@ export default function SetupPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { value: 'random', label: '랜덤 모드', desc: '전체 400문제에서 무작위 출제', icon: '🎲' },
-              { value: 'yearly', label: '년도별 모드', desc: '특정 연도/회차 문제 출제', icon: '📅' },
+              {
+                value: 'random',
+                label: '랜덤 모드',
+                desc: '전체 400문제에서 무작위 출제',
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                    <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.41-1.41zm4.76-.82l1.96 1.96H13v2h4.41L15.46 14.27l1.41 1.41L21 11.59l-4.24-4.24-1.41 1.41zM4 18.59L5.41 20l5.17-5.17-1.41-1.41zm11.46.41L13 16.41V19H9v2h4v2.59l4.24-4.24z" />
+                  </svg>
+                ),
+              },
+              {
+                value: 'yearly',
+                label: '년도별 모드',
+                desc: '특정 연도/회차 문제 출제',
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                    <path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" />
+                  </svg>
+                ),
+              },
               {
                 value: 'wrong',
                 label: '오답 노트 모드',
                 desc: `틀린 문제만 출제 (${wrongCount}문제)`,
-                icon: '📝',
+                icon: (
+                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                    <path d="M3 10h11v2H3zm0-4h11v2H3zm0 8h7v2H3zm13-1l-4 4 1.41 1.41L16 16.83l4.59 4.58L22 20l-6-7z" />
+                  </svg>
+                ),
                 disabled: wrongCount === 0,
               },
             ].map((opt) => (
@@ -264,7 +286,7 @@ export default function SetupPage() {
                     : 'border-gray-100 hover:border-gray-300'
                 }`}
               >
-                <span className="text-2xl">{opt.icon}</span>
+                <span className={mode === opt.value ? 'text-blue-600' : 'text-gray-400'}>{opt.icon}</span>
                 <div>
                   <p className="font-semibold text-gray-800">{opt.label}</p>
                   <p className="text-sm text-gray-500">{opt.desc}</p>
