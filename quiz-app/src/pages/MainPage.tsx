@@ -150,7 +150,7 @@ export default function MainPage() {
         {/* 통계 */}
         <div className="mt-6 flex gap-4 w-full max-w-sm">
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{animStreak}<span className="text-sm font-normal text-blue-200"> days</span></p>
+            <p className="text-2xl font-bold text-white">{animStreak}<span className="text-sm font-normal text-blue-200"> {streak <= 1 ? 'day' : 'days'}</span></p>
             <p className="text-blue-200 text-xs mt-1">연속학습</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
@@ -158,7 +158,7 @@ export default function MainPage() {
             <p className="text-blue-200 text-xs mt-1">정답수</p>
           </div>
           <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-            <p className="text-2xl font-bold text-white">{animBest}%</p>
+            <p className="text-2xl font-bold text-white">{animBest}<span className="text-sm font-normal text-blue-200">%</span></p>
             <p className="text-blue-200 text-xs mt-1">최고점</p>
           </div>
         </div>

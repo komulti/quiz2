@@ -151,7 +151,11 @@ export default function SetupPage() {
       {showNameModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6">
           <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm">
-            <p className="text-2xl text-center mb-1">👋</p>
+            <div className="flex justify-center mb-1">
+              <svg viewBox="0 0 24 24" className="w-10 h-10 fill-current text-blue-500">
+                <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V8H4v2H2v2h2v2h2v-2h2v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
+            </div>
             <h2 className="text-lg font-bold text-gray-800 text-center mb-1">시작 전 이름을 입력해주세요</h2>
             <p className="text-sm text-gray-500 text-center mb-5">이름을 등록하면 기록이 저장됩니다</p>
             <input
@@ -170,7 +174,11 @@ export default function SetupPage() {
             >
               {syncStatus === 'syncing' ? (
                 <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              ) : '☁️'}
+              ) : (
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                  <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95A5.469 5.469 0 0 1 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3zm-5.55-8h-2.9v3H8l4 4 4-4h-2.55V10z"/>
+                </svg>
+              )}
               동기화하고 시작하기
             </button>
             <button
@@ -209,9 +217,12 @@ export default function SetupPage() {
               </div>
               <button
                 onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}
-                className="shrink-0 px-3 py-2 rounded-xl bg-red-500 text-white text-xs font-bold hover:bg-red-600 active:scale-95 transition-all flex items-center gap-1.5"
+                className="shrink-0 px-3 py-2 rounded-xl border-2 border-red-500 bg-white text-red-500 text-xs font-bold hover:bg-red-50 active:scale-95 transition-all flex items-center gap-1.5"
               >
-                X 동기화 중지
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+                동기화 중지
               </button>
             </div>
           ) : (
@@ -247,7 +258,11 @@ export default function SetupPage() {
                 >
                   {syncStatus === 'syncing' ? (
                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : '☁️'}
+                  ) : (
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                      <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95A5.469 5.469 0 0 1 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3zm-5.55-8h-2.9v3H8l4 4 4-4h-2.55V10z"/>
+                    </svg>
+                  )}
                   동기화
                 </button>
               </div>

@@ -281,7 +281,7 @@ export default function StatsPage() {
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
           <h1 className="text-lg font-bold text-gray-800 flex items-center gap-1.5">
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-gray-800">
+            <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-gray-800">
               <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
             </svg>
             학습 통계
