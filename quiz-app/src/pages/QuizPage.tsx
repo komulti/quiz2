@@ -41,6 +41,7 @@ export default function QuizPage() {
     if (isFinished) navigate('/result');
   }, [isFinished, navigate]);
 
+
   // 정답 제출 후 애니메이션 + 즉시 오답노트 저장
   useEffect(() => {
     if (!currentAnswer) return;
