@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 
 interface Props {
   src: string;
@@ -162,13 +161,13 @@ export default function QuestionImage({ src, alt }: Props) {
         <p className="text-xs font-semibold text-blue-400 text-center mt-1.5 select-none tracking-wide">🔍 탭하여 확대</p>
       </button>
 
-      {/* 전체화면 이미지 모달 — Portal로 document.body에 렌더링 (부모 transform/clip 영향 차단) */}
-      {modalOpen && createPortal(
+      {/* 전체화면 이미지 모달 */}
+      {modalOpen && (
         <>
           {/* 이미지 영역 */}
           <div
             ref={containerRef}
-            className="fixed top-0 inset-x-0 z-[9999] bg-black/90"
+            className="fixed top-0 inset-x-0 z-50 bg-black/90"
             onClick={handleModalClick}
             onDoubleClick={onDoubleClick}
           >
@@ -191,17 +190,16 @@ export default function QuestionImage({ src, alt }: Props) {
             </div>
           </div>
           {/* 이미지 아래 투명 오버레이 (탭하면 닫힘) */}
-          <div className="fixed inset-0 z-[9998]" onClick={handleModalClick} />
+          <div className="fixed inset-0 z-40" onClick={handleModalClick} />
           {/* X 버튼 */}
           <button
-            className="fixed top-4 right-4 z-[9999] w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
+            className="fixed top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/20 text-white text-2xl flex items-center justify-center hover:bg-white/30 transition-colors"
             onClick={handleModalClick}
             aria-label="이미지 닫기"
           >
             ×
           </button>
-        </>,
-        document.body
+        </>
       )}
     </>
   );
