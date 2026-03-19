@@ -9,6 +9,18 @@ import BottomNav from '../components/BottomNav';
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 const BASE_COUNTS = [10, 25, 50, 100, 200];
 
+const LEVELS = [
+  { min: 0,    max: 49,       label: '입문자', icon: '🌱', bg: 'bg-gray-100',    text: 'text-gray-600'   },
+  { min: 50,   max: 149,      label: '학습자', icon: '📖', bg: 'bg-green-100',   text: 'text-green-700'  },
+  { min: 150,  max: 299,      label: '중급자', icon: '✏️', bg: 'bg-blue-100',    text: 'text-blue-700'   },
+  { min: 300,  max: 499,      label: '고수',   icon: '🎯', bg: 'bg-purple-100',  text: 'text-purple-700' },
+  { min: 500,  max: 999,      label: '실력자', icon: '🏆', bg: 'bg-yellow-100',  text: 'text-yellow-700' },
+  { min: 1000, max: Infinity, label: '합격왕', icon: '👑', bg: 'bg-orange-100',  text: 'text-orange-600' },
+];
+function getLevel(total: number) {
+  return LEVELS.find((l) => total >= l.min && total <= l.max) ?? LEVELS[0];
+}
+
 const SUBJECT_LABELS: Record<Subject, { name: string; icon: string }> = {
   korean_history: { name: '한국사', icon: '📚' },
   korean_language: { name: '국어', icon: '✏️' },
@@ -36,7 +48,9 @@ export default function SetupPage() {
   const { questions: allQuestionsBySubject } = useDataStore();
   const allQuestions = allQuestionsBySubject[subject] ?? [];
   const { startQuiz } = useQuizStore();
-  const { wrongNotes, loadFromCloud, syncStatus, disconnectCloud } = useRecordStore();
+  const { wrongNotes, loadFromCloud, syncStatus, disconnectCloud, history } = useRecordStore();
+  const totalQuestions = history.reduce((s, h) => s + h.total, 0);
+  const level = getLevel(totalQuestions);
 
   const [mode, setMode] = useState<QuizMode>('random');
   const [year, setYear] = useState(2025);
@@ -183,9 +197,12 @@ export default function SetupPage() {
         {!showNameModal && <div className="bg-white rounded-2xl shadow-sm p-5">
           {syncStatus === 'synced' ? (
             <div className="flex items-center justify-between gap-3">
-              <div className="flex items-baseline gap-4 min-w-0">
+              <div className="flex items-center gap-3 min-w-0">
                 <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide shrink-0">이름</span>
                 <span className="text-xl font-bold text-blue-600 tracking-widest truncate">{playerName || '—'}</span>
+                <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${level.bg} ${level.text}`}>
+                  {level.icon} {level.label}
+                </span>
               </div>
               <button
                 onClick={() => { disconnectCloud(); setPlayerName(''); setShowNameModal(true); }}

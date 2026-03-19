@@ -97,7 +97,12 @@ export default function WrongNotePage() {
       <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/')} className="p-2 -ml-2 text-gray-500">←</button>
-          <h1 className="text-lg font-bold text-gray-800">📝 오답노트</h1>
+          <h1 className="text-lg font-bold text-gray-800 flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-gray-800">
+              <path d="M3 10h11v2H3zm0-4h11v2H3zm0 8h7v2H3zm13-1l-4 4 1.41 1.41L16 16.83l4.59 4.58L22 20l-6-7z" />
+            </svg>
+            오답노트
+          </h1>
         </div>
         {wrongNotes.length > 0 && (
           <button
