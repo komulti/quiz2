@@ -44,7 +44,7 @@ function ErrorScreen() {
       </svg>
       <p className="text-white text-xl font-bold mb-3">인터넷 연결을 확인해 주세요</p>
       <p className="text-blue-200 text-sm text-center mb-10 leading-relaxed">
-        데이터를 불러오지 못했습니다.{'\n'}연결 상태를 확인한 후 다시 시도해 주세요.
+        데이터를 불러오지 못했습니다.<br />연결 상태를 확인한 후 다시 시도해 주세요.
       </p>
       <button
         onClick={() => window.location.reload()}
