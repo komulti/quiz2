@@ -28,14 +28,14 @@ body {
 /* ── 문제 전환 슬라이드 ────────────────────────── */
 @keyframes slideInRight {
   from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  to   { opacity: 1; }
 }
 @keyframes slideOutLeft {
   from { transform: translateX(0);     opacity: 1; }
   to   { transform: translateX(-100%); opacity: 0; }
 }
 
-.slide-in  { animation: slideInRight 0.25s ease-out both; }
+.slide-in  { animation: slideInRight 0.25s ease-out backwards; }
 .slide-out { animation: slideOutLeft  0.25s ease-out both; }
 
 /* ── 정답 바운스 ──────────────────────────────── */

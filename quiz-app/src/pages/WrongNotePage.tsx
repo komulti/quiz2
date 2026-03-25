@@ -46,7 +46,7 @@ function matchesTab(questionId: string, tab: TabSubject): boolean {
 
 export default function WrongNotePage() {
   const navigate = useNavigate();
-  const { wrongNotes, removeWrongNote, clearWrongNotes, loadFromCloud, syncStatus } = useRecordStore();
+  const { wrongNotes, removeWrongNote, clearWrongNotes } = useRecordStore();
   const { questions: questionsBySubject } = useDataStore();
   const allQuestions = [...questionsBySubject.korean_history, ...questionsBySubject.korean_language, ...questionsBySubject.social_studies, ...questionsBySubject.science, ...questionsBySubject.ethics, ...questionsBySubject.english, ...questionsBySubject.math];
   const { startQuiz } = useQuizStore();
@@ -57,11 +57,6 @@ export default function WrongNotePage() {
   const nickname = localStorage.getItem('playerName')?.trim();
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  useEffect(() => {
-    if (nickname && syncStatus !== 'syncing') {
-      loadFromCloud(nickname);
-    }
-  }, []);
 
   const wrongWithQuestion = wrongNotes
     .map((note) => ({

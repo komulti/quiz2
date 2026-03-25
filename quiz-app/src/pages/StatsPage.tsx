@@ -183,15 +183,9 @@ function RadarChart({ values }: { values: number[] }) {
 
 export default function StatsPage() {
   const navigate = useNavigate();
-  const { history, wrongNotes, clearHistory, loadFromCloud, syncStatus } = useRecordStore();
+  const { history, wrongNotes, clearHistory } = useRecordStore();
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const nickname = localStorage.getItem('playerName')?.trim();
-
-  useEffect(() => {
-    if (nickname && syncStatus !== 'syncing') {
-      loadFromCloud(nickname);
-    }
-  }, []);
 
   const totalSessions = history.length;
   const totalQuestions = history.reduce((s, h) => s + h.total, 0);
