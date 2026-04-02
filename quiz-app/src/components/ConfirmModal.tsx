@@ -33,7 +33,7 @@ export default function ConfirmModal({
         <div className="text-center">
           <p className="text-base font-bold text-gray-800 leading-snug">{message}</p>
           {subMessage && (
-            <p className="text-sm text-gray-400 mt-1.5">{subMessage}</p>
+            <p className="text-sm text-red-400 font-semibold mt-1.5">{subMessage}</p>
           )}
         </div>
         <div className="flex gap-3 w-full mt-1">

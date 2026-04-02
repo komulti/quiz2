@@ -84,7 +84,7 @@ export default function WrongNotePage() {
       {showClearConfirm && (
         <ConfirmModal
           message="오답노트를 전부 삭제할까요?"
-          subMessage="삭제된 기록은 복구할 수 없습니다"
+          subMessage="삭제된 오답 문제는 다시 복구할 수 없습니다"
           onConfirm={() => { clearWrongNotes(); setShowClearConfirm(false); }}
           onCancel={() => setShowClearConfirm(false)}
         />
