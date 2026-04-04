@@ -17,7 +17,6 @@ export default function QuizPage() {
     isFinished,
     currentAnswer,
     settings,
-    mode,
     submitAnswer,
     nextQuestion,
     resetQuiz,
@@ -32,6 +31,7 @@ export default function QuizPage() {
   const [showCorrect, setShowCorrect] = useState(false);
   const [showTaunt, setShowTaunt] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
+  const [showExplanation, setShowExplanation] = useState(false);
 
   useEffect(() => {
     if (questions.length === 0) navigate('/');
@@ -71,6 +71,7 @@ export default function QuizPage() {
 
   const handleNext = useCallback(() => {
     setSlideKey((k) => k + 1);
+    setShowExplanation(false);
     nextQuestion();
   }, [nextQuestion]);
 
@@ -253,10 +254,19 @@ export default function QuizPage() {
                 </p>
               )}
             </div>
-            {mode === 'wrong' && question.explanation && (
-              <div className="mt-2 pt-2 border-t border-current border-opacity-20 text-sm font-normal text-gray-700 leading-relaxed">
-                <span className="font-semibold text-gray-500">💡 해설</span>
-                <p className="mt-0.5 whitespace-pre-line">{question.explanation}</p>
+            {question.explanation && (
+              <div className="mt-2 text-center">
+                <button
+                  onClick={() => setShowExplanation(v => !v)}
+                  className="text-sm font-medium text-blue-600 underline underline-offset-2"
+                >
+                  {showExplanation ? '해설 닫기 ▲' : '💡 해설보기 ▼'}
+                </button>
+              </div>
+            )}
+            {showExplanation && question.explanation && (
+              <div className="mt-2 pt-2 border-t border-gray-200 text-sm font-normal text-gray-700 whitespace-pre-line leading-relaxed">
+                {question.explanation}
               </div>
             )}
           </div>
