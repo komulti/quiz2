@@ -97,6 +97,7 @@ export default function SetupPage() {
     if (mode === 'yearly') return [yearlyCount];
     if (mode === 'wrong') {
       const filtered = ALL_COUNTS.filter((c) => c <= wrongCount);
+      if (wrongCount > 0 && !filtered.includes(wrongCount)) filtered.push(wrongCount);
       return filtered.length > 0 ? filtered : [wrongCount];
     }
     return ALL_COUNTS.filter((c) => c <= maxCount);
@@ -395,10 +396,7 @@ export default function SetupPage() {
               문제 수
             </h2>
             <div className="grid grid-cols-3 gap-2">
-              {(mode === 'wrong' && !ALL_COUNTS.includes(wrongCount) && wrongCount > 0
-                ? [wrongCount]
-                : ALL_COUNTS
-              ).map((c) => {
+              {(mode === 'wrong' ? availableCounts : ALL_COUNTS).map((c) => {
                 const disabled = !availableCounts.includes(c);
                 return (
                   <button
