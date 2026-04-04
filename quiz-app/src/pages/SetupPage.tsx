@@ -54,7 +54,7 @@ export default function SetupPage() {
   const level = getLevel(totalQuestions);
 
   const [mode, setMode] = useState<QuizMode>('random');
-  const [year, setYear] = useState(2025);
+  const [year, setYear] = useState(2026);
   const [session, setSession] = useState(1);
   const [count, setCount] = useState(10);
   const [playerName, setPlayerName] = useState(() =>

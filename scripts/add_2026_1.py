@@ -296,6 +296,11 @@ def step3_append_questions():
                 options_text = ["", "", "", ""]
                 q_text = f"[추출 실패] {EXAM_KEY} {q_num}번"
 
+            # 수학 등 PUA 문자 포함 선택지 정리
+            clean_fn = getattr(mod, 'clean_option', None)
+            if clean_fn:
+                options_text = [clean_fn(t) for t in options_text]
+
             entry: dict = {
                 "id": f"{prefix}{EXAM_KEY}_{q_num:02d}",
                 "year": 2026,
@@ -334,6 +339,38 @@ def step3_append_questions():
 
 # ── Step 4: quiz-app/public 동기화 ────────────────────────────────────────────
 
+def step3_5_convert_webp():
+    """새로 추가된 PNG 이미지를 WebP로 변환 (기존 WebP는 건너뜀)"""
+    print("\n" + "=" * 55)
+    print("  Step 3.5: PNG → WebP 변환")
+    print("=" * 55)
+
+    try:
+        from PIL import Image
+    except ImportError:
+        print("  ⚠ Pillow 미설치 — 건너뜀 (pip install Pillow)")
+        return
+
+    img_dir = BASE_DIR / "data/images"
+    MAX_WIDTH = 800
+    QUALITY = 85
+    converted = 0
+
+    for png_path in sorted(img_dir.rglob("*.png")):
+        webp_path = png_path.with_suffix(".webp")
+        if webp_path.exists():
+            continue
+        with Image.open(png_path) as img:
+            if img.width > MAX_WIDTH:
+                ratio = MAX_WIDTH / img.width
+                new_h = int(img.height * ratio)
+                img = img.resize((MAX_WIDTH, new_h), Image.LANCZOS)
+            img.save(webp_path, "WEBP", quality=QUALITY, method=6)
+        converted += 1
+
+    print(f"  ✓ {converted}개 WebP 변환 완료")
+
+
 def step4_sync_public():
     print("\n" + "=" * 55)
     print("  Step 4: quiz-app/public 동기화")
@@ -355,23 +392,25 @@ def step4_sync_public():
 
     total_copied = 0
 
-    # korean_history 이미지 (루트)
-    for f in img_src_root.glob(f"{EXAM_KEY}_*.png"):
-        dst = img_dst_root / f.name
-        shutil.copy(f, dst)
-        total_copied += 1
+    # korean_history 이미지 (루트) - PNG + WebP
+    for f in sorted(img_src_root.glob(f"{EXAM_KEY}_*")):
+        if f.suffix in (".png", ".webp"):
+            dst = img_dst_root / f.name
+            shutil.copy(f, dst)
+            total_copied += 1
 
-    # 과목별 서브폴더 이미지
+    # 과목별 서브폴더 이미지 - PNG + WebP
     subject_dirs = ["korean_language", "english", "math", "science", "social_studies", "ethics"]
     for subdir in subject_dirs:
         src_dir = img_src_root / subdir
         dst_dir = img_dst_root / subdir
         dst_dir.mkdir(parents=True, exist_ok=True)
         if src_dir.exists():
-            for f in src_dir.glob(f"{EXAM_KEY}_*.png"):
-                dst = dst_dir / f.name
-                shutil.copy(f, dst)
-                total_copied += 1
+            for f in sorted(src_dir.glob(f"{EXAM_KEY}_*")):
+                if f.suffix in (".png", ".webp"):
+                    dst = dst_dir / f.name
+                    shutil.copy(f, dst)
+                    total_copied += 1
 
     print(f"  ✓ 이미지 {total_copied}개 동기화 → quiz-app/public/data/images/")
 
@@ -415,6 +454,7 @@ def main():
     step1_extract_answers()
     step2_extract_images()
     step3_append_questions()
+    step3_5_convert_webp()
     step4_sync_public()
     validate()
 
