@@ -11598,5 +11598,705 @@
     "answer": 2,
     "multipleAnswers": false,
     "explanation": "18세기 산업 혁명의 주요 동력원으로, 현재 제철 공업과 화력 발전 원료로 사용되며 화석 연료 중 온실가스 배출량이 가장 많은 에너지는 석탄입니다. 천연가스는 청정에너지, 석유는 수송·화학 공업 연료입니다."
+  },
+  {
+    "id": "ss_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "다음에서 설명하는 인간, 사회, 환경을 바라보는 관점으로\n가장 적절한 것은? ◦개인은 사회 구조나 제도의 영향을 받는다는 점을 고려함. ◦사회 구조 및 제도와의 관련성 속에서 사회 현상을 이해함.",
+    "image": "images/social_studies/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "공간적 관점"
+      },
+      {
+        "number": 2,
+        "text": "사회적 관점"
+      },
+      {
+        "number": 3,
+        "text": "생태적 관점"
+      },
+      {
+        "number": 4,
+        "text": "시간적 관점"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "다음에서 설명하는 것은?\n◦19세기에 영국의 노동자들이 인민헌장을 발표함. ◦인민헌장에서 선거권 확대와 비밀 투표 실시 등의 참정권을 요구함.",
+    "image": "images/social_studies/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "명예혁명"
+      },
+      {
+        "number": 2,
+        "text": "바이마르 헌법"
+      },
+      {
+        "number": 3,
+        "text": "차티스트 운동"
+      },
+      {
+        "number": 4,
+        "text": "세계 인권 선언"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "다음에서 설명하는 국가 기관으로 옳은 것은?\n법률이나 공권력이 헌법에 보장된 국민의 기본권을 침해하는지의 여부를 심판하며, 침해하는 경우에는 위헌 으로 결정하여 국민의 자유와 권리를 보호한다.",
+    "image": "images/social_studies/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "국회"
+      },
+      {
+        "number": 2,
+        "text": "대통령"
+      },
+      {
+        "number": 3,
+        "text": "헌법재판소"
+      },
+      {
+        "number": 4,
+        "text": "선거 관리 위원회"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "다음 헌법 조항에 규정된 기본권으로 옳은 것은?",
+    "image": "images/social_studies/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "사회권"
+      },
+      {
+        "number": 2,
+        "text": "자유권"
+      },
+      {
+        "number": 3,
+        "text": "참정권"
+      },
+      {
+        "number": 4,
+        "text": "청구권"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "다음에서 설명하는 것은?\n◦의미: 고용, 교육, 경제 등의 분야에서 사회적 약자에게 혜택을 부여하는 정책 ◦사례: 고용에서의 여성 할당제나 장애인 의무 고용제, 대학 입시에서의 사회적 배려 대상자 전형 등",
+    "image": "images/social_studies/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "공공 부조"
+      },
+      {
+        "number": 2,
+        "text": "사회 보험"
+      },
+      {
+        "number": 3,
+        "text": "시민 불복종"
+      },
+      {
+        "number": 4,
+        "text": "적극적 우대 조치"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "다음 자본주의 체제에 대한 설명으로 가장 적절한 것은?",
+    "image": "images/social_studies/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "정부의 재정 지출에 반대한다."
+      },
+      {
+        "number": 2,
+        "text": "절대 왕정의 중상주의가 등장한 계기가 되었다."
+      },
+      {
+        "number": 3,
+        "text": "정부의 적극적 개입을 통해 시장 실패를 해결하고자 한다."
+      },
+      {
+        "number": 4,
+        "text": "‘보이지 않는 손’의 역할을 강조하고 작은 정부를 추구 하였다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "경제 주체의 합리적 선택에 대한 설명으로 적절한 것을\n<보기>에서 고른 것은? <보기> ㄱ. 비용을 고려하지 않는 선택이다. ㄴ. 편익이 기회비용보다 큰 것을 선택한다. ㄷ. 비용이 같다면 편익이 작은 것을 선택한다. ㄹ. 최소 비용으로 최대 편익을 얻을 수 있도록 선택한다.",
+    "image": "images/social_studies/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "ㄱ, ㄴ"
+      },
+      {
+        "number": 2,
+        "text": "ㄱ, ㄷ"
+      },
+      {
+        "number": 3,
+        "text": "ㄴ, ㄹ"
+      },
+      {
+        "number": 4,
+        "text": "ㄷ, ㄹ"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "다음에서 설명하는 것은?\n국방, 치안, 항만 등과 같이 모든 사람이 공동으로 이용할 수 있는 재화와 서비스",
+    "image": "images/social_studies/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "공공재"
+      },
+      {
+        "number": 2,
+        "text": "누진세"
+      },
+      {
+        "number": 3,
+        "text": "금융 자산"
+      },
+      {
+        "number": 4,
+        "text": "생태 통로"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "다음 중 ㉠에 들어갈 용어는?\n최근 소비자는 상품이나 서비스를 구매할 때 인간, 동물, ㉠ 환경을 고려하는 에도 많은 관심을 보인다. ㉠ 은/는 공정 무역 상품, 동물 복지 인증 상품, 친환경 제품을 구매하는 것을 말한다.",
+    "image": "images/social_studies/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "담합"
+      },
+      {
+        "number": 2,
+        "text": "생애 주기"
+      },
+      {
+        "number": 3,
+        "text": "규모의 경제"
+      },
+      {
+        "number": 4,
+        "text": "윤리적 소비"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "공동체주의 정의관에 대한 설명으로 옳은 것을 <보기>에서\n고른 것은? <보기> ㄱ. 개인을 사회와 무관한 독립적 존재로 본다. ㄴ. 사회 구성원이 공동선을 추구하는 것을 강조한다. ㄷ. 소속 집단에 대한 연대 의식과 책임성을 중시한다. ㄹ. 개인이 사회에 우선하고 개인의 자유는 절대 침해될 수 없다고 본다.",
+    "image": "images/social_studies/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "ㄱ, ㄴ"
+      },
+      {
+        "number": 2,
+        "text": "ㄱ, ㄹ"
+      },
+      {
+        "number": 3,
+        "text": "ㄴ, ㄷ"
+      },
+      {
+        "number": 4,
+        "text": "ㄷ, ㄹ"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "청소년의 노동권에 대한 설명으로 옳지 않은 것은?",
+    "image": "images/social_studies/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "근로계약서를 반드시 작성해야 한다."
+      },
+      {
+        "number": 2,
+        "text": "최저 임금보다 적은 임금을 적용받는다."
+      },
+      {
+        "number": 3,
+        "text": "유해 업종의 일이나 위험한 일을 할 수 없다."
+      },
+      {
+        "number": 4,
+        "text": "부모(친권자) 또는 후견인 동의서가 필요하다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "다음에서 설명하는 문화 변동 양상은?",
+    "image": "images/social_studies/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "발견"
+      },
+      {
+        "number": 2,
+        "text": "문화 동화"
+      },
+      {
+        "number": 3,
+        "text": "문화 병존"
+      },
+      {
+        "number": 4,
+        "text": "문화 융합"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "다음 설명에 해당하는 문화권은?\n◦산업 혁명의 발상지로 일찍 산업화를 이룸. ◦크리스트교가 생활 양식과 사회 제도 등 생활 전반에 영향을 줌.",
+    "image": "images/social_studies/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "건조 문화권"
+      },
+      {
+        "number": 2,
+        "text": "북극 문화권"
+      },
+      {
+        "number": 3,
+        "text": "유럽 문화권"
+      },
+      {
+        "number": 4,
+        "text": "아프리카 문화권"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "다음에 해당하는 지역의 기후로 가장 적절한 것은?\n연중 기온이 높고 강수량이 많은 적도 주변 저위도 지역은 비가 잘 흘러내리도록 가옥의 지붕을 급경사로 짓는다. 또한 열기와 습기를 피하기 위해 바닥을 지면에서 띄운다. <고상 가옥>",
+    "image": "images/social_studies/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "열대 기후"
+      },
+      {
+        "number": 2,
+        "text": "건조 기후"
+      },
+      {
+        "number": 3,
+        "text": "냉대 기후"
+      },
+      {
+        "number": 4,
+        "text": "한대 기후"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "다음 중 ㉠에 들어갈 자연재해는?",
+    "image": "images/social_studies/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "가뭄"
+      },
+      {
+        "number": 2,
+        "text": "지진"
+      },
+      {
+        "number": 3,
+        "text": "폭설"
+      },
+      {
+        "number": 4,
+        "text": "홍수"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "다음에서 설명하는 것은?\n1997년에 기후 변화 대응을 위해 국가별 온실가스 배출량 감축 목표치를 규정함.",
+    "image": "images/social_studies/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "교토 의정서"
+      },
+      {
+        "number": 2,
+        "text": "람사르 협약"
+      },
+      {
+        "number": 3,
+        "text": "몬트리올 의정서"
+      },
+      {
+        "number": 4,
+        "text": "사막화 방지 협약"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "다음 사례에 해당하는 현상은?",
+    "image": "images/social_studies/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "비교 우위"
+      },
+      {
+        "number": 2,
+        "text": "인간 소외"
+      },
+      {
+        "number": 3,
+        "text": "정보 격차"
+      },
+      {
+        "number": 4,
+        "text": "사생활 침해"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "다음에서 설명하는 것은?\n자원을 보유한 국가가 자국의 정치적ㆍ경제적 이익을 위해 자원을 무기화함.",
+    "image": "images/social_studies/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "자원 민족주의"
+      },
+      {
+        "number": 2,
+        "text": "자유 지상주의"
+      },
+      {
+        "number": 3,
+        "text": "생태 중심주의"
+      },
+      {
+        "number": 4,
+        "text": "인간 중심주의"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "다음의 대화에서 문화를 이해하는 갑의 태도로 옳은 것은?",
+    "image": "images/social_studies/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "법치주의"
+      },
+      {
+        "number": 2,
+        "text": "문화 상대주의"
+      },
+      {
+        "number": 3,
+        "text": "자유방임주의"
+      },
+      {
+        "number": 4,
+        "text": "문화 제국주의"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "다음에서 설명하는 것은?\n◦일반적으로 국경을 넘어 세계적으로 생산ㆍ판매 활동을 하는 기업을 말함. ◦경영의 효율성을 높이고 이윤을 극대화하기 위해 본사, 연구 시설, 생산 공장 등을 여러 나라에 분산함.",
+    "image": "images/social_studies/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "국제기구"
+      },
+      {
+        "number": 2,
+        "text": "세계 도시"
+      },
+      {
+        "number": 3,
+        "text": "비정부 기구"
+      },
+      {
+        "number": 4,
+        "text": "다국적 기업"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_21",
+    "year": 2026,
+    "session": 1,
+    "number": 21,
+    "text": "다음에 해당하는 분쟁 지역을 지도의 A～D에서 고른 것은?\n카스피해에 매장된 자원을 확보하기 위한 카스피해 주변국들의 영유권 분쟁",
+    "image": "images/social_studies/2026_1_21.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "A"
+      },
+      {
+        "number": 2,
+        "text": "B"
+      },
+      {
+        "number": 3,
+        "text": "C"
+      },
+      {
+        "number": 4,
+        "text": "D"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_22",
+    "year": 2026,
+    "session": 1,
+    "number": 22,
+    "text": "다음에 해당하는 용어는?\n전체 인구를 나이 순서대로 한 줄로 세웠을 때 중간에 있는 사람의 나이",
+    "image": "images/social_studies/2026_1_22.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "고령화"
+      },
+      {
+        "number": 2,
+        "text": "인구 과잉"
+      },
+      {
+        "number": 3,
+        "text": "중위 연령"
+      },
+      {
+        "number": 4,
+        "text": "합계 출산율"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_23",
+    "year": 2026,
+    "session": 1,
+    "number": 23,
+    "text": "다음 중 석유에 대한 설명으로 옳은 것은?",
+    "image": "images/social_studies/2026_1_23.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "주로 고생대 지층에 매장되어 있다."
+      },
+      {
+        "number": 2,
+        "text": "화석 연료 중 가장 먼저 상용화된 자원이다."
+      },
+      {
+        "number": 3,
+        "text": "주로 운송 수단의 연료와 화학 공업 원료로 이용한다."
+      },
+      {
+        "number": 4,
+        "text": "천연가스에 비해 연소 시 대기 오염 물질의 배출량이 적은 편이다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_24",
+    "year": 2026,
+    "session": 1,
+    "number": 24,
+    "text": "다음에서 설명하는 것은?\n미래 세대가 사용할 경제ㆍ사회ㆍ환경 등의 자원을 낭비 하거나 여건을 저해하지 않는 범위 내에서 현재 세대의 필요를 충족하는 것",
+    "image": "images/social_studies/2026_1_24.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "국제 분업"
+      },
+      {
+        "number": 2,
+        "text": "빨대 효과"
+      },
+      {
+        "number": 3,
+        "text": "천부 인권"
+      },
+      {
+        "number": 4,
+        "text": "지속 가능한 발전"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "ss_2026_1_25",
+    "year": 2026,
+    "session": 1,
+    "number": 25,
+    "text": "이슬람교에 대한 일반적인 특징으로 적절하지 않은 것은?",
+    "image": "images/social_studies/2026_1_25.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "다신교이며 소를 신성시한다."
+      },
+      {
+        "number": 2,
+        "text": "술과 돼지고기를 금기시한다."
+      },
+      {
+        "number": 3,
+        "text": "신자들은 성지인 메카를 향해 기도한다."
+      },
+      {
+        "number": 4,
+        "text": "대표적인 종교 경관으로 모스크가 있다."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
   }
 ]

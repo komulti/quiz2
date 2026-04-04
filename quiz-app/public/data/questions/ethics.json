@@ -11598,5 +11598,705 @@
     "answer": 4,
     "multipleAnswers": false,
     "explanation": "기후 변화, 미세 먼지 등 현대의 환경 문제는 한번 발생하면 그 피해가 오래 지속되며 자연이 스스로 원래 상태로 회복하기 어려운 비가역성(회복 불가능성)의 특징을 지닙니다. 일시적으로 발생하여 쉽게 회복 가능하다는 설명은 틀렸습니다. ④현대 환경 문제의 특징은 광역성(국경을 초월한 전 지구적 문제), 장기성, 비가역성(복구하기 어려움), 책임 소재의 불명확성입니다."
+  },
+  {
+    "id": "eth_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "다음의 문제를 다루는 실천 윤리 분야로 가장 적절한 것은?\n◦부유세 정책은 필요한가? ◦사형 제도를 폐지해야 하는가?",
+    "image": "images/ethics/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "환경 윤리"
+      },
+      {
+        "number": 2,
+        "text": "정보 윤리"
+      },
+      {
+        "number": 3,
+        "text": "사회 윤리"
+      },
+      {
+        "number": 4,
+        "text": "과학 기술 윤리"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "다음 설명에 해당하는 사상은?\n모든 것은 원인과 조건에 의해 생겨난다는 연기(緣起)의 깨달음과 자비(慈悲)의 정신을 강조함.",
+    "image": "images/ethics/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "불교"
+      },
+      {
+        "number": 2,
+        "text": "유교"
+      },
+      {
+        "number": 3,
+        "text": "도가"
+      },
+      {
+        "number": 4,
+        "text": "묵가"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "덕 윤리의 입장으로 옳은 것을 <보기>에서 고른 것은?\n<보기> ㄱ. 모든 행위는 정언명령을 따라야만 한다. ㄴ. 행위자는 유덕한 품성을 갖추어야 한다. ㄷ. 공동체의 역사와 전통을 중시해야 한다. ㄹ. 신경 과학적 접근을 통해 도덕성을 탐구해야 한다.",
+    "image": "images/ethics/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "ㄱ, ㄴ"
+      },
+      {
+        "number": 2,
+        "text": "ㄱ, ㄹ"
+      },
+      {
+        "number": 3,
+        "text": "ㄴ, ㄷ"
+      },
+      {
+        "number": 4,
+        "text": "ㄷ, ㄹ"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "표에서 밀(Mill, J. S.)의 입장으로 옳은 것만을 모두 ‘\n’ 표시한 학생은?",
+    "image": "images/ethics/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "A"
+      },
+      {
+        "number": 2,
+        "text": "B"
+      },
+      {
+        "number": 3,
+        "text": "C"
+      },
+      {
+        "number": 4,
+        "text": "D"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "㉠에 들어갈 내용으로 가장 적절한 것은?",
+    "image": "images/ethics/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "무지한 삶"
+      },
+      {
+        "number": 2,
+        "text": "맹목적인 삶"
+      },
+      {
+        "number": 3,
+        "text": "불의한 삶"
+      },
+      {
+        "number": 4,
+        "text": "성찰하는 삶"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "다음 중 삶과 죽음에 대한 공자의 관점으로 가장 적절한 것은?",
+    "image": "images/ethics/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "죽음은 또 다른 세계로 윤회(輪廻)하는 것이다."
+      },
+      {
+        "number": 2,
+        "text": "죽음 이후에야 이데아를 온전히 인식할 수 있다."
+      },
+      {
+        "number": 3,
+        "text": "삶은 기(氣)의 모임이고 죽음은 기의 흩어짐이다."
+      },
+      {
+        "number": 4,
+        "text": "죽음 이후보다 현세의 도덕적 삶에 관심을 가져야 한다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "다음 설명에 해당하는 개념은?\n성(性)적인 문제를 스스로 결정할 수 있는 권리로 타인 에게 해가 되지 않는 범위에서 행사하는 것",
+    "image": "images/ethics/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "환대권"
+      },
+      {
+        "number": 2,
+        "text": "초상권"
+      },
+      {
+        "number": 3,
+        "text": "저작권"
+      },
+      {
+        "number": 4,
+        "text": "성적 자기 결정권"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "다음 설명에 해당하는 롤스(Rawls, J.)의 정의의 원칙은?\n사회적․경제적 불평등은 최소 수혜자에게 최대의 이익이 되는 경우에만 정당하다.",
+    "image": "images/ethics/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "차등의 원칙"
+      },
+      {
+        "number": 2,
+        "text": "최초 취득의 원칙"
+      },
+      {
+        "number": 3,
+        "text": "이전의 원칙"
+      },
+      {
+        "number": 4,
+        "text": "평등한 자유의 원칙"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "프롬(Fromm, E.)의 입장에서 A, B에 들어갈 대답으로 옳게\n짝지어진 것은? 질문 대답 A ∙진정한 사랑은 상대를 지배하고 소유하는 것인가? B ∙진정한 사랑을 위해 상대에 대한 올바른 이해가 필요한가? A B A B",
+    "image": "images/ethics/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "예 예"
+      },
+      {
+        "number": 2,
+        "text": "예 아니요"
+      },
+      {
+        "number": 3,
+        "text": "아니요 예"
+      },
+      {
+        "number": 4,
+        "text": "아니요 아니요"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "㉠에 들어갈 용어로 가장 적절한 것은?\n칼뱅(Calvin, J.)에 따르면 ( ㉠ )은/는 신(神)이 부여한 소명(召命), 즉 신으로부터 부름 받은 자기 몫의 일을 의미 한다.",
+    "image": "images/ethics/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "직업"
+      },
+      {
+        "number": 2,
+        "text": "자연"
+      },
+      {
+        "number": 3,
+        "text": "부패"
+      },
+      {
+        "number": 4,
+        "text": "열반"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "(가)에 들어갈 사상가는?",
+    "image": "images/ethics/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "루소"
+      },
+      {
+        "number": 2,
+        "text": "베이컨"
+      },
+      {
+        "number": 3,
+        "text": "베카리아"
+      },
+      {
+        "number": 4,
+        "text": "매킨타이어"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "㉠에 들어갈 개념으로 가장 적절한 것은?",
+    "image": "images/ethics/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "다양성"
+      },
+      {
+        "number": 2,
+        "text": "배타성"
+      },
+      {
+        "number": 3,
+        "text": "획일성"
+      },
+      {
+        "number": 4,
+        "text": "익명성"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "다음 퀴즈에 대한 정답으로 옳은 것은?",
+    "image": "images/ethics/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "독재 국가"
+      },
+      {
+        "number": 2,
+        "text": "최소 국가"
+      },
+      {
+        "number": 3,
+        "text": "공산 국가"
+      },
+      {
+        "number": 4,
+        "text": "복지 국가"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "다음 설명에 해당하는 국가 권위의 정당화 관점은?\n국가는 개인이 자신의 권리를 보장받기 위해 자발적으로 계약을 맺어 형성된 것이다. 따라서 시민은 국가의 권위에 따라야 할 의무가 있다.",
+    "image": "images/ethics/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "본성론"
+      },
+      {
+        "number": 2,
+        "text": "동의론"
+      },
+      {
+        "number": 3,
+        "text": "천명론"
+      },
+      {
+        "number": 4,
+        "text": "음양론"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "다음 평가지에서 학생이 작성한 답안의 채점 결과로 ㉠에\n들어갈 점수는? 요나스의 ‘책임 윤리’에 대한 질문에 답하시오. (각 1점) 질문 학생 답 ∙책임의 대상은 현세대로 한정되는가? 아니요 ∙인류의 존속 가능성을 고려해야 하는가? 예 ∙과학 기술에 대한 윤리적 성찰이 필요한가? 아니요 채점 결과: (  ㉠  ) 점",
+    "image": "images/ethics/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "0"
+      },
+      {
+        "number": 2,
+        "text": "1"
+      },
+      {
+        "number": 3,
+        "text": "2"
+      },
+      {
+        "number": 4,
+        "text": "3"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "다음은 서술형 평가 문제와 학생 답안이다. 밑줄 친 ㉠～㉣\n중 적절하지 않은 것은?",
+    "image": "images/ethics/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠"
+      },
+      {
+        "number": 2,
+        "text": "㉡"
+      },
+      {
+        "number": 3,
+        "text": "㉢"
+      },
+      {
+        "number": 4,
+        "text": "㉣"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "다음 가상 편지 속 ㉠에 들어갈 용어로 가장 적절한 것은?",
+    "image": "images/ethics/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "응보주의"
+      },
+      {
+        "number": 2,
+        "text": "생명 외경"
+      },
+      {
+        "number": 3,
+        "text": "노동 소외"
+      },
+      {
+        "number": 4,
+        "text": "인간 중심주의"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "다음 중 싱어(Singer, P.)의 입장으로 옳지 않은 것은?",
+    "image": "images/ethics/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "동물실험은 도덕적 비판의 대상이 될 수 있다."
+      },
+      {
+        "number": 2,
+        "text": "공리주의에 근거하여 동물의 복지를 논해야 한다."
+      },
+      {
+        "number": 3,
+        "text": "종 차별주의를 옹호하는 것은 도덕적으로 정당하다."
+      },
+      {
+        "number": 4,
+        "text": "쾌고 감수 능력을 지닌 동물의 이익을 고려해야 한다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "다음 설명에 해당하는 용어는?\n남북한 분단으로 인한 대결과 갈등 때문에 지출되는 유․무형의 소모성 비용으로, 군사비가 대표적이다.",
+    "image": "images/ethics/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "분단 비용"
+      },
+      {
+        "number": 2,
+        "text": "생산 비용"
+      },
+      {
+        "number": 3,
+        "text": "통일 비용"
+      },
+      {
+        "number": 4,
+        "text": "통일 편익"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "다음 중 예술에 대한 도덕주의의 입장으로 가장 적절한 것은?",
+    "image": "images/ethics/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "도덕적 가치는 미적 가치보다 항상 열등하다."
+      },
+      {
+        "number": 2,
+        "text": "예술 작품은 도덕적 품성 함양에 기여해야 한다."
+      },
+      {
+        "number": 3,
+        "text": "도덕적 가치를 토대로 예술을 판단해서는 안 된다."
+      },
+      {
+        "number": 4,
+        "text": "예술의 유일한 목적은 창작자의 이윤을 극대화하는 것이다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_21",
+    "year": 2026,
+    "session": 1,
+    "number": 21,
+    "text": "장자가 제시한 수양 방법 중 (가), (나)에 해당하는 용어로\n옳게 짝지어진 것은? (가) 조용히 앉아서 자신을 구속하는 모든 것들을 잊는 것 (나) 마음을 텅 비워서 깨끗이 하는 것 (가) (나)",
+    "image": "images/ethics/2026_1_21.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "사단(四端) 좌망(坐忘)"
+      },
+      {
+        "number": 2,
+        "text": "불성(佛性) 사단(四端)"
+      },
+      {
+        "number": 3,
+        "text": "심재(心齋) 불성(佛性)"
+      },
+      {
+        "number": 4,
+        "text": "좌망(坐忘) 심재(心齋)"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_22",
+    "year": 2026,
+    "session": 1,
+    "number": 22,
+    "text": "다음 중 종교 갈등을 극복하기 위한 자세로 가장 적절한\n것은?",
+    "image": "images/ethics/2026_1_22.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "타 종교에 대해 배타적인 태도를 지닌다."
+      },
+      {
+        "number": 2,
+        "text": "종교 간의 평화적 대화와 협력을 추구한다."
+      },
+      {
+        "number": 3,
+        "text": "다양한 종교를 하나의 종교로 강제 통합하는 것을 지지한다."
+      },
+      {
+        "number": 4,
+        "text": "종교적 가르침의 실천을 위해 인류의 보편 가치를 부정한다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_23",
+    "year": 2026,
+    "session": 1,
+    "number": 23,
+    "text": "다음에서 소개하는 사상가는?",
+    "image": "images/ethics/2026_1_23.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "데카르트"
+      },
+      {
+        "number": 2,
+        "text": "하버마스"
+      },
+      {
+        "number": 3,
+        "text": "엘리아데"
+      },
+      {
+        "number": 4,
+        "text": "레오폴드"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_24",
+    "year": 2026,
+    "session": 1,
+    "number": 24,
+    "text": "㉠에 들어갈 개념으로 가장 적절한 것은?\n갈퉁(Galtung, J.)은 직접적 폭력인 전쟁, 폭행 등이 없는 상태를 ‘소극적 ( ㉠ )’(이)라고 정의하였다.",
+    "image": "images/ethics/2026_1_24.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "평등"
+      },
+      {
+        "number": 2,
+        "text": "청렴"
+      },
+      {
+        "number": 3,
+        "text": "행복"
+      },
+      {
+        "number": 4,
+        "text": "평화"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "eth_2026_1_25",
+    "year": 2026,
+    "session": 1,
+    "number": 25,
+    "text": "다음 설명에 해당하는 사상가는?\n원조의 목적은 고통받는 사회가 자신들의 문제를 합리 적으로 관리할 수 있도록 도와 질서 정연한 사회가 되도록 하는 것이라고 주장함.",
+    "image": "images/ethics/2026_1_25.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "롤스"
+      },
+      {
+        "number": 2,
+        "text": "칸트"
+      },
+      {
+        "number": 3,
+        "text": "홉스"
+      },
+      {
+        "number": 4,
+        "text": "벤담"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
   }
 ]

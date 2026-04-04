@@ -9598,5 +9598,565 @@
     "answer": 1,
     "multipleAnswers": false,
     "explanation": "[개념]\n조합 (경우의 수)\n\n[풀이]\n4종류의 잡곡 중 순서를 고려하지 않고 2종류를 선택하는 조합(Combination) 문제입니다.\n₄C₂=(4×3)/(2×1)=6가지입니다.\n\n[정답]\n①"
+  },
+  {
+    "id": "math_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "두 다항식 , 에 대하여 는?",
+    "image": "images/math/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "등식 이 에 대한 항등식일 때,\n두 상수 , 에 대하여 의 값은?",
+    "image": "images/math/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "다항식 을 로 나누었을 때, 나머지는?",
+    "image": "images/math/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "다항식 을 인수분해한 식이 일 때,\n상수 의 값은?",
+    "image": "images/math/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "복소수 의 켤레복소수가 일 때, 두 실수 , 에\n대하여 의 값은? (단,  )",
+    "image": "images/math/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "이차방정식 이 중근을 가질 때, 상수 의 값은?",
+    "image": "images/math/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "두 수 , 을 근으로 하고 의 계수가 인 이차방정식이\n일 때, 상수 의 값은?",
+    "image": "images/math/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "≤≤일 때, 이차함수 의 최댓값은?",
+    "image": "images/math/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "삼차방정식 의 한 근이 일 때,\n상수 의 값은?",
+    "image": "images/math/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": " "
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "연립부등식 \n의 해가 일 때, 상수 의 값은?",
+    "image": "images/math/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "좌표평면 위의 두 점 A, B에 대하여\n선분 AB를 로 내분하는 점의 좌표는?",
+    "image": "images/math/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "원점과 직선  사이의 거리는?",
+    "image": "images/math/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "직선 와 원 가 한 점에서 만날 때,\n자연수 의 값은?",
+    "image": "images/math/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "좌표평면 위의 점 을 원점에 대하여 대칭이동한\n점의 좌표는?",
+    "image": "images/math/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "두 집합 , 에 대하여 ∩는?",
+    "image": "images/math/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "두 조건 , 는\n , 이다. 는 이기 위한 필요충분조건이 되도록 하는 상수 의 값은?",
+    "image": "images/math/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "함수 →가 그림과 같을 때, 의 값은?\n(단, 는 의 역함수이다.)",
+    "image": "images/math/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "\n18. 유리함수  의 그래프의 점근선은 두 직선  , 이다. 상수 의 값은?",
+    "image": "images/math/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "그림과 같이 개의 채소 모종이 있다. 이 중에서 서로 다른\n개의 채소 모종을 택하여 <화분>과 <화분>에 각각 심는 경우의 수는?",
+    "image": "images/math/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "math_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "그림과 같이 어느 문화 센터에서 운영하는 개의 프로그램이\n있다. 이 중에서 서로 다른 개의 프로그램을 선택하는 경우의 수는?",
+    "image": "images/math/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": ""
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": ""
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
   }
 ]

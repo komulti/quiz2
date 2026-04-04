@@ -2,8 +2,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// Vercel은 루트(/)에 배포, GitHub Pages는 /quiz2/ 하위에 배포
+const base = process.env.VERCEL ? '/' : (process.env.VITE_BASE_PATH ?? '/quiz2/');
+
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH ?? '/quiz2/',
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -17,8 +20,8 @@ export default defineConfig({
         background_color: '#f9fafb',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/quiz2/',
-        start_url: '/quiz2/',
+        scope: base,
+        start_url: base,
         icons: [
           { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
@@ -28,7 +31,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,webp,svg,woff2}'],
         runtimeCaching: [
           {
-            urlPattern: /^\/quiz2\/data\//,
+            urlPattern: new RegExp(`^${base}data/`),
             handler: 'CacheFirst',
             options: {
               cacheName: 'quiz-data',

@@ -11998,5 +11998,730 @@
     "answer": 4,
     "multipleAnswers": false,
     "explanation": "㉮의 '부를(부르다)'은 어떤 대상을 가리켜 특정한 이름이나 칭호로 지칭한다는 의미입니다.\n①, ②는 어떤 사람에게 오라고 명하다는 뜻이고, ③은 노래를 소리 내어 부르다는 뜻입니다. ④의 \"사람들은 그를 불운한 천재라고 불렀다.\"가 대상을 특정한 명칭으로 지칭한다는 뜻으로 ㉮와 가장 유사하게 쓰였습니다.\n\n[정답]\n④"
+  },
+  {
+    "id": "kl_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "<보기>의 대화에 나타난 ‘친구 3’의 말하기 문제점으로 가장\n적절한 것은? <보기>\n친구1 : 얘들아, 우리 집에 갈 때 김밥 먹을래? 친구2 : 좋아. 간단히 먹기 좋잖아. 친구3 : 나는 어제 영화 봤어.",
+    "image": "images/korean_language/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "혼자만 오랫동안 말을 하고 있다."
+      },
+      {
+        "number": 2,
+        "text": "대화와 관련 없는 내용을 말하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "자신의 요구만을 명령하며 말하고 있다."
+      },
+      {
+        "number": 4,
+        "text": "잘못을 지적하며 상대방을 비방하고 있다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "kl_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "(가)의 ㉠～㉣ 중 (나)에 반영되지 않은 것은?",
+    "image": "images/korean_language/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠"
+      },
+      {
+        "number": 2,
+        "text": "㉡"
+      },
+      {
+        "number": 3,
+        "text": "㉢"
+      },
+      {
+        "number": 4,
+        "text": "㉣"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_2_3.png"
+  },
+  {
+    "id": "kl_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "(나)의 ⓐ～ⓓ에 대한 고쳐쓰기 방안으로 적절하지 않은 것은?",
+    "image": "images/korean_language/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "ⓐ: 조사의 쓰임이 맞지 않으므로 ‘불평등을’로 바꾼다."
+      },
+      {
+        "number": 2,
+        "text": "ⓑ: 주어와 호응하도록 ‘참여하는’으로 교체한다."
+      },
+      {
+        "number": 3,
+        "text": "ⓒ: 의미가 중복되므로 ‘함께’를 삭제한다."
+      },
+      {
+        "number": 4,
+        "text": "ⓓ: 띄어쓰기가 잘못되었으므로 ‘확산될때’로 고친다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_2_3.png"
+  },
+  {
+    "id": "kl_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "다음 중 ㉠～㉣의 예로 적절하지 않은 것은?\n￭표준 발음법￭ 【제12항】받침 ‘ㅎ’의 발음은 다음과 같다. 1. ‘ㅎ(ㄶ, ㅀ)’ 뒤에 ‘ㄱ, ㄷ, ㅈ’이 결합되는 경우에는, 뒤 음절 첫소리와 합쳐서 [ㅋ, ㅌ, ㅊ]으로 발음한다. ·················································································㉠ 2. ‘ㅎ(ㄶ, ㅀ)’ 뒤에 ‘ㅅ’이 결합되는 경우에는, ‘ㅅ’을 [ㅆ]으로 발음한다. ·················································㉡ 3. ‘ㅎ’ 뒤에 ‘ㄴ’이 결합되는 경우에는, [ㄴ]으로 발음한다. ·················································································㉢ 4. ‘ㅎ(ㄶ, ㅀ)’ 뒤에 모음으로 시작된 어미나 접미사가 결합되는 경우에는, ‘ㅎ’을 발음하지 않는다. ········㉣",
+    "image": "images/korean_language/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠: 많아[마ː나]"
+      },
+      {
+        "number": 2,
+        "text": "㉡: 싫소[실쏘]"
+      },
+      {
+        "number": 3,
+        "text": "㉢: 놓는[논는]"
+      },
+      {
+        "number": 4,
+        "text": "㉣: 좋아[조ː아]"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "kl_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "<보기>의 ㉠～㉣에 대한 설명으로 가장 적절한 것은?\n<보기>\n동생: 오빠, 지금 뭐 해? 오빠: 나 ㉠공부한다. 동생: 어제는 뭐 했어? 오빠: ㉡어제도 공부했어. 동생: 어제도 했는데, ㉢지금도 공부하는구나. 오빠: 그럼. ㉣내일도 공부할 거야.",
+    "image": "images/korean_language/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠: 발화시보다 사건시가 나중이다."
+      },
+      {
+        "number": 2,
+        "text": "㉡: 발화시보다 사건시가 이전이다."
+      },
+      {
+        "number": 3,
+        "text": "㉢: 발화시보다 사건시가 나중이다."
+      },
+      {
+        "number": 4,
+        "text": "㉣: 발화시보다 사건시가 이전이다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "kl_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "밑줄 친 단어 중 ‘한글 맞춤법’ 규정을 잘못 적용한 것은?\n￭한글 맞춤법￭ 【제19항】어간에 ‘-이’나 ‘-음/-ㅁ’이 붙어서 명사로 된 것과 ‘-이’나 ‘-히’가 붙어서 부사로 된 것은 그 어간의 원형을 밝히어 적는다.",
+    "image": "images/korean_language/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "정월 대보름을 맞아 달마지를 다녀왔어."
+      },
+      {
+        "number": 2,
+        "text": "익히 들어서 그 부분은 잘 알고 있어요."
+      },
+      {
+        "number": 3,
+        "text": "강아지 먹이는 충분히 준비해 두고 왔니?"
+      },
+      {
+        "number": 4,
+        "text": "일상을 벗어나 여행을 오니 웃음꽃이 피어나네."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "kl_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "㉠～㉣에 나타난 중세 국어의 특징으로 적절하지 않은 것은?\n㉠나·랏:말·미中國·귁·에달·아文문字··와·로서르 ​·디아·니··이런㉡젼··로어·린百·姓··이 니르·고·져··배이·셔·도·:내제㉢··들시·러펴·디 :몯·노·미㉣하·니·라 - ｢훈민정음｣ 언해본-",
+    "image": "images/korean_language/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠: ‘ㅅ’이 관형격 조사로 사용되었다."
+      },
+      {
+        "number": 2,
+        "text": "㉡: ‘ 、(아래 아)’ 음운이 사용되었다."
+      },
+      {
+        "number": 3,
+        "text": "㉢: 소리 나는 대로 이어 적기를 하였다."
+      },
+      {
+        "number": 4,
+        "text": "㉣: ‘하·니·라’는 ‘어리석다’의 의미로 사용되었다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "kl_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "다음 중 윗글에 대한 설명으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "이야기 속에 다른 이야기가 포함되어 있다."
+      },
+      {
+        "number": 2,
+        "text": "창과 아니리를 교차하여 장면을 전환하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "비범한 인물의 행적을 중심으로 사건이 전개되고 있다."
+      },
+      {
+        "number": 4,
+        "text": "저승과 이승을 오고 가는 비현실적 요소가 나타나 있다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_8_10.png"
+  },
+  {
+    "id": "kl_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "다음 중 윗글에서 ‘허생’이 한 일이 아닌 것은?",
+    "image": "images/korean_language/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "바닷가에 돈 삼십만 냥을 싣고 나타났다."
+      },
+      {
+        "number": 2,
+        "text": "나라에서 요구한 도적의 명부를 작성했다."
+      },
+      {
+        "number": 3,
+        "text": "사람들을 배에 싣고 빈 섬으로 들어갔다."
+      },
+      {
+        "number": 4,
+        "text": "배를 타고 장기도로 가서 곡식을 팔았다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_8_10.png"
+  },
+  {
+    "id": "kl_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "㉠～㉣ 중 가리키는 대상이 나머지와 다른 것은?",
+    "image": "images/korean_language/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠"
+      },
+      {
+        "number": 2,
+        "text": "㉡"
+      },
+      {
+        "number": 3,
+        "text": "㉢"
+      },
+      {
+        "number": 4,
+        "text": "㉣"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_8_10.png"
+  },
+  {
+    "id": "kl_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "다음 중 윗글에 대한 설명으로 적절하지 않은 것은?",
+    "image": "images/korean_language/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "4음보의 율격이 드러나 있다."
+      },
+      {
+        "number": 2,
+        "text": "3장 6구의 형식으로 되어 있다."
+      },
+      {
+        "number": 3,
+        "text": "후렴구를 반복적으로 사용하고 있다."
+      },
+      {
+        "number": 4,
+        "text": "종장의 첫 음보가 3음절로 이루어져 있다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_11_13.png"
+  },
+  {
+    "id": "kl_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "다음 중 윗글에 나타난 화자의 정서로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "불효에 대한 죄책감"
+      },
+      {
+        "number": 2,
+        "text": "부재하는 임에 대한 그리움"
+      },
+      {
+        "number": 3,
+        "text": "속세를 떠나고 싶은 간절함"
+      },
+      {
+        "number": 4,
+        "text": "자연의 풍류를 만끽하는 즐거움"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_11_13.png"
+  },
+  {
+    "id": "kl_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "다음 중 윗글의 표현상 특징으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "다양한 공간을 나열하고 있다."
+      },
+      {
+        "number": 2,
+        "text": "두 인물이 서로 대화를 하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "화자의 행동을 의성어로 드러내고 있다."
+      },
+      {
+        "number": 4,
+        "text": "추상적 개념을 구체적으로 형상화하고 있다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_11_13.png"
+  },
+  {
+    "id": "kl_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "다음 중 윗글에서 알 수 있는 내용으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "‘만득’은 앞장서서 ‘나’를 고향으로 데리고 갔다."
+      },
+      {
+        "number": 2,
+        "text": "‘만득’은 ‘곱단’의 얼굴을 아직도 기억하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "‘만득’은 ‘나’에게 행복한 이유를 자세히 밝히고 있다."
+      },
+      {
+        "number": 4,
+        "text": "‘만득’은 ‘곱단’이 시집갔을 때의 심정을 짐작하고 있다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_14_16.png"
+  },
+  {
+    "id": "kl_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "다음 중 [A]에 대한 설명으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "과거를 회상하며 자신의 감정을 표현하고 있다."
+      },
+      {
+        "number": 2,
+        "text": "해학적 표현을 통해 인물의 행동을 비판하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "비속어를 사용하여 인물 간의 갈등을 강조하고 있다."
+      },
+      {
+        "number": 4,
+        "text": "전기적 요소를 통해 사건의 우연성을 드러내고 있다."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_14_16.png"
+  },
+  {
+    "id": "kl_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "㉠～㉣ 중 문맥상 의미가 가장 이질적인 것은?",
+    "image": "images/korean_language/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠"
+      },
+      {
+        "number": 2,
+        "text": "㉡"
+      },
+      {
+        "number": 3,
+        "text": "㉢"
+      },
+      {
+        "number": 4,
+        "text": "㉣"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_14_16.png"
+  },
+  {
+    "id": "kl_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "다음 중 윗글의 표현상 특징으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "시어를 반복하여 운율을 형성하고 있다."
+      },
+      {
+        "number": 2,
+        "text": "색채어를 통해 대상의 특징을 부각하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "설의법을 활용하여 화자의 정서를 나타내고 있다."
+      },
+      {
+        "number": 4,
+        "text": "음성 상징어를 사용해 시적 분위기를 조성하고 있다."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_17_19.png"
+  },
+  {
+    "id": "kl_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "다음 중 ㉠의 의미로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "물질적 풍요를 얻는 공간"
+      },
+      {
+        "number": 2,
+        "text": "근원적 고독에 놓인 상황"
+      },
+      {
+        "number": 3,
+        "text": "도피해야 하는 억압적 세계"
+      },
+      {
+        "number": 4,
+        "text": "자연에서 벗어난 세속적 현실"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_17_19.png"
+  },
+  {
+    "id": "kl_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "다음 중 ㉡과 같은 감각적 심상이 쓰인 것으로 가장 적절한\n것은?",
+    "image": "images/korean_language/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "성공의 달콤한 맛"
+      },
+      {
+        "number": 2,
+        "text": "참기름의 고소한 냄새"
+      },
+      {
+        "number": 3,
+        "text": "새벽에 들리는 닭 울음소리"
+      },
+      {
+        "number": 4,
+        "text": "여름날 한낮의 뜨거운 공기"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_17_19.png"
+  },
+  {
+    "id": "kl_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "다음 중 윗글에 대한 설명으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "수치화된 통계 자료를 활용하고 있다."
+      },
+      {
+        "number": 2,
+        "text": "비유를 통해 대상의 차이를 제시하고 있다."
+      },
+      {
+        "number": 3,
+        "text": "스스로 묻고 답하는 형식을 사용하고 있다."
+      },
+      {
+        "number": 4,
+        "text": "대상의 변화 과정을 시대별로 보여 주고 있다."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_20_22.png"
+  },
+  {
+    "id": "kl_2026_1_21",
+    "year": 2026,
+    "session": 1,
+    "number": 21,
+    "text": "㉠∼㉣의 사전적 의미로 적절하지 않은 것은?",
+    "image": "images/korean_language/2026_1_21.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "㉠: 일정한 기준에 따라 전체를 몇 개로 갈라 나눔."
+      },
+      {
+        "number": 2,
+        "text": "㉡: 어떤 것이 남긴 표시나 자리."
+      },
+      {
+        "number": 3,
+        "text": "㉢: 아주 먼 거리."
+      },
+      {
+        "number": 4,
+        "text": "㉣: 늘 써서 버릇이 되다시피 한 것."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_20_22.png"
+  },
+  {
+    "id": "kl_2026_1_22",
+    "year": 2026,
+    "session": 1,
+    "number": 22,
+    "text": "다음 중 ㉮에 들어갈 말로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_22.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "유성"
+      },
+      {
+        "number": 2,
+        "text": "항성"
+      },
+      {
+        "number": 3,
+        "text": "행성"
+      },
+      {
+        "number": 4,
+        "text": "북극성"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_20_22.png"
+  },
+  {
+    "id": "kl_2026_1_23",
+    "year": 2026,
+    "session": 1,
+    "number": 23,
+    "text": "다음 중 윗글의 내용과 일치하지 않는 것은?",
+    "image": "images/korean_language/2026_1_23.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "로봇이라는 말은 체코어 ‘로보타’에서 유래하였다."
+      },
+      {
+        "number": 2,
+        "text": "<로섬의 만능 로봇>은 카렐 차페크의 연극이다."
+      },
+      {
+        "number": 3,
+        "text": "청소 로봇이나 가정부 로봇은 주로 인간의 노동을 대체한다."
+      },
+      {
+        "number": 4,
+        "text": "로드니 브룩스는 로봇을 노예처럼 취급해야 한다고 주장 하였다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_23_25.png"
+  },
+  {
+    "id": "kl_2026_1_24",
+    "year": 2026,
+    "session": 1,
+    "number": 24,
+    "text": "다음 중 ㉮에 들어갈 말로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_24.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "또한"
+      },
+      {
+        "number": 2,
+        "text": "그러면"
+      },
+      {
+        "number": 3,
+        "text": "하지만"
+      },
+      {
+        "number": 4,
+        "text": "왜냐하면"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_23_25.png"
+  },
+  {
+    "id": "kl_2026_1_25",
+    "year": 2026,
+    "session": 1,
+    "number": 25,
+    "text": "다음 중 ㉠이 의미하는 내용으로 가장 적절한 것은?",
+    "image": "images/korean_language/2026_1_25.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "애완동물 로봇이 상용화되는 것"
+      },
+      {
+        "number": 2,
+        "text": "인간이 하는 노동을 로봇이 대신하는 것"
+      },
+      {
+        "number": 3,
+        "text": "로섬의 공장에서 ‘인공 노예’를 생산하는 것"
+      },
+      {
+        "number": 4,
+        "text": "로봇이 인간과 같은 수준의 지능과 의식을 갖게 되는 것"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/korean_language/2026_1_pass_23_25.png"
   }
 ]

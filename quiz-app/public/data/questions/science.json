@@ -11598,5 +11598,705 @@
     "answer": 4,
     "multipleAnswers": false,
     "explanation": "사막화는 토양이 극도로 건조해져 사막처럼 변하는 현상이고, 엘니뇨는 동태평양 표층 수온이 평년보다 높아지는 현상입니다.\n\n▶ 오답 분석\n①, ② 장마, 황사: 장마는 뚜렷한 계절풍의 영향, 황사는 봄철 중국 대륙의 흙먼지가 편서풍을 타고 날아오는 현상입니다.\n\n■ 핵심 포인트\n사막화: 토양이 극도로 건조해져 식물이 자랄 수 없는 사막처럼 변하는 현상입니다. 엘니뇨 현상: 적도 부근 무역풍이 약해져서 따뜻한 바닷물이 동태평양에 머물면서 페루 등 남아메리카 연안(동태평양)의 표층 수온이 평년보다 높아지는 기후 변화 현상입니다."
+  },
+  {
+    "id": "sci_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "수평면 위에 정지해 있던 물체에 한 방향으로 100 N의 힘이\n1초 동안 작용했을 때, 이 힘에 의해 물체가 받은 충격량의 크기는?",
+    "image": "images/science/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "100 N·s"
+      },
+      {
+        "number": 2,
+        "text": "200 N·s"
+      },
+      {
+        "number": 3,
+        "text": "300 N·s"
+      },
+      {
+        "number": 4,
+        "text": "400 N·s"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "그림은 열기관이 고열원에서 100 J의\n열에너지를 공급받아 외부에 일을 하고, 저열원으로 70 J의 열에너지를 방출하는 것을 나타낸 것이다. 이 열기관의 열효율은?",
+    "image": "images/science/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "20 %"
+      },
+      {
+        "number": 2,
+        "text": "30 %"
+      },
+      {
+        "number": 3,
+        "text": "40 %"
+      },
+      {
+        "number": 4,
+        "text": "50 %"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "그림과 같이 질량이 다른 두 물체 A와 B가\n같은 높이()에서 동시에 자유 낙하할 때, A와 B의 운동에 대한 설명으로 옳은 것은? (단, 공기의 저항은 무시한다.)",
+    "image": "images/science/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "중력 가속도의 크기는 A와 B가 같다."
+      },
+      {
+        "number": 2,
+        "text": "지면에 닿기 직전의 속력은 A가 B보다 크다."
+      },
+      {
+        "number": 3,
+        "text": "A와 B의 운동 방향은 중력 방향과 반대이다."
+      },
+      {
+        "number": 4,
+        "text": "A에 작용하는 중력의 크기는 B보다 크다."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "다음 설명에 해당하는 신소재는?\n◦탄소 원자가 육각형 벌집 모양으로 배열된 평면 구조이다. ◦강철보다 강하고, 열을 잘 전달한다.",
+    "image": "images/science/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "반도체"
+      },
+      {
+        "number": 2,
+        "text": "그래핀"
+      },
+      {
+        "number": 3,
+        "text": "초전도체"
+      },
+      {
+        "number": 4,
+        "text": "발광 다이오드"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "그림은 전자기 유도 실험을 나타낸\n것이다. 유도 전류의 세기를 크게 하는 방법으로 옳은 것은?",
+    "image": "images/science/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "자석의 방향을 바꾼다."
+      },
+      {
+        "number": 2,
+        "text": "코일의 감은 수를 줄인다."
+      },
+      {
+        "number": 3,
+        "text": "더 강한 자석을 사용한다."
+      },
+      {
+        "number": 4,
+        "text": "자석의 움직임을 더 느리게 한다."
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "다음 설명에 해당하는 것은?\n◦수소와 산소의 화학 반응을 통해 전기를 생산한다. ◦발전 과정에서 생성물로 물이 생성 되어 친환경적이다.",
+    "image": "images/science/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "보일러"
+      },
+      {
+        "number": 2,
+        "text": "원자로"
+      },
+      {
+        "number": 3,
+        "text": "태양 전지"
+      },
+      {
+        "number": 4,
+        "text": "수소 연료 전지"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "그림은 주기율표의 일부를 나타낸 것이다. 임의의 원소\nA～D 중 전자가 채워진 전자껍질 수가 2개인 것은?",
+    "image": "images/science/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "A"
+      },
+      {
+        "number": 2,
+        "text": "B"
+      },
+      {
+        "number": 3,
+        "text": "C"
+      },
+      {
+        "number": 4,
+        "text": "D"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "다음 설명에서 ㉠에 공통으로 들어가는 것은?\n㉠ 이온은 염화 이온과 이온 결합을 하여 소금을 ◦ 만든다. ㉠ ◦ 은 노란빛을 내는 가로등에 사용된다.",
+    "image": "images/science/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "철"
+      },
+      {
+        "number": 2,
+        "text": "리튬"
+      },
+      {
+        "number": 3,
+        "text": "칼륨"
+      },
+      {
+        "number": 4,
+        "text": "나트륨"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "다음 중 공유 결합 물질이 아닌 것은?",
+    "image": "images/science/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "수소(H2)"
+      },
+      {
+        "number": 2,
+        "text": "염소(Cl2)"
+      },
+      {
+        "number": 3,
+        "text": "질소(N2)"
+      },
+      {
+        "number": 4,
+        "text": "염화 칼슘(CaCl2)"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "다음은 산화 반응의 예이다. ㉠에 공통으로 들어가는 것은?\n㉠ 와/과 반응하여 ◦사과를 깎아 놓으면 공기 중의 색깔이 변한다. ㉠ ◦쇠못이 붉게 녹이 스는 것은 철이 공기 중의 와/과 반응했기 때문이다.",
+    "image": "images/science/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "산소"
+      },
+      {
+        "number": 2,
+        "text": "헬륨"
+      },
+      {
+        "number": 3,
+        "text": "암모니아"
+      },
+      {
+        "number": 4,
+        "text": "이산화 탄소"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "다음 설명에 해당하는 성질을 가진 물질은?\n◦신맛이 난다. ◦물에 녹으면 수소 이온(H+)을 내놓는다. ◦푸른색 리트머스 종이를 붉게 변화시킨다.",
+    "image": "images/science/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "에탄올"
+      },
+      {
+        "number": 2,
+        "text": "포도당"
+      },
+      {
+        "number": 3,
+        "text": "아세트산"
+      },
+      {
+        "number": 4,
+        "text": "염화 칼륨"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "그림은 묽은 염산(HCl)과 수산화 나트륨(NaOH) 수용액의\n중화 반응을 나타낸 것이다. 이에 대한 설명으로 옳은 것은?",
+    "image": "images/science/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "산과 염기가 반응하여 물이 생성되는 반응이다."
+      },
+      {
+        "number": 2,
+        "text": "수소 이온과 수산화 이온이 3：1의 개수비로 반응한다."
+      },
+      {
+        "number": 3,
+        "text": "중화 반응이 일어날 때 혼합 용액의 온도는 내려간다."
+      },
+      {
+        "number": 4,
+        "text": "도시가스가 연소하는 것은 중화 반응의 예이다."
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "다음 설명에 해당하는 생명체의 구성 물질은?\n◦DNA와 RNA가 있다. ◦단위체는 뉴클레오타이드이다.",
+    "image": "images/science/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "물"
+      },
+      {
+        "number": 2,
+        "text": "핵산"
+      },
+      {
+        "number": 3,
+        "text": "인지질"
+      },
+      {
+        "number": 4,
+        "text": "탄수화물"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "그림은 어떤 동물 세포의 구조를 나타낸 것이다. A～D 중\n세포의 형태를 유지하고, 세포 안팎으로의 물질 출입을 조절 하는 것은?",
+    "image": "images/science/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "A"
+      },
+      {
+        "number": 2,
+        "text": "B"
+      },
+      {
+        "number": 3,
+        "text": "C"
+      },
+      {
+        "number": 4,
+        "text": "D"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "다음은 효소에 대한 설명이다. A와 B는 각각 효소가 있을\n때와 없을 때 중 하나이다. ㉠, ㉡에 해당하는 것이 옳게 짝지어진 것은? ◦효소는 활성화 에너지를 감소 ㉠ 시켜 화학 반응을 해 준다. ◦효소가 있을 때의 에너지 변화 ㉡ 이다. 그래프는 ㉠ ㉡ ㉠ ㉡",
+    "image": "images/science/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ""
+      },
+      {
+        "number": 2,
+        "text": "빠르게 A 빠르게 B"
+      },
+      {
+        "number": 3,
+        "text": ""
+      },
+      {
+        "number": 4,
+        "text": "느리게 A 느리게 B"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "그림은 세포 내 유전 정보의 흐름 중 일부를 나타낸 것이다.\n㉠, ㉡에 해당하는 것이 옳게 짝지어진 것은? ㉠ ㉡",
+    "image": "images/science/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "DNA RNA"
+      },
+      {
+        "number": 2,
+        "text": "DNA 포도당"
+      },
+      {
+        "number": 3,
+        "text": "RNA DNA"
+      },
+      {
+        "number": 4,
+        "text": "RNA 포도당"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "다음 설명에 해당하는 생물 다양성 요소는?\n◦같은 종 내에서 개체마다 서로 다른 유전자를 가지고 있어 다양한 형질이 나타난다. ◦같은 종의 달팽이 껍데기 무늬와 색이 개체마다 다르다.",
+    "image": "images/science/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "군집"
+      },
+      {
+        "number": 2,
+        "text": "먹이 그물"
+      },
+      {
+        "number": 3,
+        "text": "생태계 다양성"
+      },
+      {
+        "number": 4,
+        "text": "유전적 다양성"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "다음 중 생태계 보전을 위한 노력이 아닌 것은?",
+    "image": "images/science/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "서식지 파괴"
+      },
+      {
+        "number": 2,
+        "text": "도시 숲 형성"
+      },
+      {
+        "number": 3,
+        "text": "생태 통로 설치"
+      },
+      {
+        "number": 4,
+        "text": "하천 복원 사업 실시"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "다음은 원소의 기원에 대한 설명이다. ㉠에 해당하는 것은?\n㉠ 이/가 일어날 때 발생하는 철보다 무거운 원소들은 엄청난 양의 에너지로 만들어진다.",
+    "image": "images/science/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "오로라"
+      },
+      {
+        "number": 2,
+        "text": "태양풍"
+      },
+      {
+        "number": 3,
+        "text": "개기 월식"
+      },
+      {
+        "number": 4,
+        "text": "초신성 폭발"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "그림은 규산염 광물의 기본 구조인 규산염 사면체를 나타낸\n것이다. 이를 구성하는 규소와 산소의 개수비는? 규소 산소",
+    "image": "images/science/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "1 : 1"
+      },
+      {
+        "number": 2,
+        "text": "1 : 2"
+      },
+      {
+        "number": 3,
+        "text": "1 : 4"
+      },
+      {
+        "number": 4,
+        "text": "1 : 8"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_21",
+    "year": 2026,
+    "session": 1,
+    "number": 21,
+    "text": "다음 현상을 일으키는 지구 시스템의 주요 에너지원은?\n◦물이 순환하면서 지표를 변화시킨다. ◦광합성에 의해 대기 중의 이산화 탄소가 식물에 양분으로 저장된다.",
+    "image": "images/science/2026_1_21.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "전기 에너지"
+      },
+      {
+        "number": 2,
+        "text": "태양 에너지"
+      },
+      {
+        "number": 3,
+        "text": "조력 에너지"
+      },
+      {
+        "number": 4,
+        "text": "원자력 에너지"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_22",
+    "year": 2026,
+    "session": 1,
+    "number": 22,
+    "text": "그림은 지구 시스템을 이루는 각\n권의 상호 작용을 나타낸 것이다. A～D 중 바닷물이 증발하여 수증기가 발생하는 것에 해당하는 기호는?",
+    "image": "images/science/2026_1_22.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "A"
+      },
+      {
+        "number": 2,
+        "text": "B"
+      },
+      {
+        "number": 3,
+        "text": "C"
+      },
+      {
+        "number": 4,
+        "text": "D"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_23",
+    "year": 2026,
+    "session": 1,
+    "number": 23,
+    "text": "그림은 어느 지질 시대의 표준 화석을 나타낸\n것이다. 이 생물이 번성했던 지질 시대는?",
+    "image": "images/science/2026_1_23.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "선캄브리아 시대"
+      },
+      {
+        "number": 2,
+        "text": "고생대"
+      },
+      {
+        "number": 3,
+        "text": "중생대"
+      },
+      {
+        "number": 4,
+        "text": "신생대 암모나이트 화석"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_24",
+    "year": 2026,
+    "session": 1,
+    "number": 24,
+    "text": "그림은 태평양 적도 부근 해역에서 평상시와 무역풍이\n약화된 시기의 대기와 해수의 모습을 나타낸 것이다. ㉠에 해당하는 것은?",
+    "image": "images/science/2026_1_24.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "지진"
+      },
+      {
+        "number": 2,
+        "text": "황사"
+      },
+      {
+        "number": 3,
+        "text": "엘니뇨"
+      },
+      {
+        "number": 4,
+        "text": "화산 활동"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false
+  },
+  {
+    "id": "sci_2026_1_25",
+    "year": 2026,
+    "session": 1,
+    "number": 25,
+    "text": "그림은 태양 에너지가 생성되는 과정을 나타낸 것이다.\n이에 해당하는 반응은?",
+    "image": "images/science/2026_1_25.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "산화"
+      },
+      {
+        "number": 2,
+        "text": "중화"
+      },
+      {
+        "number": 3,
+        "text": "핵분열"
+      },
+      {
+        "number": 4,
+        "text": "핵융합"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false
   }
 ]

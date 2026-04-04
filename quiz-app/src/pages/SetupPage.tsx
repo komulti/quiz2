@@ -6,7 +6,8 @@ import { useRecordStore } from '../store/recordStore';
 import type { Question, QuizMode, QuizSettings, Subject } from '../types';
 import BottomNav from '../components/BottomNav';
 
-const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+const YEAR_MAX_SESSION: Record<number, number> = { 2026: 1 };
 const BASE_COUNTS = [10, 25, 50, 100, 200];
 
 const LEVELS = [
@@ -364,7 +365,7 @@ export default function SetupPage() {
                 <label className="text-xs text-gray-500 mb-1 block">연도</label>
                 <select
                   value={year}
-                  onChange={(e) => setYear(Number(e.target.value))}
+                  onChange={(e) => { const y = Number(e.target.value); setYear(y); if (YEAR_MAX_SESSION[y]) setSession(1); }}
                   className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 focus:outline-none focus:border-blue-500"
                 >
                   {YEARS.map((y) => (
@@ -382,7 +383,7 @@ export default function SetupPage() {
                   className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 focus:outline-none focus:border-blue-500"
                 >
                   <option value={1}>1회</option>
-                  <option value={2}>2회</option>
+                  <option value={2} disabled={!!YEAR_MAX_SESSION[year]}>2회</option>
                 </select>
               </div>
             </div>

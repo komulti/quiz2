@@ -11998,5 +11998,730 @@
     "answer": 1,
     "multipleAnswers": false,
     "explanation": "과도한 스트레스가 불면증, 불안 등 다양한 문제를 일으킬 수 있으므로, 글의 마지막 문장처럼 현대 세계에서 웰빙의 핵심은 바로 '스트레스 관리(Stress management)'라는 것이 이 글의 핵심 주제입니다.\n\n[정답]\n①"
+  },
+  {
+    "id": "en_2026_1_01",
+    "year": 2026,
+    "session": 1,
+    "number": 1,
+    "text": "Students should make every effort to study hard.",
+    "image": "images/english/2026_1_01.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "노력"
+      },
+      {
+        "number": 2,
+        "text": "수정"
+      },
+      {
+        "number": 3,
+        "text": "예약"
+      },
+      {
+        "number": 4,
+        "text": "협력"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_1_3.png"
+  },
+  {
+    "id": "en_2026_1_02",
+    "year": 2026,
+    "session": 1,
+    "number": 2,
+    "text": "A good way to get rid of stress is to breathe in deeply.",
+    "image": "images/english/2026_1_02.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "끼우다"
+      },
+      {
+        "number": 2,
+        "text": "높이다"
+      },
+      {
+        "number": 3,
+        "text": "더하다"
+      },
+      {
+        "number": 4,
+        "text": "없애다"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_1_3.png"
+  },
+  {
+    "id": "en_2026_1_03",
+    "year": 2026,
+    "session": 1,
+    "number": 3,
+    "text": "I run every morning except on Sundays.",
+    "image": "images/english/2026_1_03.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "왜냐하면"
+      },
+      {
+        "number": 2,
+        "text": "요약하면"
+      },
+      {
+        "number": 3,
+        "text": "제외하고"
+      },
+      {
+        "number": 4,
+        "text": "처음에는"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_1_3.png"
+  },
+  {
+    "id": "en_2026_1_04",
+    "year": 2026,
+    "session": 1,
+    "number": 4,
+    "text": "다음 중 밑줄 친 두 단어의 의미 관계와 다른 것은?\nA common type of transportation in Korea is the bus.",
+    "image": "images/english/2026_1_04.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "eraser －pencil"
+      },
+      {
+        "number": 2,
+        "text": "food －salad"
+      },
+      {
+        "number": 3,
+        "text": "job －professor"
+      },
+      {
+        "number": 4,
+        "text": "tool －hammer"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_05",
+    "year": 2026,
+    "session": 1,
+    "number": 5,
+    "text": "다음 안내문에서 언급되지 않은 것은?",
+    "image": "images/english/2026_1_05.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "날짜"
+      },
+      {
+        "number": 2,
+        "text": "장소"
+      },
+      {
+        "number": 3,
+        "text": "참가비"
+      },
+      {
+        "number": 4,
+        "text": "활동 내용"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_06",
+    "year": 2026,
+    "session": 1,
+    "number": 6,
+    "text": "◦In fall, many tree leaves red. ◦It is your to clean the classroom.",
+    "image": "images/english/2026_1_06.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "slice"
+      },
+      {
+        "number": 2,
+        "text": "turn"
+      },
+      {
+        "number": 3,
+        "text": "wonder"
+      },
+      {
+        "number": 4,
+        "text": "yell"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_6_8.png"
+  },
+  {
+    "id": "en_2026_1_07",
+    "year": 2026,
+    "session": 1,
+    "number": 7,
+    "text": "◦Susan, is the best place to go on a picnic? ◦The house she lives is near mine.",
+    "image": "images/english/2026_1_07.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "how"
+      },
+      {
+        "number": 2,
+        "text": "when"
+      },
+      {
+        "number": 3,
+        "text": "where"
+      },
+      {
+        "number": 4,
+        "text": "why"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_6_8.png"
+  },
+  {
+    "id": "en_2026_1_08",
+    "year": 2026,
+    "session": 1,
+    "number": 8,
+    "text": "◦To find more, visit our website. ◦You’re always pointing my mistakes.",
+    "image": "images/english/2026_1_08.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "across"
+      },
+      {
+        "number": 2,
+        "text": "before"
+      },
+      {
+        "number": 3,
+        "text": "from"
+      },
+      {
+        "number": 4,
+        "text": "out"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_6_8.png"
+  },
+  {
+    "id": "en_2026_1_09",
+    "year": 2026,
+    "session": 1,
+    "number": 9,
+    "text": "다음 대화에서 밑줄 친 표현의 의미로 가장 적절한 것은?\nA: I’m so frustrated. My sister keeps taking my stuff without asking! B : You should tell her how you feel. A: But it’s already been too long. B : It’s not too late to tell her. Better late than never.",
+    "image": "images/english/2026_1_09.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "까마귀 날자 배 떨어진다"
+      },
+      {
+        "number": 2,
+        "text": "늦더라도 안 한 것보다는 낫다"
+      },
+      {
+        "number": 3,
+        "text": "몸이 건강해야 마음도 건강하다"
+      },
+      {
+        "number": 4,
+        "text": "사귀는 친구를 보면 그 사람을 알 수 있다"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_10",
+    "year": 2026,
+    "session": 1,
+    "number": 10,
+    "text": "다음 대화에서 알 수 있는 B의 심정으로 가장 적절한 것은?\nA: What are your plans for this summer vacation? B : I’m going to Spain! I’ve wanted to go there for so long. A: That sounds wonderful. I envy you. B : I keep smiling, just thinking about it.",
+    "image": "images/english/2026_1_10.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "슬프다"
+      },
+      {
+        "number": 2,
+        "text": "신난다"
+      },
+      {
+        "number": 3,
+        "text": "외롭다"
+      },
+      {
+        "number": 4,
+        "text": "화난다"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_11",
+    "year": 2026,
+    "session": 1,
+    "number": 11,
+    "text": "다음 대화가 이루어지는 장소로 가장 적절한 것은?\nA: Can I check in now? My name is Jane Kim. B : Sure. You are here for three nights, right? A: Yes, that’s right. B : Okay. Your room number is 1609.",
+    "image": "images/english/2026_1_11.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "꽃집"
+      },
+      {
+        "number": 2,
+        "text": "우체국"
+      },
+      {
+        "number": 3,
+        "text": "제과점"
+      },
+      {
+        "number": 4,
+        "text": "호텔"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_12",
+    "year": 2026,
+    "session": 1,
+    "number": 12,
+    "text": "다음 글에서 밑줄 친 it이 가리키는 것으로 가장 적절한 것은?\nOne of the most popular drinks in the world is coffee. Drinking coffee helps people stay awake and alert. Many people drink it to start their morning. Coffee can be enjoyed hot or cold, and either black or with milk.",
+    "image": "images/english/2026_1_12.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "coffee"
+      },
+      {
+        "number": 2,
+        "text": "milk"
+      },
+      {
+        "number": 3,
+        "text": "morning"
+      },
+      {
+        "number": 4,
+        "text": "world"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_13",
+    "year": 2026,
+    "session": 1,
+    "number": 13,
+    "text": "A: What is No Paper Day? B : It’s our school’s new campaign. A: ? B : It’s about encouraging people to use less paper.",
+    "image": "images/english/2026_1_13.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "Who made this campaign"
+      },
+      {
+        "number": 2,
+        "text": "Where can I find the school"
+      },
+      {
+        "number": 3,
+        "text": "What is this campaign about"
+      },
+      {
+        "number": 4,
+        "text": "When will the math test start"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_13_14.png"
+  },
+  {
+    "id": "en_2026_1_14",
+    "year": 2026,
+    "session": 1,
+    "number": 14,
+    "text": "A: How did you like the food there? B : .",
+    "image": "images/english/2026_1_14.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "The main dish was good"
+      },
+      {
+        "number": 2,
+        "text": "We are not at the station"
+      },
+      {
+        "number": 3,
+        "text": "He takes a walk every evening"
+      },
+      {
+        "number": 4,
+        "text": "The audience is enjoying the show"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_13_14.png"
+  },
+  {
+    "id": "en_2026_1_15",
+    "year": 2026,
+    "session": 1,
+    "number": 15,
+    "text": "다음 대화의 주제로 가장 적절한 것은?\nA: Could you give me some tips for time management? B : Sure. First, set yourself a goal for the week. Next, keep a record of the time you spend each day to reach your goal. A: Okay. Thank you for your advice.",
+    "image": "images/english/2026_1_15.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "의사소통 방식"
+      },
+      {
+        "number": 2,
+        "text": "시간 관리 방법"
+      },
+      {
+        "number": 3,
+        "text": "청소 도구 종류"
+      },
+      {
+        "number": 4,
+        "text": "적절한 수면 환경"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_16",
+    "year": 2026,
+    "session": 1,
+    "number": 16,
+    "text": "다음 글을 쓴 목적으로 가장 적절한 것은?\nWe would like to inform all members that the gym will be closed for repairs from July 10th to July 14th. Normal operations will start on July 15th. We apologize for any inconvenience this may cause.",
+    "image": "images/english/2026_1_16.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "구매를 문의하려고"
+      },
+      {
+        "number": 2,
+        "text": "상담을 예약하려고"
+      },
+      {
+        "number": 3,
+        "text": "환불을 요청하려고"
+      },
+      {
+        "number": 4,
+        "text": "휴관을 공지하려고"
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_17",
+    "year": 2026,
+    "session": 1,
+    "number": 17,
+    "text": "다음 안내문의 내용과 일치하지 않는 것은?",
+    "image": "images/english/2026_1_17.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "7월 18일에 진행되는 프로그램이다."
+      },
+      {
+        "number": 2,
+        "text": "오후 2시부터 5시까지 진행된다."
+      },
+      {
+        "number": 3,
+        "text": "하나의 활동을 선택할 수 있다."
+      },
+      {
+        "number": 4,
+        "text": "한국 전통 춤을 배우는 활동이 있다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_18",
+    "year": 2026,
+    "session": 1,
+    "number": 18,
+    "text": "다음 Sunflower Festival에 대한 설명과 일치하지 않는 것은?\nThe Sunflower Festival will be held in Green Park from August 15th to August 23rd. There, you can enjoy concerts and magic shows. You can also participate in a photo contest. The winner of the contest will receive $100 in cash. Also, everyone visiting before noon will get a free balloon!",
+    "image": "images/english/2026_1_18.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "8월 15일부터 열릴 예정이다."
+      },
+      {
+        "number": 2,
+        "text": "콘서트와 마술 쇼를 즐길 수 있다."
+      },
+      {
+        "number": 3,
+        "text": "사진 대회의 우승자는 현금 100달러를 받는다."
+      },
+      {
+        "number": 4,
+        "text": "오후에 방문하면 풍선을 무료로 받는다."
+      }
+    ],
+    "answer": 4,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_19",
+    "year": 2026,
+    "session": 1,
+    "number": 19,
+    "text": "다음 글의 주제로 가장 적절한 것은?\nDo you want to know how to spend money wisely? First, think twice when you buy an item. You may not actually need it. Also, you can look for used items to buy at a good price. With these tips, you can use your money effectively.",
+    "image": "images/english/2026_1_19.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "국가유산의 종류"
+      },
+      {
+        "number": 2,
+        "text": "분리배출의 효과"
+      },
+      {
+        "number": 3,
+        "text": "현명한 소비 방법"
+      },
+      {
+        "number": 4,
+        "text": "규칙적인 운동의 필요성"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_20",
+    "year": 2026,
+    "session": 1,
+    "number": 20,
+    "text": "Breakfast is the most important part of the day. Studies have found that eating breakfast has many benefits. It gives people energy and helps their focus on tasks. Therefore, you should eat breakfast for a healthy life.",
+    "image": "images/english/2026_1_20.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "cancel"
+      },
+      {
+        "number": 2,
+        "text": "delay"
+      },
+      {
+        "number": 3,
+        "text": "increase"
+      },
+      {
+        "number": 4,
+        "text": "skip"
+      }
+    ],
+    "answer": 3,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_20_21.png"
+  },
+  {
+    "id": "en_2026_1_21",
+    "year": 2026,
+    "session": 1,
+    "number": 21,
+    "text": "Air pollution is an environmental problem which needs to be handled seriously. There are many small things we can do to the problems. For example, we can take the bus or train when possible.",
+    "image": "images/english/2026_1_21.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "agree"
+      },
+      {
+        "number": 2,
+        "text": "solve"
+      },
+      {
+        "number": 3,
+        "text": "travel"
+      },
+      {
+        "number": 4,
+        "text": "wear"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_20_21.png"
+  },
+  {
+    "id": "en_2026_1_22",
+    "year": 2026,
+    "session": 1,
+    "number": 22,
+    "text": "글의 흐름으로 보아 다음 문장이 들어가기에 가장 적절한 곳은?\nHowever, you should consider the following negative effects they have. Children tend to use smartphones from a young age these days. (",
+    "image": "images/english/2026_1_22.png",
+    "options": [
+      {
+        "number": 1,
+        "text": ") Smartphones are convenient and useful for gathering information. ("
+      },
+      {
+        "number": 2,
+        "text": ") First, the bright screens on most smartphones can damage the eyes. ("
+      },
+      {
+        "number": 3,
+        "text": ") Furthermore, using smartphones distracts children from their studies. ("
+      },
+      {
+        "number": 4,
+        "text": ") Therefore, it is a good idea to limit their usage of smartphones."
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_23",
+    "year": 2026,
+    "session": 1,
+    "number": 23,
+    "text": "다음 글의 바로 뒤에 이어질 내용으로 가장 적절한 것은?\nToday, more and more people are using Social Networking Services (SNS). They can be useful by allowing us to make and share contents with one another. However, it is also important to be aware that using SNS may lead to danger. Let’s read about the risks of using SNS.",
+    "image": "images/english/2026_1_23.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "SNS 사용의 위험성"
+      },
+      {
+        "number": 2,
+        "text": "SNS의 다양한 종류"
+      },
+      {
+        "number": 3,
+        "text": "SNS 플랫폼의 변천사"
+      },
+      {
+        "number": 4,
+        "text": "SNS를 학습에 활용하는 방법"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": null
+  },
+  {
+    "id": "en_2026_1_24",
+    "year": 2026,
+    "session": 1,
+    "number": 24,
+    "text": "윗글의 빈칸에 들어갈 말로 가장 적절한 것은?",
+    "image": "images/english/2026_1_24.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "fail"
+      },
+      {
+        "number": 2,
+        "text": "laugh"
+      },
+      {
+        "number": 3,
+        "text": "order"
+      },
+      {
+        "number": 4,
+        "text": "purchase"
+      }
+    ],
+    "answer": 1,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_24_25.png"
+  },
+  {
+    "id": "en_2026_1_25",
+    "year": 2026,
+    "session": 1,
+    "number": 25,
+    "text": "윗글의 주제로 가장 적절한 것은?",
+    "image": "images/english/2026_1_25.png",
+    "options": [
+      {
+        "number": 1,
+        "text": "꿀 생산량 증가의 원인"
+      },
+      {
+        "number": 2,
+        "text": "벌을 보호해야 하는 이유"
+      },
+      {
+        "number": 3,
+        "text": "봄철 꽃가루 피해의 심각성"
+      },
+      {
+        "number": 4,
+        "text": "벌에 쏘였을 때 응급처치 방법"
+      }
+    ],
+    "answer": 2,
+    "multipleAnswers": false,
+    "passageImage": "images/english/2026_1_pass_24_25.png"
   }
 ]
