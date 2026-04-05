@@ -122,13 +122,13 @@ export default function MainPage() {
         {/* 카테고리 카드 */}
         <div className="w-full max-w-sm grid grid-cols-2 gap-3">
           {[
-            { subject: 'korean_language', period: '1교시', name: '국어',  icon: '✏️', color: 'bg-green-100',  count: '400문제' },
-            { subject: 'math',            period: '2교시', name: '수학',  icon: '📐', color: 'bg-orange-100', count: '320문제' },
-            { subject: 'english',         period: '3교시', name: '영어',  icon: '🔤', color: 'bg-sky-100',    count: '400문제' },
-            { subject: 'social_studies',  period: '4교시', name: '사회',  icon: '🌍', color: 'bg-yellow-100', count: '400문제' },
-            { subject: 'science',         period: '5교시', name: '과학',  icon: '🔬', color: 'bg-purple-100', count: '400문제' },
-            { subject: 'korean_history',  period: '6교시', name: '한국사', icon: '📚', color: 'bg-blue-100',   count: '400문제' },
-            { subject: 'ethics',          period: '7교시', name: '도덕',  icon: '🧭', color: 'bg-rose-100',   count: '400문제' },
+            { subject: 'korean_language', period: '1교시', name: '국어',  icon: '✏️', color: 'bg-green-100',  count: '425문제' },
+            { subject: 'math',            period: '2교시', name: '수학',  icon: '📐', color: 'bg-orange-100', count: '340문제' },
+            { subject: 'english',         period: '3교시', name: '영어',  icon: '🔤', color: 'bg-sky-100',    count: '425문제' },
+            { subject: 'social_studies',  period: '4교시', name: '사회',  icon: '🌍', color: 'bg-yellow-100', count: '425문제' },
+            { subject: 'science',         period: '5교시', name: '과학',  icon: '🔬', color: 'bg-purple-100', count: '425문제' },
+            { subject: 'korean_history',  period: '6교시', name: '한국사', icon: '📚', color: 'bg-blue-100',   count: '425문제' },
+            { subject: 'ethics',          period: '7교시', name: '도덕',  icon: '🧭', color: 'bg-rose-100',   count: '425문제' },
           ].map((item) => (
             <button
               key={item.subject}
