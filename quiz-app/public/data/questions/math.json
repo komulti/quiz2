@@ -9625,7 +9625,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ②\n\n▶ 개념: 다항식의 덧셈\n\n■ 풀이: 다항식을 더할 때는 문자와 차수가 같은 동류항끼리 묶어서 계산합니다.\nA+B = (x³+1)+(x³+2) = (1+1)x³+(1+2) = 2x³+3"
   },
   {
     "id": "math_2026_1_02",
@@ -9653,7 +9654,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ②\n\n▶ 개념: 항등식의 성질 (계수비교법)\n\n■ 풀이: 주어진 등식이 x에 대한 항등식이므로 양변의 동류항의 계수가 서로 같아야 합니다.\nx²의 계수: 3=b\nx의 계수: a=2\n따라서 a+b = 2+3 = 5입니다."
   },
   {
     "id": "math_2026_1_03",
@@ -9681,7 +9683,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ①\n\n▶ 개념: 나머지정리\n\n■ 풀이: 다항식 P(x)=2x³+5x+1을 일차식 x-1로 나누었을 때의 나머지는 P(x)에 x=1을 대입한 값인 P(1)과 같습니다.\nP(1) = 2(1)³+5(1)+1 = 2+5+1 = 8"
   },
   {
     "id": "math_2026_1_04",
@@ -9709,7 +9712,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 다항식의 인수분해 공식\n\n■ 풀이: 세제곱의 차 인수분해 공식인 x³-y³ = (x-y)(x²+xy+y²)을 이용합니다.\nx³-3³ = (x-3)(x²+3x+3²) = (x-3)(x²+3x+9)\n이 식이 (x-a)(x²+3x+9)와 같으므로 a=3입니다."
   },
   {
     "id": "math_2026_1_05",
@@ -9737,7 +9741,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 켤레복소수와 복소수가 서로 같을 조건\n\n■ 풀이: 복소수 2+ai의 켤레복소수는 허수부분의 부호를 바꾼 2-ai입니다.\n2-ai = b-4i이므로 양변의 실수부분과 허수부분을 비교하면 b=2, -a=-4 (a=4)가 됩니다.\n따라서 a+b = 4+2 = 6입니다."
   },
   {
     "id": "math_2026_1_06",
@@ -9765,7 +9770,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ④\n\n▶ 개념: 이차방정식의 판별식\n\n■ 풀이: 이차방정식이 중근을 가질 조건은 판별식 D=0이어야 합니다.\nD = (-4)²-4×1×a = 16-4a = 0\n4a=16이므로 a=4입니다."
   },
   {
     "id": "math_2026_1_07",
@@ -9793,7 +9799,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 이차방정식의 근과 계수의 관계\n\n■ 풀이: 이차방정식 x²-5x+a=0의 두 근이 2, 3입니다.\n근과 계수의 관계에 의해 (두 근의 곱) = a/1 = a가 성립합니다.\n두 근의 곱은 2×3=6이므로 a=6입니다."
   },
   {
     "id": "math_2026_1_08",
@@ -9821,7 +9828,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ④\n\n▶ 개념: 제한된 범위에서 이차함수의 최대·최소\n\n■ 풀이: 이차함수 y=-(x+2)²+4의 그래프는 꼭짓점이 (-2, 4)이고 위로 볼록한 모양입니다.\n주어진 x의 범위 -3≤x≤0 안에 꼭짓점의 x좌표인 -2가 포함되어 있으므로, x=-2일 때 최댓값을 가집니다.\n따라서 최댓값은 4입니다."
   },
   {
     "id": "math_2026_1_09",
@@ -9849,7 +9857,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 방정식의 근의 의미\n\n■ 풀이: 방정식의 근이 주어지면 x 자리에 그 근을 대입했을 때 등식이 성립해야 합니다.\nx=1을 삼차방정식에 대입하면:\n1³+1²-9(1)+a = 0\n1+1-9+a = 0\n-7+a = 0이므로 a=7입니다."
   },
   {
     "id": "math_2026_1_10",
@@ -9877,7 +9886,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ①\n\n▶ 개념: 연립일차부등식\n\n■ 풀이: 각각의 부등식을 풀어 공통 범위를 찾습니다.\n첫 번째 부등식: x+1<7 ⇒ x<6\n두 번째 부등식: 3x>x+2 ⇒ 2x>2 ⇒ x>1\n두 범위를 모두 만족하는 해는 1<x<6입니다.\n이 해가 1<x<a와 같으므로 a=6입니다."
   },
   {
     "id": "math_2026_1_11",
@@ -9905,7 +9915,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ②\n\n▶ 개념: 선분의 내분점\n\n■ 풀이: 점 A(-2, 1)과 B(1, 4)를 2:1로 내분하는 점의 좌표를 구하는 공식을 적용합니다.\nx좌표: (2×1+1×(-2))/(2+1) = (2-2)/3 = 0\ny좌표: (2×4+1×1)/(2+1) = (8+1)/3 = 9/3 = 3\n따라서 내분점의 좌표는 (0, 3)입니다."
   },
   {
     "id": "math_2026_1_12",
@@ -9933,7 +9944,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ②\n\n▶ 개념: 점과 직선 사이의 거리\n\n■ 풀이: 원점 (0, 0)과 직선 3x-4y+25=0 사이의 거리 d를 구하는 공식을 적용합니다.\nd = |3×0-4×0+25| / √(3²+(-4)²) = |25| / √(9+16) = 25/√25 = 25/5 = 5"
   },
   {
     "id": "math_2026_1_13",
@@ -9961,7 +9973,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 원과 직선의 위치 관계\n\n■ 풀이: 원 x²+y²=9는 중심이 원점이고 반지름이 r=3인 원입니다.\n직선 y=a가 이 원과 한 점(접점)에서 만나려면 중심에서 직선까지의 거리가 반지름과 같아야 하므로 y=3 또는 y=-3이어야 합니다.\na는 자연수이므로 a=3입니다."
   },
   {
     "id": "math_2026_1_14",
@@ -9989,7 +10002,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ①\n\n▶ 개념: 도형의 대칭이동 (원점 대칭)\n\n■ 풀이: 좌표평면 위의 점 (x, y)를 원점에 대하여 대칭이동하면 x좌표와 y좌표의 부호가 모두 바뀌어 (-x, -y)가 됩니다.\n따라서 (-2, -1)을 원점 대칭이동하면 부호가 모두 바뀐 (2, 1)이 됩니다."
   },
   {
     "id": "math_2026_1_15",
@@ -10017,7 +10031,8 @@
       }
     ],
     "answer": 2,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ②\n\n▶ 개념: 집합의 연산 (교집합)\n\n■ 풀이: 교집합 기호 ∩은 두 집합에 공통으로 속해 있는 원소들로 이루어진 집합을 찾으라는 뜻입니다.\n집합 A={2, 4, 6}과 B={2, 5, 6} 모두에 들어 있는 공통 원소는 2와 6입니다.\n따라서 A∩B = {2, 6}입니다."
   },
   {
     "id": "math_2026_1_16",
@@ -10045,7 +10060,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ④\n\n▶ 개념: 필요충분조건\n\n■ 풀이: 조건 p와 q가 필요충분조건이 되려면 두 조건이 완전히 같은 의미여야 하며, 진리집합이 같아야 합니다.\n조건 p의 진리집합: {7}\n조건 q의 진리집합: (x-a)²=0이므로 x=a, 즉 {a}\n두 집합이 같아야 하므로 a=7입니다."
   },
   {
     "id": "math_2026_1_17",
@@ -10073,7 +10089,8 @@
       }
     ],
     "answer": 3,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ③\n\n▶ 개념: 역함수\n\n■ 풀이: 역함수의 성질에 의해 f⁻¹(6)=a라고 하면 f(a)=6이 성립해야 합니다.\n주어진 화살표 그림에서 함수 f를 따라 6에 도착하는 X의 원소를 거꾸로 찾아가면 3입니다. 즉 f(3)=6입니다.\n따라서 f⁻¹(6) = 3입니다."
   },
   {
     "id": "math_2026_1_18",
@@ -10101,7 +10118,8 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ①\n\n▶ 개념: 유리함수의 점근선\n\n■ 풀이: 유리함수 y=k/(x-p)+q 꼴의 그래프에서 점근선의 방정식은 분모가 0이 되는 x=p와 뒤에 더해진 상수 y=q입니다.\n주어진 함수 y=1/(x-4)+5의 점근선은 x=4와 y=5입니다.\n따라서 a=5입니다."
   },
   {
     "id": "math_2026_1_19",
@@ -10129,7 +10147,8 @@
       }
     ],
     "answer": 4,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ④\n\n▶ 개념: 순열\n\n■ 풀이: 서로 다른 4개의 채소 모종 중 2개를 택하여 구분되는 두 자리(화분1, 화분2)에 차례대로 심는 경우의 수이므로, 순서를 고려하는 순열(nPr)을 사용합니다.\n₄P₂ = 4×3 = 12"
   },
   {
     "id": "math_2026_1_20",
@@ -10157,6 +10176,7 @@
       }
     ],
     "answer": 1,
-    "multipleAnswers": false
+    "multipleAnswers": false,
+    "explanation": "[정답] ①\n\n▶ 개념: 조합\n\n■ 풀이: 5개의 프로그램 중 순서와 관계없이 단순히 2개를 선택만 하는 경우의 수이므로 조합(nCr)을 사용합니다.\n₅C₂ = (5×4)/(2×1) = 20/2 = 10"
   }
 ]
