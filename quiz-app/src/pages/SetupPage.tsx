@@ -222,7 +222,7 @@ export default function SetupPage() {
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
                 <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide shrink-0">이름</span>
-                <span className="text-xl font-bold text-blue-600 tracking-widest truncate">{playerName || '—'}</span>
+                <span className="text-xl font-bold text-blue-600 tracking-normal truncate">{playerName || '—'}</span>
                 <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${level.bg} ${level.text}`}>
                   {level.icon} {level.label}
                 </span>
