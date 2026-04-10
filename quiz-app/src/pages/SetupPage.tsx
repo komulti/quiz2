@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDataStore } from '../store/dataStore';
 import { useQuizStore } from '../store/quizStore';
@@ -158,8 +159,8 @@ export default function SetupPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* 이름 입력 팝업 */}
-      {showNameModal && (
+      {/* 이름 입력 팝업 - createPortal로 body에 직접 마운트 (iOS 터치 버그 방지) */}
+      {showNameModal && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6">
           <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm">
             <div className="flex justify-center mb-1">
@@ -200,7 +201,8 @@ export default function SetupPage() {
               ← 메인으로 돌아가기
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* 헤더 */}
