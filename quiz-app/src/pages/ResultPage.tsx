@@ -162,13 +162,12 @@ export default function ResultPage() {
             <div className="flex gap-2">
               <input
                 type="text"
-                inputMode="text"
                 placeholder="닉네임 입력"
                 value={nickname}
                 onChange={(e) => setNickname(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSaveLeaderboard()}
                 maxLength={10}
-                className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-base focus:outline-none focus:border-blue-500"
+                className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
               />
               <button
                 onClick={handleSaveLeaderboard}
