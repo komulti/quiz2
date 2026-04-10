@@ -69,7 +69,7 @@ function UpdateBanner() {
     <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-blue-600 text-white px-4 py-3 shadow-lg">
       <span className="text-sm font-medium">새로운 업데이트가 있습니다!</span>
       <button
-        onClick={() => updateServiceWorker(true)}
+        onClick={() => { updateServiceWorker(true); setTimeout(() => window.location.reload(), 500); }}
         className="ml-4 bg-white text-blue-600 text-sm font-bold px-4 py-1.5 rounded-lg active:scale-95 transition-transform"
       >
         업데이트
