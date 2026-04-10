@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { useRegisterSW } from 'virtual:pwa-register/react';
 import { useDataStore } from './store/dataStore';
 import { useRecordStore } from './store/recordStore';
 import MainPage from './pages/MainPage';
@@ -58,18 +57,31 @@ function ErrorScreen() {
 }
 
 function UpdateBanner() {
-  const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW({
-    onRegisteredSW(_swUrl, r) {
-      // 10분마다 새 버전 체크 (설치된 PWA에서도 감지되도록)
-      setInterval(() => { r?.update(); }, 10 * 60 * 1000);
-    },
-  });
+  const [needRefresh, setNeedRefresh] = useState(false);
+
+  useEffect(() => {
+    if (!('serviceWorker' in navigator)) return;
+
+    const handleControllerChange = () => setNeedRefresh(true);
+    navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange);
+
+    // 10분마다 새 SW 버전 체크
+    const interval = setInterval(() => {
+      navigator.serviceWorker.getRegistration().then(r => r?.update());
+    }, 10 * 60 * 1000);
+
+    return () => {
+      navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange);
+      clearInterval(interval);
+    };
+  }, []);
+
   if (!needRefresh) return null;
   return (
     <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-blue-600 text-white px-4 py-3 shadow-lg">
       <span className="text-sm font-medium">새로운 업데이트가 있습니다!</span>
       <button
-        onClick={() => updateServiceWorker(true)}
+        onClick={() => window.location.reload()}
         className="ml-4 bg-white text-blue-600 text-sm font-bold px-4 py-1.5 rounded-lg active:scale-95 transition-transform"
       >
         업데이트
