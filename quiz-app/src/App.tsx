@@ -60,7 +60,7 @@ function ErrorScreen() {
 function UpdateBanner() {
   const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW({
     onRegisteredSW(_swUrl, r) {
-      setInterval(() => { r?.update(); }, 1 * 60 * 1000);
+      setInterval(() => { r?.update(); }, 30 * 60 * 1000);
     },
   });
   const [updating, setUpdating] = useState(false);
