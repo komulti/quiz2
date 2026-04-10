@@ -114,26 +114,25 @@ export default function App() {
     if (nickname) loadFromCloud(nickname);
   }, [loadAll, loadFromCloud]);
 
+  if (error) return <ErrorScreen />;
+  if (!loaded) return <LoadingScreen />;
+
   return (
-    <>
+    <HashRouter>
       <UpdateBanner />
-      {error ? <ErrorScreen /> : !loaded ? <LoadingScreen /> : (
-        <HashRouter>
-          <SyncBanner />
-          <div className="app-container">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/setup" element={<SetupPage />} />
-              <Route path="/quiz" element={<QuizPage />} />
-              <Route path="/result" element={<ResultPage />} />
-              <Route path="/leaderboard" element={<LeaderboardPage />} />
-              <Route path="/wrong-notes" element={<WrongNotePage />} />
-              <Route path="/stats" element={<StatsPage />} />
-              <Route path="/logo-preview" element={<LogoPreviewPage />} />
-            </Routes>
-          </div>
-        </HashRouter>
-      )}
-    </>
+      <SyncBanner />
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/setup" element={<SetupPage />} />
+          <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/result" element={<ResultPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/wrong-notes" element={<WrongNotePage />} />
+          <Route path="/stats" element={<StatsPage />} />
+          <Route path="/logo-preview" element={<LogoPreviewPage />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }

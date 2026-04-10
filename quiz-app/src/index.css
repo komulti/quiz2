@@ -22,7 +22,7 @@ body {
   min-height: 100dvh;
   background-color: white;
   position: relative;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 /* ── 문제 전환 슬라이드 ────────────────────────── */
