@@ -58,7 +58,12 @@ function ErrorScreen() {
 }
 
 function UpdateBanner() {
-  const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW();
+  const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW({
+    onRegisteredSW(_swUrl, r) {
+      // 10분마다 새 버전 체크 (설치된 PWA에서도 감지되도록)
+      setInterval(() => { r?.update(); }, 10 * 60 * 1000);
+    },
+  });
   if (!needRefresh) return null;
   return (
     <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-blue-600 text-white px-4 py-3 shadow-lg">
