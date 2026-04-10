@@ -13,9 +13,9 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       manifest: {
-        name: '고졸 검정고시 한국사 퀴즈',
-        short_name: '한국사 퀴즈',
-        description: '고졸 검정고시 한국사 기출문제 퀴즈',
+        name: '고졸 검정고시 퀴즈',
+        short_name: '검정고시 퀴즈',
+        description: '고졸 검정고시 기출문제 퀴즈',
         theme_color: '#be185d',
         background_color: '#f9fafb',
         display: 'standalone',
