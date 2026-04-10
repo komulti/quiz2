@@ -60,19 +60,35 @@ function ErrorScreen() {
 function UpdateBanner() {
   const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW({
     onRegisteredSW(_swUrl, r) {
-      // 10분마다 새 버전 체크 (설치된 PWA에서도 감지되도록)
-      setInterval(() => { r?.update(); }, 30 * 60 * 1000);
+      setInterval(() => { r?.update(); }, 60 * 1000);
     },
   });
+  const [updating, setUpdating] = useState(false);
+
   if (!needRefresh) return null;
+
+  const handleUpdate = () => {
+    setUpdating(true);
+    updateServiceWorker(true);
+    setTimeout(() => window.location.reload(), 500);
+  };
+
   return (
     <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-blue-600 text-white px-4 py-3 shadow-lg">
-      <span className="text-sm font-medium">새로운 업데이트가 있습니다!</span>
+      <span className="text-sm font-medium">
+        {updating ? '업데이트 중...' : '새로운 업데이트가 있습니다!'}
+      </span>
       <button
-        onClick={() => { updateServiceWorker(true); setTimeout(() => window.location.reload(), 500); }}
-        className="ml-4 bg-white text-blue-600 text-sm font-bold px-4 py-1.5 rounded-lg active:scale-95 transition-transform"
+        onClick={handleUpdate}
+        disabled={updating}
+        className="ml-4 bg-white text-blue-600 text-sm font-bold px-4 py-1.5 rounded-lg active:scale-95 transition-transform disabled:opacity-60"
       >
-        업데이트
+        {updating ? (
+          <span className="flex items-center gap-1.5">
+            <span className="w-3.5 h-3.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" />
+            잠시만요
+          </span>
+        ) : '업데이트'}
       </button>
     </div>
   );
