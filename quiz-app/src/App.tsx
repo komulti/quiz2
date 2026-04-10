@@ -61,7 +61,7 @@ function UpdateBanner() {
   const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW({
     onRegisteredSW(_swUrl, r) {
       // 10분마다 새 버전 체크 (설치된 PWA에서도 감지되도록)
-      setInterval(() => { r?.update(); }, 60 * 1000);
+      setInterval(() => { r?.update(); }, 30 * 60 * 1000);
     },
   });
   if (!needRefresh) return null;
