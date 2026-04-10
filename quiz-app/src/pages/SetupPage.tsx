@@ -171,7 +171,7 @@ export default function SetupPage() {
             <p className="text-sm text-gray-500 text-center mb-5">이름을 등록하면 기록이 저장됩니다</p>
             <input
               type="text"
-              autoFocus
+              inputMode="text"
               placeholder="이름 입력 (최대 12자)"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
