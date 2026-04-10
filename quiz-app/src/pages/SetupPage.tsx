@@ -71,20 +71,7 @@ export default function SetupPage() {
     if (showNameModal) {
       const saved = localStorage.getItem('playerName') ?? localStorage.getItem('lastPlayerName') ?? '';
       if (saved) setPlayerName(saved);
-      // iOS: 모달 열릴 때 body 스크롤 잠금 → 터치 이벤트 즉시 처리
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-    };
   }, [showNameModal]);
 
   const SUBJECT_PREFIX: Record<Subject, string> = {
