@@ -15,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: '고졸 검정고시 퀴즈',
         short_name: '검정고시 퀴즈',
-        description: '고졸 검정고시 기출문제 퀴즈',
+        description: '고졸 검정고시 기출문제 퀴즈 챌린지',
         theme_color: '#be185d',
         background_color: '#f9fafb',
         display: 'standalone',
